@@ -1,8 +1,9 @@
 # github-graphql-schema
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/gr2m/github-graphql-schema.svg)](https://greenkeeper.io/)
-
 > GitHub’s GraphQL Schema with validation. Automatically updated.
+
+[![Build Status](https://travis-ci.org/gr2m/github-graphql-schema.svg?branch=master)](https://travis-ci.org/gr2m/github-graphql-schema)
+[![Greenkeeper badge](https://badges.greenkeeper.io/gr2m/github-graphql-schema.svg)](https://greenkeeper.io/)
 
 ## Usage
 
