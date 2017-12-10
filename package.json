@@ -1,0 +1,40 @@
+{
+  "name": "@gr2m/github-graphql-schema",
+  "version": "0.0.0-development",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "GitHub’s GraphQL Schema with validation. Automatically updated.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test",
+    "update": "node bin/download.js",
+    "semantic-release": "semantic-release"
+  },
+  "keywords": [
+    "github",
+    "graphql",
+    "schema",
+    "validation"
+  ],
+  "author": "Gregor Martynus (https://twitter.com/gr2m)",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "git-diff": "^2.0.4",
+    "graphql": "^0.11.7",
+    "graphql-tag": "^2.6.0"
+  },
+  "devDependencies": {
+    "dotenv": "^4.0.0",
+    "semantic-release": "^11.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gr2m/github-graphql-schema.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gr2m/github-graphql-schema/issues"
+  },
+  "homepage": "https://github.com/gr2m/github-graphql-schema#readme"
+}
