@@ -3,6 +3,11 @@
 const axios = require('axios')
 require('dotenv').config()
 
+if (!process.env.TRAVIS_REPO_SLUG) {
+  console.log('❌ TRAVIS_REPO_SLUG not set')
+  process.exit(1)
+}
+
 const repoName = process.env.TRAVIS_REPO_SLUG
 const github = axios.create({
   baseURL: 'https://api.github.com',
@@ -83,4 +88,8 @@ My friend Travis asked me to let you know that they found API changes in their d
   console.log(`🤖  Pull request created: ${response.data.html_url}`)
 })
 
-.catch(console.log)
+.catch((error) => {
+  console.log(`❌ ${error.config.method.toUpperCase()} ${error.config.url}`)
+  console.log(error.message)
+  process.exit(1)
+})
