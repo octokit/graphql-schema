@@ -36,8 +36,5 @@
   "bugs": {
     "url": "https://github.com/gr2m/github-graphql-schema/issues"
   },
-  "homepage": "https://github.com/gr2m/github-graphql-schema#readme",
-  "release": {
-    "debug": true
-  }
+  "homepage": "https://github.com/gr2m/github-graphql-schema#readme"
 }
