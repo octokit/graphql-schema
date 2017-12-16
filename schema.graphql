@@ -540,17 +540,26 @@ type Commit implements GitObject, Node, Subscribable {
   # An abbreviated version of the Git object ID
   abbreviatedOid: String!
 
+  # The number of additions in this commit.
+  additions: Int!
+
   # Authorship details of the commit.
   author: GitActor
 
   # Check if the committer and the author match.
   authoredByCommitter: Boolean!
 
+  # The datetime when this commit was authored.
+  authoredDate: DateTime!
+
   # Fetches `git blame` information.
   blame(
     # The file whose Git blame information you want.
     path: String!
   ): Blame!
+
+  # The number of changed files in this commit.
+  changedFiles: Int!
 
   # Comments made on the commit.
   comments(
@@ -581,6 +590,9 @@ type Commit implements GitObject, Node, Subscribable {
 
   # Committership details of the commit.
   committer: GitActor
+
+  # The number of deletions in this commit.
+  deletions: Int!
 
   # The linear commit history starting from (and including) this commit, in the same order as `git log`.
   history(
@@ -642,6 +654,9 @@ type Commit implements GitObject, Node, Subscribable {
     # Returns the last _n_ elements from the list.
     last: Int
   ): CommitConnection!
+
+  # The datetime when this commit was pushed.
+  pushedDate: DateTime
 
   # The Repository this commit belongs to
   repository: Repository!
@@ -2695,7 +2710,7 @@ type MarketplaceListing implements Node {
   viewerIsListingAdmin: Boolean!
 }
 
-# The connection type for MarketplaceListing.
+# Look up Marketplace Listings
 type MarketplaceListingConnection {
   # A list of edges.
   edges: [MarketplaceListingEdge]
@@ -2773,7 +2788,16 @@ type MergedEvent implements Node, UniformResourceLocatable {
 }
 
 # Represents a Milestone object on a given repository.
-type Milestone implements Node, UniformResourceLocatable {
+type Milestone implements Closable, Node, UniformResourceLocatable {
+  # `true` if the object is closed (definition of closed may depend on type)
+  closed: Boolean!
+
+  # Identifies the date and time when the object was closed.
+  closedAt: DateTime
+
+  # Identifies the date and time when the object was created.
+  createdAt: DateTime!
+
   # Identifies the actor who created the milestone.
   creator: Actor
 
@@ -2822,6 +2846,9 @@ type Milestone implements Node, UniformResourceLocatable {
 
   # Identifies the title of the milestone.
   title: String!
+
+  # Identifies the date and time when the object was last updated.
+  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps.")
 
   # The HTTP URL for this milestone
   url: URI!
@@ -6821,6 +6848,9 @@ enum SubscriptionState {
 
   # The User is notified of all conversations.
   SUBSCRIBED
+
+  # Subscriptions are currently unavailable
+  UNAVAILABLE
 
   # The User is only notified when particpating or @mentioned.
   UNSUBSCRIBED
