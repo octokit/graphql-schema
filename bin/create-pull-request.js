@@ -20,6 +20,7 @@ const github = axios.create({
 
 const schema = require('..').schema
 const branchName = `cron/fixtures-changes/${new Date().toISOString().substr(0, 10)}`
+let lastCommitSha
 
 github.get('/user')
 
@@ -32,46 +33,68 @@ github.get('/user')
 })
 
 .then(response => {
-  const sha = response.data.object.sha
+  lastCommitSha = response.data.object.sha
 
-  console.log(`🤖  Creating new branch: ${branchName} using last sha ${sha}`)
+  console.log(`🤖  Creating new branch: ${branchName} using last sha ${lastCommitSha}`)
   return github.post(`/repos/${repoName}/git/refs`, {
     ref: `refs/heads/${branchName}`,
-    sha
+    sha: lastCommitSha
+  })
+
+  .catch(error => {
+    // ignore if branch already exists
+    if (error.response && error.response.data.message === 'Reference already exists') {
+      console.log(`🤖  Branch ${branchName} already exists, moving on.`)
+      return
+    }
+
+    throw error
   })
 })
 
 .then(response => {
-  console.log(`🤖  Updating schema.graphql`)
-  return github.get(`/repos/${repoName}/contents/schema.graphql`)
-})
-
-.then(response => {
-  const sha = response.data.sha
-
-  return github.put(`/repos/${repoName}/contents/schema.graphql?ref=${branchName}`, {
-    path: 'schema.graphql',
-    content: Buffer.from(schema.idl).toString('base64'),
-    sha: sha,
-    message: 'updated schema.graphql'
+  console.log(`🤖  Getting sha’s for schema.graphql & schema.json`)
+  const [owner, name] = repoName.split('/')
+  return github.post(`/graphql`, {
+    query: `{
+  repository(owner: "${owner}", name: "${name}") {
+    json: object(expression: "${branchName}:schema.json") {
+      ... on Blob {
+        oid
+      }
+    }
+    graphql: object(expression: "${branchName}:schema.graphql") {
+      ... on Blob {
+        oid
+      }
+    }
+  }
+}`
   })
 })
 
 .then(response => {
-  console.log(`🤖  Updating schema.json`)
-  return github.get(`/repos/${repoName}/contents/schema.json`)
+  const graphqlSha = response.data.data.repository.graphql.oid
+  const jsonSha = response.data.data.repository.json.oid
+
+  return Promise.all([
+    github.put(`/repos/${repoName}/contents/schema.graphql?ref=${branchName}`, {
+      path: 'schema.graphql',
+      content: Buffer.from(schema.idl).toString('base64'),
+      sha: graphqlSha,
+      message: 'updated schema.graphql',
+      branch: branchName
+    }),
+    github.put(`/repos/${repoName}/contents/schema.json?ref=${branchName}`, {
+      path: 'schema.json',
+      content: Buffer.from(JSON.stringify(schema.json, null, 2)).toString('base64'),
+      sha: jsonSha,
+      message: 'updated schema.json',
+      branch: branchName
+    })
+  ])
 })
 
-.then(response => {
-  const sha = response.data.sha
-
-  return github.put(`/repos/${repoName}/contents/schema.json?ref=${branchName}`, {
-    path: 'schema.json',
-    content: Buffer.from(schema.json).toString('base64'),
-    sha: sha,
-    message: 'updated schema.json'
-  })
-})
 
 .then(response => {
   return github.post(`/repos/${repoName}/pulls`, {
@@ -89,7 +112,13 @@ My friend Travis asked me to let you know that they found API changes in their d
 })
 
 .catch((error) => {
+  if (!error.config) {
+    console.log(error)
+    process.exit(1)
+  }
+
   console.log(`❌ ${error.config.method.toUpperCase()} ${error.config.url}`)
   console.log(error.message)
+  console.log(error.response.data)
   process.exit(1)
 })
