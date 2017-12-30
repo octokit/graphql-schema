@@ -1706,9 +1706,6 @@ interface GitObject {
 # A Git object ID.
 scalar GitObjectID
 
-# Git SSH string
-scalar GitSSHRemote
-
 # Information about a signature (GPG or S/MIME) on a Commit or Tag.
 interface GitSignature {
   # Email used to sign this object.
@@ -5878,9 +5875,6 @@ type Repository implements Node, ProjectOwner, RepositoryInfo, Starrable, Subscr
     # How many characters to return.
     limit: Int = 200
   ): HTML!
-
-  # The SSH URL to clone this repository
-  sshUrl: GitSSHRemote!
 
   # A list of users who have starred this starrable.
   stargazers(
