@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+const {join: pathJoin} = require('path')
+const {readFileSync} = require('fs')
+
 const axios = require('axios')
 require('dotenv').config()
 
@@ -19,6 +22,11 @@ const github = axios.create({
 })
 
 const schema = require('..').schema
+// NOTE: require('..') does some magic caching that I couldn’t figure out to
+//       workaround. When run as part of "npm test", require('../schema.json')
+//       returns the old schema, not the updated one. It might be a racing
+//       condition with the writeFileSync in download.js ¯\_(ツ)_/¯
+schema.json = JSON.parse(readFileSync(pathJoin(__dirname, '..', 'schema.json'), 'utf8'))
 const branchName = `cron/fixtures-changes/${new Date().toISOString().substr(0, 10)}`
 let lastCommitSha
 
@@ -76,27 +84,44 @@ github.get('/user')
 .then(response => {
   const graphqlSha = response.data.data.repository.graphql.oid
   const jsonSha = response.data.data.repository.json.oid
+  console.log(`🤖  schema.graphql: ${graphqlSha}`)
+  console.log(`🤖  schema.json: ${jsonSha}`)
 
-  return Promise.all([
-    github.put(`/repos/${repoName}/contents/schema.graphql?ref=${branchName}`, {
-      path: 'schema.graphql',
-      content: Buffer.from(schema.idl).toString('base64'),
-      sha: graphqlSha,
-      message: 'updated schema.graphql',
-      branch: branchName
-    }),
-    github.put(`/repos/${repoName}/contents/schema.json?ref=${branchName}`, {
+  console.log(`🤖  updating schema.graphql...`)
+  return github.put(`/repos/${repoName}/contents/schema.graphql?ref=${branchName}`, {
+    path: 'schema.graphql',
+    content: Buffer.from(schema.idl).toString('base64'),
+    sha: graphqlSha,
+    message: 'updated schema.graphql',
+    branch: branchName
+  })
+
+  .then(() => {
+    console.log(`🤖  schema.graphql updated`)
+  })
+
+  .then(delayWriteOperiation)
+
+  .then(() => {
+    console.log(`🤖  updating schema.json...`)
+    return github.put(`/repos/${repoName}/contents/schema.json?ref=${branchName}`, {
       path: 'schema.json',
       content: Buffer.from(JSON.stringify(schema.json, null, 2)).toString('base64'),
       sha: jsonSha,
       message: 'updated schema.json',
       branch: branchName
     })
-  ])
+  })
+
+  .then(delayWriteOperiation)
+
+  .then(() => {
+    console.log(`🤖  schema.json updated`)
+  })
 })
 
-
-.then(response => {
+.then(() => {
+  console.log(`🤖  creating pull request...`)
   return github.post(`/repos/${repoName}/pulls`, {
     title: `🤖🚨  GitHub’s GraphQL Schema changes detected`,
     head: branchName,
@@ -122,3 +147,8 @@ My friend Travis asked me to let you know that they found API changes in their d
   console.log(error.response.data)
   process.exit(1)
 })
+
+// 1s timeout for writing operations
+function delayWriteOperiation () {
+  return new Promise(resolve => setTimeout(resolve, 1000))
+}
