@@ -3291,7 +3291,7 @@ type Organization implements Actor, Node, ProjectOwner, RepositoryOwner, Uniform
   # Viewer can create teams on this organization.
   viewerCanCreateTeams: Boolean!
 
-  # Viewer is a member of this organization.
+  # Viewer is an active member of this organization.
   viewerIsAMember: Boolean!
 
   # The organization's public profile URL.
