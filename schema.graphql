@@ -6612,6 +6612,9 @@ type SearchResultItemEdge {
 
   # The item at the end of the edge.
   node: SearchResultItem
+
+  # Text matches on the result found.
+  textMatches: [TextMatch]
 }
 
 # Represents the individual results of a search.
@@ -7240,6 +7243,30 @@ enum TeamRole {
 
   # User is a member of the team.
   MEMBER
+}
+
+# A text match within a search result.
+type TextMatch {
+  # The specific text fragment within the property matched on.
+  fragment: String!
+
+  # Highlights within the matched fragment.
+  highlights: [TextMatchHighlight]!
+
+  # The property matched on.
+  property: String!
+}
+
+# Represents a single highlight in a search result match.
+type TextMatchHighlight {
+  # The indice in the fragment where the matched text begins.
+  beginIndice: Int!
+
+  # The indice in the fragment where the matched text ends.
+  endIndice: Int!
+
+  # The text matched.
+  text: String!
 }
 
 # A topic aggregates entities that are related to a subject.
