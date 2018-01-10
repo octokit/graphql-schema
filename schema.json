@@ -22935,6 +22935,16 @@
       },
       {
         "kind": "SCALAR",
+        "name": "Date",
+        "description": "An ISO-8601 encoded date string.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "SCALAR",
         "name": "X509Certificate",
         "description": "A valid x509 certificate string",
         "fields": null,
@@ -25509,6 +25519,18 @@
             "deprecationReason": null
           },
           {
+            "name": "closer",
+            "description": "Object which triggered the creation of this event.",
+            "args": [],
+            "type": {
+              "kind": "UNION",
+              "name": "Closer",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "commit",
             "description": "Identifies the commit associated with the 'closed' event.",
             "args": [],
@@ -25517,8 +25539,8 @@
               "name": "Commit",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Use ClosedEvent.closer instead."
           },
           {
             "name": "createdAt",
@@ -25563,6 +25585,27 @@
         ],
         "enumValues": null,
         "possibleTypes": null
+      },
+      {
+        "kind": "UNION",
+        "name": "Closer",
+        "description": "The object which triggered a `ClosedEvent`.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": [
+          {
+            "kind": "OBJECT",
+            "name": "Commit",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "PullRequest",
+            "ofType": null
+          }
+        ]
       },
       {
         "kind": "OBJECT",
@@ -34012,16 +34055,6 @@
             "deprecationReason": null
           }
         ],
-        "possibleTypes": null
-      },
-      {
-        "kind": "SCALAR",
-        "name": "Date",
-        "description": "An ISO-8601 encoded date string.",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": null,
         "possibleTypes": null
       },
       {
