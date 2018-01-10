@@ -408,13 +408,19 @@ type ClosedEvent implements Node {
   # Object that was closed.
   closable: Closable!
 
+  # Object which triggered the creation of this event.
+  closer: Closer
+
   # Identifies the commit associated with the 'closed' event.
-  commit: Commit
+  commit: Commit @deprecated(reason: "Use ClosedEvent.closer instead.")
 
   # Identifies the date and time when the object was created.
   createdAt: DateTime!
   id: ID!
 }
+
+# The object which triggered a `ClosedEvent`.
+union Closer = Commit | PullRequest
 
 # The Code of Conduct for a repository
 type CodeOfConduct {
