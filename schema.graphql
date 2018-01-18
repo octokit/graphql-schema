@@ -5520,7 +5520,7 @@ type Repository implements Node, ProjectOwner, RepositoryInfo, Starrable, Subscr
   # The Ref associated with the repository's default branch.
   defaultBranchRef: Ref
 
-  # A list of protected branches that are on this repository.
+  # A list of deploy keys that are on this repository.
   deployKeys(
     # Returns the elements in the list that come after the specified global ID.
     after: String
