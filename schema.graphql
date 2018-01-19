@@ -2886,6 +2886,36 @@ type Milestone implements Closable, Node, UniformResourceLocatable {
   # Identifies the number of the milestone.
   number: Int!
 
+  # A list of pull requests associated with the milestone.
+  pullRequests(
+    # Returns the elements in the list that come after the specified global ID.
+    after: String
+
+    # The base ref name to filter the pull requests by.
+    baseRefName: String
+
+    # Returns the elements in the list that come before the specified global ID.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # The head ref name to filter the pull requests by.
+    headRefName: String
+
+    # A list of label names to filter the pull requests by.
+    labels: [String!]
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+
+    # Ordering options for pull requests returned from the connection.
+    orderBy: IssueOrder
+
+    # A list of states to filter the pull requests by.
+    states: [PullRequestState!]
+  ): PullRequestConnection!
+
   # The repository associated with this milestone.
   repository: Repository!
 
