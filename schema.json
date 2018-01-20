@@ -9616,6 +9616,22 @@
             "deprecationReason": null
           },
           {
+            "name": "baseRefOid",
+            "description": "Identifies the oid of the base ref associated with the pull request, even if the ref has been deleted.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "GitObjectID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "body",
             "description": "Identifies the body of the pull request.",
             "args": [],
@@ -9915,6 +9931,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "headRefOid",
+            "description": "Identifies the oid of the head ref associated with the pull request, even if the ref has been deleted.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "GitObjectID",
                 "ofType": null
               }
             },
