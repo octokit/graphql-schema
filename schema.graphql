@@ -4003,6 +4003,9 @@ type PullRequest implements Assignable, Closable, Comment, Labelable, Lockable, 
   # Identifies the name of the base Ref associated with the pull request, even if the ref has been deleted.
   baseRefName: String!
 
+  # Identifies the oid of the base ref associated with the pull request, even if the ref has been deleted.
+  baseRefOid: GitObjectID!
+
   # Identifies the body of the pull request.
   body: String!
 
@@ -4071,6 +4074,9 @@ type PullRequest implements Assignable, Closable, Comment, Labelable, Lockable, 
 
   # Identifies the name of the head Ref associated with the pull request, even if the ref has been deleted.
   headRefName: String!
+
+  # Identifies the oid of the head ref associated with the pull request, even if the ref has been deleted.
+  headRefOid: GitObjectID!
 
   # The repository associated with this pull request's head Ref.
   headRepository: Repository
