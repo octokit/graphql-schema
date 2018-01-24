@@ -482,6 +482,21 @@ interface Comment {
   # Identifies the date and time when the object was last updated.
   updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps.")
 
+  # A list of edits to this content.
+  userContentEdits(
+    # Returns the elements in the list that come after the specified global ID.
+    after: String
+
+    # Returns the elements in the list that come before the specified global ID.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+  ): UserContentEditConnection
+
   # Did the viewer author this comment.
   viewerDidAuthor: Boolean!
 }
@@ -790,6 +805,21 @@ type CommitComment implements Comment, Deletable, Node, Reactable, RepositoryNod
 
   # The HTTP URL permalink for this commit comment.
   url: URI!
+
+  # A list of edits to this content.
+  userContentEdits(
+    # Returns the elements in the list that come after the specified global ID.
+    after: String
+
+    # Returns the elements in the list that come before the specified global ID.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+  ): UserContentEditConnection
 
   # Check if the current viewer can delete this object.
   viewerCanDelete: Boolean!
@@ -1554,6 +1584,21 @@ type GistComment implements Comment, Deletable, Node, Updatable, UpdatableCommen
   # Identifies the date and time when the object was last updated.
   updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps.")
 
+  # A list of edits to this content.
+  userContentEdits(
+    # Returns the elements in the list that come after the specified global ID.
+    after: String
+
+    # Returns the elements in the list that come before the specified global ID.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+  ): UserContentEditConnection
+
   # Check if the current viewer can delete this object.
   viewerCanDelete: Boolean!
 
@@ -2053,6 +2098,21 @@ type Issue implements Assignable, Closable, Comment, Labelable, Lockable, Node, 
   # The HTTP URL for this issue
   url: URI!
 
+  # A list of edits to this content.
+  userContentEdits(
+    # Returns the elements in the list that come after the specified global ID.
+    after: String
+
+    # Returns the elements in the list that come before the specified global ID.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+  ): UserContentEditConnection
+
   # Can user react to this subject
   viewerCanReact: Boolean!
 
@@ -2150,6 +2210,21 @@ type IssueComment implements Comment, Deletable, Node, Reactable, RepositoryNode
 
   # The HTTP URL for this issue comment
   url: URI!
+
+  # A list of edits to this content.
+  userContentEdits(
+    # Returns the elements in the list that come after the specified global ID.
+    after: String
+
+    # Returns the elements in the list that come before the specified global ID.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+  ): UserContentEditConnection
 
   # Check if the current viewer can delete this object.
   viewerCanDelete: Boolean!
@@ -4271,6 +4346,21 @@ type PullRequest implements Assignable, Closable, Comment, Labelable, Lockable, 
   # The HTTP URL for this pull request.
   url: URI!
 
+  # A list of edits to this content.
+  userContentEdits(
+    # Returns the elements in the list that come after the specified global ID.
+    after: String
+
+    # Returns the elements in the list that come before the specified global ID.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+  ): UserContentEditConnection
+
   # Can user react to this subject
   viewerCanReact: Boolean!
 
@@ -4441,6 +4531,21 @@ type PullRequestReview implements Comment, Deletable, Node, RepositoryNode, Upda
   # The HTTP URL permalink for this PullRequestReview.
   url: URI!
 
+  # A list of edits to this content.
+  userContentEdits(
+    # Returns the elements in the list that come after the specified global ID.
+    after: String
+
+    # Returns the elements in the list that come before the specified global ID.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+  ): UserContentEditConnection
+
   # Check if the current viewer can delete this object.
   viewerCanDelete: Boolean!
 
@@ -4555,6 +4660,21 @@ type PullRequestReviewComment implements Comment, Deletable, Node, Reactable, Re
 
   # The HTTP URL permalink for this review comment.
   url: URI!
+
+  # A list of edits to this content.
+  userContentEdits(
+    # Returns the elements in the list that come after the specified global ID.
+    after: String
+
+    # Returns the elements in the list that come before the specified global ID.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+  ): UserContentEditConnection
 
   # Check if the current viewer can delete this object.
   viewerCanDelete: Boolean!
@@ -8172,7 +8292,7 @@ type UserConnection {
 }
 
 # An edit on user content
-type UserContentEdit {
+type UserContentEdit implements Node {
   # Identifies the date and time when the object was created.
   createdAt: DateTime!
 
@@ -8182,6 +8302,21 @@ type UserContentEdit {
 
   # Identifies the date and time when the object was last updated.
   updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps.")
+}
+
+# A list of edits to content.
+type UserContentEditConnection {
+  # A list of edges.
+  edges: [UserContentEditEdge]
+
+  # A list of nodes.
+  nodes: [UserContentEdit]
+
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # Identifies the total count of items in the connection.
+  totalCount: Int!
 }
 
 # An edge in a connection.
