@@ -19010,6 +19010,29 @@
             "deprecationReason": null
           },
           {
+            "name": "avatarUrl",
+            "description": "A URL pointing to the team's avatar.",
+            "args": [
+              {
+                "name": "size",
+                "description": "The size in pixels of the resulting square image.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": "400"
+              }
+            ],
+            "type": {
+              "kind": "SCALAR",
+              "name": "URI",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "childTeams",
             "description": "List of child teams belonging to this team",
             "args": [
@@ -20522,6 +20545,22 @@
         "description": "An Invitation for a user to an organization.",
         "fields": [
           {
+            "name": "createdAt",
+            "description": "Identifies the date and time when the object was created.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "email",
             "description": "The email address of the user invited to the organization.",
             "args": [],
@@ -20594,6 +20633,22 @@
             "deprecationReason": null
           },
           {
+            "name": "organization",
+            "description": "The organization the invite is for",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "Organization",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "role",
             "description": "The user's pending role in the organization (e.g. member, owner).",
             "args": [],
@@ -20619,120 +20674,6 @@
           }
         ],
         "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "ENUM",
-        "name": "OrganizationInvitationType",
-        "description": "The possible organization invitation types.",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": [
-          {
-            "name": "USER",
-            "description": "The invitation was to an existing user.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "EMAIL",
-            "description": "The invitation was to an email address.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "possibleTypes": null
-      },
-      {
-        "kind": "ENUM",
-        "name": "OrganizationInvitationRole",
-        "description": "The possible organization invitation roles.",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": [
-          {
-            "name": "DIRECT_MEMBER",
-            "description": "The user is invited to be a direct member of the organization.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "ADMIN",
-            "description": "The user is invited to be an admin of the organization.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "BILLING_MANAGER",
-            "description": "The user is invited to be a billing manager of the organization.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "REINSTATE",
-            "description": "The user's previous role will be reinstated.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "TeamOrder",
-        "description": "Ways in which team connections can be ordered.",
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "field",
-            "description": "The field in which to order nodes by.",
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "ENUM",
-                "name": "TeamOrderField",
-                "ofType": null
-              }
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "direction",
-            "description": "The direction in which to order nodes.",
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "ENUM",
-                "name": "OrderDirection",
-                "ofType": null
-              }
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "ENUM",
-        "name": "TeamOrderField",
-        "description": "Properties by which team connections can be ordered.",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": [
-          {
-            "name": "NAME",
-            "description": "Allows ordering a list of teams by name.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
         "possibleTypes": null
       },
       {
@@ -23623,6 +23564,62 @@
         "possibleTypes": null
       },
       {
+        "kind": "INPUT_OBJECT",
+        "name": "TeamOrder",
+        "description": "Ways in which team connections can be ordered.",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "field",
+            "description": "The field in which to order nodes by.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "TeamOrderField",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "direction",
+            "description": "The direction in which to order nodes.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "OrderDirection",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "TeamOrderField",
+        "description": "Properties by which team connections can be ordered.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "NAME",
+            "description": "Allows ordering a list of teams by name.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
         "kind": "OBJECT",
         "name": "GistConnection",
         "description": "The connection type for Gist.",
@@ -24868,6 +24865,64 @@
           {
             "name": "PUSHED_AT",
             "description": "Order gists by push time",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "OrganizationInvitationType",
+        "description": "The possible organization invitation types.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "USER",
+            "description": "The invitation was to an existing user.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "EMAIL",
+            "description": "The invitation was to an email address.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "OrganizationInvitationRole",
+        "description": "The possible organization invitation roles.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "DIRECT_MEMBER",
+            "description": "The user is invited to be a direct member of the organization.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "ADMIN",
+            "description": "The user is invited to be an admin of the organization.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "BILLING_MANAGER",
+            "description": "The user is invited to be a billing manager of the organization.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "REINSTATE",
+            "description": "The user's previous role will be reinstated.",
             "isDeprecated": false,
             "deprecationReason": null
           }

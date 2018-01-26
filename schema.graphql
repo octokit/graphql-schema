@@ -3517,6 +3517,9 @@ type OrganizationIdentityProvider implements Node {
 
 # An Invitation for a user to an organization.
 type OrganizationInvitation implements Node {
+  # Identifies the date and time when the object was created.
+  createdAt: DateTime!
+
   # The email address of the user invited to the organization.
   email: String
   id: ID!
@@ -3529,6 +3532,9 @@ type OrganizationInvitation implements Node {
 
   # The user who created the invitation.
   inviter: User!
+
+  # The organization the invite is for
+  organization: Organization!
 
   # The user's pending role in the organization (e.g. member, owner).
   role: OrganizationInvitationRole!
@@ -7134,6 +7140,12 @@ type Team implements Node, Subscribable {
     # Returns the last _n_ elements from the list.
     last: Int
   ): TeamConnection!
+
+  # A URL pointing to the team's avatar.
+  avatarUrl(
+    # The size in pixels of the resulting square image.
+    size: Int = 400
+  ): URI
 
   # List of child teams belonging to this team
   childTeams(
