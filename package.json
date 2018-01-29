@@ -22,7 +22,7 @@
     "graphql-tag": "^2.6.1"
   },
   "devDependencies": {
-    "dotenv": "^4.0.0",
+    "dotenv": "^5.0.0",
     "semantic-release": "^12.2.2"
   },
   "repository": {
