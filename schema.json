@@ -25846,7 +25846,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Use ClosedEvent.closer instead."
+            "deprecationReason": "`ClosedEvent` may be associated with other objects than a commit. Use ClosedEvent.closer instead. Removal on 2018-07-01 UTC."
           },
           {
             "name": "createdAt",
@@ -26389,7 +26389,7 @@
               }
             },
             "isDeprecated": true,
-            "deprecationReason": "Use ReferencedEvent.isCrossRepository instead."
+            "deprecationReason": "`is_cross_reference` will be renamed. Use ReferencedEvent.isCrossRepository instead. Removal on 2018-07-01 UTC."
           },
           {
             "name": "isCrossRepository",
@@ -28672,7 +28672,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Use `ReviewRequestedEvent.requestedReviewer` instead."
+            "deprecationReason": "`subject` will be renamed. Use `ReviewRequestedEvent.requestedReviewer` instead. Removal on 2018-07-01 UTC."
           }
         ],
         "inputFields": null,
@@ -28773,7 +28773,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Use ReviewRequestRemovedEvent.requestedReviewer instead."
+            "deprecationReason": "`subject` will be renamed. Use `ReviewRequestRemovedEvent.requestedReviewer` instead. Removal on 2018-07-01 UTC."
           }
         ],
         "inputFields": null,

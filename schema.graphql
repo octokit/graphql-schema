@@ -412,7 +412,7 @@ type ClosedEvent implements Node {
   closer: Closer
 
   # Identifies the commit associated with the 'closed' event.
-  commit: Commit @deprecated(reason: "Use ClosedEvent.closer instead.")
+  commit: Commit @deprecated(reason: "`ClosedEvent` may be associated with other objects than a commit. Use ClosedEvent.closer instead. Removal on 2018-07-01 UTC.")
 
   # Identifies the date and time when the object was created.
   createdAt: DateTime!
@@ -5339,7 +5339,7 @@ type ReferencedEvent implements Node {
   id: ID!
 
   # Reference originated in a different repository.
-  isCrossReference: Boolean! @deprecated(reason: "Use ReferencedEvent.isCrossRepository instead.")
+  isCrossReference: Boolean! @deprecated(reason: "`is_cross_reference` will be renamed. Use ReferencedEvent.isCrossRepository instead. Removal on 2018-07-01 UTC.")
 
   # Reference originated in a different repository.
   isCrossRepository: Boolean!
@@ -6769,7 +6769,7 @@ type ReviewRequestRemovedEvent implements Node {
   requestedReviewer: RequestedReviewer
 
   # Identifies the user whose review request was removed.
-  subject: User @deprecated(reason: "Use ReviewRequestRemovedEvent.requestedReviewer instead.")
+  subject: User @deprecated(reason: "`subject` will be renamed. Use `ReviewRequestRemovedEvent.requestedReviewer` instead. Removal on 2018-07-01 UTC.")
 }
 
 # Represents an 'review_requested' event on a given pull request.
@@ -6788,7 +6788,7 @@ type ReviewRequestedEvent implements Node {
   requestedReviewer: RequestedReviewer
 
   # Identifies the user whose review was requested.
-  subject: User @deprecated(reason: "Use `ReviewRequestedEvent.requestedReviewer` instead.")
+  subject: User @deprecated(reason: "`subject` will be renamed. Use `ReviewRequestedEvent.requestedReviewer` instead. Removal on 2018-07-01 UTC.")
 }
 
 # The results of a search.
