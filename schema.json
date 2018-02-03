@@ -1557,7 +1557,7 @@
               }
             },
             "isDeprecated": true,
-            "deprecationReason": "Use repositoriesContributedTo instead."
+            "deprecationReason": "Arguments for connection `contributedRepositories` are getting redesigned. Use `User.repositoriesContributedTo` instead. Removal on 2017-07-01 UTC."
           },
           {
             "name": "createdAt",
@@ -1585,7 +1585,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs."
+            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC."
           },
           {
             "name": "email",
@@ -2927,7 +2927,7 @@
               }
             },
             "isDeprecated": true,
-            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps."
+            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC."
           },
           {
             "name": "url",
@@ -3449,7 +3449,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs."
+            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC."
           },
           {
             "name": "defaultBranchRef",
@@ -4202,7 +4202,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Use Repository.licenseInfo instead."
+            "deprecationReason": "Field `license` will be replaced by a more detailed license object. Use `Repository.licenseInfo` instead. Removal on 2017-07-01 UTC."
           },
           {
             "name": "licenseInfo",
@@ -5260,7 +5260,7 @@
               }
             },
             "isDeprecated": true,
-            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps."
+            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC."
           },
           {
             "name": "url",
@@ -5832,7 +5832,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs."
+            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC."
           },
           {
             "name": "id",
@@ -6001,7 +6001,7 @@
               }
             },
             "isDeprecated": true,
-            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps."
+            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC."
           },
           {
             "name": "url",
@@ -6430,7 +6430,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs."
+            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC."
           },
           {
             "name": "id",
@@ -6510,7 +6510,7 @@
               }
             },
             "isDeprecated": true,
-            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps."
+            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC."
           },
           {
             "name": "url",
@@ -6721,7 +6721,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs."
+            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC."
           },
           {
             "name": "id",
@@ -6781,7 +6781,7 @@
               }
             },
             "isDeprecated": true,
-            "deprecationReason": "Use ProjectCard.column instead. The associated column will be null if the card is in a pending state."
+            "deprecationReason": "The associated column may be null if the card is in a pending state. Use `ProjectCard.column` instead. Removal on 2017-07-01 UTC."
           },
           {
             "name": "resourcePath",
@@ -6825,7 +6825,7 @@
               }
             },
             "isDeprecated": true,
-            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps."
+            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC."
           },
           {
             "name": "url",
@@ -7182,7 +7182,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs."
+            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC."
           },
           {
             "name": "editor",
@@ -7689,7 +7689,7 @@
               }
             },
             "isDeprecated": true,
-            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps."
+            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC."
           },
           {
             "name": "url",
@@ -8354,7 +8354,7 @@
               }
             },
             "isDeprecated": true,
-            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps."
+            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC."
           },
           {
             "name": "userContentEdits",
@@ -8644,7 +8644,7 @@
               }
             },
             "isDeprecated": true,
-            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps."
+            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC."
           }
         ],
         "inputFields": null,
@@ -10071,7 +10071,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs."
+            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC."
           },
           {
             "name": "deletions",
@@ -10932,7 +10932,7 @@
               }
             },
             "isDeprecated": true,
-            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps."
+            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC."
           },
           {
             "name": "url",
@@ -11274,7 +11274,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs."
+            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC."
           },
           {
             "name": "id",
@@ -11923,7 +11923,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs."
+            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC."
           },
           {
             "name": "id",
@@ -14137,7 +14137,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs."
+            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC."
           },
           {
             "name": "editor",
@@ -14358,7 +14358,7 @@
               }
             },
             "isDeprecated": true,
-            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps."
+            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC."
           },
           {
             "name": "url",
@@ -16454,7 +16454,7 @@
               }
             },
             "isDeprecated": true,
-            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps."
+            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC."
           },
           {
             "name": "url",
@@ -16783,7 +16783,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs."
+            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC."
           },
           {
             "name": "editor",
@@ -17008,7 +17008,7 @@
               }
             },
             "isDeprecated": true,
-            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps."
+            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC."
           },
           {
             "name": "url",
@@ -17538,7 +17538,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs."
+            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC."
           },
           {
             "name": "editor",
@@ -17682,7 +17682,7 @@
               }
             },
             "isDeprecated": true,
-            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps."
+            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC."
           },
           {
             "name": "url",
@@ -18156,7 +18156,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs."
+            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC."
           },
           {
             "name": "diffHunk",
@@ -19670,7 +19670,7 @@
               }
             },
             "isDeprecated": true,
-            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps."
+            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC."
           },
           {
             "name": "url",
@@ -20718,7 +20718,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs."
+            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC."
           },
           {
             "name": "description",
@@ -22616,7 +22616,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs."
+            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC."
           },
           {
             "name": "id",
@@ -22680,7 +22680,7 @@
               }
             },
             "isDeprecated": true,
-            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps."
+            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC."
           },
           {
             "name": "url",
@@ -23976,7 +23976,7 @@
               }
             },
             "isDeprecated": true,
-            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps."
+            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC."
           },
           {
             "name": "viewerHasStarred",
@@ -24615,7 +24615,7 @@
               }
             },
             "isDeprecated": true,
-            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps."
+            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC."
           },
           {
             "name": "userContentEdits",
@@ -25274,7 +25274,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs."
+            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC."
           },
           {
             "name": "id",
@@ -25330,7 +25330,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Use `ReviewRequest.requestedReviewer` instead."
+            "deprecationReason": "Field `reviewer` will be changed in favor of returning a union type. Use `ReviewRequest.requestedReviewer` instead. Removal on 2017-07-01 UTC."
           }
         ],
         "inputFields": null,
@@ -26389,7 +26389,7 @@
               }
             },
             "isDeprecated": true,
-            "deprecationReason": "`is_cross_reference` will be renamed. Use ReferencedEvent.isCrossRepository instead. Removal on 2018-07-01 UTC."
+            "deprecationReason": "`isCrossReference` will be renamed. Use `ReferencedEvent.isCrossRepository` instead. Removal on 2018-07-01 UTC."
           },
           {
             "name": "isCrossRepository",
@@ -27548,7 +27548,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs."
+            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC."
           },
           {
             "name": "deployment",
@@ -27677,7 +27677,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs."
+            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC."
           },
           {
             "name": "environment",
@@ -28069,7 +28069,7 @@
               }
             },
             "isDeprecated": true,
-            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps."
+            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC."
           }
         ],
         "inputFields": null,
@@ -28830,7 +28830,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs."
+            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC."
           },
           {
             "name": "id",
@@ -29028,7 +29028,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs."
+            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC."
           },
           {
             "name": "id",
@@ -29101,7 +29101,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs."
+            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC."
           },
           {
             "name": "id",
@@ -29174,7 +29174,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs."
+            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC."
           },
           {
             "name": "id",
@@ -29247,7 +29247,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs."
+            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC."
           },
           {
             "name": "id",
@@ -29341,7 +29341,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs."
+            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC."
           },
           {
             "name": "id",
@@ -29414,7 +29414,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs."
+            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC."
           },
           {
             "name": "id",
@@ -29487,7 +29487,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs."
+            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC."
           },
           {
             "name": "id",
@@ -29985,7 +29985,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Use Repository.licenseInfo instead."
+            "deprecationReason": "Field `license` will be replaced by a more detailed license object. Use `Repository.licenseInfo` instead. Removal on 2017-07-01 UTC."
           },
           {
             "name": "licenseInfo",
@@ -30140,7 +30140,7 @@
               }
             },
             "isDeprecated": true,
-            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps."
+            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC."
           },
           {
             "name": "url",
@@ -31245,7 +31245,7 @@
               }
             },
             "isDeprecated": true,
-            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps."
+            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC."
           },
           {
             "name": "url",
@@ -31537,7 +31537,7 @@
               }
             },
             "isDeprecated": true,
-            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps."
+            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC."
           },
           {
             "name": "uploadedBy",
@@ -39705,7 +39705,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Use Repository.licenseInfo instead."
+            "deprecationReason": "Field `license` will be replaced by a more detailed license object. Use `Repository.licenseInfo` instead. Removal on 2017-07-01 UTC."
           },
           {
             "name": "licenseInfo",
@@ -39860,7 +39860,7 @@
               }
             },
             "isDeprecated": true,
-            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps."
+            "deprecationReason": "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC."
           },
           {
             "name": "url",
