@@ -3037,6 +3037,30 @@ type MilestoneEdge {
 # Types that can be inside a Milestone.
 union MilestoneItem = Issue | PullRequest
 
+# Ordering options for milestone connections.
+input MilestoneOrder {
+  # The ordering direction.
+  direction: OrderDirection!
+
+  # The field to order milestones by.
+  field: MilestoneOrderField!
+}
+
+# Properties by which milestone connections can be ordered.
+enum MilestoneOrderField {
+  # Order milestones by when they were created.
+  CREATED_AT
+
+  # Order milestones by when they are due.
+  DUE_DATE
+
+  # Order milestones by their number.
+  NUMBER
+
+  # Order milestones by when they were last updated.
+  UPDATED_AT
+}
+
 # The possible states of a milestone.
 enum MilestoneState {
   # A milestone that has been closed.
@@ -5897,6 +5921,12 @@ type Repository implements Node, ProjectOwner, RepositoryInfo, Starrable, Subscr
 
     # Returns the last _n_ elements from the list.
     last: Int
+
+    # Ordering options for milestones.
+    orderBy: MilestoneOrder
+
+    # Filter by the state of the milestones.
+    states: [MilestoneState!]
   ): MilestoneConnection
 
   # The repository's original mirror URL.
