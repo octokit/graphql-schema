@@ -3306,7 +3306,7 @@ type Organization implements Actor, Node, ProjectOwner, RepositoryOwner, Uniform
   # A list of repositories this user has pinned to their profile
   pinnedRepositories(
     # Affiliation options for repositories returned from the connection
-    affiliations: [RepositoryAffiliation]
+    affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     # Returns the elements in the list that come after the specified global ID.
     after: String
@@ -3369,7 +3369,7 @@ type Organization implements Actor, Node, ProjectOwner, RepositoryOwner, Uniform
   # A list of repositories that the user owns.
   repositories(
     # Affiliation options for repositories returned from the connection
-    affiliations: [RepositoryAffiliation]
+    affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     # Returns the elements in the list that come after the specified global ID.
     after: String
@@ -5754,7 +5754,7 @@ type Repository implements Node, ProjectOwner, RepositoryInfo, Starrable, Subscr
   # A list of direct forked repositories.
   forks(
     # Affiliation options for repositories returned from the connection
-    affiliations: [RepositoryAffiliation]
+    affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     # Returns the elements in the list that come after the specified global ID.
     after: String
@@ -6510,7 +6510,7 @@ interface RepositoryOwner {
   # A list of repositories this user has pinned to their profile
   pinnedRepositories(
     # Affiliation options for repositories returned from the connection
-    affiliations: [RepositoryAffiliation]
+    affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     # Returns the elements in the list that come after the specified global ID.
     after: String
@@ -6537,7 +6537,7 @@ interface RepositoryOwner {
   # A list of repositories that the user owns.
   repositories(
     # Affiliation options for repositories returned from the connection
-    affiliations: [RepositoryAffiliation]
+    affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     # Returns the elements in the list that come after the specified global ID.
     after: String
@@ -7916,7 +7916,7 @@ type User implements Actor, Node, RepositoryOwner, UniformResourceLocatable {
   # A list of repositories that the user recently contributed to.
   contributedRepositories(
     # Affiliation options for repositories returned from the connection
-    affiliations: [RepositoryAffiliation]
+    affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     # Returns the elements in the list that come after the specified global ID.
     after: String
@@ -8115,7 +8115,7 @@ type User implements Actor, Node, RepositoryOwner, UniformResourceLocatable {
   # A list of repositories this user has pinned to their profile
   pinnedRepositories(
     # Affiliation options for repositories returned from the connection
-    affiliations: [RepositoryAffiliation]
+    affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     # Returns the elements in the list that come after the specified global ID.
     after: String
@@ -8187,7 +8187,7 @@ type User implements Actor, Node, RepositoryOwner, UniformResourceLocatable {
   # A list of repositories that the user owns.
   repositories(
     # Affiliation options for repositories returned from the connection
-    affiliations: [RepositoryAffiliation]
+    affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     # Returns the elements in the list that come after the specified global ID.
     after: String
@@ -8290,7 +8290,7 @@ type User implements Actor, Node, RepositoryOwner, UniformResourceLocatable {
   # A list of repositories the given user is watching.
   watching(
     # Affiliation options for repositories returned from the connection
-    affiliations: [RepositoryAffiliation]
+    affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     # Returns the elements in the list that come after the specified global ID.
     after: String
