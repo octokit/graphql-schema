@@ -16,7 +16,7 @@
   "author": "Gregor Martynus (https://twitter.com/gr2m)",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.17.1",
+    "axios": "^0.18.0",
     "git-diff": "^2.0.4",
     "graphql": "^0.12.3",
     "graphql-tag": "^2.6.1"
