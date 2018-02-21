@@ -6365,6 +6365,9 @@ type RepositoryInvitation implements Node {
   # The user who created the invitation.
   inviter: User!
 
+  # The permission granted on this repository by this invitation.
+  permission: RepositoryPermission!
+
   # The Repository the user is invited to.
   repository: RepositoryInvitationRepository
 }
