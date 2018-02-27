@@ -449,6 +449,9 @@ enum CollaboratorAffiliation {
   OUTSIDE
 }
 
+# Types that can be inside Collection Items.
+union CollectionItemContent = Organization | Repository | User
+
 # Represents a comment.
 interface Comment {
   # The actor who authored the comment.
