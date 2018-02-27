@@ -35079,6 +35079,32 @@
         "possibleTypes": null
       },
       {
+        "kind": "UNION",
+        "name": "CollectionItemContent",
+        "description": "Types that can be inside Collection Items.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": [
+          {
+            "kind": "OBJECT",
+            "name": "Repository",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "Organization",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "User",
+            "ofType": null
+          }
+        ]
+      },
+      {
         "kind": "OBJECT",
         "name": "GitHubMetadata",
         "description": "Represents information about the GitHub instance.",
