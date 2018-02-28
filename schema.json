@@ -4899,7 +4899,7 @@
             "args": [
               {
                 "name": "qualifiedName",
-                "description": "The ref to retrieve.Fully qualified matches are checked in order (`refs/heads/master`) before falling back onto checks for short name matches (`master`).",
+                "description": "The ref to retrieve. Fully qualified matches are checked in order (`refs/heads/master`) before falling back onto checks for short name matches (`master`).",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
