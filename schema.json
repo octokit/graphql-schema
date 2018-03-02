@@ -5397,6 +5397,18 @@
             "deprecationReason": null
           },
           {
+            "name": "viewerPermission",
+            "description": "The users permission level on the repository. Will return null if authenticated as an GitHub App.",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "RepositoryPermission",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "viewerSubscription",
             "description": "Identifies if the viewer is watching, not watching, or ignoring the subscribable entity.",
             "args": [],
