@@ -6176,6 +6176,9 @@ type Repository implements Node, ProjectOwner, RepositoryInfo, Starrable, Subscr
   # Returns a boolean indicating whether the viewing user has starred this starrable.
   viewerHasStarred: Boolean!
 
+  # The users permission level on the repository. Will return null if authenticated as an GitHub App.
+  viewerPermission: RepositoryPermission
+
   # Identifies if the viewer is watching, not watching, or ignoring the subscribable entity.
   viewerSubscription: SubscriptionState!
 
