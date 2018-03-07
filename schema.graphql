@@ -2371,6 +2371,9 @@ type Label implements Node {
   description: String
   id: ID!
 
+  # Indicates whether or not this is a default label.
+  isDefault: Boolean!
+
   # A list of issues associated with this label.
   issues(
     # Returns the elements in the list that come after the specified global ID.
