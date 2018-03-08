@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "dotenv": "^5.0.0",
-    "semantic-release": "^12.2.2"
+    "semantic-release": "^15.0.0"
   },
   "repository": {
     "type": "git",
