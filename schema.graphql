@@ -235,7 +235,7 @@ type AddedToProjectEvent implements Node {
   createdAt: DateTime!
 
   # Identifies the primary key from the database.
-  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC.")
+  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2018-07-01 UTC.")
   id: ID!
 }
 
@@ -282,7 +282,7 @@ type BaseRefChangedEvent implements Node {
   createdAt: DateTime!
 
   # Identifies the primary key from the database.
-  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC.")
+  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2018-07-01 UTC.")
   id: ID!
 }
 
@@ -375,7 +375,7 @@ type Bot implements Actor, Node, UniformResourceLocatable {
   createdAt: DateTime!
 
   # Identifies the primary key from the database.
-  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC.")
+  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2018-07-01 UTC.")
   id: ID!
 
   # The username of the actor.
@@ -385,7 +385,7 @@ type Bot implements Actor, Node, UniformResourceLocatable {
   resourcePath: URI!
 
   # Identifies the date and time when the object was last updated.
-  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC.")
+  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2018-07-01 UTC.")
 
   # The HTTP URL for this bot
   url: URI!
@@ -483,7 +483,7 @@ interface Comment {
   publishedAt: DateTime
 
   # Identifies the date and time when the object was last updated.
-  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC.")
+  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2018-07-01 UTC.")
 
   # A list of edits to this content.
   userContentEdits(
@@ -555,7 +555,7 @@ type CommentDeletedEvent implements Node {
   createdAt: DateTime!
 
   # Identifies the primary key from the database.
-  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC.")
+  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2018-07-01 UTC.")
   id: ID!
 }
 
@@ -755,7 +755,7 @@ type CommitComment implements Comment, Deletable, Node, Reactable, RepositoryNod
   createdViaEmail: Boolean!
 
   # Identifies the primary key from the database.
-  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC.")
+  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2018-07-01 UTC.")
 
   # The actor who edited the comment.
   editor: Actor
@@ -804,7 +804,7 @@ type CommitComment implements Comment, Deletable, Node, Reactable, RepositoryNod
   resourcePath: URI!
 
   # Identifies the date and time when the object was last updated.
-  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC.")
+  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2018-07-01 UTC.")
 
   # The HTTP URL permalink for this commit comment.
   url: URI!
@@ -942,7 +942,7 @@ type ConvertedNoteToIssueEvent implements Node {
   createdAt: DateTime!
 
   # Identifies the primary key from the database.
-  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC.")
+  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2018-07-01 UTC.")
   id: ID!
 }
 
@@ -1195,7 +1195,7 @@ type DeployedEvent implements Node {
   createdAt: DateTime!
 
   # Identifies the primary key from the database.
-  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC.")
+  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2018-07-01 UTC.")
 
   # The deployment associated with the 'deployed' event.
   deployment: Deployment!
@@ -1220,7 +1220,7 @@ type Deployment implements Node {
   creator: Actor
 
   # Identifies the primary key from the database.
-  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC.")
+  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2018-07-01 UTC.")
 
   # The environment to which this deployment was made.
   environment: String
@@ -1327,7 +1327,7 @@ type DeploymentStatus implements Node {
   state: DeploymentStatusState!
 
   # Identifies the date and time when the object was last updated.
-  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC.")
+  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2018-07-01 UTC.")
 }
 
 # The connection type for DeploymentStatus.
@@ -1545,7 +1545,7 @@ type Gist implements Node, Starrable {
   ): StargazerConnection!
 
   # Identifies the date and time when the object was last updated.
-  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC.")
+  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2018-07-01 UTC.")
 
   # Returns a boolean indicating whether the viewing user has starred this starrable.
   viewerHasStarred: Boolean!
@@ -1585,7 +1585,7 @@ type GistComment implements Comment, Deletable, Node, Updatable, UpdatableCommen
   publishedAt: DateTime
 
   # Identifies the date and time when the object was last updated.
-  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC.")
+  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2018-07-01 UTC.")
 
   # A list of edits to this content.
   userContentEdits(
@@ -1975,7 +1975,7 @@ type Issue implements Assignable, Closable, Comment, Labelable, Lockable, Node, 
   createdViaEmail: Boolean!
 
   # Identifies the primary key from the database.
-  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC.")
+  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2018-07-01 UTC.")
 
   # The actor who edited the comment.
   editor: Actor
@@ -2096,7 +2096,7 @@ type Issue implements Assignable, Closable, Comment, Labelable, Lockable, Node, 
   title: String!
 
   # Identifies the date and time when the object was last updated.
-  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC.")
+  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2018-07-01 UTC.")
 
   # The HTTP URL for this issue
   url: URI!
@@ -2159,7 +2159,7 @@ type IssueComment implements Comment, Deletable, Node, Reactable, RepositoryNode
   createdViaEmail: Boolean!
 
   # Identifies the primary key from the database.
-  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC.")
+  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2018-07-01 UTC.")
 
   # The actor who edited the comment.
   editor: Actor
@@ -2209,7 +2209,7 @@ type IssueComment implements Comment, Deletable, Node, Reactable, RepositoryNode
   resourcePath: URI!
 
   # Identifies the date and time when the object was last updated.
-  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC.")
+  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2018-07-01 UTC.")
 
   # The HTTP URL for this issue comment
   url: URI!
@@ -2878,7 +2878,7 @@ type MentionedEvent implements Node {
   createdAt: DateTime!
 
   # Identifies the primary key from the database.
-  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC.")
+  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2018-07-01 UTC.")
   id: ID!
 }
 
@@ -3013,7 +3013,7 @@ type Milestone implements Closable, Node, UniformResourceLocatable {
   title: String!
 
   # Identifies the date and time when the object was last updated.
-  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC.")
+  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2018-07-01 UTC.")
 
   # The HTTP URL for this milestone
   url: URI!
@@ -3149,7 +3149,7 @@ type MovedColumnsInProjectEvent implements Node {
   createdAt: DateTime!
 
   # Identifies the primary key from the database.
-  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC.")
+  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2018-07-01 UTC.")
   id: ID!
 }
 
@@ -3270,7 +3270,7 @@ type Organization implements Actor, Node, ProjectOwner, RepositoryOwner, Uniform
   ): URI!
 
   # Identifies the primary key from the database.
-  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC.")
+  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2018-07-01 UTC.")
 
   # The organization's public profile description.
   description: String
@@ -3672,7 +3672,7 @@ type Project implements Closable, Node, Updatable {
   creator: Actor
 
   # Identifies the primary key from the database.
-  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC.")
+  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2018-07-01 UTC.")
   id: ID!
 
   # The project's name.
@@ -3706,7 +3706,7 @@ type Project implements Closable, Node, Updatable {
   state: ProjectState!
 
   # Identifies the date and time when the object was last updated.
-  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC.")
+  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2018-07-01 UTC.")
 
   # The HTTP URL for this project
   url: URI!
@@ -3733,7 +3733,7 @@ type ProjectCard implements Node {
   creator: Actor
 
   # Identifies the primary key from the database.
-  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC.")
+  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2018-07-01 UTC.")
   id: ID!
 
   # The card note
@@ -3743,7 +3743,7 @@ type ProjectCard implements Node {
   project: Project!
 
   # The column that contains this card.
-  projectColumn: ProjectColumn! @deprecated(reason: "The associated column may be null if the card is in a pending state. Use `ProjectCard.column` instead. Removal on 2017-07-01 UTC.")
+  projectColumn: ProjectColumn! @deprecated(reason: "The associated column may be null if the card is in a pending state. Use `ProjectCard.column` instead. Removal on 2018-07-01 UTC.")
 
   # The HTTP path for this card
   resourcePath: URI!
@@ -3752,7 +3752,7 @@ type ProjectCard implements Node {
   state: ProjectCardState
 
   # Identifies the date and time when the object was last updated.
-  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC.")
+  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2018-07-01 UTC.")
 
   # The HTTP URL for this card
   url: URI!
@@ -3818,7 +3818,7 @@ type ProjectColumn implements Node {
   createdAt: DateTime!
 
   # Identifies the primary key from the database.
-  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC.")
+  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2018-07-01 UTC.")
   id: ID!
 
   # The project column's name.
@@ -3831,7 +3831,7 @@ type ProjectColumn implements Node {
   resourcePath: URI!
 
   # Identifies the date and time when the object was last updated.
-  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC.")
+  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2018-07-01 UTC.")
 
   # The HTTP URL for this project column
   url: URI!
@@ -4175,7 +4175,7 @@ type PullRequest implements Assignable, Closable, Comment, Labelable, Lockable, 
   createdViaEmail: Boolean!
 
   # Identifies the primary key from the database.
-  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC.")
+  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2018-07-01 UTC.")
 
   # The number of deletions in this pull request.
   deletions: Int!
@@ -4380,7 +4380,7 @@ type PullRequest implements Assignable, Closable, Comment, Labelable, Lockable, 
   title: String!
 
   # Identifies the date and time when the object was last updated.
-  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC.")
+  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2018-07-01 UTC.")
 
   # The HTTP URL for this pull request.
   url: URI!
@@ -4537,7 +4537,7 @@ type PullRequestReview implements Comment, Deletable, Node, RepositoryNode, Upda
   createdViaEmail: Boolean!
 
   # Identifies the primary key from the database.
-  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC.")
+  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2018-07-01 UTC.")
 
   # The actor who edited the comment.
   editor: Actor
@@ -4565,7 +4565,7 @@ type PullRequestReview implements Comment, Deletable, Node, RepositoryNode, Upda
   submittedAt: DateTime
 
   # Identifies the date and time when the object was last updated.
-  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC.")
+  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2018-07-01 UTC.")
 
   # The HTTP URL permalink for this PullRequestReview.
   url: URI!
@@ -4625,7 +4625,7 @@ type PullRequestReviewComment implements Comment, Deletable, Node, Reactable, Re
   createdViaEmail: Boolean!
 
   # Identifies the primary key from the database.
-  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC.")
+  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2018-07-01 UTC.")
 
   # The diff hunk to which the comment applies.
   diffHunk: String!
@@ -5101,7 +5101,7 @@ type RateLimit {
 # Represents a subject that can be reacted on.
 interface Reactable {
   # Identifies the primary key from the database.
-  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC.")
+  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2018-07-01 UTC.")
   id: ID!
 
   # A list of reactions grouped by content left on the subject.
@@ -5165,7 +5165,7 @@ type Reaction implements Node {
   createdAt: DateTime!
 
   # Identifies the primary key from the database.
-  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC.")
+  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2018-07-01 UTC.")
   id: ID!
 
   # The reactable piece of content
@@ -5436,7 +5436,7 @@ type Release implements Node, UniformResourceLocatable {
   tag: Ref
 
   # Identifies the date and time when the object was last updated.
-  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC.")
+  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2018-07-01 UTC.")
 
   # The HTTP URL for this issue
   url: URI!
@@ -5467,7 +5467,7 @@ type ReleaseAsset implements Node {
   size: Int!
 
   # Identifies the date and time when the object was last updated.
-  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC.")
+  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2018-07-01 UTC.")
 
   # The user that performed the upload
   uploadedBy: User!
@@ -5614,7 +5614,7 @@ type RemovedFromProjectEvent implements Node {
   createdAt: DateTime!
 
   # Identifies the primary key from the database.
-  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC.")
+  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2018-07-01 UTC.")
   id: ID!
 }
 
@@ -5710,7 +5710,7 @@ type Repository implements Node, ProjectOwner, RepositoryInfo, Starrable, Subscr
   createdAt: DateTime!
 
   # Identifies the primary key from the database.
-  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC.")
+  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2018-07-01 UTC.")
 
   # The Ref associated with the repository's default branch.
   defaultBranchRef: Ref
@@ -5891,7 +5891,7 @@ type Repository implements Node, ProjectOwner, RepositoryInfo, Starrable, Subscr
   ): LanguageConnection
 
   # The license associated with the repository
-  license: String @deprecated(reason: "Field `license` will be replaced by a more detailed license object. Use `Repository.licenseInfo` instead. Removal on 2017-07-01 UTC.")
+  license: String @deprecated(reason: "Field `license` will be replaced by a more detailed license object. Use `Repository.licenseInfo` instead. Removal on 2018-07-01 UTC.")
 
   # The license associated with the repository
   licenseInfo: License
@@ -6159,7 +6159,7 @@ type Repository implements Node, ProjectOwner, RepositoryInfo, Starrable, Subscr
   ): StargazerConnection!
 
   # Identifies the date and time when the object was last updated.
-  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC.")
+  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2018-07-01 UTC.")
 
   # The HTTP URL for this repository
   url: URI!
@@ -6331,7 +6331,7 @@ interface RepositoryInfo {
   isPrivate: Boolean!
 
   # The license associated with the repository
-  license: String @deprecated(reason: "Field `license` will be replaced by a more detailed license object. Use `Repository.licenseInfo` instead. Removal on 2017-07-01 UTC.")
+  license: String @deprecated(reason: "Field `license` will be replaced by a more detailed license object. Use `Repository.licenseInfo` instead. Removal on 2018-07-01 UTC.")
 
   # The license associated with the repository
   licenseInfo: License
@@ -6364,7 +6364,7 @@ interface RepositoryInfo {
   ): HTML!
 
   # Identifies the date and time when the object was last updated.
-  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC.")
+  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2018-07-01 UTC.")
 
   # The HTTP URL for this repository
   url: URI!
@@ -6426,7 +6426,7 @@ type RepositoryInvitationRepository implements RepositoryInfo {
   isPrivate: Boolean!
 
   # The license associated with the repository
-  license: String @deprecated(reason: "Field `license` will be replaced by a more detailed license object. Use `Repository.licenseInfo` instead. Removal on 2017-07-01 UTC.")
+  license: String @deprecated(reason: "Field `license` will be replaced by a more detailed license object. Use `Repository.licenseInfo` instead. Removal on 2018-07-01 UTC.")
 
   # The license associated with the repository
   licenseInfo: License
@@ -6459,7 +6459,7 @@ type RepositoryInvitationRepository implements RepositoryInfo {
   ): HTML!
 
   # Identifies the date and time when the object was last updated.
-  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC.")
+  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2018-07-01 UTC.")
 
   # The HTTP URL for this repository
   url: URI!
@@ -6733,7 +6733,7 @@ type ReviewDismissedEvent implements Node, UniformResourceLocatable {
   createdAt: DateTime!
 
   # Identifies the primary key from the database.
-  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC.")
+  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2018-07-01 UTC.")
   id: ID!
 
   # Identifies the message associated with the 'review_dismissed' event.
@@ -6764,7 +6764,7 @@ type ReviewDismissedEvent implements Node, UniformResourceLocatable {
 # A request for a user to review a pull request.
 type ReviewRequest implements Node {
   # Identifies the primary key from the database.
-  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC.")
+  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2018-07-01 UTC.")
   id: ID!
 
   # Identifies the pull request associated with this review request.
@@ -6774,7 +6774,7 @@ type ReviewRequest implements Node {
   requestedReviewer: RequestedReviewer
 
   # Identifies the author associated with this review request.
-  reviewer: User @deprecated(reason: "Field `reviewer` will be changed in favor of returning a union type. Use `ReviewRequest.requestedReviewer` instead. Removal on 2017-07-01 UTC.")
+  reviewer: User @deprecated(reason: "Field `reviewer` will be changed in favor of returning a union type. Use `ReviewRequest.requestedReviewer` instead. Removal on 2018-07-01 UTC.")
 }
 
 # The connection type for ReviewRequest.
@@ -7338,7 +7338,7 @@ type Team implements Node, Subscribable {
   teamsUrl: URI!
 
   # Identifies the date and time when the object was last updated.
-  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC.")
+  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2018-07-01 UTC.")
 
   # The HTTP URL for this team
   url: URI!
@@ -7956,13 +7956,13 @@ type User implements Actor, Node, RepositoryOwner, UniformResourceLocatable {
 
     # If non-null, filters repositories according to privacy
     privacy: RepositoryPrivacy
-  ): RepositoryConnection! @deprecated(reason: "Arguments for connection `contributedRepositories` are getting redesigned. Use `User.repositoriesContributedTo` instead. Removal on 2017-07-01 UTC.")
+  ): RepositoryConnection! @deprecated(reason: "Arguments for connection `contributedRepositories` are getting redesigned. Use `User.repositoriesContributedTo` instead. Removal on 2018-07-01 UTC.")
 
   # Identifies the date and time when the object was created.
   createdAt: DateTime!
 
   # Identifies the primary key from the database.
-  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2017-07-01 UTC.")
+  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2018-07-01 UTC.")
 
   # The user's publicly visible profile email.
   email: String!
@@ -8294,7 +8294,7 @@ type User implements Actor, Node, RepositoryOwner, UniformResourceLocatable {
   ): StarredRepositoryConnection!
 
   # Identifies the date and time when the object was last updated.
-  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC.")
+  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2018-07-01 UTC.")
 
   # The HTTP URL for this user
   url: URI!
@@ -8361,7 +8361,7 @@ type UserContentEdit implements Node {
   id: ID!
 
   # Identifies the date and time when the object was last updated.
-  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2017-07-01 UTC.")
+  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2018-07-01 UTC.")
 }
 
 # A list of edits to content.
