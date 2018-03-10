@@ -23592,26 +23592,32 @@
       {
         "kind": "ENUM",
         "name": "DefaultRepositoryPermissionField",
-        "description": "The possible default permissions for organization-owned repositories.",
+        "description": "The possible default permissions for repositories.",
         "fields": null,
         "inputFields": null,
         "interfaces": null,
         "enumValues": [
           {
+            "name": "NONE",
+            "description": "No access",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "READ",
-            "description": "Members have read access to org repos by default",
+            "description": "Can read repos by default",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "WRITE",
-            "description": "Members have read and write access to org repos by default",
+            "description": "Can read and write repos by default",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "ADMIN",
-            "description": "Members have read, write, and admin access to org repos by default",
+            "description": "Can read, write, and administrate repos by default",
             "isDeprecated": false,
             "deprecationReason": null
           }
@@ -24610,6 +24616,18 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "databaseId",
+            "description": "Identifies the primary key from the database.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Int",
+              "ofType": null
+            },
+            "isDeprecated": true,
+            "deprecationReason": "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2018-07-01 UTC."
           },
           {
             "name": "editor",
@@ -31052,6 +31070,35 @@
         ]
       },
       {
+        "kind": "ENUM",
+        "name": "CollaboratorAffiliation",
+        "description": "Collaborators affiliation level with a subject.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "OUTSIDE",
+            "description": "All outside collaborators of an organization-owned subject.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "DIRECT",
+            "description": "All collaborators with permissions to an organization-owned subject, regardless of organization membership status.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "ALL",
+            "description": "All collaborators the authenticated user can see.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
         "kind": "OBJECT",
         "name": "DeployKeyConnection",
         "description": "The connection type for DeployKey.",
@@ -33350,35 +33397,6 @@
         "inputFields": null,
         "interfaces": [],
         "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "ENUM",
-        "name": "CollaboratorAffiliation",
-        "description": "Collaborators affiliation level with a repository.",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": [
-          {
-            "name": "OUTSIDE",
-            "description": "All outside collaborators of an organization-owned repository.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "DIRECT",
-            "description": "All collaborators with permissions to an organization-owned repository, regardless of organization membership status.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "ALL",
-            "description": "All collaborators the authenticated user can see.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
         "possibleTypes": null
       },
       {

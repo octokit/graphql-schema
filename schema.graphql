@@ -437,15 +437,15 @@ type CodeOfConduct {
   url: URI
 }
 
-# Collaborators affiliation level with a repository.
+# Collaborators affiliation level with a subject.
 enum CollaboratorAffiliation {
   # All collaborators the authenticated user can see.
   ALL
 
-  # All collaborators with permissions to an organization-owned repository, regardless of organization membership status.
+  # All collaborators with permissions to an organization-owned subject, regardless of organization membership status.
   DIRECT
 
-  # All outside collaborators of an organization-owned repository.
+  # All outside collaborators of an organization-owned subject.
   OUTSIDE
 }
 
@@ -1031,15 +1031,18 @@ type DeclineTopicSuggestionPayload {
   topic: Topic!
 }
 
-# The possible default permissions for organization-owned repositories.
+# The possible default permissions for repositories.
 enum DefaultRepositoryPermissionField {
-  # Members have read, write, and admin access to org repos by default
+  # Can read, write, and administrate repos by default
   ADMIN
 
-  # Members have read access to org repos by default
+  # No access
+  NONE
+
+  # Can read repos by default
   READ
 
-  # Members have read and write access to org repos by default
+  # Can read and write repos by default
   WRITE
 }
 
@@ -1570,6 +1573,9 @@ type GistComment implements Comment, Deletable, Node, Updatable, UpdatableCommen
 
   # Check if this comment was created via an email reply.
   createdViaEmail: Boolean!
+
+  # Identifies the primary key from the database.
+  databaseId: Int @deprecated(reason: "Exposed database IDs will eventually be removed in favor of global Relay IDs. Use `Node.id` instead. Removal on 2018-07-01 UTC.")
 
   # The actor who edited the comment.
   editor: Actor
