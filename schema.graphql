@@ -1817,6 +1817,15 @@ enum GitSignatureState {
   # Email used for signing not known to GitHub.
   NO_USER
 
+  # Valid siganture, though certificate revocation check failed
+  OCSP_ERROR
+
+  # Valid signature, pending certificate revocation checking
+  OCSP_PENDING
+
+  # One or more certificates in chain has been revoked
+  OCSP_REVOKED
+
   # Key used for signing not known to GitHub.
   UNKNOWN_KEY
 
@@ -5920,6 +5929,9 @@ type Repository implements Node, ProjectOwner, RepositoryInfo, Starrable, Subscr
     last: Int
   ): UserConnection!
 
+  # Whether or not PRs are merged with a merge commit on this repository.
+  mergeCommitAllowed: Boolean!
+
   # Returns a single milestone from the current repository by number.
   milestone(
     # The number for the milestone to be returned.
@@ -6064,6 +6076,9 @@ type Repository implements Node, ProjectOwner, RepositoryInfo, Starrable, Subscr
   # Identifies when the repository was last pushed to.
   pushedAt: DateTime
 
+  # Whether or not rebase-merging is enabled on this repository.
+  rebaseMergeAllowed: Boolean!
+
   # Fetch a given ref from the repository
   ref(
     # The ref to retrieve. Fully qualified matches are checked in order
@@ -6142,6 +6157,9 @@ type Repository implements Node, ProjectOwner, RepositoryInfo, Starrable, Subscr
     # How many characters to return.
     limit: Int = 200
   ): HTML!
+
+  # Whether or not squash-merging is enabled on this repository.
+  squashMergeAllowed: Boolean!
 
   # The SSH URL to clone this repository
   sshUrl: GitSSHRemote!
@@ -6390,85 +6408,7 @@ type RepositoryInvitation implements Node {
   permission: RepositoryPermission!
 
   # The Repository the user is invited to.
-  repository: RepositoryInvitationRepository
-}
-
-# A subset of repository info shared with potential collaborators.
-type RepositoryInvitationRepository implements RepositoryInfo {
-  # Identifies the date and time when the object was created.
-  createdAt: DateTime!
-
-  # The description of the repository.
-  description: String
-
-  # The description of the repository rendered to HTML.
-  descriptionHTML: HTML!
-
-  # Returns how many forks there are of this repository in the whole network.
-  forkCount: Int!
-
-  # Indicates if the repository has issues feature enabled.
-  hasIssuesEnabled: Boolean!
-
-  # Indicates if the repository has wiki feature enabled.
-  hasWikiEnabled: Boolean!
-
-  # The repository's URL.
-  homepageUrl: URI
-
-  # Indicates if the repository is unmaintained.
-  isArchived: Boolean!
-
-  # Identifies if the repository is a fork.
-  isFork: Boolean!
-
-  # Indicates if the repository has been locked or not.
-  isLocked: Boolean!
-
-  # Identifies if the repository is a mirror.
-  isMirror: Boolean!
-
-  # Identifies if the repository is private.
-  isPrivate: Boolean!
-
-  # The license associated with the repository
-  license: String @deprecated(reason: "Field `license` will be replaced by a more detailed license object. Use `Repository.licenseInfo` instead. Removal on 2018-07-01 UTC.")
-
-  # The license associated with the repository
-  licenseInfo: License
-
-  # The reason the repository has been locked.
-  lockReason: RepositoryLockReason
-
-  # The repository's original mirror URL.
-  mirrorUrl: URI
-
-  # The name of the repository.
-  name: String!
-
-  # The repository's name with owner.
-  nameWithOwner: String!
-
-  # The owner of the repository associated with this invitation repository.
-  owner: RepositoryOwner!
-
-  # Identifies when the repository was last pushed to.
-  pushedAt: DateTime
-
-  # The HTTP path for this repository
-  resourcePath: URI!
-
-  # A description of the repository, rendered to HTML without any links in it.
-  shortDescriptionHTML(
-    # How many characters to return.
-    limit: Int = 200
-  ): HTML!
-
-  # Identifies the date and time when the object was last updated.
-  updatedAt: DateTime! @deprecated(reason: "General type updated timestamps will eventually be replaced by other field specific timestamps. Removal on 2018-07-01 UTC.")
-
-  # The HTTP URL for this repository
-  url: URI!
+  repository: RepositoryInfo
 }
 
 # The possible reasons a given repository could be in a locked state.
