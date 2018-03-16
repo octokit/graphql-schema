@@ -19,7 +19,7 @@
     "axios": "^0.18.0",
     "git-diff": "^2.0.4",
     "graphql": "^0.13.2",
-    "graphql-tag": "^2.6.1"
+    "graphql-tag": "^2.8.0"
   },
   "devDependencies": {
     "dotenv": "^5.0.0",
