@@ -333,7 +333,7 @@ type BlameRange {
 }
 
 # Represents a Git blob.
-type Blob implements GitObject, Node {
+type Blob implements GitObject & Node {
   # An abbreviated version of the Git object ID
   abbreviatedOid: String!
 
@@ -364,7 +364,7 @@ type Blob implements GitObject, Node {
 }
 
 # A special type of user which takes actions on behalf of GitHub Apps.
-type Bot implements Actor, Node, UniformResourceLocatable {
+type Bot implements Actor & Node & UniformResourceLocatable {
   # A URL pointing to the GitHub App's public avatar.
   avatarUrl(
     # The size of the resulting square image.
@@ -560,7 +560,7 @@ type CommentDeletedEvent implements Node {
 }
 
 # Represents a Git commit.
-type Commit implements GitObject, Node, Subscribable {
+type Commit implements GitObject & Node & Subscribable {
   # An abbreviated version of the Git object ID
   abbreviatedOid: String!
 
@@ -732,7 +732,7 @@ input CommitAuthor {
 }
 
 # Represents a comment on a given Commit.
-type CommitComment implements Comment, Deletable, Node, Reactable, RepositoryNode, Updatable, UpdatableComment {
+type CommitComment implements Comment & Deletable & Node & Reactable & RepositoryNode & Updatable & UpdatableComment {
   # The actor who authored the comment.
   author: Actor
 
@@ -865,7 +865,7 @@ type CommitCommentEdge {
 }
 
 # A thread of comments on a commit.
-type CommitCommentThread implements Node, RepositoryNode {
+type CommitCommentThread implements Node & RepositoryNode {
   # The comments that exist in this thread.
   comments(
     # Returns the elements in the list that come after the specified global ID.
@@ -971,7 +971,7 @@ type CreateProjectPayload {
 }
 
 # Represents a mention made by one issue or pull request to another.
-type CrossReferencedEvent implements Node, UniformResourceLocatable {
+type CrossReferencedEvent implements Node & UniformResourceLocatable {
   # Identifies the actor who performed the event.
   actor: Actor
 
@@ -1494,7 +1494,7 @@ type FollowingConnection {
 }
 
 # A Gist.
-type Gist implements Node, Starrable {
+type Gist implements Node & Starrable {
   # A list of comments associated with the gist
   comments(
     # Returns the elements in the list that come after the specified global ID.
@@ -1555,7 +1555,7 @@ type Gist implements Node, Starrable {
 }
 
 # Represents a comment on an Gist.
-type GistComment implements Comment, Deletable, Node, Updatable, UpdatableComment {
+type GistComment implements Comment & Deletable & Node & Updatable & UpdatableComment {
   # The actor who authored the comment.
   author: Actor
 
@@ -1928,7 +1928,7 @@ type HeadRefRestoredEvent implements Node {
 }
 
 # An Issue is a place to discuss ideas, enhancements, tasks, and bugs for a project.
-type Issue implements Assignable, Closable, Comment, Labelable, Lockable, Node, Reactable, RepositoryNode, Subscribable, UniformResourceLocatable, Updatable, UpdatableComment {
+type Issue implements Assignable & Closable & Comment & Labelable & Lockable & Node & Reactable & RepositoryNode & Subscribable & UniformResourceLocatable & Updatable & UpdatableComment {
   # Reason that the conversation was locked.
   activeLockReason: LockReason
 
@@ -2151,7 +2151,7 @@ type Issue implements Assignable, Closable, Comment, Labelable, Lockable, Node, 
 }
 
 # Represents a comment on an Issue.
-type IssueComment implements Comment, Deletable, Node, Reactable, RepositoryNode, Updatable, UpdatableComment {
+type IssueComment implements Comment & Deletable & Node & Reactable & RepositoryNode & Updatable & UpdatableComment {
   # The actor who authored the comment.
   author: Actor
 
@@ -2910,7 +2910,7 @@ enum MergeableState {
 }
 
 # Represents a 'merged' event on a given pull request.
-type MergedEvent implements Node, UniformResourceLocatable {
+type MergedEvent implements Node & UniformResourceLocatable {
   # Identifies the actor who performed the event.
   actor: Actor
 
@@ -2938,7 +2938,7 @@ type MergedEvent implements Node, UniformResourceLocatable {
 }
 
 # Represents a Milestone object on a given repository.
-type Milestone implements Closable, Node, UniformResourceLocatable {
+type Milestone implements Closable & Node & UniformResourceLocatable {
   # `true` if the object is closed (definition of closed may depend on type)
   closed: Boolean!
 
@@ -3277,7 +3277,7 @@ enum OrderDirection {
 }
 
 # An account on GitHub, with one or more owners, that has repositories, members and teams.
-type Organization implements Actor, Node, ProjectOwner, RepositoryOwner, UniformResourceLocatable {
+type Organization implements Actor & Node & ProjectOwner & RepositoryOwner & UniformResourceLocatable {
   # A URL pointing to the organization's public avatar.
   avatarUrl(
     # The size of the resulting square image.
@@ -3652,7 +3652,7 @@ type PageInfo {
 }
 
 # Projects manage issues, pull requests and notes within a project owner.
-type Project implements Closable, Node, Updatable {
+type Project implements Closable & Node & Updatable {
   # The project's description body.
   body: String
 
@@ -4098,7 +4098,7 @@ type PublicKeyEdge {
 }
 
 # A repository pull request.
-type PullRequest implements Assignable, Closable, Comment, Labelable, Lockable, Node, Reactable, RepositoryNode, Subscribable, UniformResourceLocatable, Updatable, UpdatableComment {
+type PullRequest implements Assignable & Closable & Comment & Labelable & Lockable & Node & Reactable & RepositoryNode & Subscribable & UniformResourceLocatable & Updatable & UpdatableComment {
   # Reason that the conversation was locked.
   activeLockReason: LockReason
 
@@ -4435,7 +4435,7 @@ type PullRequest implements Assignable, Closable, Comment, Labelable, Lockable, 
 }
 
 # Represents a Git commit part of a pull request.
-type PullRequestCommit implements Node, UniformResourceLocatable {
+type PullRequestCommit implements Node & UniformResourceLocatable {
   # The Git commit object
   commit: Commit!
   id: ID!
@@ -4511,7 +4511,7 @@ enum PullRequestPubSubTopic {
 }
 
 # A review object for a given pull request.
-type PullRequestReview implements Comment, Deletable, Node, RepositoryNode, Updatable, UpdatableComment {
+type PullRequestReview implements Comment & Deletable & Node & RepositoryNode & Updatable & UpdatableComment {
   # The actor who authored the comment.
   author: Actor
 
@@ -4614,7 +4614,7 @@ type PullRequestReview implements Comment, Deletable, Node, RepositoryNode, Upda
 }
 
 # A review comment associated with a given repository pull request.
-type PullRequestReviewComment implements Comment, Deletable, Node, Reactable, RepositoryNode, Updatable, UpdatableComment {
+type PullRequestReviewComment implements Comment & Deletable & Node & Reactable & RepositoryNode & Updatable & UpdatableComment {
   # The actor who authored the comment.
   author: Actor
 
@@ -5403,7 +5403,7 @@ type ReferencedEvent implements Node {
 union ReferencedSubject = Issue | PullRequest
 
 # A release contains the content for a release.
-type Release implements Node, UniformResourceLocatable {
+type Release implements Node & UniformResourceLocatable {
   # The author of the release
   author: User
 
@@ -5669,7 +5669,7 @@ type ReopenedEvent implements Node {
 }
 
 # A repository contains the content for a project.
-type Repository implements Node, ProjectOwner, RepositoryInfo, Starrable, Subscribable, UniformResourceLocatable {
+type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Subscribable & UniformResourceLocatable {
   # A list of users that can be assigned to issues in this repository.
   assignableUsers(
     # Returns the elements in the list that come after the specified global ID.
@@ -6563,7 +6563,7 @@ enum RepositoryPrivacy {
 }
 
 # A repository-topic connects a repository to a topic.
-type RepositoryTopic implements Node, UniformResourceLocatable {
+type RepositoryTopic implements Node & UniformResourceLocatable {
   id: ID!
 
   # The HTTP path for this repository-topic.
@@ -6671,7 +6671,7 @@ type ReviewDismissalAllowanceEdge {
 }
 
 # Represents a 'review_dismissed' event on a given issue or pull request.
-type ReviewDismissedEvent implements Node, UniformResourceLocatable {
+type ReviewDismissedEvent implements Node & UniformResourceLocatable {
   # Identifies the actor who performed the event.
   actor: Actor
 
@@ -7088,7 +7088,7 @@ type SuggestedReviewer {
 }
 
 # Represents a Git tag.
-type Tag implements GitObject, Node {
+type Tag implements GitObject & Node {
   # An abbreviated version of the Git object ID
   abbreviatedOid: String!
 
@@ -7119,7 +7119,7 @@ type Tag implements GitObject, Node {
 }
 
 # A team of users in an organization.
-type Team implements Node, Subscribable {
+type Team implements Node & Subscribable {
   # A list of teams that are ancestors of this team.
   ancestors(
     # Returns the elements in the list that come after the specified global ID.
@@ -7537,7 +7537,7 @@ enum TopicSuggestionDeclineReason {
 }
 
 # Represents a Git tree.
-type Tree implements GitObject, Node {
+type Tree implements GitObject & Node {
   # An abbreviated version of the Git object ID
   abbreviatedOid: String!
 
@@ -7843,7 +7843,7 @@ type UpdateTopicsPayload {
 }
 
 # A user is an individual's account on GitHub that owns repositories and can make new content.
-type User implements Actor, Node, RepositoryOwner, UniformResourceLocatable {
+type User implements Actor & Node & RepositoryOwner & UniformResourceLocatable {
   # A URL pointing to the user's public avatar.
   avatarUrl(
     # The size of the resulting square image.
