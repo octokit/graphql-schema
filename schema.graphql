@@ -7213,6 +7213,9 @@ type Team implements Node & Subscribable {
     # Filter by membership type
     membership: TeamMembershipType = ALL
 
+    # Order for the connection.
+    orderBy: TeamMemberOrder
+
     # The search string to look for.
     query: String
 
@@ -7351,6 +7354,24 @@ type TeamMemberEdge {
 
   # The role the member has on the team.
   role: TeamMemberRole!
+}
+
+# Ordering options for team member connections
+input TeamMemberOrder {
+  # The ordering direction.
+  direction: OrderDirection!
+
+  # The field to order team members by.
+  field: TeamMemberOrderField!
+}
+
+# Properties by which team member connections can be ordered.
+enum TeamMemberOrderField {
+  # Order team members by creation time
+  CREATED_AT
+
+  # Order team members by login
+  LOGIN
 }
 
 # The possible team member roles; either 'maintainer' or 'member'.
