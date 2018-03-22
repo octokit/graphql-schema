@@ -19489,6 +19489,16 @@
                   "ofType": null
                 },
                 "defaultValue": null
+              },
+              {
+                "name": "orderBy",
+                "description": "Order for the connection.",
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "TeamMemberOrder",
+                  "ofType": null
+                },
+                "defaultValue": null
               }
             ],
             "type": {
@@ -20132,6 +20142,68 @@
           {
             "name": "ALL",
             "description": "Includes immediate and child team members for the team.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "TeamMemberOrder",
+        "description": "Ordering options for team member connections",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "field",
+            "description": "The field to order team members by.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "TeamMemberOrderField",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "direction",
+            "description": "The ordering direction.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "OrderDirection",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "TeamMemberOrderField",
+        "description": "Properties by which team member connections can be ordered.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "LOGIN",
+            "description": "Order team members by login",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "CREATED_AT",
+            "description": "Order team members by creation time",
             "isDeprecated": false,
             "deprecationReason": null
           }
