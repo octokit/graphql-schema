@@ -13495,7 +13495,7 @@
           },
           {
             "name": "tarballUrl",
-            "description": "Returns a URL to download a tarball archive for a repository.                      Note: For private repositories, these links are temporary and expire after five minutes.",
+            "description": "Returns a URL to download a tarball archive for a repository.\nNote: For private repositories, these links are temporary and expire after five minutes.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -13607,7 +13607,7 @@
           },
           {
             "name": "zipballUrl",
-            "description": "Returns a URL to download a zipball archive for a repository.                      Note: For private repositories, these links are temporary and expire after five minutes.",
+            "description": "Returns a URL to download a zipball archive for a repository.\nNote: For private repositories, these links are temporary and expire after five minutes.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
