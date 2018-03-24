@@ -694,8 +694,8 @@ type Commit implements GitObject & Node & Subscribable {
   # Status information for this commit
   status: Status
 
-  # Returns a URL to download a tarball archive for a repository.                 
-  #     Note: For private repositories, these links are temporary and expire after five minutes.
+  # Returns a URL to download a tarball archive for a repository.
+  # Note: For private repositories, these links are temporary and expire after five minutes.
   tarballUrl: URI!
 
   # Commit's root Tree
@@ -716,8 +716,8 @@ type Commit implements GitObject & Node & Subscribable {
   # Identifies if the viewer is watching, not watching, or ignoring the subscribable entity.
   viewerSubscription: SubscriptionState!
 
-  # Returns a URL to download a zipball archive for a repository.                 
-  #     Note: For private repositories, these links are temporary and expire after five minutes.
+  # Returns a URL to download a zipball archive for a repository.
+  # Note: For private repositories, these links are temporary and expire after five minutes.
   zipballUrl: URI!
 }
 
