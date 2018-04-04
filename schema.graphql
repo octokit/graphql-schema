@@ -460,11 +460,14 @@ interface Comment {
   # Author's association with the subject of the comment.
   authorAssociation: CommentAuthorAssociation!
 
-  # The comment body as Markdown.
+  # The body as Markdown.
   body: String!
 
-  # The comment body rendered to HTML.
+  # The body rendered to HTML.
   bodyHTML: HTML!
+
+  # The body rendered to text.
+  bodyText: String!
 
   # Identifies the date and time when the object was created.
   createdAt: DateTime!
@@ -744,6 +747,9 @@ type CommitComment implements Comment & Deletable & Node & Reactable & Repositor
 
   # Identifies the comment body rendered to HTML.
   bodyHTML: HTML!
+
+  # The body rendered to text.
+  bodyText: String!
 
   # Identifies the commit associated with the comment, if the commit exists.
   commit: Commit
@@ -1568,6 +1574,9 @@ type GistComment implements Comment & Deletable & Node & Updatable & UpdatableCo
   # The comment body rendered to HTML.
   bodyHTML: HTML!
 
+  # The body rendered to text.
+  bodyText: String!
+
   # Identifies the date and time when the object was created.
   createdAt: DateTime!
 
@@ -2158,13 +2167,13 @@ type IssueComment implements Comment & Deletable & Node & Reactable & Repository
   # Author's association with the subject of the comment.
   authorAssociation: CommentAuthorAssociation!
 
-  # Identifies the comment body.
+  # The body as Markdown.
   body: String!
 
-  # The comment body rendered to HTML.
+  # The body rendered to HTML.
   bodyHTML: HTML!
 
-  # Identifies the body of the issue rendered to text.
+  # The body rendered to text.
   bodyText: String!
 
   # Identifies the date and time when the object was created.
@@ -4135,13 +4144,13 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   # Identifies the oid of the base ref associated with the pull request, even if the ref has been deleted.
   baseRefOid: GitObjectID!
 
-  # Identifies the body of the pull request.
+  # The body as Markdown.
   body: String!
 
-  # Identifies the body of the pull request rendered to HTML.
+  # The body rendered to HTML.
   bodyHTML: HTML!
 
-  # Identifies the body of the pull request rendered to text.
+  # The body rendered to text.
   bodyText: String!
 
   # The number of changed files in this pull request.
