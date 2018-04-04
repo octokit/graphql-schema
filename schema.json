@@ -8324,7 +8324,7 @@
           },
           {
             "name": "body",
-            "description": "The comment body as Markdown.",
+            "description": "The body as Markdown.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -8340,7 +8340,7 @@
           },
           {
             "name": "bodyHTML",
-            "description": "The comment body rendered to HTML.",
+            "description": "The body rendered to HTML.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -8348,6 +8348,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "HTML",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "bodyText",
+            "description": "The body rendered to text.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
                 "ofType": null
               }
             },
@@ -9951,7 +9967,7 @@
           },
           {
             "name": "body",
-            "description": "Identifies the body of the pull request.",
+            "description": "The body as Markdown.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -9967,7 +9983,7 @@
           },
           {
             "name": "bodyHTML",
-            "description": "Identifies the body of the pull request rendered to HTML.",
+            "description": "The body rendered to HTML.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -9983,7 +9999,7 @@
           },
           {
             "name": "bodyText",
-            "description": "Identifies the body of the pull request rendered to text.",
+            "description": "The body rendered to text.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -14388,6 +14404,22 @@
             "deprecationReason": null
           },
           {
+            "name": "bodyText",
+            "description": "The body rendered to text.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "commit",
             "description": "Identifies the commit associated with the comment, if the commit exists.",
             "args": [],
@@ -16839,7 +16871,7 @@
           },
           {
             "name": "body",
-            "description": "Identifies the comment body.",
+            "description": "The body as Markdown.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -16855,7 +16887,7 @@
           },
           {
             "name": "bodyHTML",
-            "description": "The comment body rendered to HTML.",
+            "description": "The body rendered to HTML.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -16871,7 +16903,7 @@
           },
           {
             "name": "bodyText",
-            "description": "Identifies the body of the issue rendered to text.",
+            "description": "The body rendered to text.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -24717,6 +24749,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "HTML",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "bodyText",
+            "description": "The body rendered to text.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
                 "ofType": null
               }
             },
