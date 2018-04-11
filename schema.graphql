@@ -4247,6 +4247,9 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   # `true` if the pull request is locked
   locked: Boolean!
 
+  # Indicates whether maintainers can modify the pull request.
+  maintainerCanModify: Boolean!
+
   # The commit that was created when this pull request was merged.
   mergeCommit: Commit
 
@@ -4258,6 +4261,9 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
 
   # The date and time that the pull request was merged.
   mergedAt: DateTime
+
+  # The actor who merged the pull request.
+  mergedBy: Actor
 
   # Identifies the milestone associated with the pull request.
   milestone: Milestone
@@ -8332,7 +8338,16 @@ type UserContentEdit implements Node {
   # Identifies the date and time when the object was created.
   createdAt: DateTime!
 
-  # The actor who edited this content,
+  # Identifies the date and time when the object was deleted.
+  deletedAt: DateTime
+
+  # The actor who deleted this content
+  deletedBy: Actor
+
+  # A summary of the changes for this edit
+  diff: String
+
+  # The actor who edited this content
   editor: Actor
   id: ID!
 
