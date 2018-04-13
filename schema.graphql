@@ -1798,6 +1798,9 @@ interface GitSignature {
   # The state of this signature. `VALID` if signature is valid and verified by
   # GitHub, otherwise represents reason why signature is considered invalid.
   state: GitSignatureState!
+
+  # True if the signature was made with GitHub's signing key.
+  wasSignedByGitHub: Boolean!
 }
 
 # The state of a Git signature.
@@ -1877,6 +1880,9 @@ type GpgSignature implements GitSignature {
   # The state of this signature. `VALID` if signature is valid and verified by
   # GitHub, otherwise represents reason why signature is considered invalid.
   state: GitSignatureState!
+
+  # True if the signature was made with GitHub's signing key.
+  wasSignedByGitHub: Boolean!
 }
 
 # A string containing HTML code.
@@ -2391,6 +2397,9 @@ type Label implements Node {
   # Identifies the label color.
   color: String!
 
+  # Identifies the date and time when the label was created.
+  createdAt: DateTime
+
   # A brief description of this label.
   description: String
   id: ID!
@@ -2457,6 +2466,15 @@ type Label implements Node {
 
   # The repository associated with this label.
   repository: Repository!
+
+  # The HTTP path for this label.
+  resourcePath: URI!
+
+  # Identifies the date and time when the label was last updated.
+  updatedAt: DateTime
+
+  # The HTTP URL for this label.
+  url: URI!
 }
 
 # The connection type for Label.
@@ -2604,6 +2622,9 @@ type License {
 
   # The permissions set by the license
   permissions: [LicenseRule]!
+
+  # Whether the license is a pseudo-license placeholder (e.g., other, no-license)
+  pseudoLicense: Boolean!
 
   # Short identifier specified by <https://spdx.org/licenses>
   spdxId: String
@@ -6874,6 +6895,9 @@ type SmimeSignature implements GitSignature {
   # The state of this signature. `VALID` if signature is valid and verified by
   # GitHub, otherwise represents reason why signature is considered invalid.
   state: GitSignatureState!
+
+  # True if the signature was made with GitHub's signing key.
+  wasSignedByGitHub: Boolean!
 }
 
 # Ways in which star connections can be ordered.
@@ -7663,6 +7687,9 @@ type UnknownSignature implements GitSignature {
   # The state of this signature. `VALID` if signature is valid and verified by
   # GitHub, otherwise represents reason why signature is considered invalid.
   state: GitSignatureState!
+
+  # True if the signature was made with GitHub's signing key.
+  wasSignedByGitHub: Boolean!
 }
 
 # Represents an 'unlabeled' event on a given issue or pull request.
