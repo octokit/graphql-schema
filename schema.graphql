@@ -8085,7 +8085,7 @@ type User implements Actor & Node & RepositoryOwner & UniformResourceLocatable {
     last: Int
   ): IssueCommentConnection!
 
-  # A list of issues assocated with this user.
+  # A list of issues associated with this user.
   issues(
     # Returns the elements in the list that come after the specified global ID.
     after: String
@@ -8181,7 +8181,7 @@ type User implements Actor & Node & RepositoryOwner & UniformResourceLocatable {
     last: Int
   ): PublicKeyConnection!
 
-  # A list of pull requests assocated with this user.
+  # A list of pull requests associated with this user.
   pullRequests(
     # Returns the elements in the list that come after the specified global ID.
     after: String
