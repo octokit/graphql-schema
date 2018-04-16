@@ -2065,7 +2065,7 @@
           },
           {
             "name": "issues",
-            "description": "A list of issues assocated with this user.",
+            "description": "A list of issues associated with this user.",
             "args": [
               {
                 "name": "first",
@@ -2450,7 +2450,7 @@
           },
           {
             "name": "pullRequests",
-            "description": "A list of pull requests assocated with this user.",
+            "description": "A list of pull requests associated with this user.",
             "args": [
               {
                 "name": "first",
