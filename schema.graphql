@@ -1429,7 +1429,7 @@ type ExternalIdentity implements Node {
   # SCIM Identity attributes
   scimIdentity: ExternalIdentityScimAttributes
 
-  # User linked to this external identity
+  # User linked to this external identity. Will be NULL if this identity has not been claimed by an organization member.
   user: User
 }
 
