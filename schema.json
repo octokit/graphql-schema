@@ -19155,7 +19155,7 @@
           },
           {
             "name": "user",
-            "description": "User linked to this external identity",
+            "description": "User linked to this external identity. Will be NULL if this identity has not been claimed by an organization member.",
             "args": [],
             "type": {
               "kind": "OBJECT",
