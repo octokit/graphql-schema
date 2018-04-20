@@ -5200,6 +5200,7 @@ type ReactingUserConnection {
 
 # Represents a user that's made a reaction.
 type ReactingUserEdge {
+  # A cursor for use in pagination.
   cursor: String!
   node: User!
 
@@ -6300,6 +6301,7 @@ type RepositoryCollaboratorConnection {
 
 # Represents a user who is a collaborator of a repository.
 type RepositoryCollaboratorEdge {
+  # A cursor for use in pagination.
   cursor: String!
   node: User!
 
@@ -6445,6 +6447,15 @@ type RepositoryInvitation implements Node {
 
   # The Repository the user is invited to.
   repository: RepositoryInfo
+}
+
+# An edge in a connection.
+type RepositoryInvitationEdge {
+  # A cursor for use in pagination.
+  cursor: String!
+
+  # The item at the end of the edge.
+  node: RepositoryInvitation
 }
 
 # The possible reasons a given repository could be in a locked state.
@@ -6932,6 +6943,7 @@ type StargazerConnection {
 
 # Represents a user that's starred a repository.
 type StargazerEdge {
+  # A cursor for use in pagination.
   cursor: String!
   node: User!
 
@@ -6982,6 +6994,7 @@ type StarredRepositoryConnection {
 
 # Represents a starred repository.
 type StarredRepositoryEdge {
+  # A cursor for use in pagination.
   cursor: String!
   node: Repository!
 
@@ -7382,6 +7395,7 @@ type TeamMemberConnection {
 
 # Represents a user who is a member of a team.
 type TeamMemberEdge {
+  # A cursor for use in pagination.
   cursor: String!
 
   # The HTTP path to the organization's member access page.
@@ -7475,6 +7489,7 @@ type TeamRepositoryConnection {
 
 # Represents a team repository.
 type TeamRepositoryEdge {
+  # A cursor for use in pagination.
   cursor: String!
   node: Repository!
 

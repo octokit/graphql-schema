@@ -11956,7 +11956,7 @@
         "fields": [
           {
             "name": "cursor",
-            "description": null,
+            "description": "A cursor for use in pagination.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -20453,7 +20453,7 @@
         "fields": [
           {
             "name": "cursor",
-            "description": null,
+            "description": "A cursor for use in pagination.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -20733,7 +20733,7 @@
         "fields": [
           {
             "name": "cursor",
-            "description": null,
+            "description": "A cursor for use in pagination.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -21723,7 +21723,7 @@
         "fields": [
           {
             "name": "cursor",
-            "description": null,
+            "description": "A cursor for use in pagination.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -22406,6 +22406,45 @@
             "deprecationReason": null
           }
         ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "RepositoryInvitationEdge",
+        "description": "An edge in a connection.",
+        "fields": [
+          {
+            "name": "cursor",
+            "description": "A cursor for use in pagination.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "node",
+            "description": "The item at the end of the edge.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "RepositoryInvitation",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
         "possibleTypes": null
       },
       {
@@ -33296,7 +33335,7 @@
         "fields": [
           {
             "name": "cursor",
-            "description": null,
+            "description": "A cursor for use in pagination.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -34430,7 +34469,7 @@
         "fields": [
           {
             "name": "cursor",
-            "description": null,
+            "description": "A cursor for use in pagination.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
