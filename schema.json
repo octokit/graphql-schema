@@ -5461,13 +5461,9 @@
             "description": "Identifies if the viewer is watching, not watching, or ignoring the subscribable entity.",
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "ENUM",
-                "name": "SubscriptionState",
-                "ofType": null
-              }
+              "kind": "ENUM",
+              "name": "SubscriptionState",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -7951,13 +7947,9 @@
             "description": "Identifies if the viewer is watching, not watching, or ignoring the subscribable entity.",
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "ENUM",
-                "name": "SubscriptionState",
-                "ofType": null
-              }
+              "kind": "ENUM",
+              "name": "SubscriptionState",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -11358,13 +11350,9 @@
             "description": "Identifies if the viewer is watching, not watching, or ignoring the subscribable entity.",
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "ENUM",
-                "name": "SubscriptionState",
-                "ofType": null
-              }
+              "kind": "ENUM",
+              "name": "SubscriptionState",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -12404,13 +12392,9 @@
             "description": "Identifies if the viewer is watching, not watching, or ignoring the subscribable entity.",
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "ENUM",
-                "name": "SubscriptionState",
-                "ofType": null
-              }
+              "kind": "ENUM",
+              "name": "SubscriptionState",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -12470,12 +12454,6 @@
           {
             "name": "IGNORED",
             "description": "The User is never notified.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "UNAVAILABLE",
-            "description": "Subscriptions are currently unavailable",
             "isDeprecated": false,
             "deprecationReason": null
           }
@@ -13730,13 +13708,9 @@
             "description": "Identifies if the viewer is watching, not watching, or ignoring the subscribable entity.",
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "ENUM",
-                "name": "SubscriptionState",
-                "ofType": null
-              }
+              "kind": "ENUM",
+              "name": "SubscriptionState",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -20320,13 +20294,9 @@
             "description": "Identifies if the viewer is watching, not watching, or ignoring the subscribable entity.",
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "ENUM",
-                "name": "SubscriptionState",
-                "ofType": null
-              }
+              "kind": "ENUM",
+              "name": "SubscriptionState",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -36024,7 +35994,7 @@
           },
           {
             "name": "updateSubscription",
-            "description": "Updates viewers repository subscription state.",
+            "description": "Updates the state for subscribable subjects.",
             "args": [
               {
                 "name": "input",
@@ -36263,7 +36233,7 @@
           },
           {
             "name": "content",
-            "description": "The name of the emoji to react with.",
+            "description": "The name of the emoji reaction to remove.",
             "type": {
               "kind": "NON_NULL",
               "name": null,
