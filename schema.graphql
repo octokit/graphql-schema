@@ -717,7 +717,7 @@ type Commit implements GitObject & Node & Subscribable {
   viewerCanSubscribe: Boolean!
 
   # Identifies if the viewer is watching, not watching, or ignoring the subscribable entity.
-  viewerSubscription: SubscriptionState!
+  viewerSubscription: SubscriptionState
 
   # Returns a URL to download a zipball archive for a repository.
   # Note: For private repositories, these links are temporary and expire after five minutes.
@@ -2162,7 +2162,7 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
   viewerDidAuthor: Boolean!
 
   # Identifies if the viewer is watching, not watching, or ignoring the subscribable entity.
-  viewerSubscription: SubscriptionState!
+  viewerSubscription: SubscriptionState
 }
 
 # Represents a comment on an Issue.
@@ -3284,7 +3284,7 @@ type Mutation {
   # Updates a pull request review comment.
   updatePullRequestReviewComment(input: UpdatePullRequestReviewCommentInput!): UpdatePullRequestReviewCommentPayload
 
-  # Updates viewers repository subscription state.
+  # Updates the state for subscribable subjects.
   updateSubscription(input: UpdateSubscriptionInput!): UpdateSubscriptionPayload
 
   # Replaces the repository's topics with the given topics.
@@ -4467,7 +4467,7 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   viewerDidAuthor: Boolean!
 
   # Identifies if the viewer is watching, not watching, or ignoring the subscribable entity.
-  viewerSubscription: SubscriptionState!
+  viewerSubscription: SubscriptionState
 }
 
 # Represents a Git commit part of a pull request.
@@ -5620,7 +5620,7 @@ input RemoveReactionInput {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
 
-  # The name of the emoji to react with.
+  # The name of the emoji reaction to remove.
   content: ReactionContent!
 
   # The Node ID of the subject to modify.
@@ -6244,7 +6244,7 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   viewerPermission: RepositoryPermission
 
   # Identifies if the viewer is watching, not watching, or ignoring the subscribable entity.
-  viewerSubscription: SubscriptionState!
+  viewerSubscription: SubscriptionState
 
   # A list of users watching the repository.
   watchers(
@@ -7096,7 +7096,7 @@ interface Subscribable {
   viewerCanSubscribe: Boolean!
 
   # Identifies if the viewer is watching, not watching, or ignoring the subscribable entity.
-  viewerSubscription: SubscriptionState!
+  viewerSubscription: SubscriptionState
 }
 
 # Represents a 'subscribed' event on a given `Subscribable`.
@@ -7119,9 +7119,6 @@ enum SubscriptionState {
 
   # The User is notified of all conversations.
   SUBSCRIBED
-
-  # Subscriptions are currently unavailable
-  UNAVAILABLE
 
   # The User is only notified when particpating or @mentioned.
   UNSUBSCRIBED
@@ -7351,7 +7348,7 @@ type Team implements Node & Subscribable {
   viewerCanSubscribe: Boolean!
 
   # Identifies if the viewer is watching, not watching, or ignoring the subscribable entity.
-  viewerSubscription: SubscriptionState!
+  viewerSubscription: SubscriptionState
 }
 
 # The connection type for Team.
