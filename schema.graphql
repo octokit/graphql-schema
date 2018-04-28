@@ -2352,6 +2352,9 @@ enum IssuePubSubTopic {
   # The channel ID for marking an issue as read.
   MARKASREAD
 
+  # The channel ID for updating items on the issue timeline.
+  TIMELINE
+
   # The channel ID for observing issue updates.
   UPDATED
 }
@@ -4544,6 +4547,9 @@ enum PullRequestPubSubTopic {
 
   # The channel ID for marking an pull request as read.
   MARKASREAD
+
+  # The channel ID for updating items on the pull request timeline.
+  TIMELINE
 
   # The channel ID for observing pull request updates.
   UPDATED
