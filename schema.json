@@ -24565,6 +24565,12 @@
             "description": "The channel ID for marking an issue as read.",
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "TIMELINE",
+            "description": "The channel ID for updating items on the issue timeline.",
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "possibleTypes": null
@@ -26042,6 +26048,12 @@
           {
             "name": "HEAD_REF",
             "description": "The channel ID for observing head ref updates.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "TIMELINE",
+            "description": "The channel ID for updating items on the pull request timeline.",
             "isDeprecated": false,
             "deprecationReason": null
           }
