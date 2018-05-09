@@ -136,6 +136,16 @@
                   "ofType": null
                 },
                 "defaultValue": null
+              },
+              {
+                "name": "excludeSubcategories",
+                "description": "Exclude subcategories",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": null
               }
             ],
             "type": {
@@ -1239,6 +1249,11 @@
           {
             "kind": "OBJECT",
             "name": "Bot",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "ClosedEvent",
             "ofType": null
           },
           {
@@ -27132,6 +27147,38 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "resourcePath",
+            "description": "The HTTP path for this closed event.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "URI",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "url",
+            "description": "The HTTP URL for this closed event.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "URI",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "inputFields": null,
@@ -27139,6 +27186,11 @@
           {
             "kind": "INTERFACE",
             "name": "Node",
+            "ofType": null
+          },
+          {
+            "kind": "INTERFACE",
+            "name": "UniformResourceLocatable",
             "ofType": null
           }
         ],

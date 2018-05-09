@@ -401,7 +401,7 @@ interface Closable {
 }
 
 # Represents a 'closed' event on any `Closable`.
-type ClosedEvent implements Node {
+type ClosedEvent implements Node & UniformResourceLocatable {
   # Identifies the actor who performed the event.
   actor: Actor
 
@@ -417,6 +417,12 @@ type ClosedEvent implements Node {
   # Identifies the date and time when the object was created.
   createdAt: DateTime!
   id: ID!
+
+  # The HTTP path for this closed event.
+  resourcePath: URI!
+
+  # The HTTP URL for this closed event.
+  url: URI!
 }
 
 # The object which triggered a `ClosedEvent`.
@@ -4997,6 +5003,9 @@ type Query {
   marketplaceCategories(
     # Exclude categories with no listings.
     excludeEmpty: Boolean
+
+    # Exclude subcategories
+    excludeSubcategories: Boolean
   ): [MarketplaceCategory!]!
 
   # Look up a Marketplace category by its slug.
