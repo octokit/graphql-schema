@@ -7322,6 +7322,22 @@
             "deprecationReason": null
           },
           {
+            "name": "includesCreatedEdit",
+            "description": "Check if this comment was edited and includes an edit with the creation data",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "labels",
             "description": "A list of labels associated with the object.",
             "args": [
@@ -8431,6 +8447,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "includesCreatedEdit",
+            "description": "Check if this comment was edited and includes an edit with the creation data",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
                 "ofType": null
               }
             },
@@ -10420,6 +10452,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "includesCreatedEdit",
+            "description": "Check if this comment was edited and includes an edit with the creation data",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
                 "ofType": null
               }
             },
@@ -14606,6 +14654,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "includesCreatedEdit",
+            "description": "Check if this comment was edited and includes an edit with the creation data",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
                 "ofType": null
               }
             },
@@ -22100,6 +22164,22 @@
             "deprecationReason": null
           },
           {
+            "name": "includesCreatedEdit",
+            "description": "Check if this comment was edited and includes an edit with the creation data",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "lastEditedAt",
             "description": "The moment the editor made the last edit",
             "args": [],
@@ -24166,6 +24246,22 @@
             "deprecationReason": null
           },
           {
+            "name": "includesCreatedEdit",
+            "description": "Check if this comment was edited and includes an edit with the creation data",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "issue",
             "description": "Identifies the issue associated with the comment.",
             "args": [],
@@ -24927,6 +25023,22 @@
             "deprecationReason": null
           },
           {
+            "name": "includesCreatedEdit",
+            "description": "Check if this comment was edited and includes an edit with the creation data",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "lastEditedAt",
             "description": "The moment the editor made the last edit",
             "args": [],
@@ -25570,6 +25682,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "includesCreatedEdit",
+            "description": "Check if this comment was edited and includes an edit with the creation data",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
                 "ofType": null
               }
             },
