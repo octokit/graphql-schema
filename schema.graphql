@@ -485,6 +485,9 @@ interface Comment {
   editor: Actor
   id: ID!
 
+  # Check if this comment was edited and includes an edit with the creation data
+  includesCreatedEdit: Boolean!
+
   # The moment the editor made the last edit
   lastEditedAt: DateTime
 
@@ -772,6 +775,9 @@ type CommitComment implements Comment & Deletable & Node & Reactable & Repositor
   # The actor who edited the comment.
   editor: Actor
   id: ID!
+
+  # Check if this comment was edited and includes an edit with the creation data
+  includesCreatedEdit: Boolean!
 
   # The moment the editor made the last edit
   lastEditedAt: DateTime
@@ -1599,6 +1605,9 @@ type GistComment implements Comment & Deletable & Node & Updatable & UpdatableCo
   gist: Gist!
   id: ID!
 
+  # Check if this comment was edited and includes an edit with the creation data
+  includesCreatedEdit: Boolean!
+
   # The moment the editor made the last edit
   lastEditedAt: DateTime
 
@@ -2017,6 +2026,9 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
   editor: Actor
   id: ID!
 
+  # Check if this comment was edited and includes an edit with the creation data
+  includesCreatedEdit: Boolean!
+
   # A list of labels associated with the object.
   labels(
     # Returns the elements in the list that come after the specified global ID.
@@ -2200,6 +2212,9 @@ type IssueComment implements Comment & Deletable & Node & Reactable & Repository
   # The actor who edited the comment.
   editor: Actor
   id: ID!
+
+  # Check if this comment was edited and includes an edit with the creation data
+  includesCreatedEdit: Boolean!
 
   # Identifies the issue associated with the comment.
   issue: Issue!
@@ -4256,6 +4271,9 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   headRepositoryOwner: RepositoryOwner
   id: ID!
 
+  # Check if this comment was edited and includes an edit with the creation data
+  includesCreatedEdit: Boolean!
+
   # The head and base repositories are different.
   isCrossRepository: Boolean!
 
@@ -4609,6 +4627,9 @@ type PullRequestReview implements Comment & Deletable & Node & RepositoryNode & 
   editor: Actor
   id: ID!
 
+  # Check if this comment was edited and includes an edit with the creation data
+  includesCreatedEdit: Boolean!
+
   # The moment the editor made the last edit
   lastEditedAt: DateTime
 
@@ -4702,6 +4723,9 @@ type PullRequestReviewComment implements Comment & Deletable & Node & Reactable 
   # The actor who edited the comment.
   editor: Actor
   id: ID!
+
+  # Check if this comment was edited and includes an edit with the creation data
+  includesCreatedEdit: Boolean!
 
   # The moment the editor made the last edit
   lastEditedAt: DateTime
