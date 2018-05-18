@@ -2731,12 +2731,13 @@ type LockedEvent implements Node {
 }
 
 # A public description of a Marketplace category.
-type MarketplaceCategory {
+type MarketplaceCategory implements Node {
   # The category's description.
   description: String
 
   # The technical description of how apps listed in this category work with GitHub.
   howItWorks: String
+  id: ID!
 
   # The category's name.
   name: String!
