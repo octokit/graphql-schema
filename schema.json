@@ -944,6 +944,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "License",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "LockedEvent",
             "ofType": null
           },
@@ -23290,7 +23295,13 @@
           }
         ],
         "inputFields": null,
-        "interfaces": [],
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "Node",
+            "ofType": null
+          }
+        ],
         "enumValues": null,
         "possibleTypes": null
       },
