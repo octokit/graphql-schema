@@ -8,7 +8,6 @@ node_js:
   - '10'
   - '8'
   - '6'
-  - '4'
 after_success:
   - npm run semantic-release
 # Trigger a push build on master and greenkeeper branches + PRs build on every branches
