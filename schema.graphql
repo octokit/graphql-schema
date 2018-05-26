@@ -7582,7 +7582,7 @@ type TextMatch {
   fragment: String!
 
   # Highlights within the matched fragment.
-  highlights: [TextMatchHighlight]!
+  highlights: [TextMatchHighlight!]!
 
   # The property matched on.
   property: String!
