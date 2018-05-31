@@ -8802,6 +8802,22 @@
             "deprecationReason": null
           },
           {
+            "name": "editedAt",
+            "description": "When this content was edited",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "editor",
             "description": "The actor who edited this content",
             "args": [],
