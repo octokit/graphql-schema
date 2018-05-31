@@ -8429,6 +8429,9 @@ type UserContentEdit implements Node {
   # A summary of the changes for this edit
   diff: String
 
+  # When this content was edited
+  editedAt: DateTime!
+
   # The actor who edited this content
   editor: Actor
   id: ID!
