@@ -1,5 +1,5 @@
 {
-  "name": "@gr2m/github-graphql-schema",
+  "name": "@octokit/graphql-schema",
   "version": "0.0.0-development",
   "publishConfig": {
     "access": "public"
@@ -27,10 +27,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gr2m/github-graphql-schema.git"
+    "url": "https://github.com/octokit/graphql-schema.git"
   },
   "bugs": {
-    "url": "https://github.com/gr2m/github-graphql-schema/issues"
+    "url": "https://github.com/octokit/graphql-schema/issues"
   },
-  "homepage": "https://github.com/gr2m/github-graphql-schema#readme"
+  "homepage": "https://github.com/octokit/graphql-schema#readme"
 }
