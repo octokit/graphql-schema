@@ -18,7 +18,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "git-diff": "^2.0.4",
-    "graphql": "^0.13.2",
+    "graphql": "^14.0.0-rc.1",
     "graphql-tag": "^2.8.0"
   },
   "devDependencies": {
