@@ -8372,7 +8372,7 @@ type User implements Actor & Node & RepositoryOwner & UniformResourceLocatable {
   # A list of repositories the given user is watching.
   watching(
     # Affiliation options for repositories returned from the connection
-    affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
+    affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR, ORGANIZATION_MEMBER]
 
     # Returns the elements in the list that come after the specified global ID.
     after: String
