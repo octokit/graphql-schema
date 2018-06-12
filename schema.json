@@ -3078,7 +3078,7 @@
                     "ofType": null
                   }
                 },
-                "defaultValue": "[\"OWNER\", \"COLLABORATOR\"]"
+                "defaultValue": "[\"OWNER\", \"COLLABORATOR\", \"ORGANIZATION_MEMBER\"]"
               },
               {
                 "name": "isLocked",
