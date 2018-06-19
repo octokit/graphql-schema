@@ -238,7 +238,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -258,7 +258,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -626,7 +626,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -646,7 +646,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -1414,7 +1414,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -1434,7 +1434,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -1499,7 +1499,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -1519,7 +1519,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -1644,7 +1644,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -1664,7 +1664,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -1701,7 +1701,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -1721,7 +1721,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -1785,7 +1785,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -1805,7 +1805,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -1842,7 +1842,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -1862,7 +1862,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -2047,7 +2047,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -2067,7 +2067,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -2104,7 +2104,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -2124,7 +2124,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -2274,7 +2274,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -2294,7 +2294,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -2331,7 +2331,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -2351,7 +2351,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -2432,7 +2432,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -2452,7 +2452,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -2489,7 +2489,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -2509,7 +2509,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -2612,7 +2612,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -2632,7 +2632,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -2723,7 +2723,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -2743,7 +2743,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -2877,7 +2877,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -2897,7 +2897,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -3018,7 +3018,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -3038,7 +3038,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -3352,7 +3352,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -3372,7 +3372,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -3421,7 +3421,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -3441,7 +3441,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -3484,7 +3484,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -3504,7 +3504,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -3581,7 +3581,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -3601,7 +3601,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -3638,7 +3638,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -3658,7 +3658,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -3769,7 +3769,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -3789,7 +3789,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -4064,7 +4064,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -4084,7 +4084,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -4194,7 +4194,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -4214,7 +4214,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -4257,7 +4257,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -4277,7 +4277,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -4356,7 +4356,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -4376,7 +4376,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -4456,7 +4456,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -4476,7 +4476,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -4681,7 +4681,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -4701,7 +4701,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -4808,7 +4808,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -4828,7 +4828,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -4892,7 +4892,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -4912,7 +4912,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -5070,7 +5070,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -5090,7 +5090,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -5184,7 +5184,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -5204,7 +5204,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -5251,7 +5251,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -5271,7 +5271,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -5383,7 +5383,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -5403,7 +5403,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -5586,7 +5586,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -5606,7 +5606,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -5728,7 +5728,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -5748,7 +5748,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -5949,7 +5949,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -5969,7 +5969,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -6110,7 +6110,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -6130,7 +6130,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -6549,7 +6549,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -6569,7 +6569,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -7124,7 +7124,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -7144,7 +7144,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -7285,7 +7285,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -7305,7 +7305,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -7430,7 +7430,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -7450,7 +7450,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -7539,7 +7539,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -7559,7 +7559,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -7596,7 +7596,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -7616,7 +7616,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -7685,7 +7685,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -7705,7 +7705,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -7810,7 +7810,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -7830,7 +7830,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -7925,7 +7925,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -7945,7 +7945,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -8150,7 +8150,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -8170,7 +8170,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -8535,7 +8535,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -8555,7 +8555,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -9059,7 +9059,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -9079,7 +9079,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -9320,7 +9320,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -9340,7 +9340,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -9439,7 +9439,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -9459,7 +9459,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -10009,7 +10009,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -10029,7 +10029,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -10230,7 +10230,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -10250,7 +10250,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -10287,7 +10287,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -10307,7 +10307,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -10532,7 +10532,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -10552,7 +10552,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -10725,7 +10725,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -10745,7 +10745,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -10794,7 +10794,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -10814,7 +10814,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -10883,7 +10883,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -10903,7 +10903,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -11024,7 +11024,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -11044,7 +11044,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -11077,7 +11077,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -11097,7 +11097,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -11194,7 +11194,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -11214,7 +11214,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -11309,7 +11309,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -11329,7 +11329,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -11667,7 +11667,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -11687,7 +11687,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -11841,7 +11841,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -11861,7 +11861,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -12570,7 +12570,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -12590,7 +12590,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -13229,7 +13229,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -13249,7 +13249,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -13378,7 +13378,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -13398,7 +13398,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -13587,7 +13587,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -13607,7 +13607,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -14786,7 +14786,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -14806,7 +14806,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -14927,7 +14927,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -14947,7 +14947,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -15961,7 +15961,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -15981,7 +15981,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -16074,7 +16074,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -16094,7 +16094,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -16202,7 +16202,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -16222,7 +16222,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -16329,7 +16329,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -16349,7 +16349,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -16522,7 +16522,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -16542,7 +16542,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -16893,7 +16893,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -16913,7 +16913,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -16994,7 +16994,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -17014,7 +17014,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -18938,7 +18938,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -18958,7 +18958,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -19654,7 +19654,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -19674,7 +19674,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -19734,7 +19734,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -19754,7 +19754,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -19921,7 +19921,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -19941,7 +19941,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -19974,7 +19974,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -19994,7 +19994,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -20195,7 +20195,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -20215,7 +20215,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -21360,7 +21360,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -21380,7 +21380,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -21517,7 +21517,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -21537,7 +21537,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -21654,7 +21654,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -21674,7 +21674,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -22283,7 +22283,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -22303,7 +22303,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -23636,7 +23636,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -23656,7 +23656,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -23755,7 +23755,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -23775,7 +23775,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -24403,7 +24403,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -24423,7 +24423,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -24544,7 +24544,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -24564,7 +24564,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -24951,7 +24951,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -24971,7 +24971,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -25240,7 +25240,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -25260,7 +25260,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -25902,7 +25902,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -25922,7 +25922,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -26055,7 +26055,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -26075,7 +26075,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -26278,7 +26278,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -26298,7 +26298,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -27111,7 +27111,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -27131,7 +27131,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -29274,7 +29274,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -29294,7 +29294,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -31970,7 +31970,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -31990,7 +31990,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -32692,7 +32692,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -32712,7 +32712,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -32781,7 +32781,7 @@
               },
               {
                 "name": "after",
-                "description": "Returns the elements in the list that come after the specified global ID.",
+                "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -32801,7 +32801,7 @@
               },
               {
                 "name": "before",
-                "description": "Returns the elements in the list that come before the specified global ID.",
+                "description": "Returns the elements in the list that come before the specified cursor.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
