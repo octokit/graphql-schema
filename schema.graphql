@@ -243,10 +243,10 @@ type AddedToProjectEvent implements Node {
 interface Assignable {
   # A list of Users assigned to this object.
   assignees(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -499,10 +499,10 @@ interface Comment {
 
   # A list of edits to this content.
   userContentEdits(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -599,10 +599,10 @@ type Commit implements GitObject & Node & Subscribable {
 
   # Comments made on the commit.
   comments(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -632,13 +632,13 @@ type Commit implements GitObject & Node & Subscribable {
 
   # The linear commit history starting from (and including) this commit, in the same order as `git log`.
   history(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
     # If non-null, filters history to only show commits with matching authorship.
     author: CommitAuthor
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -678,10 +678,10 @@ type Commit implements GitObject & Node & Subscribable {
 
   # The parents of a commit.
   parents(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -796,10 +796,10 @@ type CommitComment implements Comment & Deletable & Node & Reactable & Repositor
 
   # A list of Reactions left on the Issue.
   reactions(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Allows filtering Reactions by emoji.
@@ -829,10 +829,10 @@ type CommitComment implements Comment & Deletable & Node & Reactable & Repositor
 
   # A list of edits to this content.
   userContentEdits(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -886,10 +886,10 @@ type CommitCommentEdge {
 type CommitCommentThread implements Node & RepositoryNode {
   # The comments that exist in this thread.
   comments(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -1261,10 +1261,10 @@ type Deployment implements Node {
 
   # A list of statuses associated with the deployment.
   statuses(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -1515,10 +1515,10 @@ type FollowingConnection {
 type Gist implements Node & Starrable {
   # A list of comments associated with the gist
   comments(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -1549,10 +1549,10 @@ type Gist implements Node & Starrable {
 
   # A list of users who have starred this starrable.
   stargazers(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -1619,10 +1619,10 @@ type GistComment implements Comment & Deletable & Node & Updatable & UpdatableCo
 
   # A list of edits to this content.
   userContentEdits(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -1964,10 +1964,10 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
 
   # A list of Users assigned to this object.
   assignees(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -2000,10 +2000,10 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
 
   # A list of comments associated with the Issue.
   comments(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -2031,10 +2031,10 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
 
   # A list of labels associated with the object.
   labels(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -2058,10 +2058,10 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
 
   # A list of Users that are participating in the Issue conversation.
   participants(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -2073,10 +2073,10 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
 
   # List of project cards associated with this issue.
   projectCards(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -2094,10 +2094,10 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
 
   # A list of Reactions left on the Issue.
   reactions(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Allows filtering Reactions by emoji.
@@ -2124,10 +2124,10 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
 
   # A list of events, comments, commits, etc. associated with the issue.
   timeline(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -2151,10 +2151,10 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
 
   # A list of edits to this content.
   userContentEdits(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -2234,10 +2234,10 @@ type IssueComment implements Comment & Deletable & Node & Reactable & Repository
 
   # A list of Reactions left on the Issue.
   reactions(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Allows filtering Reactions by emoji.
@@ -2267,10 +2267,10 @@ type IssueComment implements Comment & Deletable & Node & Reactable & Repository
 
   # A list of edits to this content.
   userContentEdits(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -2433,10 +2433,10 @@ type Label implements Node {
 
   # A list of issues associated with this label.
   issues(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -2460,13 +2460,13 @@ type Label implements Node {
 
   # A list of pull requests associated with this label.
   pullRequests(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
     # The base ref name to filter the pull requests by.
     baseRefName: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -2529,10 +2529,10 @@ type LabelEdge {
 interface Labelable {
   # A list of labels associated with the object.
   labels(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -3018,10 +3018,10 @@ type Milestone implements Closable & Node & UniformResourceLocatable {
 
   # A list of issues associated with the milestone.
   issues(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -3045,13 +3045,13 @@ type Milestone implements Closable & Node & UniformResourceLocatable {
 
   # A list of pull requests associated with the milestone.
   pullRequests(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
     # The base ref name to filter the pull requests by.
     baseRefName: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -3363,10 +3363,10 @@ type Organization implements Actor & Node & ProjectOwner & RepositoryOwner & Uni
 
   # A list of users who are members of this organization.
   members(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -3393,10 +3393,10 @@ type Organization implements Actor & Node & ProjectOwner & RepositoryOwner & Uni
     # Affiliation options for repositories returned from the connection
     affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -3423,10 +3423,10 @@ type Organization implements Actor & Node & ProjectOwner & RepositoryOwner & Uni
 
   # A list of projects under the owner.
   projects(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -3456,10 +3456,10 @@ type Organization implements Actor & Node & ProjectOwner & RepositoryOwner & Uni
     # Affiliation options for repositories returned from the connection
     affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -3501,10 +3501,10 @@ type Organization implements Actor & Node & ProjectOwner & RepositoryOwner & Uni
 
   # A list of teams in this organization.
   teams(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -3594,10 +3594,10 @@ type OrganizationIdentityProvider implements Node {
 
   # External Identities provisioned by this Identity Provider
   externalIdentities(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -3728,10 +3728,10 @@ type Project implements Closable & Node & Updatable {
 
   # List of columns in the project
   columns(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -3762,10 +3762,10 @@ type Project implements Closable & Node & Updatable {
 
   # List of pending cards in this project
   pendingCards(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -3877,10 +3877,10 @@ enum ProjectCardState {
 type ProjectColumn implements Node {
   # List of cards in the column
   cards(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -3994,10 +3994,10 @@ interface ProjectOwner {
 
   # A list of projects under the owner.
   projects(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -4067,10 +4067,10 @@ type ProtectedBranch implements Node {
 
   # A list push allowances for this protected branch.
   pushAllowances(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -4088,10 +4088,10 @@ type ProtectedBranch implements Node {
 
   # A list review dismissal allowances for this protected branch.
   reviewDismissalAllowances(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -4168,10 +4168,10 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
 
   # A list of Users assigned to this object.
   assignees(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -4216,10 +4216,10 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
 
   # A list of comments associated with the pull request.
   comments(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -4231,10 +4231,10 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
 
   # A list of commits present in this pull request's head branch not present in the base branch.
   commits(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -4283,10 +4283,10 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
 
   # A list of labels associated with the object.
   labels(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -4328,10 +4328,10 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
 
   # A list of Users that are participating in the Pull Request conversation.
   participants(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -4349,10 +4349,10 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
 
   # List of project cards associated with this pull request.
   projectCards(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -4370,10 +4370,10 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
 
   # A list of Reactions left on the Issue.
   reactions(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Allows filtering Reactions by emoji.
@@ -4403,10 +4403,10 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
 
   # A list of review requests associated with the pull request.
   reviewRequests(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -4418,13 +4418,13 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
 
   # A list of reviews associated with the pull request.
   reviews(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
     # Filter by author of the review.
     author: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -4445,10 +4445,10 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
 
   # A list of events, comments, commits, etc. associated with the pull request.
   timeline(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -4472,10 +4472,10 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
 
   # A list of edits to this content.
   userContentEdits(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -4602,10 +4602,10 @@ type PullRequestReview implements Comment & Deletable & Node & RepositoryNode & 
 
   # A list of review comments for the current pull request review.
   comments(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -4663,10 +4663,10 @@ type PullRequestReview implements Comment & Deletable & Node & RepositoryNode & 
 
   # A list of edits to this content.
   userContentEdits(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -4760,10 +4760,10 @@ type PullRequestReviewComment implements Comment & Deletable & Node & Reactable 
 
   # A list of Reactions left on the Issue.
   reactions(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Allows filtering Reactions by emoji.
@@ -4796,10 +4796,10 @@ type PullRequestReviewComment implements Comment & Deletable & Node & Reactable 
 
   # A list of edits to this content.
   userContentEdits(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -4910,10 +4910,10 @@ enum PullRequestReviewState {
 type PullRequestReviewThread implements Node {
   # A list of pull request comments associated with the thread.
   comments(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -5053,14 +5053,14 @@ type Query {
     # Select listings that can be administered by the specified user.
     adminId: ID
 
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
     # Select listings visible to the viewer even if they are not approved. If omitted or
     # false, only approved listings will be returned.
     allStates: Boolean
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Select only listings with the given category.
@@ -5142,10 +5142,10 @@ type Query {
 
   # Perform a search across resources.
   search(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -5206,10 +5206,10 @@ interface Reactable {
 
   # A list of Reactions left on the Issue.
   reactions(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Allows filtering Reactions by emoji.
@@ -5334,10 +5334,10 @@ type ReactionGroup {
 
   # Users who have reacted to the reaction subject with the emotion represented by this reaction group
   users(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -5370,13 +5370,13 @@ enum ReactionOrderField {
 type Ref implements Node {
   # A list of pull requests with this ref as the head ref.
   associatedPullRequests(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
     # The base ref name to filter the pull requests by.
     baseRefName: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -5511,10 +5511,10 @@ type Release implements Node & UniformResourceLocatable {
 
   # List of releases assets which are dependent on this release.
   releaseAssets(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -5755,10 +5755,10 @@ type ReopenedEvent implements Node {
 type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Subscribable & UniformResourceLocatable {
   # A list of users that can be assigned to issues in this repository.
   assignableUsers(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -5776,10 +5776,10 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
     # Collaborators affiliation level with a repository.
     affiliation: CollaboratorAffiliation
 
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -5791,10 +5791,10 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
 
   # A list of commit comments associated with the repository.
   commitComments(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -5815,10 +5815,10 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
 
   # A list of deploy keys that are on this repository.
   deployKeys(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -5830,10 +5830,10 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
 
   # Deployments associated with the repository
   deployments(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Environments to list deployments for
@@ -5863,10 +5863,10 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
     # Affiliation options for repositories returned from the connection
     affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -5924,10 +5924,10 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
 
   # A list of issues that have been opened in the repository.
   issues(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -5954,10 +5954,10 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
 
   # A list of labels associated with the repository.
   labels(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -5972,10 +5972,10 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
 
   # A list containing a breakdown of the language composition of the repository.
   languages(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -5999,10 +5999,10 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
 
   # A list of Users that can be mentioned in the context of the repository.
   mentionableUsers(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -6023,10 +6023,10 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
 
   # A list of milestones associated with the repository.
   milestones(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -6077,10 +6077,10 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
 
   # A list of projects under the owner.
   projects(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -6107,10 +6107,10 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
 
   # A list of protected branches that are on this repository.
   protectedBranches(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -6128,13 +6128,13 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
 
   # A list of pull requests that have been opened in the repository.
   pullRequests(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
     # The base ref name to filter the pull requests by.
     baseRefName: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -6171,10 +6171,10 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
 
   # Fetch a list of refs from the repository
   refs(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # DEPRECATED: use orderBy. The ordering direction.
@@ -6201,10 +6201,10 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
 
   # List of releases which are dependent on this repository.
   releases(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -6219,10 +6219,10 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
 
   # A list of applied repository-topic associations for this repository.
   repositoryTopics(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -6249,10 +6249,10 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
 
   # A list of users who have starred this starrable.
   stargazers(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -6294,10 +6294,10 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
 
   # A list of users watching the repository.
   watchers(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -6569,10 +6569,10 @@ interface RepositoryOwner {
     # Affiliation options for repositories returned from the connection
     affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -6596,10 +6596,10 @@ interface RepositoryOwner {
     # Affiliation options for repositories returned from the connection
     affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -7003,10 +7003,10 @@ interface Starrable {
 
   # A list of users who have starred this starrable.
   stargazers(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -7217,10 +7217,10 @@ type Tag implements GitObject & Node {
 type Team implements Node & Subscribable {
   # A list of teams that are ancestors of this team.
   ancestors(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -7238,10 +7238,10 @@ type Team implements Node & Subscribable {
 
   # List of child teams belonging to this team
   childTeams(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -7278,10 +7278,10 @@ type Team implements Node & Subscribable {
 
   # A list of pending invitations for users to this team
   invitations(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -7293,10 +7293,10 @@ type Team implements Node & Subscribable {
 
   # A list of users who are members of this team.
   members(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -7344,10 +7344,10 @@ type Team implements Node & Subscribable {
 
   # A list of repositories this team has access to.
   repositories(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -7997,10 +7997,10 @@ type User implements Actor & Node & RepositoryOwner & UniformResourceLocatable {
 
   # A list of commit comments made by this user.
   commitComments(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -8021,10 +8021,10 @@ type User implements Actor & Node & RepositoryOwner & UniformResourceLocatable {
     # Affiliation options for repositories returned from the connection
     affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -8054,10 +8054,10 @@ type User implements Actor & Node & RepositoryOwner & UniformResourceLocatable {
 
   # A list of users the given user is followed by.
   followers(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -8069,10 +8069,10 @@ type User implements Actor & Node & RepositoryOwner & UniformResourceLocatable {
 
   # A list of users the given user is following.
   following(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -8090,10 +8090,10 @@ type User implements Actor & Node & RepositoryOwner & UniformResourceLocatable {
 
   # A list of gist comments made by this user.
   gistComments(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -8105,10 +8105,10 @@ type User implements Actor & Node & RepositoryOwner & UniformResourceLocatable {
 
   # A list of the Gists the user has created.
   gists(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -8148,10 +8148,10 @@ type User implements Actor & Node & RepositoryOwner & UniformResourceLocatable {
 
   # A list of issue comments made by this user.
   issueComments(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -8163,10 +8163,10 @@ type User implements Actor & Node & RepositoryOwner & UniformResourceLocatable {
 
   # A list of issues associated with this user.
   issues(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -8202,10 +8202,10 @@ type User implements Actor & Node & RepositoryOwner & UniformResourceLocatable {
 
   # A list of organizations the user belongs to.
   organizations(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -8220,10 +8220,10 @@ type User implements Actor & Node & RepositoryOwner & UniformResourceLocatable {
     # Affiliation options for repositories returned from the connection
     affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -8244,10 +8244,10 @@ type User implements Actor & Node & RepositoryOwner & UniformResourceLocatable {
 
   # A list of public keys associated with this user.
   publicKeys(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -8259,13 +8259,13 @@ type User implements Actor & Node & RepositoryOwner & UniformResourceLocatable {
 
   # A list of pull requests associated with this user.
   pullRequests(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
     # The base ref name to filter the pull requests by.
     baseRefName: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -8292,10 +8292,10 @@ type User implements Actor & Node & RepositoryOwner & UniformResourceLocatable {
     # Affiliation options for repositories returned from the connection
     affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -8319,10 +8319,10 @@ type User implements Actor & Node & RepositoryOwner & UniformResourceLocatable {
 
   # A list of repositories that the user recently contributed to.
   repositoriesContributedTo(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # If non-null, include only the specified types of contributions. The
@@ -8359,10 +8359,10 @@ type User implements Actor & Node & RepositoryOwner & UniformResourceLocatable {
 
   # Repositories the user has starred.
   starredRepositories(
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
@@ -8395,10 +8395,10 @@ type User implements Actor & Node & RepositoryOwner & UniformResourceLocatable {
     # Affiliation options for repositories returned from the connection
     affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR, ORGANIZATION_MEMBER]
 
-    # Returns the elements in the list that come after the specified global ID.
+    # Returns the elements in the list that come after the specified cursor.
     after: String
 
-    # Returns the elements in the list that come before the specified global ID.
+    # Returns the elements in the list that come before the specified cursor.
     before: String
 
     # Returns the first _n_ elements from the list.
