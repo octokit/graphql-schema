@@ -5040,6 +5040,9 @@ type Query {
   marketplaceCategory(
     # The URL slug of the category.
     slug: String!
+
+    # Also check topic aliases for the category slug
+    useTopicAliases: Boolean
   ): MarketplaceCategory
 
   # Look up a single Marketplace listing
@@ -5080,6 +5083,9 @@ type Query {
 
     # Select the listings with these slugs, if they are visible to the viewer.
     slugs: [String]
+
+    # Also check topic aliases for the category slug
+    useTopicAliases: Boolean
 
     # Select listings to which user has admin access. If omitted, listings visible to the
     # viewer are returned.

@@ -185,6 +185,16 @@
                   }
                 },
                 "defaultValue": null
+              },
+              {
+                "name": "useTopicAliases",
+                "description": "Also check topic aliases for the category slug",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": null
               }
             ],
             "type": {
@@ -272,6 +282,16 @@
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "useTopicAliases",
+                "description": "Also check topic aliases for the category slug",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
                   "ofType": null
                 },
                 "defaultValue": null
