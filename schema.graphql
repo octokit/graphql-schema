@@ -7834,7 +7834,7 @@ input UpdateProjectCardInput {
   clientMutationId: String
 
   # The note of ProjectCard.
-  note: String!
+  note: String
 
   # The ProjectCard ID to update.
   projectCardId: ID!
