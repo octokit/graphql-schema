@@ -23095,7 +23095,7 @@
       {
         "kind": "OBJECT",
         "name": "License",
-        "description": "A respository's open source license",
+        "description": "A repository's open source license",
         "fields": [
           {
             "name": "body",
