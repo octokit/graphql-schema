@@ -2611,7 +2611,7 @@ enum LanguageOrderField {
   SIZE
 }
 
-# A respository's open source license
+# A repository's open source license
 type License implements Node {
   # The full text of the license
   body: String!
