@@ -4341,6 +4341,9 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     last: Int
   ): UserConnection!
 
+  # The permalink to the pull request.
+  permalink: URI!
+
   # The commit that GitHub automatically generated to test if this pull request
   # could be merged. This field will not return a value if the pull request is
   # merged, or if the test merge commit is still being generated. See the

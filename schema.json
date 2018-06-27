@@ -10787,6 +10787,22 @@
             "deprecationReason": null
           },
           {
+            "name": "permalink",
+            "description": "The permalink to the pull request.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "URI",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "potentialMergeCommit",
             "description": "The commit that GitHub automatically generated to test if this pull request could be merged. This field will not return a value if the pull request is merged, or if the test merge commit is still being generated. See the `mergeable` field for more details on the mergeability of the pull request.",
             "args": [],
@@ -24762,202 +24778,12 @@
       },
       {
         "kind": "OBJECT",
-        "name": "PullRequestReviewConnection",
-        "description": "The connection type for PullRequestReview.",
+        "name": "PullRequestReviewThread",
+        "description": "A threaded list of comments for a given pull request.",
         "fields": [
-          {
-            "name": "edges",
-            "description": "A list of edges.",
-            "args": [],
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PullRequestReviewEdge",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "nodes",
-            "description": "A list of nodes.",
-            "args": [],
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PullRequestReview",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pageInfo",
-            "description": "Information to aid in pagination.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PageInfo",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "totalCount",
-            "description": "Identifies the total count of items in the connection.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "PullRequestReviewEdge",
-        "description": "An edge in a connection.",
-        "fields": [
-          {
-            "name": "cursor",
-            "description": "A cursor for use in pagination.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "node",
-            "description": "The item at the end of the edge.",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "PullRequestReview",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "PullRequestReview",
-        "description": "A review object for a given pull request.",
-        "fields": [
-          {
-            "name": "author",
-            "description": "The actor who authored the comment.",
-            "args": [],
-            "type": {
-              "kind": "INTERFACE",
-              "name": "Actor",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "authorAssociation",
-            "description": "Author's association with the subject of the comment.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "ENUM",
-                "name": "CommentAuthorAssociation",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "body",
-            "description": "Identifies the pull request review body.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "bodyHTML",
-            "description": "The body of this review rendered to HTML.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "HTML",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "bodyText",
-            "description": "The body of this review rendered as plain text.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
           {
             "name": "comments",
-            "description": "A list of review comments for the current pull request review.",
+            "description": "A list of pull request comments associated with the thread.",
             "args": [
               {
                 "name": "first",
@@ -25013,69 +24839,82 @@
             "deprecationReason": null
           },
           {
+            "name": "id",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pullRequest",
+            "description": "Identifies the pull request associated with this thread.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "PullRequest",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "repository",
+            "description": "Identifies the repository associated with this thread.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "Repository",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "Node",
+            "ofType": null
+          }
+        ],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "PullRequestCommit",
+        "description": "Represents a Git commit part of a pull request.",
+        "fields": [
+          {
             "name": "commit",
-            "description": "Identifies the commit associated with this pull request review.",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "Commit",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "createdAt",
-            "description": "Identifies the date and time when the object was created.",
+            "description": "The Git commit object",
             "args": [],
             "type": {
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "SCALAR",
-                "name": "DateTime",
+                "kind": "OBJECT",
+                "name": "Commit",
                 "ofType": null
               }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "createdViaEmail",
-            "description": "Check if this comment was created via an email reply.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Boolean",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "databaseId",
-            "description": "Identifies the primary key from the database.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Int",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "editor",
-            "description": "The actor who edited the comment.",
-            "args": [],
-            "type": {
-              "kind": "INTERFACE",
-              "name": "Actor",
-              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -25097,48 +24936,8 @@
             "deprecationReason": null
           },
           {
-            "name": "includesCreatedEdit",
-            "description": "Check if this comment was edited and includes an edit with the creation data",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Boolean",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "lastEditedAt",
-            "description": "The moment the editor made the last edit",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "DateTime",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "publishedAt",
-            "description": "Identifies when the comment was published at.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "DateTime",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "pullRequest",
-            "description": "Identifies the pull request associated with this pull request review.",
+            "description": "The pull request this commit belongs to",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -25153,24 +24952,8 @@
             "deprecationReason": null
           },
           {
-            "name": "repository",
-            "description": "The repository associated with this node.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "Repository",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "resourcePath",
-            "description": "The HTTP path permalink for this PullRequestReview.",
+            "description": "The HTTP path for this pull request commit",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -25178,50 +24961,6 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "URI",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "state",
-            "description": "Identifies the current state of the pull request review.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "ENUM",
-                "name": "PullRequestReviewState",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "submittedAt",
-            "description": "Identifies when the Pull Request Review was submitted",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "DateTime",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "updatedAt",
-            "description": "Identifies the date and time when the object was last updated.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "DateTime",
                 "ofType": null
               }
             },
@@ -25230,7 +24969,7 @@
           },
           {
             "name": "url",
-            "description": "The HTTP URL permalink for this PullRequestReview.",
+            "description": "The HTTP URL for this pull request commit",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -25238,131 +24977,6 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "URI",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "userContentEdits",
-            "description": "A list of edits to this content.",
-            "args": [
-              {
-                "name": "first",
-                "description": "Returns the first _n_ elements from the list.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "after",
-                "description": "Returns the elements in the list that come after the specified cursor.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "last",
-                "description": "Returns the last _n_ elements from the list.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "before",
-                "description": "Returns the elements in the list that come before the specified cursor.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null
-              }
-            ],
-            "type": {
-              "kind": "OBJECT",
-              "name": "UserContentEditConnection",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "viewerCanDelete",
-            "description": "Check if the current viewer can delete this object.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Boolean",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "viewerCanUpdate",
-            "description": "Check if the current viewer can update this object.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Boolean",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "viewerCannotUpdateReasons",
-            "description": "Reasons why the current viewer can not update this comment.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "ENUM",
-                    "name": "CommentCannotUpdateReason",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "viewerDidAuthor",
-            "description": "Did the viewer author this comment.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Boolean",
                 "ofType": null
               }
             },
@@ -25379,72 +24993,11 @@
           },
           {
             "kind": "INTERFACE",
-            "name": "Comment",
-            "ofType": null
-          },
-          {
-            "kind": "INTERFACE",
-            "name": "Deletable",
-            "ofType": null
-          },
-          {
-            "kind": "INTERFACE",
-            "name": "Updatable",
-            "ofType": null
-          },
-          {
-            "kind": "INTERFACE",
-            "name": "UpdatableComment",
-            "ofType": null
-          },
-          {
-            "kind": "INTERFACE",
-            "name": "RepositoryNode",
+            "name": "UniformResourceLocatable",
             "ofType": null
           }
         ],
         "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "ENUM",
-        "name": "PullRequestReviewState",
-        "description": "The possible states of a pull request review.",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": [
-          {
-            "name": "PENDING",
-            "description": "A review that has not yet been submitted.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "COMMENTED",
-            "description": "An informational review.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "APPROVED",
-            "description": "A review allowing the pull request to merge.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "CHANGES_REQUESTED",
-            "description": "A review blocking the pull request from merging.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "DISMISSED",
-            "description": "A review that has been dismissed.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
         "possibleTypes": null
       },
       {
@@ -26243,48 +25796,89 @@
         "possibleTypes": null
       },
       {
-        "kind": "ENUM",
-        "name": "PullRequestPubSubTopic",
-        "description": "The possible PubSub channels for a pull request.",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": [
-          {
-            "name": "UPDATED",
-            "description": "The channel ID for observing pull request updates.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "MARKASREAD",
-            "description": "The channel ID for marking an pull request as read.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "HEAD_REF",
-            "description": "The channel ID for observing head ref updates.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "TIMELINE",
-            "description": "The channel ID for updating items on the pull request timeline.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "possibleTypes": null
-      },
-      {
         "kind": "OBJECT",
-        "name": "PullRequestReviewThread",
-        "description": "A threaded list of comments for a given pull request.",
+        "name": "PullRequestReview",
+        "description": "A review object for a given pull request.",
         "fields": [
           {
+            "name": "author",
+            "description": "The actor who authored the comment.",
+            "args": [],
+            "type": {
+              "kind": "INTERFACE",
+              "name": "Actor",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "authorAssociation",
+            "description": "Author's association with the subject of the comment.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "CommentAuthorAssociation",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "body",
+            "description": "Identifies the pull request review body.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "bodyHTML",
+            "description": "The body of this review rendered to HTML.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "HTML",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "bodyText",
+            "description": "The body of this review rendered as plain text.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "comments",
-            "description": "A list of pull request comments associated with the thread.",
+            "description": "A list of review comments for the current pull request review.",
             "args": [
               {
                 "name": "first",
@@ -26340,6 +25934,74 @@
             "deprecationReason": null
           },
           {
+            "name": "commit",
+            "description": "Identifies the commit associated with this pull request review.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "Commit",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "createdAt",
+            "description": "Identifies the date and time when the object was created.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "createdViaEmail",
+            "description": "Check if this comment was created via an email reply.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "databaseId",
+            "description": "Identifies the primary key from the database.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Int",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "editor",
+            "description": "The actor who edited the comment.",
+            "args": [],
+            "type": {
+              "kind": "INTERFACE",
+              "name": "Actor",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "id",
             "description": null,
             "args": [],
@@ -26356,8 +26018,48 @@
             "deprecationReason": null
           },
           {
+            "name": "includesCreatedEdit",
+            "description": "Check if this comment was edited and includes an edit with the creation data",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "lastEditedAt",
+            "description": "The moment the editor made the last edit",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "publishedAt",
+            "description": "Identifies when the comment was published at.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "pullRequest",
-            "description": "Identifies the pull request associated with this thread.",
+            "description": "Identifies the pull request associated with this pull request review.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -26373,7 +26075,7 @@
           },
           {
             "name": "repository",
-            "description": "Identifies the repository associated with this thread.",
+            "description": "The repository associated with this node.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -26386,75 +26088,10 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "Node",
-            "ofType": null
-          }
-        ],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "PullRequestCommit",
-        "description": "Represents a Git commit part of a pull request.",
-        "fields": [
-          {
-            "name": "commit",
-            "description": "The Git commit object",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "Commit",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pullRequest",
-            "description": "The pull request this commit belongs to",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PullRequest",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
           },
           {
             "name": "resourcePath",
-            "description": "The HTTP path for this pull request commit",
+            "description": "The HTTP path permalink for this PullRequestReview.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -26462,6 +26099,50 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "URI",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "state",
+            "description": "Identifies the current state of the pull request review.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "PullRequestReviewState",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "submittedAt",
+            "description": "Identifies when the Pull Request Review was submitted",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "updatedAt",
+            "description": "Identifies the date and time when the object was last updated.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
                 "ofType": null
               }
             },
@@ -26470,7 +26151,7 @@
           },
           {
             "name": "url",
-            "description": "The HTTP URL for this pull request commit",
+            "description": "The HTTP URL permalink for this PullRequestReview.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -26478,6 +26159,131 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "URI",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "userContentEdits",
+            "description": "A list of edits to this content.",
+            "args": [
+              {
+                "name": "first",
+                "description": "Returns the first _n_ elements from the list.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "after",
+                "description": "Returns the elements in the list that come after the specified cursor.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "last",
+                "description": "Returns the last _n_ elements from the list.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "before",
+                "description": "Returns the elements in the list that come before the specified cursor.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "OBJECT",
+              "name": "UserContentEditConnection",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "viewerCanDelete",
+            "description": "Check if the current viewer can delete this object.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "viewerCanUpdate",
+            "description": "Check if the current viewer can update this object.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "viewerCannotUpdateReasons",
+            "description": "Reasons why the current viewer can not update this comment.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "ENUM",
+                    "name": "CommentCannotUpdateReason",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "viewerDidAuthor",
+            "description": "Did the viewer author this comment.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
                 "ofType": null
               }
             },
@@ -26494,10 +26300,220 @@
           },
           {
             "kind": "INTERFACE",
-            "name": "UniformResourceLocatable",
+            "name": "Comment",
+            "ofType": null
+          },
+          {
+            "kind": "INTERFACE",
+            "name": "Deletable",
+            "ofType": null
+          },
+          {
+            "kind": "INTERFACE",
+            "name": "Updatable",
+            "ofType": null
+          },
+          {
+            "kind": "INTERFACE",
+            "name": "UpdatableComment",
+            "ofType": null
+          },
+          {
+            "kind": "INTERFACE",
+            "name": "RepositoryNode",
             "ofType": null
           }
         ],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "PullRequestReviewState",
+        "description": "The possible states of a pull request review.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "PENDING",
+            "description": "A review that has not yet been submitted.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "COMMENTED",
+            "description": "An informational review.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "APPROVED",
+            "description": "A review allowing the pull request to merge.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "CHANGES_REQUESTED",
+            "description": "A review blocking the pull request from merging.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "DISMISSED",
+            "description": "A review that has been dismissed.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "PullRequestPubSubTopic",
+        "description": "The possible PubSub channels for a pull request.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "UPDATED",
+            "description": "The channel ID for observing pull request updates.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "MARKASREAD",
+            "description": "The channel ID for marking an pull request as read.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "HEAD_REF",
+            "description": "The channel ID for observing head ref updates.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "TIMELINE",
+            "description": "The channel ID for updating items on the pull request timeline.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "PullRequestReviewConnection",
+        "description": "The connection type for PullRequestReview.",
+        "fields": [
+          {
+            "name": "edges",
+            "description": "A list of edges.",
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "PullRequestReviewEdge",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "nodes",
+            "description": "A list of nodes.",
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "PullRequestReview",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pageInfo",
+            "description": "Information to aid in pagination.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "PageInfo",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "totalCount",
+            "description": "Identifies the total count of items in the connection.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "PullRequestReviewEdge",
+        "description": "An edge in a connection.",
+        "fields": [
+          {
+            "name": "cursor",
+            "description": "A cursor for use in pagination.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "node",
+            "description": "The item at the end of the edge.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "PullRequestReview",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
         "enumValues": null,
         "possibleTypes": null
       },
