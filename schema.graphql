@@ -412,7 +412,7 @@ type ClosedEvent implements Node & UniformResourceLocatable {
   closer: Closer
 
   # Identifies the commit associated with the 'closed' event.
-  commit: Commit @deprecated(reason: "`ClosedEvent` may be associated with other objects than a commit. Use ClosedEvent.closer instead. Removal on 2018-07-01 UTC.")
+  commit: Commit @deprecated(reason: "`ClosedEvent` may be associated with other objects than a commit. Use ClosedEvent.closer instead. Removal on 2019-01-01 UTC.")
 
   # Identifies the date and time when the object was created.
   createdAt: DateTime!
@@ -3819,7 +3819,7 @@ type ProjectCard implements Node {
   project: Project!
 
   # The column that contains this card.
-  projectColumn: ProjectColumn! @deprecated(reason: "The associated column may be null if the card is in a pending state. Use `ProjectCard.column` instead. Removal on 2018-07-01 UTC.")
+  projectColumn: ProjectColumn! @deprecated(reason: "The associated column may be null if the card is in a pending state. Use `ProjectCard.column` instead. Removal on 2019-01-01 UTC.")
 
   # The HTTP path for this card
   resourcePath: URI!
@@ -5479,7 +5479,7 @@ type ReferencedEvent implements Node {
   id: ID!
 
   # Reference originated in a different repository.
-  isCrossReference: Boolean! @deprecated(reason: "`isCrossReference` will be renamed. Use `ReferencedEvent.isCrossRepository` instead. Removal on 2018-07-01 UTC.")
+  isCrossReference: Boolean! @deprecated(reason: "`isCrossReference` will be renamed. Use `ReferencedEvent.isCrossRepository` instead. Removal on 2019-01-01 UTC.")
 
   # Reference originated in a different repository.
   isCrossRepository: Boolean!
@@ -5998,7 +5998,7 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   ): LanguageConnection
 
   # The license associated with the repository
-  license: String @deprecated(reason: "Field `license` will be replaced by a more detailed license object. Use `Repository.licenseInfo` instead. Removal on 2018-07-01 UTC.")
+  license: String @deprecated(reason: "Field `license` will be replaced by a more detailed license object. Use `Repository.licenseInfo` instead. Removal on 2019-01-01 UTC.")
 
   # The license associated with the repository
   licenseInfo: License
@@ -6448,7 +6448,7 @@ interface RepositoryInfo {
   isPrivate: Boolean!
 
   # The license associated with the repository
-  license: String @deprecated(reason: "Field `license` will be replaced by a more detailed license object. Use `Repository.licenseInfo` instead. Removal on 2018-07-01 UTC.")
+  license: String @deprecated(reason: "Field `license` will be replaced by a more detailed license object. Use `Repository.licenseInfo` instead. Removal on 2019-01-01 UTC.")
 
   # The license associated with the repository
   licenseInfo: License
@@ -6822,7 +6822,7 @@ type ReviewRequest implements Node {
   requestedReviewer: RequestedReviewer
 
   # Identifies the author associated with this review request.
-  reviewer: User @deprecated(reason: "Field `reviewer` will be changed in favor of returning a union type. Use `ReviewRequest.requestedReviewer` instead. Removal on 2018-07-01 UTC.")
+  reviewer: User @deprecated(reason: "Field `reviewer` will be changed in favor of returning a union type. Use `ReviewRequest.requestedReviewer` instead. Removal on 2019-01-01 UTC.")
 }
 
 # The connection type for ReviewRequest.
@@ -6865,7 +6865,7 @@ type ReviewRequestRemovedEvent implements Node {
   requestedReviewer: RequestedReviewer
 
   # Identifies the user whose review request was removed.
-  subject: User @deprecated(reason: "`subject` will be renamed. Use `ReviewRequestRemovedEvent.requestedReviewer` instead. Removal on 2018-07-01 UTC.")
+  subject: User @deprecated(reason: "`subject` will be renamed. Use `ReviewRequestRemovedEvent.requestedReviewer` instead. Removal on 2019-01-01 UTC.")
 }
 
 # Represents an 'review_requested' event on a given pull request.
@@ -6884,7 +6884,7 @@ type ReviewRequestedEvent implements Node {
   requestedReviewer: RequestedReviewer
 
   # Identifies the user whose review was requested.
-  subject: User @deprecated(reason: "`subject` will be renamed. Use `ReviewRequestedEvent.requestedReviewer` instead. Removal on 2018-07-01 UTC.")
+  subject: User @deprecated(reason: "`subject` will be renamed. Use `ReviewRequestedEvent.requestedReviewer` instead. Removal on 2019-01-01 UTC.")
 }
 
 # The results of a search.
@@ -8050,7 +8050,7 @@ type User implements Actor & Node & RepositoryOwner & UniformResourceLocatable {
 
     # If non-null, filters repositories according to privacy
     privacy: RepositoryPrivacy
-  ): RepositoryConnection! @deprecated(reason: "Arguments for connection `contributedRepositories` are getting redesigned. Use `User.repositoriesContributedTo` instead. Removal on 2018-07-01 UTC.")
+  ): RepositoryConnection! @deprecated(reason: "Arguments for connection `contributedRepositories` are getting redesigned. Use `User.repositoriesContributedTo` instead. Removal on 2019-01-01 UTC.")
 
   # Identifies the date and time when the object was created.
   createdAt: DateTime!
