@@ -1602,7 +1602,7 @@
               }
             },
             "isDeprecated": true,
-            "deprecationReason": "Arguments for connection `contributedRepositories` are getting redesigned. Use `User.repositoriesContributedTo` instead. Removal on 2018-07-01 UTC."
+            "deprecationReason": "Arguments for connection `contributedRepositories` are getting redesigned. Use `User.repositoriesContributedTo` instead. Removal on 2019-01-01 UTC."
           },
           {
             "name": "createdAt",
@@ -4334,7 +4334,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Field `license` will be replaced by a more detailed license object. Use `Repository.licenseInfo` instead. Removal on 2018-07-01 UTC."
+            "deprecationReason": "Field `license` will be replaced by a more detailed license object. Use `Repository.licenseInfo` instead. Removal on 2019-01-01 UTC."
           },
           {
             "name": "licenseInfo",
@@ -6987,7 +6987,7 @@
               }
             },
             "isDeprecated": true,
-            "deprecationReason": "The associated column may be null if the card is in a pending state. Use `ProjectCard.column` instead. Removal on 2018-07-01 UTC."
+            "deprecationReason": "The associated column may be null if the card is in a pending state. Use `ProjectCard.column` instead. Removal on 2019-01-01 UTC."
           },
           {
             "name": "resourcePath",
@@ -22888,7 +22888,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Field `license` will be replaced by a more detailed license object. Use `Repository.licenseInfo` instead. Removal on 2018-07-01 UTC."
+            "deprecationReason": "Field `license` will be replaced by a more detailed license object. Use `Repository.licenseInfo` instead. Removal on 2019-01-01 UTC."
           },
           {
             "name": "licenseInfo",
@@ -26816,7 +26816,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "Field `reviewer` will be changed in favor of returning a union type. Use `ReviewRequest.requestedReviewer` instead. Removal on 2018-07-01 UTC."
+            "deprecationReason": "Field `reviewer` will be changed in favor of returning a union type. Use `ReviewRequest.requestedReviewer` instead. Removal on 2019-01-01 UTC."
           }
         ],
         "inputFields": null,
@@ -27332,7 +27332,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "`ClosedEvent` may be associated with other objects than a commit. Use ClosedEvent.closer instead. Removal on 2018-07-01 UTC."
+            "deprecationReason": "`ClosedEvent` may be associated with other objects than a commit. Use ClosedEvent.closer instead. Removal on 2019-01-01 UTC."
           },
           {
             "name": "createdAt",
@@ -27912,7 +27912,7 @@
               }
             },
             "isDeprecated": true,
-            "deprecationReason": "`isCrossReference` will be renamed. Use `ReferencedEvent.isCrossRepository` instead. Removal on 2018-07-01 UTC."
+            "deprecationReason": "`isCrossReference` will be renamed. Use `ReferencedEvent.isCrossRepository` instead. Removal on 2019-01-01 UTC."
           },
           {
             "name": "isCrossRepository",
@@ -30207,7 +30207,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "`subject` will be renamed. Use `ReviewRequestedEvent.requestedReviewer` instead. Removal on 2018-07-01 UTC."
+            "deprecationReason": "`subject` will be renamed. Use `ReviewRequestedEvent.requestedReviewer` instead. Removal on 2019-01-01 UTC."
           }
         ],
         "inputFields": null,
@@ -30308,7 +30308,7 @@
               "ofType": null
             },
             "isDeprecated": true,
-            "deprecationReason": "`subject` will be renamed. Use `ReviewRequestRemovedEvent.requestedReviewer` instead. Removal on 2018-07-01 UTC."
+            "deprecationReason": "`subject` will be renamed. Use `ReviewRequestRemovedEvent.requestedReviewer` instead. Removal on 2019-01-01 UTC."
           }
         ],
         "inputFields": null,
