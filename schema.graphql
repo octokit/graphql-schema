@@ -411,9 +411,6 @@ type ClosedEvent implements Node & UniformResourceLocatable {
   # Object which triggered the creation of this event.
   closer: Closer
 
-  # Identifies the commit associated with the 'closed' event.
-  commit: Commit @deprecated(reason: "`ClosedEvent` may be associated with other objects than a commit. Use ClosedEvent.closer instead. Removal on 2019-01-01 UTC.")
-
   # Identifies the date and time when the object was created.
   createdAt: DateTime!
   id: ID!
@@ -3338,7 +3335,7 @@ enum OrderDirection {
 }
 
 # An account on GitHub, with one or more owners, that has repositories, members and teams.
-type Organization implements Actor & Node & ProjectOwner & RepositoryOwner & UniformResourceLocatable {
+type Organization implements Actor & Node & ProjectOwner & RegistryPackageOwner & RegistryPackageSearch & RepositoryOwner & UniformResourceLocatable {
   # A URL pointing to the organization's public avatar.
   avatarUrl(
     # The size of the resulting square image.
@@ -3817,9 +3814,6 @@ type ProjectCard implements Node {
 
   # The project that contains this card.
   project: Project!
-
-  # The column that contains this card.
-  projectColumn: ProjectColumn! @deprecated(reason: "The associated column may be null if the card is in a pending state. Use `ProjectCard.column` instead. Removal on 2019-01-01 UTC.")
 
   # The HTTP path for this card
   resourcePath: URI!
@@ -5479,9 +5473,6 @@ type ReferencedEvent implements Node {
   id: ID!
 
   # Reference originated in a different repository.
-  isCrossReference: Boolean! @deprecated(reason: "`isCrossReference` will be renamed. Use `ReferencedEvent.isCrossRepository` instead. Removal on 2019-01-01 UTC.")
-
-  # Reference originated in a different repository.
   isCrossRepository: Boolean!
 
   # Checks if the commit message itself references the subject. Can be false in the case of a commit comment reference.
@@ -5493,6 +5484,16 @@ type ReferencedEvent implements Node {
 
 # Any referencable object
 union ReferencedSubject = Issue | PullRequest
+
+# Represents an owner of a registry package.
+interface RegistryPackageOwner {
+  id: ID!
+}
+
+# Represents an interface to search packages on an object.
+interface RegistryPackageSearch {
+  id: ID!
+}
 
 # A release contains the content for a release.
 type Release implements Node & UniformResourceLocatable {
@@ -5761,7 +5762,7 @@ type ReopenedEvent implements Node {
 }
 
 # A repository contains the content for a project.
-type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Subscribable & UniformResourceLocatable {
+type Repository implements Node & ProjectOwner & RegistryPackageOwner & RepositoryInfo & Starrable & Subscribable & UniformResourceLocatable {
   # A list of users that can be assigned to issues in this repository.
   assignableUsers(
     # Returns the elements in the list that come after the specified cursor.
@@ -5996,9 +5997,6 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
     # Order for connection
     orderBy: LanguageOrder
   ): LanguageConnection
-
-  # The license associated with the repository
-  license: String @deprecated(reason: "Field `license` will be replaced by a more detailed license object. Use `Repository.licenseInfo` instead. Removal on 2019-01-01 UTC.")
 
   # The license associated with the repository
   licenseInfo: License
@@ -6448,9 +6446,6 @@ interface RepositoryInfo {
   isPrivate: Boolean!
 
   # The license associated with the repository
-  license: String @deprecated(reason: "Field `license` will be replaced by a more detailed license object. Use `Repository.licenseInfo` instead. Removal on 2019-01-01 UTC.")
-
-  # The license associated with the repository
   licenseInfo: License
 
   # The reason the repository has been locked.
@@ -6820,9 +6815,6 @@ type ReviewRequest implements Node {
 
   # The reviewer that is requested.
   requestedReviewer: RequestedReviewer
-
-  # Identifies the author associated with this review request.
-  reviewer: User @deprecated(reason: "Field `reviewer` will be changed in favor of returning a union type. Use `ReviewRequest.requestedReviewer` instead. Removal on 2019-01-01 UTC.")
 }
 
 # The connection type for ReviewRequest.
@@ -6863,9 +6855,6 @@ type ReviewRequestRemovedEvent implements Node {
 
   # Identifies the reviewer whose review request was removed.
   requestedReviewer: RequestedReviewer
-
-  # Identifies the user whose review request was removed.
-  subject: User @deprecated(reason: "`subject` will be renamed. Use `ReviewRequestRemovedEvent.requestedReviewer` instead. Removal on 2019-01-01 UTC.")
 }
 
 # Represents an 'review_requested' event on a given pull request.
@@ -6882,9 +6871,6 @@ type ReviewRequestedEvent implements Node {
 
   # Identifies the reviewer whose review was requested.
   requestedReviewer: RequestedReviewer
-
-  # Identifies the user whose review was requested.
-  subject: User @deprecated(reason: "`subject` will be renamed. Use `ReviewRequestedEvent.requestedReviewer` instead. Removal on 2019-01-01 UTC.")
 }
 
 # The results of a search.
@@ -7991,7 +7977,7 @@ type UpdateTopicsPayload {
 }
 
 # A user is an individual's account on GitHub that owns repositories and can make new content.
-type User implements Actor & Node & RepositoryOwner & UniformResourceLocatable {
+type User implements Actor & Node & RegistryPackageOwner & RegistryPackageSearch & RepositoryOwner & UniformResourceLocatable {
   # A URL pointing to the user's public avatar.
   avatarUrl(
     # The size of the resulting square image.
@@ -8024,33 +8010,6 @@ type User implements Actor & Node & RepositoryOwner & UniformResourceLocatable {
 
   # The user's public profile company as HTML.
   companyHTML: HTML!
-
-  # A list of repositories that the user recently contributed to.
-  contributedRepositories(
-    # Affiliation options for repositories returned from the connection
-    affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
-
-    # Returns the elements in the list that come after the specified cursor.
-    after: String
-
-    # Returns the elements in the list that come before the specified cursor.
-    before: String
-
-    # Returns the first _n_ elements from the list.
-    first: Int
-
-    # If non-null, filters repositories according to whether they have been locked
-    isLocked: Boolean
-
-    # Returns the last _n_ elements from the list.
-    last: Int
-
-    # Ordering options for repositories returned from the connection
-    orderBy: RepositoryOrder
-
-    # If non-null, filters repositories according to privacy
-    privacy: RepositoryPrivacy
-  ): RepositoryConnection! @deprecated(reason: "Arguments for connection `contributedRepositories` are getting redesigned. Use `User.repositoriesContributedTo` instead. Removal on 2019-01-01 UTC.")
 
   # Identifies the date and time when the object was created.
   createdAt: DateTime!

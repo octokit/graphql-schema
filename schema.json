@@ -1504,107 +1504,6 @@
             "deprecationReason": null
           },
           {
-            "name": "contributedRepositories",
-            "description": "A list of repositories that the user recently contributed to.",
-            "args": [
-              {
-                "name": "first",
-                "description": "Returns the first _n_ elements from the list.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "after",
-                "description": "Returns the elements in the list that come after the specified cursor.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "last",
-                "description": "Returns the last _n_ elements from the list.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "before",
-                "description": "Returns the elements in the list that come before the specified cursor.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "privacy",
-                "description": "If non-null, filters repositories according to privacy",
-                "type": {
-                  "kind": "ENUM",
-                  "name": "RepositoryPrivacy",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "orderBy",
-                "description": "Ordering options for repositories returned from the connection",
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "RepositoryOrder",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "affiliations",
-                "description": "Affiliation options for repositories returned from the connection",
-                "type": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "ENUM",
-                    "name": "RepositoryAffiliation",
-                    "ofType": null
-                  }
-                },
-                "defaultValue": "[\"OWNER\", \"COLLABORATOR\"]"
-              },
-              {
-                "name": "isLocked",
-                "description": "If non-null, filters repositories according to whether they have been locked",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                },
-                "defaultValue": null
-              }
-            ],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "RepositoryConnection",
-                "ofType": null
-              }
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Arguments for connection `contributedRepositories` are getting redesigned. Use `User.repositoriesContributedTo` instead. Removal on 2019-01-01 UTC."
-          },
-          {
             "name": "createdAt",
             "description": "Identifies the date and time when the object was created.",
             "args": [],
@@ -3150,6 +3049,16 @@
           },
           {
             "kind": "INTERFACE",
+            "name": "RegistryPackageOwner",
+            "ofType": null
+          },
+          {
+            "kind": "INTERFACE",
+            "name": "RegistryPackageSearch",
+            "ofType": null
+          },
+          {
+            "kind": "INTERFACE",
             "name": "RepositoryOwner",
             "ofType": null
           },
@@ -3350,6 +3259,49 @@
         "interfaces": [],
         "enumValues": null,
         "possibleTypes": null
+      },
+      {
+        "kind": "INTERFACE",
+        "name": "RegistryPackageOwner",
+        "description": "Represents an owner of a registry package.",
+        "fields": [
+          {
+            "name": "id",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": [
+          {
+            "kind": "OBJECT",
+            "name": "Organization",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "Repository",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "User",
+            "ofType": null
+          }
+        ]
       },
       {
         "kind": "OBJECT",
@@ -4323,18 +4275,6 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
-          },
-          {
-            "name": "license",
-            "description": "The license associated with the repository",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Field `license` will be replaced by a more detailed license object. Use `Repository.licenseInfo` instead. Removal on 2019-01-01 UTC."
           },
           {
             "name": "licenseInfo",
@@ -5662,6 +5602,11 @@
           },
           {
             "kind": "INTERFACE",
+            "name": "RegistryPackageOwner",
+            "ofType": null
+          },
+          {
+            "kind": "INTERFACE",
             "name": "Subscribable",
             "ofType": null
           },
@@ -6972,22 +6917,6 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
-          },
-          {
-            "name": "projectColumn",
-            "description": "The column that contains this card.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "ProjectColumn",
-                "ofType": null
-              }
-            },
-            "isDeprecated": true,
-            "deprecationReason": "The associated column may be null if the card is in a pending state. Use `ProjectCard.column` instead. Removal on 2019-01-01 UTC."
           },
           {
             "name": "resourcePath",
@@ -16832,6 +16761,16 @@
           },
           {
             "kind": "INTERFACE",
+            "name": "RegistryPackageOwner",
+            "ofType": null
+          },
+          {
+            "kind": "INTERFACE",
+            "name": "RegistryPackageSearch",
+            "ofType": null
+          },
+          {
+            "kind": "INTERFACE",
             "name": "ProjectOwner",
             "ofType": null
           },
@@ -16848,6 +16787,44 @@
         ],
         "enumValues": null,
         "possibleTypes": null
+      },
+      {
+        "kind": "INTERFACE",
+        "name": "RegistryPackageSearch",
+        "description": "Represents an interface to search packages on an object.",
+        "fields": [
+          {
+            "name": "id",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": [
+          {
+            "kind": "OBJECT",
+            "name": "Organization",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "User",
+            "ofType": null
+          }
+        ]
       },
       {
         "kind": "INTERFACE",
@@ -22879,18 +22856,6 @@
             "deprecationReason": null
           },
           {
-            "name": "license",
-            "description": "The license associated with the repository",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Field `license` will be replaced by a more detailed license object. Use `Repository.licenseInfo` instead. Removal on 2019-01-01 UTC."
-          },
-          {
             "name": "licenseInfo",
             "description": "The license associated with the repository",
             "args": [],
@@ -26805,18 +26770,6 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
-          },
-          {
-            "name": "reviewer",
-            "description": "Identifies the author associated with this review request.",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "User",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Field `reviewer` will be changed in favor of returning a union type. Use `ReviewRequest.requestedReviewer` instead. Removal on 2019-01-01 UTC."
           }
         ],
         "inputFields": null,
@@ -27321,18 +27274,6 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
-          },
-          {
-            "name": "commit",
-            "description": "Identifies the commit associated with the 'closed' event.",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "Commit",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "`ClosedEvent` may be associated with other objects than a commit. Use ClosedEvent.closer instead. Removal on 2019-01-01 UTC."
           },
           {
             "name": "createdAt",
@@ -27897,22 +27838,6 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
-          },
-          {
-            "name": "isCrossReference",
-            "description": "Reference originated in a different repository.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Boolean",
-                "ofType": null
-              }
-            },
-            "isDeprecated": true,
-            "deprecationReason": "`isCrossReference` will be renamed. Use `ReferencedEvent.isCrossRepository` instead. Removal on 2019-01-01 UTC."
           },
           {
             "name": "isCrossRepository",
@@ -30196,18 +30121,6 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
-          },
-          {
-            "name": "subject",
-            "description": "Identifies the user whose review was requested.",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "User",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "`subject` will be renamed. Use `ReviewRequestedEvent.requestedReviewer` instead. Removal on 2019-01-01 UTC."
           }
         ],
         "inputFields": null,
@@ -30297,18 +30210,6 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
-          },
-          {
-            "name": "subject",
-            "description": "Identifies the user whose review request was removed.",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "User",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "`subject` will be renamed. Use `ReviewRequestRemovedEvent.requestedReviewer` instead. Removal on 2019-01-01 UTC."
           }
         ],
         "inputFields": null,
