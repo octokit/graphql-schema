@@ -1240,6 +1240,9 @@ type Deployment implements Node {
   # Identifies the primary key from the database.
   databaseId: Int
 
+  # The deployment description.
+  description: String
+
   # The environment to which this deployment was made.
   environment: String
   id: ID!
@@ -1270,6 +1273,9 @@ type Deployment implements Node {
     # Returns the last _n_ elements from the list.
     last: Int
   ): DeploymentStatusConnection
+
+  # Identifies the date and time when the object was last updated.
+  updatedAt: DateTime!
 }
 
 # The connection type for Deployment.
