@@ -391,6 +391,338 @@ type Bot implements Actor & Node & UniformResourceLocatable {
   url: URI!
 }
 
+# A single check annotation.
+type CheckAnnotation {
+  # The path to the file that this annotation was made on.
+  blobUrl: URI!
+
+  # Identifies the primary key from the database.
+  databaseId: Int
+
+  # The ending line for this annotation.
+  endLine: Int!
+
+  # The filename that this annotation was made on.
+  filename: String!
+
+  # The annotation's message.
+  message: String!
+
+  # Additional information about the annotation.
+  rawDetails: String
+
+  # The starting line for this annotation.
+  startLine: Int!
+
+  # The annotation's title
+  title: String
+
+  # The annotation's severity level.
+  warningLevel: CheckAnnotationLevel
+}
+
+# The connection type for CheckAnnotation.
+type CheckAnnotationConnection {
+  # A list of edges.
+  edges: [CheckAnnotationEdge]
+
+  # A list of nodes.
+  nodes: [CheckAnnotation]
+
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # Identifies the total count of items in the connection.
+  totalCount: Int!
+}
+
+# An edge in a connection.
+type CheckAnnotationEdge {
+  # A cursor for use in pagination.
+  cursor: String!
+
+  # The item at the end of the edge.
+  node: CheckAnnotation
+}
+
+# Represents an annotation's information level.
+enum CheckAnnotationLevel {
+  # An annotation indicating an inescapable error.
+  FAILURE
+
+  # An annotation indicating some information.
+  NOTICE
+
+  # An annotation indicating an ignorable error.
+  WARNING
+}
+
+# The possible states for a check suite or run conclusion.
+enum CheckConclusionState {
+  # The check suite or run requires action.
+  ACTION_REQUIRED
+
+  # The check suite or run has been cancelled.
+  CANCELLED
+
+  # The check suite or run has failed.
+  FAILURE
+
+  # The check suite or run was neutral.
+  NEUTRAL
+
+  # The check suite or run has succeeded.
+  SUCCESS
+
+  # The check suite or run has timed out.
+  TIMED_OUT
+}
+
+# A check run.
+type CheckRun implements Node & UniformResourceLocatable {
+  # The check run's annotations
+  annotations(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+  ): CheckAnnotationConnection
+
+  # The check suite that this run is a part of.
+  checkSuite: CheckSuite!
+
+  # Identifies the date and time when the check run was completed.
+  completedAt: DateTime
+
+  # The conclusion of the check run.
+  conclusion: CheckConclusionState
+
+  # The GitHub App bot associated with the check run.
+  creator: Bot
+
+  # Identifies the primary key from the database.
+  databaseId: Int
+
+  # The URL from which to find full details of the check run on the integrator's site.
+  detailsUrl: URI
+
+  # A reference for the check run on the integrator's system.
+  externalId: String
+  id: ID!
+
+  # The name of the check for this check run.
+  name: String!
+
+  # The permalink to the check run summary.
+  permalink: URI!
+
+  # The repository associated with this check run.
+  repository: Repository!
+
+  # The HTTP path for this check run.
+  resourcePath: URI!
+
+  # Identifies the date and time when the check run was started.
+  startedAt: DateTime
+
+  # The current status of the check run.
+  status: CheckStatusState!
+
+  # A string representing the check run's summary
+  summary: String
+
+  # A string representing the check run's text
+  text: String
+
+  # A string representing the check run
+  title: String
+
+  # The HTTP URL for this check run.
+  url: URI!
+}
+
+# The connection type for CheckRun.
+type CheckRunConnection {
+  # A list of edges.
+  edges: [CheckRunEdge]
+
+  # A list of nodes.
+  nodes: [CheckRun]
+
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # Identifies the total count of items in the connection.
+  totalCount: Int!
+}
+
+# An edge in a connection.
+type CheckRunEdge {
+  # A cursor for use in pagination.
+  cursor: String!
+
+  # The item at the end of the edge.
+  node: CheckRun
+}
+
+# The filters that are available when fetching check runs.
+input CheckRunFilter {
+  # Filters the check runs created by this application ID.
+  appId: Int
+
+  # Filters the check runs by this name.
+  checkName: String
+
+  # Filters the check runs by this type.
+  checkType: CheckRunType
+
+  # Filters the check runs by this status.
+  status: CheckStatusState
+}
+
+# The possible types of check runs.
+enum CheckRunType {
+  # Every check run available.
+  ALL
+
+  # The latest check run.
+  LATEST
+}
+
+# The possible states for a check suite or run status.
+enum CheckStatusState {
+  # The check suite or run has been completed.
+  COMPLETED
+
+  # The check suite or run is in progress.
+  IN_PROGRESS
+
+  # The check suite or run has been queued.
+  QUEUED
+
+  # The check suite or run has been requested.
+  REQUESTED
+}
+
+# A check suite.
+type CheckSuite implements Node {
+  # The name of the branch for this check suite.
+  branch: Ref
+
+  # The check runs associated with a check suite.
+  checkRuns(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Filters the check runs by this type.
+    filterBy: CheckRunFilter
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+  ): CheckRunConnection
+
+  # The commit for this check suite
+  commit: Commit!
+
+  # The conclusion of this check suite.
+  conclusion: CheckConclusionState
+
+  # Identifies the date and time when the object was created.
+  createdAt: DateTime!
+
+  # Identifies the primary key from the database.
+  databaseId: Int
+  id: ID!
+
+  # A list of open pull requests matching the check suite.
+  matchingPullRequests(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # The base ref name to filter the pull requests by.
+    baseRefName: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # The head ref name to filter the pull requests by.
+    headRefName: String
+
+    # A list of label names to filter the pull requests by.
+    labels: [String!]
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+
+    # Ordering options for pull requests returned from the connection.
+    orderBy: IssueOrder
+
+    # A list of states to filter the pull requests by.
+    states: [PullRequestState!]
+  ): PullRequestConnection
+
+  # The push that triggered this check suite.
+  push: Push
+
+  # The repository associated with this check suite.
+  repository: Repository!
+
+  # The status of this check suite.
+  status: CheckStatusState!
+
+  # Identifies the date and time when the object was last updated.
+  updatedAt: DateTime!
+}
+
+# The connection type for CheckSuite.
+type CheckSuiteConnection {
+  # A list of edges.
+  edges: [CheckSuiteEdge]
+
+  # A list of nodes.
+  nodes: [CheckSuite]
+
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # Identifies the total count of items in the connection.
+  totalCount: Int!
+}
+
+# An edge in a connection.
+type CheckSuiteEdge {
+  # A cursor for use in pagination.
+  cursor: String!
+
+  # The item at the end of the edge.
+  node: CheckSuite
+}
+
+# The filters that are available when fetching check suites.
+input CheckSuiteFilter {
+  # Filters the check suites created by this application ID.
+  appId: Int
+
+  # Filters the check suites by this name.
+  checkName: String
+}
+
 # An object that can be closed
 interface Closable {
   # `true` if the object is closed (definition of closed may depend on type)
@@ -593,6 +925,24 @@ type Commit implements GitObject & Node & Subscribable {
 
   # The number of changed files in this commit.
   changedFiles: Int!
+
+  # The check suites associated with a commit.
+  checkSuites(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Filters the check suites by this type.
+    filterBy: CheckSuiteFilter
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+  ): CheckSuiteConnection
 
   # Comments made on the commit.
   comments(
@@ -4971,6 +5321,26 @@ type PullRequestTimelineItemEdge {
 
   # The item at the end of the edge.
   node: PullRequestTimelineItem
+}
+
+# A Git push.
+type Push implements Node {
+  id: ID!
+
+  # The SHA after the push
+  nextSha: GitObjectID
+
+  # The permalink for this push.
+  permalink: URI!
+
+  # The SHA before the push
+  previousSha: GitObjectID
+
+  # The user who pushed
+  pusher: User!
+
+  # The repository that was pushed to
+  repository: Repository!
 }
 
 # A team or user who has the ability to push to a protected branch.
