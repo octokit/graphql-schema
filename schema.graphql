@@ -2103,7 +2103,7 @@ type GitActor {
 # Represents information about the GitHub instance.
 type GitHubMetadata {
   # Returns a String that's a SHA of `github-services`
-  gitHubServicesSha: String!
+  gitHubServicesSha: GitObjectID!
 
   # IP addresses that users connect to for git operations
   gitIpAddresses: [String!]
