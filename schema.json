@@ -36337,7 +36337,7 @@
           },
           {
             "name": "reaction",
-            "description": "The reaction object.",
+            "description": "The reaction object.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `reaction` will change from `Reaction!` to `Reaction`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -36353,7 +36353,7 @@
           },
           {
             "name": "subject",
-            "description": "The reactable subject.",
+            "description": "The reactable subject.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `subject` will change from `Reactable!` to `Reactable`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -36441,7 +36441,7 @@
           },
           {
             "name": "reaction",
-            "description": "The reaction object.",
+            "description": "The reaction object.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `reaction` will change from `Reaction!` to `Reaction`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -36457,7 +36457,7 @@
           },
           {
             "name": "subject",
-            "description": "The reactable subject.",
+            "description": "The reactable subject.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `subject` will change from `Reactable!` to `Reactable`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -36545,7 +36545,7 @@
           },
           {
             "name": "subscribable",
-            "description": "The input subscribable entity.",
+            "description": "The input subscribable entity.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `subscribable` will change from `Subscribable!` to `Subscribable`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -36633,7 +36633,7 @@
           },
           {
             "name": "commentEdge",
-            "description": "The edge from the subject's comment connection.",
+            "description": "The edge from the subject's comment connection.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `commentEdge` will change from `IssueCommentEdge!` to `IssueCommentEdge`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -36649,7 +36649,7 @@
           },
           {
             "name": "subject",
-            "description": "The subject",
+            "description": "The subject\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `subject` will change from `Node!` to `Node`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -36665,7 +36665,7 @@
           },
           {
             "name": "timelineEdge",
-            "description": "The edge from the subject's timeline connection.",
+            "description": "The edge from the subject's timeline connection.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `timelineEdge` will change from `IssueTimelineItemEdge!` to `IssueTimelineItemEdge`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -36753,7 +36753,7 @@
           },
           {
             "name": "project",
-            "description": "The new project.",
+            "description": "The new project.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `project` will change from `Project!` to `Project`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -36851,7 +36851,7 @@
           },
           {
             "name": "project",
-            "description": "The updated project.",
+            "description": "The updated project.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `project` will change from `Project!` to `Project`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -36965,7 +36965,7 @@
           },
           {
             "name": "owner",
-            "description": "The repository or organization the project was removed from.",
+            "description": "The repository or organization the project was removed from.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `owner` will change from `ProjectOwner!` to `ProjectOwner`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -37039,7 +37039,7 @@
           },
           {
             "name": "columnEdge",
-            "description": "The edge from the project's column connection.",
+            "description": "The edge from the project's column connection.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `columnEdge` will change from `ProjectColumnEdge!` to `ProjectColumnEdge`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -37055,7 +37055,7 @@
           },
           {
             "name": "project",
-            "description": "The project",
+            "description": "The project\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `project` will change from `Project!` to `Project`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -37143,7 +37143,7 @@
           },
           {
             "name": "columnEdge",
-            "description": "The new edge of the moved column.",
+            "description": "The new edge of the moved column.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `columnEdge` will change from `ProjectColumnEdge!` to `ProjectColumnEdge`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -37227,7 +37227,7 @@
           },
           {
             "name": "projectColumn",
-            "description": "The updated project column.",
+            "description": "The updated project column.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `projectColumn` will change from `ProjectColumn!` to `ProjectColumn`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -37315,7 +37315,7 @@
           },
           {
             "name": "deletedColumnId",
-            "description": "The deleted column ID.",
+            "description": "The deleted column ID.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `deletedColumnId` will change from `ID!` to `ID`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -37331,7 +37331,7 @@
           },
           {
             "name": "project",
-            "description": "The project the deleted column was in.",
+            "description": "The project the deleted column was in.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `project` will change from `Project!` to `Project`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -37393,7 +37393,7 @@
         "fields": [
           {
             "name": "cardEdge",
-            "description": "The edge from the ProjectColumn's card connection.",
+            "description": "The edge from the ProjectColumn's card connection.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `cardEdge` will change from `ProjectCardEdge!` to `ProjectCardEdge`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -37421,7 +37421,7 @@
           },
           {
             "name": "projectColumn",
-            "description": "The ProjectColumn",
+            "description": "The ProjectColumn\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `projectColumn` will change from `Project!` to `Project`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -37515,7 +37515,7 @@
           },
           {
             "name": "projectCard",
-            "description": "The updated ProjectCard.",
+            "description": "The updated ProjectCard.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `projectCard` will change from `ProjectCard!` to `ProjectCard`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -37587,7 +37587,7 @@
         "fields": [
           {
             "name": "cardEdge",
-            "description": "The new edge of the moved card.",
+            "description": "The new edge of the moved card.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `cardEdge` will change from `ProjectCardEdge!` to `ProjectCardEdge`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -37697,7 +37697,7 @@
           },
           {
             "name": "column",
-            "description": "The column the deleted card was in.",
+            "description": "The column the deleted card was in.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `column` will change from `ProjectColumn!` to `ProjectColumn`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -37713,7 +37713,7 @@
           },
           {
             "name": "deletedCardId",
-            "description": "The deleted card ID.",
+            "description": "The deleted card ID.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `deletedCardId` will change from `ID!` to `ID`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -37937,7 +37937,7 @@
           },
           {
             "name": "pullRequestReview",
-            "description": "The newly created pull request review.",
+            "description": "The newly created pull request review.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `pullRequestReview` will change from `PullRequestReview!` to `PullRequestReview`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -37953,7 +37953,7 @@
           },
           {
             "name": "reviewEdge",
-            "description": "The edge from the pull request's review connection.",
+            "description": "The edge from the pull request's review connection.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `reviewEdge` will change from `PullRequestReviewEdge!` to `PullRequestReviewEdge`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -38159,7 +38159,7 @@
           },
           {
             "name": "pullRequestReview",
-            "description": "The submitted pull request review.",
+            "description": "The submitted pull request review.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `pullRequestReview` will change from `PullRequestReview!` to `PullRequestReview`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -38257,7 +38257,7 @@
           },
           {
             "name": "pullRequestReview",
-            "description": "The updated pull request review.",
+            "description": "The updated pull request review.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `pullRequestReview` will change from `PullRequestReview!` to `PullRequestReview`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -38345,7 +38345,7 @@
           },
           {
             "name": "pullRequestReview",
-            "description": "The dismissed pull request review.",
+            "description": "The dismissed pull request review.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `pullRequestReview` will change from `PullRequestReview!` to `PullRequestReview`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -38433,7 +38433,7 @@
           },
           {
             "name": "pullRequestReview",
-            "description": "The deleted pull request review.",
+            "description": "The deleted pull request review.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `pullRequestReview` will change from `PullRequestReview!` to `PullRequestReview`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -38507,7 +38507,7 @@
           },
           {
             "name": "comment",
-            "description": "The newly created comment.",
+            "description": "The newly created comment.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `comment` will change from `PullRequestReviewComment!` to `PullRequestReviewComment`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -38523,7 +38523,7 @@
           },
           {
             "name": "commentEdge",
-            "description": "The edge from the review's comment connection.",
+            "description": "The edge from the review's comment connection.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `commentEdge` will change from `PullRequestReviewCommentEdge!` to `PullRequestReviewCommentEdge`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -38651,7 +38651,7 @@
           },
           {
             "name": "pullRequestReviewComment",
-            "description": "The updated comment.",
+            "description": "The updated comment.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `pullRequestReviewComment` will change from `PullRequestReviewComment!` to `PullRequestReviewComment`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -38739,7 +38739,7 @@
           },
           {
             "name": "removedUser",
-            "description": "The user that was removed as an outside collaborator.",
+            "description": "The user that was removed as an outside collaborator.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `removedUser` will change from `User!` to `User`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -38827,7 +38827,7 @@
           },
           {
             "name": "pullRequest",
-            "description": "The pull request that is getting requests.",
+            "description": "The pull request that is getting requests.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `pullRequest` will change from `PullRequest!` to `PullRequest`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -38843,7 +38843,7 @@
           },
           {
             "name": "requestedReviewersEdge",
-            "description": "The edge from the pull request to the requested reviewers.",
+            "description": "The edge from the pull request to the requested reviewers.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `requestedReviewersEdge` will change from `UserEdge!` to `UserEdge`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -38963,7 +38963,7 @@
           },
           {
             "name": "starrable",
-            "description": "The starrable.",
+            "description": "The starrable.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `starrable` will change from `Starrable!` to `Starrable`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -39037,7 +39037,7 @@
           },
           {
             "name": "starrable",
-            "description": "The starrable.",
+            "description": "The starrable.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `starrable` will change from `Starrable!` to `Starrable`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -39111,7 +39111,7 @@
           },
           {
             "name": "topic",
-            "description": "The accepted topic.",
+            "description": "The accepted topic.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `topic` will change from `Topic!` to `Topic`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -39199,7 +39199,7 @@
           },
           {
             "name": "topic",
-            "description": "The declined topic.",
+            "description": "The declined topic.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `topic` will change from `Topic!` to `Topic`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -39356,7 +39356,7 @@
           },
           {
             "name": "repository",
-            "description": "The updated repository.",
+            "description": "The updated repository.\n\n**Upcoming Change on 2019-01-01 UTC**\n**Description:** Type for `repository` will change from `Repository!` to `Repository`.\n**Reason:** In preparation for an upcoming change to the way we report mutation errors, non-nullable payload fields are becoming nullable.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
