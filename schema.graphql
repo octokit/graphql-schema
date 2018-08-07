@@ -315,6 +315,46 @@ type AddedToProjectEvent implements Node {
   id: ID!
 }
 
+# A GitHub App.
+type App implements Node {
+  # Identifies the date and time when the object was created.
+  createdAt: DateTime!
+
+  # Identifies the primary key from the database.
+  databaseId: Int
+
+  # The description of the app.
+  description: String
+  id: ID!
+
+  # A URL pointing to the app's logo.
+  logoUrl(
+    # The size of the resulting image.
+    size: Int
+  ): URI!
+
+  # The name of the app.
+  name: String!
+
+  # A slug based on the name of the app for use in URLs.
+  slug: String!
+
+  # Identifies the date and time when the object was last updated.
+  updatedAt: DateTime!
+
+  # The URL to the app's homepage.
+  url: URI!
+}
+
+# An edge in a connection.
+type AppEdge {
+  # A cursor for use in pagination.
+  cursor: String!
+
+  # The item at the end of the edge.
+  node: App
+}
+
 # An object that can have users assigned to it.
 interface Assignable {
   # A list of Users assigned to this object.
@@ -2887,6 +2927,9 @@ type MarketplaceCategory implements Node {
 
 # A listing in the GitHub integration marketplace.
 type MarketplaceListing implements Node {
+  # The GitHub App this listing represents.
+  app: App
+
   # URL to the listing owner's company site.
   companyUrl: URI
 
