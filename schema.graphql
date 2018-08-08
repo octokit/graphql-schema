@@ -3535,6 +3535,9 @@ type Organization implements Actor & Node & ProjectOwner & RegistryPackageOwner 
   email: String
   id: ID!
 
+  # Whether the organization has verified its profile email and website.
+  isVerified: Boolean!
+
   # The organization's public profile location.
   location: String
 
