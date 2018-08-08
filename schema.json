@@ -11817,6 +11817,22 @@
             "deprecationReason": null
           },
           {
+            "name": "isVerified",
+            "description": "Whether the organization has verified its profile email and website.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "location",
             "description": "The organization's public profile location.",
             "args": [],
