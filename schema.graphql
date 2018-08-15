@@ -1461,6 +1461,22 @@ type DeploymentEdge {
   node: Deployment
 }
 
+# Represents a 'deployment_environment_changed' event on a given pull request.
+type DeploymentEnvironmentChangedEvent implements Node {
+  # Identifies the actor who performed the event.
+  actor: Actor
+
+  # Identifies the date and time when the object was created.
+  createdAt: DateTime!
+
+  # The deployment status that updated the deployment environment.
+  deploymentStatus: DeploymentStatus!
+  id: ID!
+
+  # PullRequest referenced by event.
+  pullRequest: PullRequest!
+}
+
 # The possible states in which a deployment can be.
 enum DeploymentState {
   # The pending deployment was not updated after 30 minutes.
@@ -5142,7 +5158,7 @@ type PullRequestTimelineConnection {
 }
 
 # An item in an pull request timeline
-union PullRequestTimelineItem = AssignedEvent | BaseRefForcePushedEvent | ClosedEvent | Commit | CommitCommentThread | CrossReferencedEvent | DemilestonedEvent | DeployedEvent | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IssueComment | LabeledEvent | LockedEvent | MergedEvent | MilestonedEvent | PullRequestReview | PullRequestReviewComment | PullRequestReviewThread | ReferencedEvent | RenamedTitleEvent | ReopenedEvent | ReviewDismissedEvent | ReviewRequestRemovedEvent | ReviewRequestedEvent | SubscribedEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnsubscribedEvent
+union PullRequestTimelineItem = AssignedEvent | BaseRefForcePushedEvent | ClosedEvent | Commit | CommitCommentThread | CrossReferencedEvent | DemilestonedEvent | DeployedEvent | DeploymentEnvironmentChangedEvent | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IssueComment | LabeledEvent | LockedEvent | MergedEvent | MilestonedEvent | PullRequestReview | PullRequestReviewComment | PullRequestReviewThread | ReferencedEvent | RenamedTitleEvent | ReopenedEvent | ReviewDismissedEvent | ReviewRequestRemovedEvent | ReviewRequestedEvent | SubscribedEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnsubscribedEvent
 
 # An edge in a connection.
 type PullRequestTimelineItemEdge {

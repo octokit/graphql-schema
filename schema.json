@@ -909,6 +909,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "DeploymentEnvironmentChangedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "DeploymentStatus",
             "ofType": null
           },
@@ -27241,6 +27246,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "DeploymentEnvironmentChangedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "HeadRefDeletedEvent",
             "ofType": null
           },
@@ -29872,6 +29882,99 @@
             "deprecationReason": null
           }
         ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "DeploymentEnvironmentChangedEvent",
+        "description": "Represents a 'deployment_environment_changed' event on a given pull request.",
+        "fields": [
+          {
+            "name": "actor",
+            "description": "Identifies the actor who performed the event.",
+            "args": [],
+            "type": {
+              "kind": "INTERFACE",
+              "name": "Actor",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "createdAt",
+            "description": "Identifies the date and time when the object was created.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "deploymentStatus",
+            "description": "The deployment status that updated the deployment environment.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "DeploymentStatus",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "id",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pullRequest",
+            "description": "PullRequest referenced by event.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "PullRequest",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "Node",
+            "ofType": null
+          }
+        ],
+        "enumValues": null,
         "possibleTypes": null
       },
       {
