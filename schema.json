@@ -2062,6 +2062,16 @@
                 "defaultValue": null
               },
               {
+                "name": "orderBy",
+                "description": "Ordering options for issues returned from the connection.",
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "IssueOrder",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
                 "name": "labels",
                 "description": "A list of label names to filter the pull requests by.",
                 "type": {
@@ -2076,16 +2086,6 @@
                       "ofType": null
                     }
                   }
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "orderBy",
-                "description": "Ordering options for issues returned from the connection.",
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "IssueOrder",
-                  "ofType": null
                 },
                 "defaultValue": null
               },
@@ -4075,6 +4075,16 @@
                 "defaultValue": null
               },
               {
+                "name": "orderBy",
+                "description": "Ordering options for issues returned from the connection.",
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "IssueOrder",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
                 "name": "labels",
                 "description": "A list of label names to filter the pull requests by.",
                 "type": {
@@ -4089,16 +4099,6 @@
                       "ofType": null
                     }
                   }
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "orderBy",
-                "description": "Ordering options for issues returned from the connection.",
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "IssueOrder",
-                  "ofType": null
                 },
                 "defaultValue": null
               },
@@ -9308,6 +9308,16 @@
                 "defaultValue": null
               },
               {
+                "name": "orderBy",
+                "description": "Ordering options for issues returned from the connection.",
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "IssueOrder",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
                 "name": "labels",
                 "description": "A list of label names to filter the pull requests by.",
                 "type": {
@@ -9322,16 +9332,6 @@
                       "ofType": null
                     }
                   }
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "orderBy",
-                "description": "Ordering options for issues returned from the connection.",
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "IssueOrder",
-                  "ofType": null
                 },
                 "defaultValue": null
               },
@@ -23868,6 +23868,16 @@
                 "defaultValue": null
               },
               {
+                "name": "orderBy",
+                "description": "Ordering options for issues returned from the connection.",
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "IssueOrder",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
                 "name": "labels",
                 "description": "A list of label names to filter the pull requests by.",
                 "type": {
@@ -23882,16 +23892,6 @@
                       "ofType": null
                     }
                   }
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "orderBy",
-                "description": "Ordering options for issues returned from the connection.",
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "IssueOrder",
-                  "ofType": null
                 },
                 "defaultValue": null
               },
@@ -35807,200 +35807,6 @@
         "inputFields": null,
         "interfaces": [],
         "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "ENUM",
-        "name": "SecurityAdvisorySeverity",
-        "description": "Severity of the vulnerability.",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": [
-          {
-            "name": "LOW",
-            "description": "Low.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "MODERATE",
-            "description": "Moderate.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "HIGH",
-            "description": "High.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "CRITICAL",
-            "description": "Critical.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "possibleTypes": null
-      },
-      {
-        "kind": "ENUM",
-        "name": "SecurityAdvisoryEcosystem",
-        "description": "The package manager platform of the vulnerability",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": [
-          {
-            "name": "RUBYGEMS",
-            "description": "RubyGems",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "NPM",
-            "description": "NPM",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "PIP",
-            "description": "Pip/Pypi",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "MAVEN",
-            "description": "Maven",
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "SecurityAdvisoryVulnerabilityOrder",
-        "description": "Ordering options for security vulnerability connections",
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "field",
-            "description": "The field to order security vulnerabilities by.",
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "ENUM",
-                "name": "SecurityAdvisoryVulnerabilityOrderField",
-                "ofType": null
-              }
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "direction",
-            "description": "The ordering direction.",
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "ENUM",
-                "name": "OrderDirection",
-                "ofType": null
-              }
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "ENUM",
-        "name": "SecurityAdvisoryVulnerabilityOrderField",
-        "description": "Properties by which security vulnerability connections can be ordered.",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": [
-          {
-            "name": "CREATED_AT",
-            "description": "Order vulnerability by creation time",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "UPDATED_AT",
-            "description": "Order vulnerability by update time",
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "SecurityAdvisoryOrder",
-        "description": "Ordering options for security advisory connections",
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "field",
-            "description": "The field to order security advisories by.",
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "ENUM",
-                "name": "SecurityAdvisoryOrderField",
-                "ofType": null
-              }
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "direction",
-            "description": "The ordering direction.",
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "ENUM",
-                "name": "OrderDirection",
-                "ofType": null
-              }
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "ENUM",
-        "name": "SecurityAdvisoryOrderField",
-        "description": "Properties by which security advisory connections can be ordered.",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": [
-          {
-            "name": "CREATED_AT",
-            "description": "Order advisories by creation time",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "UPDATED_AT",
-            "description": "Order advisories by update time",
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
         "possibleTypes": null
       },
       {
