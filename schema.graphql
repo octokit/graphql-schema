@@ -5233,6 +5233,9 @@ type Query {
 
     # Exclude subcategories
     excludeSubcategories: Boolean
+
+    # Return only the specified categories.
+    includeCategories: [String!]
   ): [MarketplaceCategory!]!
 
   # Look up a Marketplace category by its slug.
