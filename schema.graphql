@@ -327,6 +327,9 @@ type App implements Node {
   description: String
   id: ID!
 
+  # The hex color code, without the leading '#', for the logo background.
+  logoBackgroundColor: String!
+
   # A URL pointing to the app's logo.
   logoUrl(
     # The size of the resulting image.
@@ -3686,7 +3689,11 @@ type Organization implements Actor & Node & ProjectOwner & RegistryPackageOwner 
     name: String!
   ): Repository
 
-  # The HTTP path for this user
+  # When true the organization requires all members, billing managers, and outside
+  # collaborators to enable two-factor authentication.
+  requiresTwoFactorAuthentication: Boolean
+
+  # The HTTP path for this organization.
   resourcePath: URI!
 
   # The Organization's SAML Identity Providers
@@ -3740,7 +3747,7 @@ type Organization implements Actor & Node & ProjectOwner & RegistryPackageOwner 
   # The HTTP URL listing organization's teams
   teamsUrl: URI!
 
-  # The HTTP URL for this user
+  # The HTTP URL for this organization.
   url: URI!
 
   # Organization is adminable by the viewer.
