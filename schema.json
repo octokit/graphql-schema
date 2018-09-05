@@ -5922,6 +5922,20 @@
                   "ofType": null
                 },
                 "defaultValue": null
+              },
+              {
+                "name": "archivedStates",
+                "description": "A list of archived states to filter the cards by",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "ENUM",
+                    "name": "ProjectCardArchivedState",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[\"ARCHIVED\", \"NOT_ARCHIVED\"]"
               }
             ],
             "type": {
@@ -6774,6 +6788,20 @@
                   "ofType": null
                 },
                 "defaultValue": null
+              },
+              {
+                "name": "archivedStates",
+                "description": "A list of archived states to filter the cards by",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "ENUM",
+                    "name": "ProjectCardArchivedState",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[\"ARCHIVED\", \"NOT_ARCHIVED\"]"
               }
             ],
             "type": {
@@ -6865,6 +6893,18 @@
             "deprecationReason": null
           },
           {
+            "name": "purpose",
+            "description": "The semantic purpose of the column",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "ProjectColumnPurpose",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "resourcePath",
             "description": "The HTTP path for this project column",
             "args": [],
@@ -6922,6 +6962,35 @@
           }
         ],
         "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "ProjectColumnPurpose",
+        "description": "The semantic purpose of the column - todo, in progress, or done.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "TODO",
+            "description": "The column contains cards still to be worked on",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "IN_PROGRESS",
+            "description": "The column contains cards which are currently being worked on",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "DONE",
+            "description": "The column contains cards which are complete",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
         "possibleTypes": null
       },
       {
@@ -7117,6 +7186,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "isArchived",
+            "description": "Whether the card is archived",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
                 "ofType": null
               }
             },
@@ -7805,6 +7890,20 @@
                   "ofType": null
                 },
                 "defaultValue": null
+              },
+              {
+                "name": "archivedStates",
+                "description": "A list of archived states to filter the cards by",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "ENUM",
+                    "name": "ProjectCardArchivedState",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[\"ARCHIVED\", \"NOT_ARCHIVED\"]"
               }
             ],
             "type": {
@@ -10996,6 +11095,20 @@
                   "ofType": null
                 },
                 "defaultValue": null
+              },
+              {
+                "name": "archivedStates",
+                "description": "A list of archived states to filter the cards by",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "ENUM",
+                    "name": "ProjectCardArchivedState",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[\"ARCHIVED\", \"NOT_ARCHIVED\"]"
               }
             ],
             "type": {
@@ -23769,6 +23882,68 @@
         "possibleTypes": null
       },
       {
+        "kind": "INPUT_OBJECT",
+        "name": "PullRequestOrder",
+        "description": "Ways in which lists of issues can be ordered upon return.",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "field",
+            "description": "The field in which to order pull requests by.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "PullRequestOrderField",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "direction",
+            "description": "The direction in which to order pull requests by the specified field.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "OrderDirection",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "PullRequestOrderField",
+        "description": "Properties by which pull_requests connections can be ordered.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "CREATED_AT",
+            "description": "Order pull_requests by creation time",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "UPDATED_AT",
+            "description": "Order pull_requests by update time",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
         "kind": "OBJECT",
         "name": "Milestone",
         "description": "Represents a Milestone object on a given repository.",
@@ -31399,6 +31574,29 @@
         "possibleTypes": null
       },
       {
+        "kind": "ENUM",
+        "name": "ProjectCardArchivedState",
+        "description": "The possible archived states of a project card.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "ARCHIVED",
+            "description": "A project card that is archived",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "NOT_ARCHIVED",
+            "description": "A project card that is not archived",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
         "kind": "OBJECT",
         "name": "IssueTimelineConnection",
         "description": "The connection type for IssueTimelineItem.",
@@ -37937,6 +38135,16 @@
                 "name": "ID",
                 "ofType": null
               }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "isArchived",
+            "description": "Whether or not the ProjectCard should be archived",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
             },
             "defaultValue": null
           },
