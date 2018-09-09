@@ -2006,28 +2006,31 @@ interface GitSignature {
 
 # The state of a Git signature.
 enum GitSignatureState {
-  # Invalid email used for signing.
+  # The signing certificate or its chain could not be verified
+  BAD_CERT
+
+  # Invalid email used for signing
   BAD_EMAIL
 
-  # Signing key expired.
+  # Signing key expired
   EXPIRED_KEY
 
-  # Internal error - the GPG verification service misbehaved.
+  # Internal error - the GPG verification service misbehaved
   GPGVERIFY_ERROR
 
-  # Internal error - the GPG verification service is unavailable at the moment.
+  # Internal error - the GPG verification service is unavailable at the moment
   GPGVERIFY_UNAVAILABLE
 
-  # Invalid signature.
+  # Invalid signature
   INVALID
 
-  # Malformed signature.
+  # Malformed signature
   MALFORMED_SIG
 
-  # The usage flags for the key that signed this don't allow signing.
+  # The usage flags for the key that signed this don't allow signing
   NOT_SIGNING_KEY
 
-  # Email used for signing not known to GitHub.
+  # Email used for signing not known to GitHub
   NO_USER
 
   # Valid siganture, though certificate revocation check failed
@@ -2039,19 +2042,19 @@ enum GitSignatureState {
   # One or more certificates in chain has been revoked
   OCSP_REVOKED
 
-  # Key used for signing not known to GitHub.
+  # Key used for signing not known to GitHub
   UNKNOWN_KEY
 
-  # Unknown signature type.
+  # Unknown signature type
   UNKNOWN_SIG_TYPE
 
-  # Unsigned.
+  # Unsigned
   UNSIGNED
 
-  # Email used for signing unverified on GitHub.
+  # Email used for signing unverified on GitHub
   UNVERIFIED_EMAIL
 
-  # Valid signature and verified by GitHub.
+  # Valid signature and verified by GitHub
   VALID
 }
 
@@ -2261,6 +2264,9 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
   projectCards(
     # Returns the elements in the list that come after the specified cursor.
     after: String
+
+    # A list of archived states to filter the cards by
+    archivedStates: [ProjectCardArchivedState] = [ARCHIVED, NOT_ARCHIVED]
 
     # Returns the elements in the list that come before the specified cursor.
     before: String
@@ -3971,6 +3977,9 @@ type Project implements Closable & Node & Updatable {
     # Returns the elements in the list that come after the specified cursor.
     after: String
 
+    # A list of archived states to filter the cards by
+    archivedStates: [ProjectCardArchivedState] = [ARCHIVED, NOT_ARCHIVED]
+
     # Returns the elements in the list that come before the specified cursor.
     before: String
 
@@ -4018,6 +4027,9 @@ type ProjectCard implements Node {
   databaseId: Int
   id: ID!
 
+  # Whether the card is archived
+  isArchived: Boolean!
+
   # The card note
   note: String
 
@@ -4035,6 +4047,15 @@ type ProjectCard implements Node {
 
   # The HTTP URL for this card
   url: URI!
+}
+
+# The possible archived states of a project card.
+enum ProjectCardArchivedState {
+  # A project card that is archived
+  ARCHIVED
+
+  # A project card that is not archived
+  NOT_ARCHIVED
 }
 
 # The connection type for ProjectCard.
@@ -4083,6 +4104,9 @@ type ProjectColumn implements Node {
     # Returns the elements in the list that come after the specified cursor.
     after: String
 
+    # A list of archived states to filter the cards by
+    archivedStates: [ProjectCardArchivedState] = [ARCHIVED, NOT_ARCHIVED]
+
     # Returns the elements in the list that come before the specified cursor.
     before: String
 
@@ -4105,6 +4129,9 @@ type ProjectColumn implements Node {
 
   # The project that contains this column.
   project: Project!
+
+  # The semantic purpose of the column
+  purpose: ProjectColumnPurpose
 
   # The HTTP path for this project column
   resourcePath: URI!
@@ -4138,6 +4165,18 @@ type ProjectColumnEdge {
 
   # The item at the end of the edge.
   node: ProjectColumn
+}
+
+# The semantic purpose of the column - todo, in progress, or done.
+enum ProjectColumnPurpose {
+  # The column contains cards which are complete
+  DONE
+
+  # The column contains cards which are currently being worked on
+  IN_PROGRESS
+
+  # The column contains cards still to be worked on
+  TODO
 }
 
 # A list of projects associated with the owner.
@@ -4558,6 +4597,9 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     # Returns the elements in the list that come after the specified cursor.
     after: String
 
+    # A list of archived states to filter the cards by
+    archivedStates: [ProjectCardArchivedState] = [ARCHIVED, NOT_ARCHIVED]
+
     # Returns the elements in the list that come before the specified cursor.
     before: String
 
@@ -4772,6 +4814,24 @@ type PullRequestEdge {
 
   # The item at the end of the edge.
   node: PullRequest
+}
+
+# Ways in which lists of issues can be ordered upon return.
+input PullRequestOrder {
+  # The direction in which to order pull requests by the specified field.
+  direction: OrderDirection!
+
+  # The field in which to order pull requests by.
+  field: PullRequestOrderField!
+}
+
+# Properties by which pull_requests connections can be ordered.
+enum PullRequestOrderField {
+  # Order pull_requests by creation time
+  CREATED_AT
+
+  # Order pull_requests by update time
+  UPDATED_AT
 }
 
 # The possible PubSub channels for a pull request.
@@ -8068,6 +8128,9 @@ interface UpdatableComment {
 input UpdateProjectCardInput {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
+
+  # Whether or not the ProjectCard should be archived
+  isArchived: Boolean
 
   # The note of ProjectCard.
   note: String
