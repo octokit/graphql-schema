@@ -4750,7 +4750,7 @@
           },
           {
             "name": "projectsResourcePath",
-            "description": "The HTTP path listing repository's projects",
+            "description": "The HTTP path listing the repository's projects",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -4766,7 +4766,7 @@
           },
           {
             "name": "projectsUrl",
-            "description": "The HTTP URL listing repository's projects",
+            "description": "The HTTP URL listing the repository's projects",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -30990,6 +30990,236 @@
       },
       {
         "kind": "OBJECT",
+        "name": "PullRequestTimelineItemsEdge",
+        "description": "An edge in a connection.",
+        "fields": [
+          {
+            "name": "cursor",
+            "description": "A cursor for use in pagination.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "node",
+            "description": "The item at the end of the edge.",
+            "args": [],
+            "type": {
+              "kind": "UNION",
+              "name": "PullRequestTimelineItems",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "UNION",
+        "name": "PullRequestTimelineItems",
+        "description": "An item in a pull request timeline",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": [
+          {
+            "kind": "OBJECT",
+            "name": "PullRequestCommit",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "PullRequestReview",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "PullRequestReviewThread",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "BaseRefChangedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "BaseRefForcePushedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "DeployedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "DeploymentEnvironmentChangedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "HeadRefDeletedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "HeadRefForcePushedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "HeadRefRestoredEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "MergedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "ReviewDismissedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "ReviewRequestedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "ReviewRequestRemovedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "IssueComment",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CrossReferencedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "AddedToProjectEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "AssignedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "ClosedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CommentDeletedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "ConvertedNoteToIssueEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "DemilestonedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "LabeledEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "LockedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "MentionedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "MilestonedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "MovedColumnsInProjectEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "ReferencedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "RemovedFromProjectEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "RenamedTitleEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "ReopenedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "SubscribedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UnassignedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UnlabeledEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UnlockedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UnsubscribedEvent",
+            "ofType": null
+          }
+        ]
+      },
+      {
+        "kind": "OBJECT",
         "name": "BaseRefChangedEvent",
         "description": "Represents a 'base_ref_changed' event on a given issue or pull request.",
         "fields": [
@@ -31521,6 +31751,245 @@
         "possibleTypes": null
       },
       {
+        "kind": "ENUM",
+        "name": "PullRequestTimelineItemsItemType",
+        "description": "The possible item types found in a timeline.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "PULL_REQUEST_COMMIT",
+            "description": "Represents a Git commit part of a pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "PULL_REQUEST_COMMIT_COMMENT_THREAD",
+            "description": "Represents a commit comment thread part of a pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "PULL_REQUEST_REVIEW",
+            "description": "A review object for a given pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "PULL_REQUEST_REVIEW_THREAD",
+            "description": "A threaded list of comments for a given pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "PULL_REQUEST_REVISION_MARKER",
+            "description": "Represents the latest point in the pull request timeline for which the viewer has seen the pull request's commits.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "BASE_REF_CHANGED_EVENT",
+            "description": "Represents a 'base_ref_changed' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "BASE_REF_FORCE_PUSHED_EVENT",
+            "description": "Represents a 'base_ref_force_pushed' event on a given pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "DEPLOYED_EVENT",
+            "description": "Represents a 'deployed' event on a given pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "DEPLOYMENT_ENVIRONMENT_CHANGED_EVENT",
+            "description": "Represents a 'deployment_environment_changed' event on a given pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "HEAD_REF_DELETED_EVENT",
+            "description": "Represents a 'head_ref_deleted' event on a given pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "HEAD_REF_FORCE_PUSHED_EVENT",
+            "description": "Represents a 'head_ref_force_pushed' event on a given pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "HEAD_REF_RESTORED_EVENT",
+            "description": "Represents a 'head_ref_restored' event on a given pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "MERGED_EVENT",
+            "description": "Represents a 'merged' event on a given pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "REVIEW_DISMISSED_EVENT",
+            "description": "Represents a 'review_dismissed' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "REVIEW_REQUESTED_EVENT",
+            "description": "Represents an 'review_requested' event on a given pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "REVIEW_REQUEST_REMOVED_EVENT",
+            "description": "Represents an 'review_request_removed' event on a given pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "ISSUE_COMMENT",
+            "description": "Represents a comment on an Issue.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "CROSS_REFERENCED_EVENT",
+            "description": "Represents a mention made by one issue or pull request to another.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "ADDED_TO_PROJECT_EVENT",
+            "description": "Represents a 'added_to_project' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "ASSIGNED_EVENT",
+            "description": "Represents an 'assigned' event on any assignable object.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "CLOSED_EVENT",
+            "description": "Represents a 'closed' event on any `Closable`.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "COMMENT_DELETED_EVENT",
+            "description": "Represents a 'comment_deleted' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "CONVERTED_NOTE_TO_ISSUE_EVENT",
+            "description": "Represents a 'converted_note_to_issue' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "DEMILESTONED_EVENT",
+            "description": "Represents a 'demilestoned' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "LABELED_EVENT",
+            "description": "Represents a 'labeled' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "LOCKED_EVENT",
+            "description": "Represents a 'locked' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "MENTIONED_EVENT",
+            "description": "Represents a 'mentioned' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "MILESTONED_EVENT",
+            "description": "Represents a 'milestoned' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "MOVED_COLUMNS_IN_PROJECT_EVENT",
+            "description": "Represents a 'moved_columns_in_project' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "REFERENCED_EVENT",
+            "description": "Represents a 'referenced' event on a given `ReferencedSubject`.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "REMOVED_FROM_PROJECT_EVENT",
+            "description": "Represents a 'removed_from_project' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "RENAMED_TITLE_EVENT",
+            "description": "Represents a 'renamed' event on a given issue or pull request",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "REOPENED_EVENT",
+            "description": "Represents a 'reopened' event on any `Closable`.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "SUBSCRIBED_EVENT",
+            "description": "Represents a 'subscribed' event on a given `Subscribable`.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "UNASSIGNED_EVENT",
+            "description": "Represents an 'unassigned' event on any assignable object.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "UNLABELED_EVENT",
+            "description": "Represents an 'unlabeled' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "UNLOCKED_EVENT",
+            "description": "Represents an 'unlocked' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "UNSUBSCRIBED_EVENT",
+            "description": "Represents an 'unsubscribed' event on a given `Subscribable`.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
         "kind": "OBJECT",
         "name": "SuggestedReviewer",
         "description": "A suggestion to review a pull request based on a user's commit history and review comments.",
@@ -31811,6 +32280,309 @@
             "ofType": null
           }
         ]
+      },
+      {
+        "kind": "OBJECT",
+        "name": "IssueTimelineItemsEdge",
+        "description": "An edge in a connection.",
+        "fields": [
+          {
+            "name": "cursor",
+            "description": "A cursor for use in pagination.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "node",
+            "description": "The item at the end of the edge.",
+            "args": [],
+            "type": {
+              "kind": "UNION",
+              "name": "IssueTimelineItems",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "UNION",
+        "name": "IssueTimelineItems",
+        "description": "An item in an issue timeline",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": [
+          {
+            "kind": "OBJECT",
+            "name": "IssueComment",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CrossReferencedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "AddedToProjectEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "AssignedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "ClosedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CommentDeletedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "ConvertedNoteToIssueEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "DemilestonedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "LabeledEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "LockedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "MentionedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "MilestonedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "MovedColumnsInProjectEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "ReferencedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "RemovedFromProjectEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "RenamedTitleEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "ReopenedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "SubscribedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UnassignedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UnlabeledEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UnlockedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UnsubscribedEvent",
+            "ofType": null
+          }
+        ]
+      },
+      {
+        "kind": "ENUM",
+        "name": "IssueTimelineItemsItemType",
+        "description": "The possible item types found in a timeline.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "ISSUE_COMMENT",
+            "description": "Represents a comment on an Issue.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "CROSS_REFERENCED_EVENT",
+            "description": "Represents a mention made by one issue or pull request to another.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "ADDED_TO_PROJECT_EVENT",
+            "description": "Represents a 'added_to_project' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "ASSIGNED_EVENT",
+            "description": "Represents an 'assigned' event on any assignable object.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "CLOSED_EVENT",
+            "description": "Represents a 'closed' event on any `Closable`.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "COMMENT_DELETED_EVENT",
+            "description": "Represents a 'comment_deleted' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "CONVERTED_NOTE_TO_ISSUE_EVENT",
+            "description": "Represents a 'converted_note_to_issue' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "DEMILESTONED_EVENT",
+            "description": "Represents a 'demilestoned' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "LABELED_EVENT",
+            "description": "Represents a 'labeled' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "LOCKED_EVENT",
+            "description": "Represents a 'locked' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "MENTIONED_EVENT",
+            "description": "Represents a 'mentioned' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "MILESTONED_EVENT",
+            "description": "Represents a 'milestoned' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "MOVED_COLUMNS_IN_PROJECT_EVENT",
+            "description": "Represents a 'moved_columns_in_project' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "REFERENCED_EVENT",
+            "description": "Represents a 'referenced' event on a given `ReferencedSubject`.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "REMOVED_FROM_PROJECT_EVENT",
+            "description": "Represents a 'removed_from_project' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "RENAMED_TITLE_EVENT",
+            "description": "Represents a 'renamed' event on a given issue or pull request",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "REOPENED_EVENT",
+            "description": "Represents a 'reopened' event on any `Closable`.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "SUBSCRIBED_EVENT",
+            "description": "Represents a 'subscribed' event on a given `Subscribable`.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "UNASSIGNED_EVENT",
+            "description": "Represents an 'unassigned' event on any assignable object.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "UNLABELED_EVENT",
+            "description": "Represents an 'unlabeled' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "UNLOCKED_EVENT",
+            "description": "Represents an 'unlocked' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "UNSUBSCRIBED_EVENT",
+            "description": "Represents an 'unsubscribed' event on a given `Subscribable`.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
       },
       {
         "kind": "ENUM",
