@@ -34043,7 +34043,7 @@
           },
           {
             "name": "name",
-            "description": "Identifies the name of the protected branch.",
+            "description": "The name of the protected branch rule.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
