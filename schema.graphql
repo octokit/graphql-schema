@@ -4385,7 +4385,7 @@ type ProtectedBranch implements Node {
   # Can admins overwrite branch protection.
   isAdminEnforced: Boolean!
 
-  # Identifies the name of the protected branch.
+  # The name of the protected branch rule.
   name: String!
 
   # A list push allowances for this protected branch.
