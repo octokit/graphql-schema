@@ -29638,6 +29638,18 @@
             "deprecationReason": null
           },
           {
+            "name": "ref",
+            "description": "Identifies the Ref of the deployment, if the deployment was created by ref.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "Ref",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "repository",
             "description": "Identifies the repository associated with the deployment.",
             "args": [],
