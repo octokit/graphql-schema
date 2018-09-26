@@ -1412,6 +1412,9 @@ type Deployment implements Node {
   # Extra information that a deployment system might need.
   payload: String
 
+  # Identifies the Ref of the deployment, if the deployment was created by ref.
+  ref: Ref
+
   # Identifies the repository associated with the deployment.
   repository: Repository!
 
