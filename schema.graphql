@@ -3034,6 +3034,15 @@ type MarketplaceCategory implements Node {
   url: URI!
 }
 
+# An edge in a connection.
+type MarketplaceCategoryEdge {
+  # A cursor for use in pagination.
+  cursor: String!
+
+  # The item at the end of the edge.
+  node: MarketplaceCategory
+}
+
 # A listing in the GitHub integration marketplace.
 type MarketplaceListing implements Node {
   # The GitHub App this listing represents.
