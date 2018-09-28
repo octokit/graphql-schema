@@ -4817,6 +4817,9 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     last: Int
   ): UserContentEditConnection
 
+  # Whether or not the viewer can apply suggestion.
+  viewerCanApplySuggestion: Boolean!
+
   # Can user react to this subject
   viewerCanReact: Boolean!
 
