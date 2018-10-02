@@ -25221,6 +25221,12 @@
             "description": "The channel ID for updating items on the issue timeline.",
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "STATE",
+            "description": "The channel ID for observing issue state updates.",
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "possibleTypes": null
@@ -26846,6 +26852,12 @@
           {
             "name": "TIMELINE",
             "description": "The channel ID for updating items on the pull request timeline.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "STATE",
+            "description": "The channel ID for observing pull request state updates.",
             "isDeprecated": false,
             "deprecationReason": null
           }
