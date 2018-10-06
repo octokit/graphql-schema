@@ -9030,7 +9030,7 @@ type UserContentEditEdge {
   node: UserContentEdit
 }
 
-# An edge in a connection.
+# Represents a user.
 type UserEdge {
   # A cursor for use in pagination.
   cursor: String!

@@ -8567,7 +8567,7 @@
       {
         "kind": "OBJECT",
         "name": "UserEdge",
-        "description": "An edge in a connection.",
+        "description": "Represents a user.",
         "fields": [
           {
             "name": "cursor",
