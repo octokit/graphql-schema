@@ -24,8 +24,8 @@ You can also load the current Schema directly as JSON or [IDL](https://en.wikipe
 
 ```js
 const {schema} = require('@octokit/graphql-schema')
-schem.json // JSON version
-schem.idl // IDL version
+schema.json // JSON version
+schema.idl // IDL version
 ```
 
 ## Local setup
