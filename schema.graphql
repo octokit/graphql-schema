@@ -510,6 +510,172 @@ type Bot implements Actor & Node & UniformResourceLocatable {
   url: URI!
 }
 
+# A branch protection rule.
+type BranchProtectionRule implements Node {
+  # A list of conflicts matching branches protection rule and other branch protection rules
+  branchProtectionRuleConflicts(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+  ): BranchProtectionRuleConflictConnection!
+
+  # The actor who created this branch protection rule.
+  creator: Actor
+
+  # Identifies the primary key from the database.
+  databaseId: Int
+
+  # Will new commits pushed to matching branches dismiss pull request review approvals.
+  dismissesStaleReviews: Boolean!
+  id: ID!
+
+  # Can admins overwrite branch protection.
+  isAdminEnforced: Boolean!
+
+  # Repository refs that are protected by this rule
+  matchingRefs(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+  ): RefConnection!
+
+  # Identifies the protection rule pattern.
+  pattern: String!
+
+  # A list push allowances for this branch protection rule.
+  pushAllowances(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+  ): PushAllowanceConnection!
+
+  # The repository associated with this branch protection rule.
+  repository: Repository
+
+  # Number of approving reviews required to update matching branches.
+  requiredApprovingReviewCount: Int
+
+  # List of required status check contexts that must pass for commits to be accepted to matching branches.
+  requiredStatusCheckContexts: [String]
+
+  # Are approving reviews required to update matching branches.
+  requiresApprovingReviews: Boolean!
+
+  # Are commits required to be signed.
+  requiresCommitSignatures: Boolean!
+
+  # Are status checks required to update matching branches.
+  requiresStatusChecks: Boolean!
+
+  # Are branches required to be up to date before merging.
+  requiresStrictStatusChecks: Boolean!
+
+  # Is pushing to matching branches restricted.
+  restrictsPushes: Boolean!
+
+  # Is dismissal of pull request reviews restricted.
+  restrictsReviewDismissals: Boolean!
+
+  # A list review dismissal allowances for this branch protection rule.
+  reviewDismissalAllowances(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+  ): ReviewDismissalAllowanceConnection!
+}
+
+# A conflict between two branch protection rules.
+type BranchProtectionRuleConflict {
+  # Identifies the branch protection rule.
+  branchProtectionRule: BranchProtectionRule
+
+  # Identifies the conflicting branch protection rule.
+  conflictingBranchProtectionRule: BranchProtectionRule
+
+  # Identifies the branch ref that has conflicting rules
+  ref: Ref
+}
+
+# The connection type for BranchProtectionRuleConflict.
+type BranchProtectionRuleConflictConnection {
+  # A list of edges.
+  edges: [BranchProtectionRuleConflictEdge]
+
+  # A list of nodes.
+  nodes: [BranchProtectionRuleConflict]
+
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # Identifies the total count of items in the connection.
+  totalCount: Int!
+}
+
+# An edge in a connection.
+type BranchProtectionRuleConflictEdge {
+  # A cursor for use in pagination.
+  cursor: String!
+
+  # The item at the end of the edge.
+  node: BranchProtectionRuleConflict
+}
+
+# The connection type for BranchProtectionRule.
+type BranchProtectionRuleConnection {
+  # A list of edges.
+  edges: [BranchProtectionRuleEdge]
+
+  # A list of nodes.
+  nodes: [BranchProtectionRule]
+
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # Identifies the total count of items in the connection.
+  totalCount: Int!
+}
+
+# An edge in a connection.
+type BranchProtectionRuleEdge {
+  # A cursor for use in pagination.
+  cursor: String!
+
+  # The item at the end of the edge.
+  node: BranchProtectionRule
+}
+
 # An object that can be closed
 interface Closable {
   # `true` if the object is closed (definition of closed may depend on type)
@@ -1080,6 +1246,66 @@ type ConvertedNoteToIssueEvent implements Node {
   id: ID!
 }
 
+# Autogenerated input type of CreateBranchProtectionRule
+input CreateBranchProtectionRuleInput {
+  # A unique identifier for the client performing the mutation.
+  clientMutationId: String
+
+  # Will new commits pushed to matching branches dismiss pull request review approvals.
+  dismissesStaleReviews: Boolean
+
+  # Can admins overwrite branch protection.
+  isAdminEnforced: Boolean
+
+  # The glob-like pattern used to determine matching branches.
+  pattern: String!
+
+  # A list of User or Team IDs allowed to push to matching branches.
+  pushActorIds: [ID!]
+
+  # The global relay id of the repository in which a new branch protection rule should be created in.
+  repositoryId: ID!
+
+  # Number of approving reviews required to update matching branches.
+  requiredApprovingReviewCount: Int
+
+  # List of required status check contexts that must pass for commits to be accepted to matching branches.
+  requiredStatusCheckContexts: [String!]
+
+  # Are approving reviews required to update matching branches.
+  requiresApprovingReviews: Boolean
+
+  # Are reviews from code owners required to update matching branches.
+  requiresCodeOwnerReviews: Boolean
+
+  # Are commits required to be signed.
+  requiresCommitSignatures: Boolean
+
+  # Are status checks required to update matching branches.
+  requiresStatusChecks: Boolean
+
+  # Are branches required to be up to date before merging.
+  requiresStrictStatusChecks: Boolean
+
+  # Is pushing to matching branches restricted.
+  restrictsPushes: Boolean
+
+  # Is dismissal of pull request reviews restricted.
+  restrictsReviewDismissals: Boolean
+
+  # A list of User or Team IDs allowed to dismiss reviews on pull requests targeting matching branches.
+  reviewDismissalActorIds: [ID!]
+}
+
+# Autogenerated return type of CreateBranchProtectionRule
+type CreateBranchProtectionRulePayload {
+  # The newly created BranchProtectionRule.
+  branchProtectionRule: BranchProtectionRule
+
+  # A unique identifier for the client performing the mutation.
+  clientMutationId: String
+}
+
 # Autogenerated input type of CreateProject
 input CreateProjectInput {
   # The description of project.
@@ -1194,6 +1420,21 @@ enum DefaultRepositoryPermissionField {
 interface Deletable {
   # Check if the current viewer can delete this object.
   viewerCanDelete: Boolean!
+}
+
+# Autogenerated input type of DeleteBranchProtectionRule
+input DeleteBranchProtectionRuleInput {
+  # The global relay id of the branch protection rule to be deleted.
+  branchProtectionRuleId: ID!
+
+  # A unique identifier for the client performing the mutation.
+  clientMutationId: String
+}
+
+# Autogenerated return type of DeleteBranchProtectionRule
+type DeleteBranchProtectionRulePayload {
+  # A unique identifier for the client performing the mutation.
+  clientMutationId: String
 }
 
 # Autogenerated input type of DeleteProjectCard
@@ -3553,11 +3794,17 @@ type Mutation {
   # Adds a star to a Starrable.
   addStar(input: AddStarInput!): AddStarPayload
 
+  # Create a new branch protection rule
+  createBranchProtectionRule(input: CreateBranchProtectionRuleInput!): CreateBranchProtectionRulePayload
+
   # Creates a new project.
   createProject(input: CreateProjectInput!): CreateProjectPayload
 
   # Rejects a suggested topic for the repository.
   declineTopicSuggestion(input: DeclineTopicSuggestionInput!): DeclineTopicSuggestionPayload
+
+  # Delete a branch protection rule
+  deleteBranchProtectionRule(input: DeleteBranchProtectionRuleInput!): DeleteBranchProtectionRulePayload
 
   # Deletes a project.
   deleteProject(input: DeleteProjectInput!): DeleteProjectPayload
@@ -3600,6 +3847,9 @@ type Mutation {
 
   # Unlock a lockable object
   unlockLockable(input: UnlockLockableInput!): UnlockLockablePayload
+
+  # Create a new branch protection rule
+  updateBranchProtectionRule(input: UpdateBranchProtectionRuleInput!): UpdateBranchProtectionRulePayload
 
   # Updates an existing project.
   updateProject(input: UpdateProjectInput!): UpdateProjectPayload
@@ -5471,10 +5721,13 @@ enum PullRequestTimelineItemsItemType {
 type PushAllowance implements Node {
   # The actor that can push.
   actor: PushAllowanceActor
+
+  # Identifies the branch protection rule associated with the allowed user or team.
+  branchProtectionRule: BranchProtectionRule
   id: ID!
 
   # Identifies the protected branch associated with the allowed user or team.
-  protectedBranch: ProtectedBranch!
+  protectedBranch: ProtectedBranch! @deprecated(reason: "The `ProtectedBranch` type is deprecated and will be removed soon. Use `Repository.branchProtectionRule` instead. Removal on 2019-01-01 UTC.")
 }
 
 # Types that can be an actor.
@@ -6301,6 +6554,21 @@ type Repository implements Node & ProjectOwner & RegistryPackageOwner & Reposito
     last: Int
   ): UserConnection!
 
+  # A list of branch protection rules for this repository.
+  branchProtectionRules(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+  ): BranchProtectionRuleConnection!
+
   # Returns the code of conduct for this repository
   codeOfConduct: CodeOfConduct
 
@@ -6648,7 +6916,7 @@ type Repository implements Node & ProjectOwner & RegistryPackageOwner & Reposito
 
     # Returns the last _n_ elements from the list.
     last: Int
-  ): ProtectedBranchConnection!
+  ): ProtectedBranchConnection! @deprecated(reason: "The `ProtectedBranch` type is deprecated and will be removed soon. Use `Repository.branchProtectionRules` instead. Removal on 2019-01-01 UTC.")
 
   # Returns a single pull request from the current repository by number.
   pullRequest(
@@ -7267,10 +7535,13 @@ union RequestedReviewer = Team | User
 type ReviewDismissalAllowance implements Node {
   # The actor that can dismiss.
   actor: ReviewDismissalAllowanceActor
+
+  # Identifies the branch protection rule associated with the allowed user or team.
+  branchProtectionRule: BranchProtectionRule
   id: ID!
 
   # Identifies the protected branch associated with the allowed user or team.
-  protectedBranch: ProtectedBranch!
+  protectedBranch: ProtectedBranch! @deprecated(reason: "The `ProtectedBranch` type is deprecated and will be removed soon. Use `ReviewDismissalAllowance.branchProtectionRule` instead. Removal on 2019-01-01 UTC.")
 }
 
 # Types that can be an actor.
@@ -8353,6 +8624,66 @@ interface Updatable {
 interface UpdatableComment {
   # Reasons why the current viewer can not update this comment.
   viewerCannotUpdateReasons: [CommentCannotUpdateReason!]!
+}
+
+# Autogenerated input type of UpdateBranchProtectionRule
+input UpdateBranchProtectionRuleInput {
+  # The global relay id of the branch protection rule to be updated.
+  branchProtectionRuleId: ID!
+
+  # A unique identifier for the client performing the mutation.
+  clientMutationId: String
+
+  # Will new commits pushed to matching branches dismiss pull request review approvals.
+  dismissesStaleReviews: Boolean
+
+  # Can admins overwrite branch protection.
+  isAdminEnforced: Boolean
+
+  # The glob-like pattern used to determine matching branches.
+  pattern: String
+
+  # A list of User or Team IDs allowed to push to matching branches.
+  pushActorIds: [ID!]
+
+  # Number of approving reviews required to update matching branches.
+  requiredApprovingReviewCount: Int
+
+  # List of required status check contexts that must pass for commits to be accepted to matching branches.
+  requiredStatusCheckContexts: [String!]
+
+  # Are approving reviews required to update matching branches.
+  requiresApprovingReviews: Boolean
+
+  # Are reviews from code owners required to update matching branches.
+  requiresCodeOwnerReviews: Boolean
+
+  # Are commits required to be signed.
+  requiresCommitSignatures: Boolean
+
+  # Are status checks required to update matching branches.
+  requiresStatusChecks: Boolean
+
+  # Are branches required to be up to date before merging.
+  requiresStrictStatusChecks: Boolean
+
+  # Is pushing to matching branches restricted.
+  restrictsPushes: Boolean
+
+  # Is dismissal of pull request reviews restricted.
+  restrictsReviewDismissals: Boolean
+
+  # A list of User or Team IDs allowed to dismiss reviews on pull requests targeting matching branches.
+  reviewDismissalActorIds: [ID!]
+}
+
+# Autogenerated return type of UpdateBranchProtectionRule
+type UpdateBranchProtectionRulePayload {
+  # The newly created BranchProtectionRule.
+  branchProtectionRule: BranchProtectionRule
+
+  # A unique identifier for the client performing the mutation.
+  clientMutationId: String
 }
 
 # Autogenerated input type of UpdateProjectCard
