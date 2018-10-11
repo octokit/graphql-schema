@@ -3278,15 +3278,6 @@ type MarketplaceCategory implements Node {
   url: URI!
 }
 
-# An edge in a connection.
-type MarketplaceCategoryEdge {
-  # A cursor for use in pagination.
-  cursor: String!
-
-  # The item at the end of the edge.
-  node: MarketplaceCategory
-}
-
 # A listing in the GitHub integration marketplace.
 type MarketplaceListing implements Node {
   # The GitHub App this listing represents.
@@ -5406,6 +5397,9 @@ type PullRequestReviewComment implements Comment & Deletable & Node & Reactable 
   # The HTTP path permalink for this review comment.
   resourcePath: URI!
 
+  # Identifies the state of the comment.
+  state: PullRequestReviewCommentState!
+
   # Identifies when the comment was last updated.
   updatedAt: DateTime!
 
@@ -5465,6 +5459,15 @@ type PullRequestReviewCommentEdge {
 
   # The item at the end of the edge.
   node: PullRequestReviewComment
+}
+
+# The possible states of a pull request review comment.
+enum PullRequestReviewCommentState {
+  # A comment that is part of a pending review
+  PENDING
+
+  # A comment that is part of a submitted review
+  SUBMITTED
 }
 
 # The connection type for PullRequestReview.
@@ -5782,7 +5785,7 @@ type Query {
     # Exclude categories with no listings.
     excludeEmpty: Boolean
 
-    # Exclude subcategories
+    # Returns top level categories only, excluding any subcategories.
     excludeSubcategories: Boolean
 
     # Return only the specified categories.
@@ -8408,7 +8411,7 @@ type TextMatchHighlight {
 }
 
 # A topic aggregates entities that are related to a subject.
-type Topic implements Node {
+type Topic implements Node & Starrable {
   id: ID!
 
   # The topic's name.
@@ -8417,6 +8420,27 @@ type Topic implements Node {
   # A list of related topics, including aliases of this topic, sorted with the most relevant
   # first.
   relatedTopics: [Topic!]!
+
+  # A list of users who have starred this starrable.
+  stargazers(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+
+    # Order for connection
+    orderBy: StarOrder
+  ): StargazerConnection!
+
+  # Returns a boolean indicating whether the viewing user has starred this starrable.
+  viewerHasStarred: Boolean!
 }
 
 # The connection type for Topic.
