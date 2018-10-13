@@ -2333,7 +2333,7 @@
               },
               {
                 "name": "affiliations",
-                "description": "Affiliation options for repositories returned from the connection",
+                "description": "Array of viewer's affiliation options for repositories returned from the connection - For example, OWNED will include only repositories that the current viewer owns",
                 "type": {
                   "kind": "LIST",
                   "name": null,
@@ -2614,7 +2614,7 @@
               },
               {
                 "name": "affiliations",
-                "description": "Affiliation options for repositories returned from the connection",
+                "description": "Array of viewer's affiliation options for repositories returned from the connection - For example, OWNED will include only repositories that the current viewer owns",
                 "type": {
                   "kind": "LIST",
                   "name": null,
@@ -3881,7 +3881,7 @@
               },
               {
                 "name": "affiliations",
-                "description": "Affiliation options for repositories returned from the connection",
+                "description": "Array of viewer's affiliation options for repositories returned from the connection - For example, OWNED will include only repositories that the current viewer owns",
                 "type": {
                   "kind": "LIST",
                   "name": null,
@@ -13251,7 +13251,7 @@
               },
               {
                 "name": "affiliations",
-                "description": "Affiliation options for repositories returned from the connection",
+                "description": "Array of viewer's affiliation options for repositories returned from the connection - For example, OWNED will include only repositories that the current viewer owns",
                 "type": {
                   "kind": "LIST",
                   "name": null,
@@ -13506,7 +13506,7 @@
               },
               {
                 "name": "affiliations",
-                "description": "Affiliation options for repositories returned from the connection",
+                "description": "Array of viewer's affiliation options for repositories returned from the connection - For example, OWNED will include only repositories that the current viewer owns",
                 "type": {
                   "kind": "LIST",
                   "name": null,
@@ -14130,7 +14130,7 @@
               },
               {
                 "name": "affiliations",
-                "description": "Affiliation options for repositories returned from the connection",
+                "description": "Array of viewer's affiliation options for repositories returned from the connection - For example, OWNED will include only repositories that the current viewer owns",
                 "type": {
                   "kind": "LIST",
                   "name": null,
@@ -14231,7 +14231,7 @@
               },
               {
                 "name": "affiliations",
-                "description": "Affiliation options for repositories returned from the connection",
+                "description": "Array of viewer's affiliation options for repositories returned from the connection - For example, OWNED will include only repositories that the current viewer owns",
                 "type": {
                   "kind": "LIST",
                   "name": null,
@@ -25855,6 +25855,22 @@
             "deprecationReason": null
           },
           {
+            "name": "outdated",
+            "description": "Identifies when the comment body is outdated",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "path",
             "description": "The path to which the comment applies.",
             "args": [],
@@ -26540,6 +26556,63 @@
               "kind": "SCALAR",
               "name": "DateTime",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "onBehalfOf",
+            "description": "A list of teams that this review was made on behalf of.",
+            "args": [
+              {
+                "name": "first",
+                "description": "Returns the first _n_ elements from the list.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "after",
+                "description": "Returns the elements in the list that come after the specified cursor.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "last",
+                "description": "Returns the last _n_ elements from the list.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "before",
+                "description": "Returns the elements in the list that come before the specified cursor.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "TeamConnection",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
