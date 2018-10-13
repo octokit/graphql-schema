@@ -3935,7 +3935,9 @@ type Organization implements Actor & Node & ProjectOwner & RegistryPackageOwner 
 
   # A list of repositories this user has pinned to their profile
   pinnedRepositories(
-    # Affiliation options for repositories returned from the connection
+    # Array of viewer's affiliation options for repositories returned from the
+    # connection - For example, OWNED will include only repositories that the
+    # current viewer owns
     affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     # Returns the elements in the list that come after the specified cursor.
@@ -3998,7 +4000,9 @@ type Organization implements Actor & Node & ProjectOwner & RegistryPackageOwner 
 
   # A list of repositories that the user owns.
   repositories(
-    # Affiliation options for repositories returned from the connection
+    # Array of viewer's affiliation options for repositories returned from the
+    # connection - For example, OWNED will include only repositories that the
+    # current viewer owns
     affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     # Returns the elements in the list that come after the specified cursor.
@@ -5246,6 +5250,21 @@ type PullRequestReview implements Comment & Deletable & Node & RepositoryNode & 
   # The moment the editor made the last edit
   lastEditedAt: DateTime
 
+  # A list of teams that this review was made on behalf of.
+  onBehalfOf(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+  ): TeamConnection!
+
   # Identifies when the comment was published at.
   publishedAt: DateTime
 
@@ -5348,6 +5367,9 @@ type PullRequestReviewComment implements Comment & Deletable & Node & Reactable 
 
   # The original line index in the diff to which the comment applies.
   originalPosition: Int!
+
+  # Identifies when the comment body is outdated
+  outdated: Boolean!
 
   # The path to which the comment applies.
   path: String!
@@ -6664,7 +6686,9 @@ type Repository implements Node & ProjectOwner & RegistryPackageOwner & Reposito
 
   # A list of direct forked repositories.
   forks(
-    # Affiliation options for repositories returned from the connection
+    # Array of viewer's affiliation options for repositories returned from the
+    # connection - For example, OWNED will include only repositories that the
+    # current viewer owns
     affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     # Returns the elements in the list that come after the specified cursor.
@@ -7364,7 +7388,9 @@ interface RepositoryOwner {
 
   # A list of repositories this user has pinned to their profile
   pinnedRepositories(
-    # Affiliation options for repositories returned from the connection
+    # Array of viewer's affiliation options for repositories returned from the
+    # connection - For example, OWNED will include only repositories that the
+    # current viewer owns
     affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     # Returns the elements in the list that come after the specified cursor.
@@ -7391,7 +7417,9 @@ interface RepositoryOwner {
 
   # A list of repositories that the user owns.
   repositories(
-    # Affiliation options for repositories returned from the connection
+    # Array of viewer's affiliation options for repositories returned from the
+    # connection - For example, OWNED will include only repositories that the
+    # current viewer owns
     affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     # Returns the elements in the list that come after the specified cursor.
@@ -9117,7 +9145,9 @@ type User implements Actor & Node & RegistryPackageOwner & RegistryPackageSearch
 
   # A list of repositories this user has pinned to their profile
   pinnedRepositories(
-    # Affiliation options for repositories returned from the connection
+    # Array of viewer's affiliation options for repositories returned from the
+    # connection - For example, OWNED will include only repositories that the
+    # current viewer owns
     affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     # Returns the elements in the list that come after the specified cursor.
@@ -9189,7 +9219,9 @@ type User implements Actor & Node & RegistryPackageOwner & RegistryPackageSearch
 
   # A list of repositories that the user owns.
   repositories(
-    # Affiliation options for repositories returned from the connection
+    # Array of viewer's affiliation options for repositories returned from the
+    # connection - For example, OWNED will include only repositories that the
+    # current viewer owns
     affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     # Returns the elements in the list that come after the specified cursor.
