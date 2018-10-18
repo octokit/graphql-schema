@@ -3936,8 +3936,8 @@ type Organization implements Actor & Node & ProjectOwner & RegistryPackageOwner 
   # A list of repositories this user has pinned to their profile
   pinnedRepositories(
     # Array of viewer's affiliation options for repositories returned from the
-    # connection - For example, OWNED will include only repositories that the
-    # current viewer owns
+    # connection. For example, OWNER will include only repositories that the
+    # current viewer owns.
     affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     # Returns the elements in the list that come after the specified cursor.
@@ -4001,8 +4001,8 @@ type Organization implements Actor & Node & ProjectOwner & RegistryPackageOwner 
   # A list of repositories that the user owns.
   repositories(
     # Array of viewer's affiliation options for repositories returned from the
-    # connection - For example, OWNED will include only repositories that the
-    # current viewer owns
+    # connection. For example, OWNER will include only repositories that the
+    # current viewer owns.
     affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     # Returns the elements in the list that come after the specified cursor.
@@ -6687,8 +6687,8 @@ type Repository implements Node & ProjectOwner & RegistryPackageOwner & Reposito
   # A list of direct forked repositories.
   forks(
     # Array of viewer's affiliation options for repositories returned from the
-    # connection - For example, OWNED will include only repositories that the
-    # current viewer owns
+    # connection. For example, OWNER will include only repositories that the
+    # current viewer owns.
     affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     # Returns the elements in the list that come after the specified cursor.
@@ -7389,8 +7389,8 @@ interface RepositoryOwner {
   # A list of repositories this user has pinned to their profile
   pinnedRepositories(
     # Array of viewer's affiliation options for repositories returned from the
-    # connection - For example, OWNED will include only repositories that the
-    # current viewer owns
+    # connection. For example, OWNER will include only repositories that the
+    # current viewer owns.
     affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     # Returns the elements in the list that come after the specified cursor.
@@ -7418,8 +7418,8 @@ interface RepositoryOwner {
   # A list of repositories that the user owns.
   repositories(
     # Array of viewer's affiliation options for repositories returned from the
-    # connection - For example, OWNED will include only repositories that the
-    # current viewer owns
+    # connection. For example, OWNER will include only repositories that the
+    # current viewer owns.
     affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     # Returns the elements in the list that come after the specified cursor.
@@ -9146,8 +9146,8 @@ type User implements Actor & Node & RegistryPackageOwner & RegistryPackageSearch
   # A list of repositories this user has pinned to their profile
   pinnedRepositories(
     # Array of viewer's affiliation options for repositories returned from the
-    # connection - For example, OWNED will include only repositories that the
-    # current viewer owns
+    # connection. For example, OWNER will include only repositories that the
+    # current viewer owns.
     affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     # Returns the elements in the list that come after the specified cursor.
@@ -9220,8 +9220,8 @@ type User implements Actor & Node & RegistryPackageOwner & RegistryPackageSearch
   # A list of repositories that the user owns.
   repositories(
     # Array of viewer's affiliation options for repositories returned from the
-    # connection - For example, OWNED will include only repositories that the
-    # current viewer owns
+    # connection. For example, OWNER will include only repositories that the
+    # current viewer owns.
     affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     # Returns the elements in the list that come after the specified cursor.
