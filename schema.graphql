@@ -3958,6 +3958,11 @@ type Organization implements Actor & Node & ProjectOwner & RegistryPackageOwner 
     # Ordering options for repositories returned from the connection
     orderBy: RepositoryOrder
 
+    # Array of owner's affiliation options for repositories returned from the
+    # connection. For example, OWNER will include only repositories that the
+    # organization or user being viewed owns.
+    ownerAffiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
+
     # If non-null, filters repositories according to privacy
     privacy: RepositoryPrivacy
   ): RepositoryConnection!
@@ -4025,6 +4030,11 @@ type Organization implements Actor & Node & ProjectOwner & RegistryPackageOwner 
 
     # Ordering options for repositories returned from the connection
     orderBy: RepositoryOrder
+
+    # Array of owner's affiliation options for repositories returned from the
+    # connection. For example, OWNER will include only repositories that the
+    # organization or user being viewed owns.
+    ownerAffiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     # If non-null, filters repositories according to privacy
     privacy: RepositoryPrivacy
@@ -6709,6 +6719,11 @@ type Repository implements Node & ProjectOwner & RegistryPackageOwner & Reposito
     # Ordering options for repositories returned from the connection
     orderBy: RepositoryOrder
 
+    # Array of owner's affiliation options for repositories returned from the
+    # connection. For example, OWNER will include only repositories that the
+    # organization or user being viewed owns.
+    ownerAffiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
+
     # If non-null, filters repositories according to privacy
     privacy: RepositoryPrivacy
   ): RepositoryConnection!
@@ -7411,6 +7426,11 @@ interface RepositoryOwner {
     # Ordering options for repositories returned from the connection
     orderBy: RepositoryOrder
 
+    # Array of owner's affiliation options for repositories returned from the
+    # connection. For example, OWNER will include only repositories that the
+    # organization or user being viewed owns.
+    ownerAffiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
+
     # If non-null, filters repositories according to privacy
     privacy: RepositoryPrivacy
   ): RepositoryConnection!
@@ -7442,6 +7462,11 @@ interface RepositoryOwner {
 
     # Ordering options for repositories returned from the connection
     orderBy: RepositoryOrder
+
+    # Array of owner's affiliation options for repositories returned from the
+    # connection. For example, OWNER will include only repositories that the
+    # organization or user being viewed owns.
+    ownerAffiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     # If non-null, filters repositories according to privacy
     privacy: RepositoryPrivacy
@@ -9168,6 +9193,11 @@ type User implements Actor & Node & RegistryPackageOwner & RegistryPackageSearch
     # Ordering options for repositories returned from the connection
     orderBy: RepositoryOrder
 
+    # Array of owner's affiliation options for repositories returned from the
+    # connection. For example, OWNER will include only repositories that the
+    # organization or user being viewed owns.
+    ownerAffiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
+
     # If non-null, filters repositories according to privacy
     privacy: RepositoryPrivacy
   ): RepositoryConnection!
@@ -9244,6 +9274,11 @@ type User implements Actor & Node & RegistryPackageOwner & RegistryPackageSearch
 
     # Ordering options for repositories returned from the connection
     orderBy: RepositoryOrder
+
+    # Array of owner's affiliation options for repositories returned from the
+    # connection. For example, OWNER will include only repositories that the
+    # organization or user being viewed owns.
+    ownerAffiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     # If non-null, filters repositories according to privacy
     privacy: RepositoryPrivacy
@@ -9344,6 +9379,11 @@ type User implements Actor & Node & RegistryPackageOwner & RegistryPackageSearch
 
     # Ordering options for repositories returned from the connection
     orderBy: RepositoryOrder
+
+    # Array of owner's affiliation options for repositories returned from the
+    # connection. For example, OWNER will include only repositories that the
+    # organization or user being viewed owns.
+    ownerAffiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     # If non-null, filters repositories according to privacy
     privacy: RepositoryPrivacy
