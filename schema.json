@@ -2346,6 +2346,20 @@
                 "defaultValue": "[\"OWNER\", \"COLLABORATOR\"]"
               },
               {
+                "name": "ownerAffiliations",
+                "description": "Array of owner's affiliation options for repositories returned from the connection. For example, OWNER will include only repositories that the organization or user being viewed owns.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "ENUM",
+                    "name": "RepositoryAffiliation",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[\"OWNER\", \"COLLABORATOR\"]"
+              },
+              {
                 "name": "isLocked",
                 "description": "If non-null, filters repositories according to whether they have been locked",
                 "type": {
@@ -2615,6 +2629,20 @@
               {
                 "name": "affiliations",
                 "description": "Array of viewer's affiliation options for repositories returned from the connection. For example, OWNER will include only repositories that the current viewer owns.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "ENUM",
+                    "name": "RepositoryAffiliation",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[\"OWNER\", \"COLLABORATOR\"]"
+              },
+              {
+                "name": "ownerAffiliations",
+                "description": "Array of owner's affiliation options for repositories returned from the connection. For example, OWNER will include only repositories that the organization or user being viewed owns.",
                 "type": {
                   "kind": "LIST",
                   "name": null,
@@ -3031,6 +3059,20 @@
                   }
                 },
                 "defaultValue": "[\"OWNER\", \"COLLABORATOR\", \"ORGANIZATION_MEMBER\"]"
+              },
+              {
+                "name": "ownerAffiliations",
+                "description": "Array of owner's affiliation options for repositories returned from the connection. For example, OWNER will include only repositories that the organization or user being viewed owns.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "ENUM",
+                    "name": "RepositoryAffiliation",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[\"OWNER\", \"COLLABORATOR\"]"
               },
               {
                 "name": "isLocked",
@@ -3882,6 +3924,20 @@
               {
                 "name": "affiliations",
                 "description": "Array of viewer's affiliation options for repositories returned from the connection. For example, OWNER will include only repositories that the current viewer owns.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "ENUM",
+                    "name": "RepositoryAffiliation",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[\"OWNER\", \"COLLABORATOR\"]"
+              },
+              {
+                "name": "ownerAffiliations",
+                "description": "Array of owner's affiliation options for repositories returned from the connection. For example, OWNER will include only repositories that the organization or user being viewed owns.",
                 "type": {
                   "kind": "LIST",
                   "name": null,
@@ -13264,6 +13320,20 @@
                 "defaultValue": "[\"OWNER\", \"COLLABORATOR\"]"
               },
               {
+                "name": "ownerAffiliations",
+                "description": "Array of owner's affiliation options for repositories returned from the connection. For example, OWNER will include only repositories that the organization or user being viewed owns.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "ENUM",
+                    "name": "RepositoryAffiliation",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[\"OWNER\", \"COLLABORATOR\"]"
+              },
+              {
                 "name": "isLocked",
                 "description": "If non-null, filters repositories according to whether they have been locked",
                 "type": {
@@ -13507,6 +13577,20 @@
               {
                 "name": "affiliations",
                 "description": "Array of viewer's affiliation options for repositories returned from the connection. For example, OWNER will include only repositories that the current viewer owns.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "ENUM",
+                    "name": "RepositoryAffiliation",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[\"OWNER\", \"COLLABORATOR\"]"
+              },
+              {
+                "name": "ownerAffiliations",
+                "description": "Array of owner's affiliation options for repositories returned from the connection. For example, OWNER will include only repositories that the organization or user being viewed owns.",
                 "type": {
                   "kind": "LIST",
                   "name": null,
@@ -14143,6 +14227,20 @@
                 "defaultValue": "[\"OWNER\", \"COLLABORATOR\"]"
               },
               {
+                "name": "ownerAffiliations",
+                "description": "Array of owner's affiliation options for repositories returned from the connection. For example, OWNER will include only repositories that the organization or user being viewed owns.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "ENUM",
+                    "name": "RepositoryAffiliation",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[\"OWNER\", \"COLLABORATOR\"]"
+              },
+              {
                 "name": "isLocked",
                 "description": "If non-null, filters repositories according to whether they have been locked",
                 "type": {
@@ -14232,6 +14330,20 @@
               {
                 "name": "affiliations",
                 "description": "Array of viewer's affiliation options for repositories returned from the connection. For example, OWNER will include only repositories that the current viewer owns.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "ENUM",
+                    "name": "RepositoryAffiliation",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[\"OWNER\", \"COLLABORATOR\"]"
+              },
+              {
+                "name": "ownerAffiliations",
+                "description": "Array of owner's affiliation options for repositories returned from the connection. For example, OWNER will include only repositories that the organization or user being viewed owns.",
                 "type": {
                   "kind": "LIST",
                   "name": null,
