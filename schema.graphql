@@ -824,6 +824,9 @@ enum CommentAuthorAssociation {
 
 # The possible errors that will prevent a user from updating a comment.
 enum CommentCannotUpdateReason {
+  # You cannot update this comment
+  DENIED
+
   # You must be the author or have write access to this repository to update this comment.
   INSUFFICIENT_ACCESS
 
@@ -854,7 +857,7 @@ type CommentDeletedEvent implements Node {
 }
 
 # Represents a Git commit.
-type Commit implements GitObject & Node & Subscribable {
+type Commit implements GitObject & Node & Subscribable & UniformResourceLocatable {
   # An abbreviated version of the Git object ID
   abbreviatedOid: String!
 
@@ -1061,8 +1064,14 @@ type CommitComment implements Comment & Deletable & Node & Reactable & Repositor
   # Check if this comment was edited and includes an edit with the creation data
   includesCreatedEdit: Boolean!
 
+  # Returns whether or not a comment has been minimized.
+  isMinimized: Boolean!
+
   # The moment the editor made the last edit
   lastEditedAt: DateTime
+
+  # Returns why the comment was minimized.
+  minimizedReason: String
 
   # Identifies the file path associated with the comment.
   path: String
@@ -1126,6 +1135,9 @@ type CommitComment implements Comment & Deletable & Node & Reactable & Repositor
 
   # Check if the current viewer can delete this object.
   viewerCanDelete: Boolean!
+
+  # Check if the current viewer can minimize this object.
+  viewerCanMinimize: Boolean!
 
   # Can user react to this subject
   viewerCanReact: Boolean!
@@ -2038,8 +2050,14 @@ type GistComment implements Comment & Deletable & Node & Updatable & UpdatableCo
   # Check if this comment was edited and includes an edit with the creation data
   includesCreatedEdit: Boolean!
 
+  # Returns whether or not a comment has been minimized.
+  isMinimized: Boolean!
+
   # The moment the editor made the last edit
   lastEditedAt: DateTime
+
+  # Returns why the comment was minimized.
+  minimizedReason: String
 
   # Identifies when the comment was published at.
   publishedAt: DateTime
@@ -2064,6 +2082,9 @@ type GistComment implements Comment & Deletable & Node & Updatable & UpdatableCo
 
   # Check if the current viewer can delete this object.
   viewerCanDelete: Boolean!
+
+  # Check if the current viewer can minimize this object.
+  viewerCanMinimize: Boolean!
 
   # Check if the current viewer can update this object.
   viewerCanUpdate: Boolean!
@@ -2652,11 +2673,17 @@ type IssueComment implements Comment & Deletable & Node & Reactable & Repository
   # Check if this comment was edited and includes an edit with the creation data
   includesCreatedEdit: Boolean!
 
+  # Returns whether or not a comment has been minimized.
+  isMinimized: Boolean!
+
   # Identifies the issue associated with the comment.
   issue: Issue!
 
   # The moment the editor made the last edit
   lastEditedAt: DateTime
+
+  # Returns why the comment was minimized.
+  minimizedReason: String
 
   # Identifies when the comment was published at.
   publishedAt: DateTime
@@ -2718,6 +2745,9 @@ type IssueComment implements Comment & Deletable & Node & Reactable & Repository
 
   # Check if the current viewer can delete this object.
   viewerCanDelete: Boolean!
+
+  # Check if the current viewer can minimize this object.
+  viewerCanMinimize: Boolean!
 
   # Can user react to this subject
   viewerCanReact: Boolean!
@@ -2844,7 +2874,7 @@ type IssueTimelineConnection {
 }
 
 # An item in an issue timeline
-union IssueTimelineItem = AssignedEvent | ClosedEvent | Commit | CrossReferencedEvent | DemilestonedEvent | IssueComment | LabeledEvent | LockedEvent | MilestonedEvent | ReferencedEvent | RenamedTitleEvent | ReopenedEvent | SubscribedEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnsubscribedEvent
+union IssueTimelineItem = AssignedEvent | ClosedEvent | Commit | CrossReferencedEvent | DemilestonedEvent | IssueComment | LabeledEvent | LockedEvent | MilestonedEvent | ReferencedEvent | RenamedTitleEvent | ReopenedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnsubscribedEvent
 
 # An edge in a connection.
 type IssueTimelineItemEdge {
@@ -2856,7 +2886,7 @@ type IssueTimelineItemEdge {
 }
 
 # An item in an issue timeline
-union IssueTimelineItems = AddedToProjectEvent | AssignedEvent | ClosedEvent | CommentDeletedEvent | ConvertedNoteToIssueEvent | CrossReferencedEvent | DemilestonedEvent | IssueComment | LabeledEvent | LockedEvent | MentionedEvent | MilestonedEvent | MovedColumnsInProjectEvent | ReferencedEvent | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | SubscribedEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnsubscribedEvent
+union IssueTimelineItems = AddedToProjectEvent | AssignedEvent | ClosedEvent | CommentDeletedEvent | ConvertedNoteToIssueEvent | CrossReferencedEvent | DemilestonedEvent | IssueComment | LabeledEvent | LockedEvent | MentionedEvent | MilestonedEvent | MovedColumnsInProjectEvent | ReferencedEvent | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnsubscribedEvent
 
 # An edge in a connection.
 type IssueTimelineItemsEdge {
@@ -2922,6 +2952,9 @@ enum IssueTimelineItemsItemType {
 
   # Represents a 'subscribed' event on a given `Subscribable`.
   SUBSCRIBED_EVENT
+
+  # Represents a 'transferred' event on a given issue or pull request.
+  TRANSFERRED_EVENT
 
   # Represents an 'unassigned' event on any assignable object.
   UNASSIGNED_EVENT
@@ -5369,8 +5402,14 @@ type PullRequestReviewComment implements Comment & Deletable & Node & Reactable 
   # Check if this comment was edited and includes an edit with the creation data
   includesCreatedEdit: Boolean!
 
+  # Returns whether or not a comment has been minimized.
+  isMinimized: Boolean!
+
   # The moment the editor made the last edit
   lastEditedAt: DateTime
+
+  # Returns why the comment was minimized.
+  minimizedReason: String
 
   # Identifies the original commit associated with the comment.
   originalCommit: Commit
@@ -5455,6 +5494,9 @@ type PullRequestReviewComment implements Comment & Deletable & Node & Reactable 
 
   # Check if the current viewer can delete this object.
   viewerCanDelete: Boolean!
+
+  # Check if the current viewer can minimize this object.
+  viewerCanMinimize: Boolean!
 
   # Can user react to this subject
   viewerCanReact: Boolean!
@@ -5624,7 +5666,7 @@ type PullRequestTimelineItemEdge {
 }
 
 # An item in a pull request timeline
-union PullRequestTimelineItems = AddedToProjectEvent | AssignedEvent | BaseRefChangedEvent | BaseRefForcePushedEvent | ClosedEvent | CommentDeletedEvent | ConvertedNoteToIssueEvent | CrossReferencedEvent | DemilestonedEvent | DeployedEvent | DeploymentEnvironmentChangedEvent | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IssueComment | LabeledEvent | LockedEvent | MentionedEvent | MergedEvent | MilestonedEvent | MovedColumnsInProjectEvent | PullRequestCommit | PullRequestReview | PullRequestReviewThread | ReferencedEvent | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | ReviewDismissedEvent | ReviewRequestRemovedEvent | ReviewRequestedEvent | SubscribedEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnsubscribedEvent
+union PullRequestTimelineItems = AddedToProjectEvent | AssignedEvent | BaseRefChangedEvent | BaseRefForcePushedEvent | ClosedEvent | CommentDeletedEvent | ConvertedNoteToIssueEvent | CrossReferencedEvent | DemilestonedEvent | DeployedEvent | DeploymentEnvironmentChangedEvent | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IssueComment | LabeledEvent | LockedEvent | MentionedEvent | MergedEvent | MilestonedEvent | MovedColumnsInProjectEvent | PullRequestCommit | PullRequestReview | PullRequestReviewThread | ReferencedEvent | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | ReviewDismissedEvent | ReviewRequestRemovedEvent | ReviewRequestedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnsubscribedEvent
 
 # An edge in a connection.
 type PullRequestTimelineItemsEdge {
@@ -5738,6 +5780,9 @@ enum PullRequestTimelineItemsItemType {
 
   # Represents a 'subscribed' event on a given `Subscribable`.
   SUBSCRIBED_EVENT
+
+  # Represents a 'transferred' event on a given issue or pull request.
+  TRANSFERRED_EVENT
 
   # Represents an 'unassigned' event on any assignable object.
   UNASSIGNED_EVENT
@@ -6570,6 +6615,24 @@ type ReopenedEvent implements Node {
   # Identifies the date and time when the object was created.
   createdAt: DateTime!
   id: ID!
+}
+
+# The reasons a piece of content can be reported or minimized.
+enum ReportedContentClassifiers {
+  # An abusive or harassing piece of content
+  ABUSE
+
+  # An irrelevant piece of content
+  OFF_TOPIC
+
+  # An outdated piece of content
+  OUTDATED
+
+  # The content has been resolved
+  RESOLVED
+
+  # A spammy piece of content
+  SPAM
 }
 
 # A repository contains the content for a project.
@@ -8533,6 +8596,22 @@ enum TopicSuggestionDeclineReason {
 
   # The suggested topic is too specific for the repository (e.g. #ruby-on-rails-version-4-2-1).
   TOO_SPECIFIC
+}
+
+# Represents a 'transferred' event on a given issue or pull request.
+type TransferredEvent implements Node {
+  # Identifies the actor who performed the event.
+  actor: Actor
+
+  # Identifies the date and time when the object was created.
+  createdAt: DateTime!
+
+  # The repository this came from
+  fromRepository: Repository
+  id: ID!
+
+  # Identifies the issue associated with the event.
+  issue: Issue!
 }
 
 # Represents a Git tree.
