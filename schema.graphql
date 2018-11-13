@@ -115,7 +115,7 @@ type AddProjectCardPayload {
   # The ProjectColumn
   #
   # **Upcoming Change on 2019-01-01 UTC**
-  # **Description:** Type for `projectColumn` will change from `Project!` to `Project`.
+  # **Description:** Type for `projectColumn` will change from `Project!` to `ProjectColumn`.
   # **Reason:** In preparation for an upcoming change to the way we report
   # mutation errors, non-nullable payload fields are becoming nullable.
   projectColumn: Project!
@@ -1642,6 +1642,9 @@ type DeployedEvent implements Node {
 type Deployment implements Node {
   # Identifies the commit sha of the deployment.
   commit: Commit
+
+  # Identifies the oid of the deployment commit, even if the commit has been deleted.
+  commitOid: String!
 
   # Identifies the date and time when the object was created.
   createdAt: DateTime!
