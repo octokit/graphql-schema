@@ -1245,6 +1245,162 @@ type CommitHistoryConnection {
   totalCount: Int!
 }
 
+# A calendar of contributions made on GitHub by a user.
+type ContributionCalendar {
+  # A list of hex color codes used in this calendar. The darker the color, the more contributions it represents.
+  colors: [String!]!
+
+  # Determine if the color set was chosen because it's currently Halloween.
+  isHalloween: Boolean!
+
+  # A list of the months of contributions in this calendar.
+  months: [ContributionCalendarMonth!]!
+
+  # The count of total contributions in the calendar.
+  totalContributions: Int!
+
+  # A list of the weeks of contributions in this calendar.
+  weeks: [ContributionCalendarWeek!]!
+}
+
+# Represents a single day of contributions on GitHub by a user.
+type ContributionCalendarDay {
+  # The hex color code that represents how many contributions were made on this day compared to others in the calendar.
+  color: String!
+
+  # How many contributions were made by the user on this day.
+  contributionCount: Int!
+
+  # The day this square represents.
+  date: Date!
+
+  # A number representing which day of the week this square represents, e.g., 1 is Monday.
+  weekday: Int!
+}
+
+# A month of contributions in a user's contribution graph.
+type ContributionCalendarMonth {
+  # The date of the first day of this month.
+  firstDay: Date!
+
+  # The name of the month.
+  name: String!
+
+  # How many weeks started in this month.
+  totalWeeks: Int!
+
+  # The year the month occurred in.
+  year: Int!
+}
+
+# A week of contributions in a user's contribution graph.
+type ContributionCalendarWeek {
+  # The days of contributions in this week.
+  contributionDays: [ContributionCalendarDay!]!
+
+  # The date of the earliest square in this week.
+  firstDay: Date!
+}
+
+# A contributions collection aggregates contributions such as opened issues and commits created by a user.
+type ContributionsCollection {
+  # A calendar of this user's contributions on GitHub.
+  contributionCalendar: ContributionCalendar!
+
+  # Determine if this collection's time span ends in the current month.
+  doesEndInCurrentMonth: Boolean!
+
+  # The date of the first restricted contribution the user made in this time
+  # period. Can only be non-null when the user has enabled private contribution counts.
+  earliestRestrictedContributionDate: Date
+
+  # The ending date and time of this collection.
+  endedAt: DateTime!
+
+  # Determine if there are any contributions in this collection.
+  hasAnyContributions: Boolean!
+
+  # Determine if the user made any contributions in this time frame whose details
+  # are not visible because they were made in a private repository. Can only be
+  # true if the user enabled private contribution counts.
+  hasAnyRestrictedContributions: Boolean!
+
+  # Whether or not the collector's time span is all within the same day.
+  isSingleDay: Boolean!
+
+  # The date of the most recent restricted contribution the user made in this time
+  # period. Can only be non-null when the user has enabled private contribution counts.
+  latestRestrictedContributionDate: Date
+
+  # When this collection's time range does not include any activity from the user, use this
+  # to get a different collection from an earlier time range that does have activity.
+  mostRecentCollectionWithActivity: ContributionsCollection
+
+  # A count of contributions made by the user that the viewer cannot access. Only
+  # non-zero when the user has chosen to share their private contribution counts.
+  restrictedContributionsCount: Int!
+
+  # The beginning date and time of this collection.
+  startedAt: DateTime!
+
+  # How many commits were made by the user in this time span.
+  totalCommitContributions: Int!
+
+  # How many issues the user opened.
+  totalIssueContributions(
+    # Should the user's first issue ever be excluded from this count.
+    excludeFirst: Boolean = false
+
+    # Should the user's most commented issue be excluded from this count.
+    excludePopular: Boolean = false
+  ): Int!
+
+  # How many pull requests the user opened.
+  totalPullRequestContributions(
+    # Should the user's first pull request ever be excluded from this count.
+    excludeFirst: Boolean = false
+
+    # Should the user's most commented pull request be excluded from this count.
+    excludePopular: Boolean = false
+  ): Int!
+
+  # How many pull request reviews the user left.
+  totalPullRequestReviewContributions: Int!
+
+  # How many different repositories the user committed to.
+  totalRepositoriesWithContributedCommits: Int!
+
+  # How many different repositories the user opened issues in.
+  totalRepositoriesWithContributedIssues(
+    # Should the user's first issue ever be excluded from this count.
+    excludeFirst: Boolean = false
+
+    # Should the user's most commented issue be excluded from this count.
+    excludePopular: Boolean = false
+  ): Int!
+
+  # How many different repositories the user left pull request reviews in.
+  totalRepositoriesWithContributedPullRequestReviews: Int!
+
+  # How many different repositories the user opened pull requests in.
+  totalRepositoriesWithContributedPullRequests(
+    # Should the user's first pull request ever be excluded from this count.
+    excludeFirst: Boolean = false
+
+    # Should the user's most commented pull request be excluded from this count.
+    excludePopular: Boolean = false
+  ): Int!
+
+  # How many repositories the user created.
+  totalRepositoryContributions(
+    # Should the user's first repository ever be excluded from this count.
+    excludeFirst: Boolean = false
+  ): Int!
+
+  # The user who made the contributions in this collection.
+  user: User!
+}
+
 # Represents a 'converted_note_to_issue' event on a given issue or pull request.
 type ConvertedNoteToIssueEvent implements Node {
   # Identifies the actor who performed the event.
@@ -8092,7 +8248,7 @@ enum SubscriptionState {
   # The User is notified of all conversations.
   SUBSCRIBED
 
-  # The User is only notified when particpating or @mentioned.
+  # The User is only notified when participating or @mentioned.
   UNSUBSCRIBED
 }
 
@@ -9077,6 +9233,19 @@ type User implements Actor & Node & RegistryPackageOwner & RegistryPackageSearch
 
   # The user's public profile company as HTML.
   companyHTML: HTML!
+
+  # The collection of contributions this user has made to different repositories.
+  contributionsCollection(
+    # Only contributions made at this time or later will be counted. If omitted, defaults to a year ago.
+    from: DateTime
+
+    # The ID of the organization used to filter contributions.
+    organizationID: ID
+
+    # Only contributions made before and up to and including this time will be
+    # counted. If omitted, defaults to the current time.
+    to: DateTime
+  ): ContributionsCollection!
 
   # Identifies the date and time when the object was created.
   createdAt: DateTime!
