@@ -1245,6 +1245,32 @@ type CommitHistoryConnection {
   totalCount: Int!
 }
 
+# A content attachment
+type ContentAttachment {
+  # The body text of the content attachment. This parameter supports markdown.
+  body: String!
+
+  # The content reference that the content attachment is attached to.
+  contentReference: ContentReference!
+
+  # Identifies the primary key from the database.
+  databaseId: Int!
+  id: ID!
+
+  # The title of the content attachment.
+  title: String!
+}
+
+# A content reference
+type ContentReference {
+  # Identifies the primary key from the database.
+  databaseId: Int!
+  id: ID!
+
+  # The reference of the content reference.
+  reference: String!
+}
+
 # A calendar of contributions made on GitHub by a user.
 type ContributionCalendar {
   # A list of hex color codes used in this calendar. The darker the color, the more contributions it represents.
