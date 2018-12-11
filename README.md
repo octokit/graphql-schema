@@ -49,6 +49,11 @@ Create pull request (after schema files changed). This script is run daily on Tr
 GH_TOKEN=... TRAVIS_REPO_SLUG=octokit/graphql-schema bin/create-pull-request.js
 ```
 
+## See also
+
+- [octokit/routes](https://github.com/octokit/routes) – GitHub REST API route specifications
+- [octokit/webhooks](https://github.com/octokit/webhooks) – GitHub Webhooks specifications
+
 ## LICENSE
 
 [MIT](LICENSE.md)
