@@ -6642,6 +6642,9 @@ type Release implements Node & UniformResourceLocatable {
   # The Git tag the release points to
   tag: Ref
 
+  # The name of the release's Git tag
+  tagName: String!
+
   # Identifies the date and time when the object was last updated.
   updatedAt: DateTime!
 
