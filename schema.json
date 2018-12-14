@@ -1057,6 +1057,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "PinnedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "Project",
             "ofType": null
           },
@@ -1243,6 +1248,11 @@
           {
             "kind": "OBJECT",
             "name": "UnlockedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UnpinnedEvent",
             "ofType": null
           },
           {
@@ -1466,49 +1476,6 @@
         "inputFields": null,
         "interfaces": [],
         "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "SCALAR",
-        "name": "Int",
-        "description": "Represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "SCALAR",
-        "name": "DateTime",
-        "description": "An ISO-8601 encoded UTC date string.",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "ENUM",
-        "name": "OrderDirection",
-        "description": "Possible directions in which to order a list of items when provided an `orderBy` argument.",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": [
-          {
-            "name": "ASC",
-            "description": "Specifies an ascending order for a given `orderBy` argument.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "DESC",
-            "description": "Specifies a descending order for a given `orderBy` argument.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
         "possibleTypes": null
       },
       {
@@ -3414,6 +3381,26 @@
             "ofType": null
           }
         ]
+      },
+      {
+        "kind": "SCALAR",
+        "name": "Int",
+        "description": "Represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "SCALAR",
+        "name": "DateTime",
+        "description": "An ISO-8601 encoded UTC date string.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
       },
       {
         "kind": "INTERFACE",
@@ -6795,6 +6782,29 @@
           {
             "name": "NAME",
             "description": "Order projects by name",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "OrderDirection",
+        "description": "Possible directions in which to order a list of items when provided an `orderBy` argument.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "ASC",
+            "description": "Specifies an ascending order for a given `orderBy` argument.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "DESC",
+            "description": "Specifies a descending order for a given `orderBy` argument.",
             "isDeprecated": false,
             "deprecationReason": null
           }
@@ -22937,7 +22947,7 @@
         "fields": [
           {
             "name": "edges",
-            "description": null,
+            "description": "A list of edges.",
             "args": [],
             "type": {
               "kind": "LIST",
@@ -31970,6 +31980,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "PinnedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "ReferencedEvent",
             "ofType": null
           },
@@ -32011,6 +32026,11 @@
           {
             "kind": "OBJECT",
             "name": "UnlockedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UnpinnedEvent",
             "ofType": null
           },
           {
@@ -32481,6 +32501,83 @@
       },
       {
         "kind": "OBJECT",
+        "name": "PinnedEvent",
+        "description": "Represents a 'pinned' event on a given issue or pull request.",
+        "fields": [
+          {
+            "name": "actor",
+            "description": "Identifies the actor who performed the event.",
+            "args": [],
+            "type": {
+              "kind": "INTERFACE",
+              "name": "Actor",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "createdAt",
+            "description": "Identifies the date and time when the object was created.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "id",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "issue",
+            "description": "Identifies the issue associated with the event.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "Issue",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "Node",
+            "ofType": null
+          }
+        ],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
         "name": "RemovedFromProjectEvent",
         "description": "Represents a 'removed_from_project' event on a given issue or pull request.",
         "fields": [
@@ -32593,6 +32690,83 @@
               "kind": "OBJECT",
               "name": "Repository",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "id",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "issue",
+            "description": "Identifies the issue associated with the event.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "Issue",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "Node",
+            "ofType": null
+          }
+        ],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UnpinnedEvent",
+        "description": "Represents an 'unpinned' event on a given issue or pull request.",
+        "fields": [
+          {
+            "name": "actor",
+            "description": "Identifies the actor who performed the event.",
+            "args": [],
+            "type": {
+              "kind": "INTERFACE",
+              "name": "Actor",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "createdAt",
+            "description": "Identifies the date and time when the object was created.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -32824,6 +32998,12 @@
             "deprecationReason": null
           },
           {
+            "name": "PINNED_EVENT",
+            "description": "Represents a 'pinned' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "REFERENCED_EVENT",
             "description": "Represents a 'referenced' event on a given `ReferencedSubject`.",
             "isDeprecated": false,
@@ -32874,6 +33054,12 @@
           {
             "name": "UNLOCKED_EVENT",
             "description": "Represents an 'unlocked' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "UNPINNED_EVENT",
+            "description": "Represents an 'unpinned' event on a given issue or pull request.",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -33298,6 +33484,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "PinnedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "ReferencedEvent",
             "ofType": null
           },
@@ -33339,6 +33530,11 @@
           {
             "kind": "OBJECT",
             "name": "UnlockedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UnpinnedEvent",
             "ofType": null
           },
           {
@@ -33435,6 +33631,12 @@
             "deprecationReason": null
           },
           {
+            "name": "PINNED_EVENT",
+            "description": "Represents a 'pinned' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "REFERENCED_EVENT",
             "description": "Represents a 'referenced' event on a given `ReferencedSubject`.",
             "isDeprecated": false,
@@ -33485,6 +33687,12 @@
           {
             "name": "UNLOCKED_EVENT",
             "description": "Represents an 'unlocked' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "UNPINNED_EVENT",
+            "description": "Represents an 'unpinned' event on a given issue or pull request.",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -42000,6 +42208,76 @@
           {
             "name": "lockableId",
             "description": "ID of the issue or pull request to be unlocked.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "clientMutationId",
+            "description": "A unique identifier for the client performing the mutation.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "PinIssueInput",
+        "description": "Autogenerated input type of PinIssue",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "issueId",
+            "description": "The ID of the issue to be pinned",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "clientMutationId",
+            "description": "A unique identifier for the client performing the mutation.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "UnpinIssueInput",
+        "description": "Autogenerated input type of UnpinIssue",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "issueId",
+            "description": "The ID of the issue to be unpinned",
             "type": {
               "kind": "NON_NULL",
               "name": null,
