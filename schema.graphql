@@ -1272,6 +1272,26 @@ type ContentReference {
   reference: String!
 }
 
+# Represents a contribution a user made on GitHub, such as opening an issue.
+interface Contribution {
+  # Whether this contribution is associated with a record you do not have access to. For
+  # example, your own 'first issue' contribution may have been made on a repository you can no
+  # longer access.
+  isRestricted: Boolean!
+
+  # When this contribution was made.
+  occurredAt: DateTime!
+
+  # The HTTP path for this contribution.
+  resourcePath: URI!
+
+  # The HTTP URL for this contribution.
+  url: URI!
+
+  # The user who made this contribution.
+  user: User!
+}
+
 # A calendar of contributions made on GitHub by a user.
 type ContributionCalendar {
   # A list of hex color codes used in this calendar. The darker the color, the more contributions it represents.
@@ -1344,6 +1364,9 @@ type ContributionsCollection {
   # The ending date and time of this collection.
   endedAt: DateTime!
 
+  # Does the user have any more activity in the timeline that occurred prior to the collection's time range?
+  hasActivityInThePast: Boolean!
+
   # Determine if there are any contributions in this collection.
   hasAnyContributions: Boolean!
 
@@ -1355,6 +1378,13 @@ type ContributionsCollection {
   # Whether or not the collector's time span is all within the same day.
   isSingleDay: Boolean!
 
+  # When the user signed up for GitHub. This will be null if that sign up date
+  # falls outside the collection's time range and ignoreTimeRange is false.
+  joinedGitHubContribution(
+    # If true, the contribution will be returned even if the user signed up outside of the collection's time range.
+    ignoreTimeRange: Boolean = false
+  ): JoinedGitHubContribution
+
   # The date of the most recent restricted contribution the user made in this time
   # period. Can only be non-null when the user has enabled private contribution counts.
   latestRestrictedContributionDate: Date
@@ -1362,6 +1392,18 @@ type ContributionsCollection {
   # When this collection's time range does not include any activity from the user, use this
   # to get a different collection from an earlier time range that does have activity.
   mostRecentCollectionWithActivity: ContributionsCollection
+
+  # Returns a different contributions collection from an earlier time range than this one
+  # that does not have any contributions.
+  mostRecentCollectionWithoutActivity: ContributionsCollection
+
+  # The issue the user opened on GitHub that received the most comments in the specified
+  # time frame.
+  popularIssueContribution: CreatedIssueContribution
+
+  # The pull request the user opened on GitHub that received the most comments in the
+  # specified time frame.
+  popularPullRequestContribution: CreatedPullRequestContribution
 
   # A count of contributions made by the user that the viewer cannot access. Only
   # non-zero when the user has chosen to share their private contribution counts.
@@ -1543,6 +1585,100 @@ type CreateProjectPayload {
   # **Reason:** In preparation for an upcoming change to the way we report
   # mutation errors, non-nullable payload fields are becoming nullable.
   project: Project!
+}
+
+# Represents the contribution a user made on GitHub by opening an issue.
+type CreatedIssueContribution implements Contribution {
+  # Whether this contribution is associated with a record you do not have access to. For
+  # example, your own 'first issue' contribution may have been made on a repository you can no
+  # longer access.
+  isRestricted: Boolean!
+
+  # The issue that was opened.
+  issue: Issue!
+
+  # When this contribution was made.
+  occurredAt: DateTime!
+
+  # The HTTP path for this contribution.
+  resourcePath: URI!
+
+  # The HTTP URL for this contribution.
+  url: URI!
+
+  # The user who made this contribution.
+  user: User!
+}
+
+# The connection type for CreatedIssueContribution.
+type CreatedIssueContributionConnection {
+  # A list of edges.
+  edges: [CreatedIssueContributionEdge]
+
+  # A list of nodes.
+  nodes: [CreatedIssueContribution]
+
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # Identifies the total count of items in the connection.
+  totalCount: Int!
+}
+
+# An edge in a connection.
+type CreatedIssueContributionEdge {
+  # A cursor for use in pagination.
+  cursor: String!
+
+  # The item at the end of the edge.
+  node: CreatedIssueContribution
+}
+
+# Represents the contribution a user made on GitHub by opening a pull request.
+type CreatedPullRequestContribution implements Contribution {
+  # Whether this contribution is associated with a record you do not have access to. For
+  # example, your own 'first issue' contribution may have been made on a repository you can no
+  # longer access.
+  isRestricted: Boolean!
+
+  # When this contribution was made.
+  occurredAt: DateTime!
+
+  # The pull request that was opened.
+  pullRequest: PullRequest!
+
+  # The HTTP path for this contribution.
+  resourcePath: URI!
+
+  # The HTTP URL for this contribution.
+  url: URI!
+
+  # The user who made this contribution.
+  user: User!
+}
+
+# The connection type for CreatedPullRequestContribution.
+type CreatedPullRequestContributionConnection {
+  # A list of edges.
+  edges: [CreatedPullRequestContributionEdge]
+
+  # A list of nodes.
+  nodes: [CreatedPullRequestContribution]
+
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # Identifies the total count of items in the connection.
+  totalCount: Int!
+}
+
+# An edge in a connection.
+type CreatedPullRequestContributionEdge {
+  # A cursor for use in pagination.
+  cursor: String!
+
+  # The item at the end of the edge.
+  node: CreatedPullRequestContribution
 }
 
 # Represents a mention made by one issue or pull request to another.
@@ -3174,6 +3310,26 @@ enum IssueTimelineItemsItemType {
 
   # Represents an 'unsubscribed' event on a given `Subscribable`.
   UNSUBSCRIBED_EVENT
+}
+
+# Represents a user signing up for a GitHub account.
+type JoinedGitHubContribution implements Contribution {
+  # Whether this contribution is associated with a record you do not have access to. For
+  # example, your own 'first issue' contribution may have been made on a repository you can no
+  # longer access.
+  isRestricted: Boolean!
+
+  # When this contribution was made.
+  occurredAt: DateTime!
+
+  # The HTTP path for this contribution.
+  resourcePath: URI!
+
+  # The HTTP URL for this contribution.
+  url: URI!
+
+  # The user who made this contribution.
+  user: User!
 }
 
 # A label for categorizing Issues or Milestones with a given Repository.
