@@ -9000,8 +9000,11 @@ type Topic implements Node & Starrable {
   name: String!
 
   # A list of related topics, including aliases of this topic, sorted with the most relevant
-  # first.
-  relatedTopics: [Topic!]!
+  # first. Returns up to 10 Topics.
+  relatedTopics(
+    # How many topics to return.
+    first: Int = 3
+  ): [Topic!]!
 
   # A list of users who have starred this starrable.
   stargazers(

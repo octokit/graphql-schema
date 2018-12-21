@@ -34979,8 +34979,19 @@
           },
           {
             "name": "relatedTopics",
-            "description": "A list of related topics, including aliases of this topic, sorted with the most relevant\nfirst.\n",
-            "args": [],
+            "description": "A list of related topics, including aliases of this topic, sorted with the most relevant\nfirst. Returns up to 10 Topics.\n",
+            "args": [
+              {
+                "name": "first",
+                "description": "How many topics to return.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": "3"
+              }
+            ],
             "type": {
               "kind": "NON_NULL",
               "name": null,
