@@ -37630,6 +37630,52 @@
             "deprecationReason": null
           },
           {
+            "name": "firstIssueContribution",
+            "description": "The first issue the user opened on GitHub. This will be null if that issue was opened outside the collection's time range and ignoreTimeRange is false. If the issue is not visible but the user has opted to show private contributions, a RestrictedContribution will be returned.",
+            "args": [
+              {
+                "name": "ignoreTimeRange",
+                "description": "If true, the first issue will be returned even if it was opened outside of the collection's time range.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "false"
+              }
+            ],
+            "type": {
+              "kind": "UNION",
+              "name": "CreatedIssueOrRestrictedContribution",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "firstPullRequestContribution",
+            "description": "The first pull request the user opened on GitHub. This will be null if that pull request was opened outside the collection's time range and ignoreTimeRange is not true. If the pull request is not visible but the user has opted to show private contributions, a RestrictedContribution will be returned.",
+            "args": [
+              {
+                "name": "ignoreTimeRange",
+                "description": "If true, the first pull request will be returned even if it was opened outside of the collection's time range.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "false"
+              }
+            ],
+            "type": {
+              "kind": "UNION",
+              "name": "CreatedPullRequestOrRestrictedContribution",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "hasActivityInThePast",
             "description": "Does the user have any more activity in the timeline that occurred prior to the collection's time range?",
             "args": [],
@@ -38400,6 +38446,11 @@
             "kind": "OBJECT",
             "name": "JoinedGitHubContribution",
             "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "RestrictedContribution",
+            "ofType": null
           }
         ]
       },
@@ -38499,6 +38550,145 @@
         ],
         "enumValues": null,
         "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "RestrictedContribution",
+        "description": "Represents a private contribution a user made on GitHub.",
+        "fields": [
+          {
+            "name": "isRestricted",
+            "description": "Whether this contribution is associated with a record you do not have access to. For\nexample, your own 'first issue' contribution may have been made on a repository you can no\nlonger access.\n",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "occurredAt",
+            "description": "When this contribution was made.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "resourcePath",
+            "description": "The HTTP path for this contribution.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "URI",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "url",
+            "description": "The HTTP URL for this contribution.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "URI",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "user",
+            "description": "The user who made this contribution.\n",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "Contribution",
+            "ofType": null
+          }
+        ],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "UNION",
+        "name": "CreatedIssueOrRestrictedContribution",
+        "description": "Represents either a issue the viewer can access or a restricted contribution.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": [
+          {
+            "kind": "OBJECT",
+            "name": "CreatedIssueContribution",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "RestrictedContribution",
+            "ofType": null
+          }
+        ]
+      },
+      {
+        "kind": "UNION",
+        "name": "CreatedPullRequestOrRestrictedContribution",
+        "description": "Represents either a pull request the viewer can access or a restricted contribution.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": [
+          {
+            "kind": "OBJECT",
+            "name": "CreatedPullRequestContribution",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "RestrictedContribution",
+            "ofType": null
+          }
+        ]
       },
       {
         "kind": "OBJECT",
