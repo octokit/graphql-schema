@@ -6161,9 +6161,6 @@ type PushAllowance implements Node {
   # Identifies the branch protection rule associated with the allowed user or team.
   branchProtectionRule: BranchProtectionRule
   id: ID!
-
-  # Identifies the protected branch associated with the allowed user or team.
-  protectedBranch: ProtectedBranch! @deprecated(reason: "The `ProtectedBranch` type is deprecated and will be removed soon. Use `Repository.branchProtectionRule` instead. Removal on 2019-01-01 UTC.")
 }
 
 # Types that can be an actor.
@@ -8016,9 +8013,6 @@ type ReviewDismissalAllowance implements Node {
   # Identifies the branch protection rule associated with the allowed user or team.
   branchProtectionRule: BranchProtectionRule
   id: ID!
-
-  # Identifies the protected branch associated with the allowed user or team.
-  protectedBranch: ProtectedBranch! @deprecated(reason: "The `ProtectedBranch` type is deprecated and will be removed soon. Use `ReviewDismissalAllowance.branchProtectionRule` instead. Removal on 2019-01-01 UTC.")
 }
 
 # Types that can be an actor.
