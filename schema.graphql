@@ -5590,7 +5590,7 @@ enum PullRequestPubSubTopic {
 }
 
 # A review object for a given pull request.
-type PullRequestReview implements Comment & Deletable & Node & RepositoryNode & Updatable & UpdatableComment {
+type PullRequestReview implements Comment & Deletable & Node & Reactable & RepositoryNode & Updatable & UpdatableComment {
   # The actor who authored the comment.
   author: Actor
 
@@ -5664,6 +5664,30 @@ type PullRequestReview implements Comment & Deletable & Node & RepositoryNode & 
   # Identifies the pull request associated with this pull request review.
   pullRequest: PullRequest!
 
+  # A list of reactions grouped by content left on the subject.
+  reactionGroups: [ReactionGroup!]
+
+  # A list of Reactions left on the Issue.
+  reactions(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Allows filtering Reactions by emoji.
+    content: ReactionContent
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+
+    # Allows specifying the order in which reactions are returned.
+    orderBy: ReactionOrder
+  ): ReactionConnection!
+
   # The repository associated with this node.
   repository: Repository!
 
@@ -5699,6 +5723,9 @@ type PullRequestReview implements Comment & Deletable & Node & RepositoryNode & 
 
   # Check if the current viewer can delete this object.
   viewerCanDelete: Boolean!
+
+  # Can user react to this subject
+  viewerCanReact: Boolean!
 
   # Check if the current viewer can update this object.
   viewerCanUpdate: Boolean!
