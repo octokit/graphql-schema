@@ -17,8 +17,6 @@ let newSchema = {
   idl: null
 }
 
-// git-diff
-
 console.log('⌛  Loading GitHub GraphQL schema …')
 Promise.all([
   axios.get('https://api.github.com/graphql', {

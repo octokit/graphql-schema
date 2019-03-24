@@ -15,12 +15,17 @@ branches:
     - /^greenkeeper.*$/
 
 stages:
+  - name: cron
+    if: type IN (cron)
   - test
   - name: release
     if: branch = master AND type IN (push)
 
 jobs:
   include:
+    - stage: cron
+      script: npm run update
+      env: 'cron job'
     - stage: release
       node_js: lts/*
       script:
