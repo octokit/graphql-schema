@@ -8,6 +8,7 @@
   "main": "index.js",
   "scripts": {
     "test": "node test",
+    "posttest": "standard",
     "update": "node bin/download.js",
     "semantic-release": "semantic-release"
   },
@@ -27,7 +28,8 @@
   },
   "devDependencies": {
     "dotenv": "^7.0.0",
-    "semantic-release": "^16.0.0-beta.18"
+    "semantic-release": "^16.0.0-beta.18",
+    "standard": "^12.0.1"
   },
   "repository": {
     "type": "git",
