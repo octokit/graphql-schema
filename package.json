@@ -22,7 +22,7 @@
   "license": "MIT",
   "dependencies": {
     "@octokit/request": "^2.4.2",
-    "git-diff": "^2.0.6",
+    "execa": "^1.0.0",
     "graphql": "^14.1.1",
     "graphql-tag": "^2.10.1"
   },
