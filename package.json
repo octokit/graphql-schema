@@ -4,26 +4,30 @@
   "publishConfig": {
     "access": "public"
   },
-  "description":
-    "GitHub’s GraphQL Schema with validation. Automatically updated.",
+  "description": "GitHub’s GraphQL Schema with validation. Automatically updated.",
   "main": "index.js",
   "scripts": {
     "test": "node test",
     "update": "node bin/download.js",
     "semantic-release": "semantic-release"
   },
-  "keywords": ["github", "graphql", "schema", "validation"],
+  "keywords": [
+    "github",
+    "graphql",
+    "schema",
+    "validation"
+  ],
   "author": "Gregor Martynus (https://twitter.com/gr2m)",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
-    "git-diff": "^2.0.4",
-    "graphql": "^14.0.0-rc.1",
-    "graphql-tag": "^2.8.0"
+    "git-diff": "^2.0.6",
+    "graphql": "^14.1.1",
+    "graphql-tag": "^2.10.1"
   },
   "devDependencies": {
-    "dotenv": "^6.0.0",
-    "semantic-release": "^15.0.0"
+    "dotenv": "^7.0.0",
+    "semantic-release": "^16.0.0-beta.18"
   },
   "repository": {
     "type": "git",
