@@ -16,20 +16,14 @@ const request = require('@octokit/request').defaults({
   }
 })
 
-const oldSchemaIdl = require('../').schema.idl
-let newSchema = {
-  json: null,
-  idl: null
-}
-
 console.log('⌛  Loading GitHub GraphQL JSON schema …')
-request('https://api.github.com/graphql')
+request('/graphql')
 
   .then(response => {
-    writeFileSync('schema.json', JSON.stringify(newSchema.json, null, 2))
+    writeFileSync('schema.json', JSON.stringify(response.data.data, null, 2))
 
     console.log('⌛  Loading GitHub GraphQL IDL schema …')
-    return request('https://api.github.com/graphql', {
+    return request('/graphql', {
       headers: {
         accept: 'application/vnd.github.v4.idl'
       }

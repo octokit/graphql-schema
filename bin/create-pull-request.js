@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-const {join: pathJoin} = require('path')
-const {readFileSync} = require('fs')
+const { join: pathJoin } = require('path')
+const { readFileSync } = require('fs')
 
 const axios = require('axios')
 require('dotenv').config()
@@ -32,39 +32,39 @@ let lastCommitSha
 
 github.get('/user')
 
-.then(response => {
-  const login = response.data.login
-  console.log(`🤖  Signed in as ${login}. Creating a pull request on ${repoName}`)
+  .then(response => {
+    const login = response.data.login
+    console.log(`🤖  Signed in as ${login}. Creating a pull request on ${repoName}`)
 
-  console.log(`🤖  Looking for last commit sha of ${repoName}/git/refs/heads/master`)
-  return github.get(`/repos/${repoName}/git/refs/heads/master`)
-})
-
-.then(response => {
-  lastCommitSha = response.data.object.sha
-
-  console.log(`🤖  Creating new branch: ${branchName} using last sha ${lastCommitSha}`)
-  return github.post(`/repos/${repoName}/git/refs`, {
-    ref: `refs/heads/${branchName}`,
-    sha: lastCommitSha
+    console.log(`🤖  Looking for last commit sha of ${repoName}/git/refs/heads/master`)
+    return github.get(`/repos/${repoName}/git/refs/heads/master`)
   })
 
-  .catch(error => {
-    // ignore if branch already exists
-    if (error.response && error.response.data.message === 'Reference already exists') {
-      console.log(`🤖  Branch ${branchName} already exists, moving on.`)
-      return
-    }
+  .then(response => {
+    lastCommitSha = response.data.object.sha
 
-    throw error
+    console.log(`🤖  Creating new branch: ${branchName} using last sha ${lastCommitSha}`)
+    return github.post(`/repos/${repoName}/git/refs`, {
+      ref: `refs/heads/${branchName}`,
+      sha: lastCommitSha
+    })
+
+      .catch(error => {
+        // ignore if branch already exists
+        if (error.response && error.response.data.message === 'Reference already exists') {
+          console.log(`🤖  Branch ${branchName} already exists, moving on.`)
+          return
+        }
+
+        throw error
+      })
   })
-})
 
-.then(response => {
-  console.log(`🤖  Getting sha’s for schema.graphql & schema.json`)
-  const [owner, name] = repoName.split('/')
-  return github.post(`/graphql`, {
-    query: `{
+  .then(response => {
+    console.log(`🤖  Getting sha’s for schema.graphql & schema.json`)
+    const [owner, name] = repoName.split('/')
+    return github.post(`/graphql`, {
+      query: `{
   repository(owner: "${owner}", name: "${name}") {
     json: object(expression: "${branchName}:schema.json") {
       ... on Blob {
@@ -78,75 +78,75 @@ github.get('/user')
     }
   }
 }`
-  })
-})
-
-.then(response => {
-  const graphqlSha = response.data.data.repository.graphql.oid
-  const jsonSha = response.data.data.repository.json.oid
-  console.log(`🤖  schema.graphql: ${graphqlSha}`)
-  console.log(`🤖  schema.json: ${jsonSha}`)
-
-  console.log(`🤖  updating schema.graphql...`)
-  return github.put(`/repos/${repoName}/contents/schema.graphql?ref=${branchName}`, {
-    path: 'schema.graphql',
-    content: Buffer.from(schema.idl).toString('base64'),
-    sha: graphqlSha,
-    message: 'updated schema.graphql',
-    branch: branchName
-  })
-
-  .then(() => {
-    console.log(`🤖  schema.graphql updated`)
-  })
-
-  .then(delayWriteOperiation)
-
-  .then(() => {
-    console.log(`🤖  updating schema.json...`)
-    return github.put(`/repos/${repoName}/contents/schema.json?ref=${branchName}`, {
-      path: 'schema.json',
-      content: Buffer.from(JSON.stringify(schema.json, null, 2)).toString('base64'),
-      sha: jsonSha,
-      message: 'updated schema.json',
-      branch: branchName
     })
   })
 
-  .then(delayWriteOperiation)
+  .then(response => {
+    const graphqlSha = response.data.data.repository.graphql.oid
+    const jsonSha = response.data.data.repository.json.oid
+    console.log(`🤖  schema.graphql: ${graphqlSha}`)
+    console.log(`🤖  schema.json: ${jsonSha}`)
+
+    console.log(`🤖  updating schema.graphql...`)
+    return github.put(`/repos/${repoName}/contents/schema.graphql?ref=${branchName}`, {
+      path: 'schema.graphql',
+      content: Buffer.from(schema.idl).toString('base64'),
+      sha: graphqlSha,
+      message: 'updated schema.graphql',
+      branch: branchName
+    })
+
+      .then(() => {
+        console.log(`🤖  schema.graphql updated`)
+      })
+
+      .then(delayWriteOperiation)
+
+      .then(() => {
+        console.log(`🤖  updating schema.json...`)
+        return github.put(`/repos/${repoName}/contents/schema.json?ref=${branchName}`, {
+          path: 'schema.json',
+          content: Buffer.from(JSON.stringify(schema.json, null, 2)).toString('base64'),
+          sha: jsonSha,
+          message: 'updated schema.json',
+          branch: branchName
+        })
+      })
+
+      .then(delayWriteOperiation)
+
+      .then(() => {
+        console.log(`🤖  schema.json updated`)
+      })
+  })
 
   .then(() => {
-    console.log(`🤖  schema.json updated`)
-  })
-})
-
-.then(() => {
-  console.log(`🤖  creating pull request...`)
-  return github.post(`/repos/${repoName}/pulls`, {
-    title: `🤖🚨  GitHub’s GraphQL Schema changes detected`,
-    head: branchName,
-    base: 'master',
-    body: `Dearest humans,
+    console.log(`🤖  creating pull request...`)
+    return github.post(`/repos/${repoName}/pulls`, {
+      title: `🤖🚨  GitHub’s GraphQL Schema changes detected`,
+      head: branchName,
+      base: 'master',
+      body: `Dearest humans,
 
 My friend Travis asked me to let you know that they found API changes in their daily routine check.`
+    })
   })
-})
 
-.then(response => {
-  console.log(`🤖  Pull request created: ${response.data.html_url}`)
-})
+  .then(response => {
+    console.log(`🤖  Pull request created: ${response.data.html_url}`)
+  })
 
-.catch((error) => {
-  if (!error.config) {
-    console.log(error)
+  .catch((error) => {
+    if (!error.config) {
+      console.log(error)
+      process.exit(1)
+    }
+
+    console.log(`❌ ${error.config.method.toUpperCase()} ${error.config.url}`)
+    console.log(error.message)
+    console.log(error.response.data)
     process.exit(1)
-  }
-
-  console.log(`❌ ${error.config.method.toUpperCase()} ${error.config.url}`)
-  console.log(error.message)
-  console.log(error.response.data)
-  process.exit(1)
-})
+  })
 
 // 1s timeout for writing operations
 function delayWriteOperiation () {
