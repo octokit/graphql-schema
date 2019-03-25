@@ -2,6 +2,6 @@ const assert = require('assert')
 
 const main = require('../')
 
-assert.equal(typeof main.validate, 'function')
-assert.equal(typeof main.schema.json, 'object')
-assert.equal(typeof main.schema.idl, 'string')
+assert.strict.equal(typeof main.validate, 'function')
+assert.strict.equal(typeof main.schema.json, 'object')
+assert.strict.equal(typeof main.schema.idl, 'string')
