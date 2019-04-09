@@ -3,7 +3,6 @@
 const { join: pathJoin } = require('path')
 const { readFileSync } = require('fs')
 
-const axios = require('axios')
 require('dotenv').config()
 
 if (!process.env.TRAVIS_REPO_SLUG) {
@@ -12,14 +11,17 @@ if (!process.env.TRAVIS_REPO_SLUG) {
 }
 
 const repoName = process.env.TRAVIS_REPO_SLUG
-const github = axios.create({
-  baseURL: 'https://api.github.com',
+const [owner, repo] = repoName.split('/')
+
+const REQUEST_DEFAULTS = {
   headers: {
-    common: {
-      authorization: `token ${process.env.GH_TOKEN}`
-    }
-  }
-})
+    authorization: `bearer ${process.env.GH_TOKEN}`
+  },
+  owner,
+  repo
+}
+const request = require('@octokit/request').defaults(REQUEST_DEFAULTS)
+const graphql = require('@octokit/graphql').defaults(REQUEST_DEFAULTS)
 
 const schema = require('..').schema
 // NOTE: require('..') does some magic caching that I couldn’t figure out to
@@ -30,21 +32,21 @@ schema.json = JSON.parse(readFileSync(pathJoin(__dirname, '..', 'schema.json'), 
 const branchName = `cron/fixtures-changes/${new Date().toISOString().substr(0, 10)}`
 let lastCommitSha
 
-github.get('/user')
+request('/user')
 
   .then(response => {
     const login = response.data.login
     console.log(`🤖  Signed in as ${login}. Creating a pull request on ${repoName}`)
 
     console.log(`🤖  Looking for last commit sha of ${repoName}/git/refs/heads/master`)
-    return github.get(`/repos/${repoName}/git/refs/heads/master`)
+    return request(`/repos/:owner/:repo/git/refs/heads/master`)
   })
 
   .then(response => {
     lastCommitSha = response.data.object.sha
 
     console.log(`🤖  Creating new branch: ${branchName} using last sha ${lastCommitSha}`)
-    return github.post(`/repos/${repoName}/git/refs`, {
+    return request(`POST /repos/:owner/:repo/git/refs`, {
       ref: `refs/heads/${branchName}`,
       sha: lastCommitSha
     })
@@ -62,33 +64,35 @@ github.get('/user')
 
   .then(response => {
     console.log(`🤖  Getting sha’s for schema.graphql & schema.json`)
-    const [owner, name] = repoName.split('/')
-    return github.post(`/graphql`, {
-      query: `{
-  repository(owner: "${owner}", name: "${name}") {
-    json: object(expression: "${branchName}:schema.json") {
-      ... on Blob {
-        oid
+    const query = `query getShas($owner: String!, $repo: String!) {
+      repository(owner:$owner, name:$repo) {
+        json: object(expression: "${branchName}:schema.json") {
+          ... on Blob {
+            oid
+          }
+        }
+        graphql: object(expression: "${branchName}:schema.graphql") {
+          ... on Blob {
+            oid
+          }
+        }
       }
-    }
-    graphql: object(expression: "${branchName}:schema.graphql") {
-      ... on Blob {
-        oid
-      }
-    }
-  }
-}`
+    }`
+
+    return graphql(query, {
+      owner,
+      repo
     })
   })
 
   .then(response => {
-    const graphqlSha = response.data.data.repository.graphql.oid
-    const jsonSha = response.data.data.repository.json.oid
+    const graphqlSha = response.repository.graphql.oid
+    const jsonSha = response.repository.json.oid
     console.log(`🤖  schema.graphql: ${graphqlSha}`)
     console.log(`🤖  schema.json: ${jsonSha}`)
 
     console.log(`🤖  updating schema.graphql...`)
-    return github.put(`/repos/${repoName}/contents/schema.graphql?ref=${branchName}`, {
+    return request(`PUT /repos/:owner/:repo/contents/schema.graphql?ref=${branchName}`, {
       path: 'schema.graphql',
       content: Buffer.from(schema.idl).toString('base64'),
       sha: graphqlSha,
@@ -104,7 +108,7 @@ github.get('/user')
 
       .then(() => {
         console.log(`🤖  updating schema.json...`)
-        return github.put(`/repos/${repoName}/contents/schema.json?ref=${branchName}`, {
+        return request(`PUT /repos/:owner/:repo/contents/schema.json?ref=${branchName}`, {
           path: 'schema.json',
           content: Buffer.from(JSON.stringify(schema.json, null, 2)).toString('base64'),
           sha: jsonSha,
@@ -122,7 +126,7 @@ github.get('/user')
 
   .then(() => {
     console.log(`🤖  creating pull request...`)
-    return github.post(`/repos/${repoName}/pulls`, {
+    return request(`POST /repos/:owner/:repo/pulls`, {
       title: `🤖🚨  GitHub’s GraphQL Schema changes detected`,
       head: branchName,
       base: 'master',
