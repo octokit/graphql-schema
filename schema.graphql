@@ -5675,21 +5675,21 @@ type HeadRefRestoredEvent implements Node {
 }
 
 """
-The possible states in which authentication can be configured with an Identity Provider.
+The possible states in which authentication can be configured with an identity provider.
 """
 enum IdentityProviderConfigurationState {
   """
-  Authentication with an Identity Provider is configured but not enforced.
+  Authentication with an identity provider is configured but not enforced.
   """
   CONFIGURED
 
   """
-  Authentication with an Identity Provider is configured and enforced.
+  Authentication with an identity provider is configured and enforced.
   """
   ENFORCED
 
   """
-  Authentication with an Identity Provider is not configured.
+  Authentication with an identity provider is not configured.
   """
   UNCONFIGURED
 }
@@ -9095,7 +9095,7 @@ type Organization implements Actor & MemberStatusable & Node & ProfileOwner & Pr
   resourcePath: URI!
 
   """
-  The Organization's SAML Identity Providers
+  The Organization's SAML identity providers
   """
   samlIdentityProvider: OrganizationIdentityProvider
 
