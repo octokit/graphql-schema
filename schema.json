@@ -15101,7 +15101,7 @@
           },
           {
             "name": "samlIdentityProvider",
-            "description": "The Organization's SAML Identity Providers",
+            "description": "The Organization's SAML identity providers",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -29383,26 +29383,26 @@
       {
         "kind": "ENUM",
         "name": "IdentityProviderConfigurationState",
-        "description": "The possible states in which authentication can be configured with an Identity Provider.",
+        "description": "The possible states in which authentication can be configured with an identity provider.",
         "fields": null,
         "inputFields": null,
         "interfaces": null,
         "enumValues": [
           {
             "name": "ENFORCED",
-            "description": "Authentication with an Identity Provider is configured and enforced.",
+            "description": "Authentication with an identity provider is configured and enforced.",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "CONFIGURED",
-            "description": "Authentication with an Identity Provider is configured but not enforced.",
+            "description": "Authentication with an identity provider is configured but not enforced.",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "UNCONFIGURED",
-            "description": "Authentication with an Identity Provider is not configured.",
+            "description": "Authentication with an identity provider is not configured.",
             "isDeprecated": false,
             "deprecationReason": null
           }
