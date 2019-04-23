@@ -13326,8 +13326,8 @@
                 "ofType": null
               }
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "`hasApprovalBeenRequested` will be removed. Use `isVerificationPendingFromDraft` instead. Removal on 2019-10-01 UTC."
           },
           {
             "name": "hasPublishedFreeTrialPlans",
@@ -13446,6 +13446,22 @@
                 "ofType": null
               }
             },
+            "isDeprecated": true,
+            "deprecationReason": "`isApproved` will be removed. Use `isPublic` instead. Removal on 2019-10-01 UTC."
+          },
+          {
+            "name": "isArchived",
+            "description": "Whether this listing has been removed from the Marketplace.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -13462,8 +13478,8 @@
                 "ofType": null
               }
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "`isDelisted` will be removed. Use `isArchived` instead. Removal on 2019-10-01 UTC."
           },
           {
             "name": "isDraft",
