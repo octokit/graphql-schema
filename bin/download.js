@@ -1,5 +1,20 @@
 #!/usr/bin/env node
 
+const argv = require('yargs')
+  .usage('GH_TOKEN=<token> bin/download.js [--base-url <base URL>]')
+  .options({
+    'base-url': {
+      describe: 'Base URL of the GitHub GraphQL API',
+      type: 'string',
+      default: 'https://api.github.com'
+    }
+  })
+  .help('h')
+  .alias('h', ['help'])
+  .example('GH_TOKEN=abc12345 $0')
+  .example('GH_TOKEN=abc12345 $0 --base-url https://github.enterprise.com/api')
+  .argv
+
 const writeFileSync = require('fs').writeFileSync
 
 require('dotenv').config()
@@ -11,6 +26,7 @@ if (!process.env.GH_TOKEN) {
 
 const execa = require('execa')
 const request = require('@octokit/request').defaults({
+  baseUrl: argv['base-url'],
   headers: {
     authorization: `bearer ${process.env.GH_TOKEN}`
   }

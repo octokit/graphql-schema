@@ -24,7 +24,8 @@
     "@octokit/request": "^3.0.0",
     "execa": "^1.0.0",
     "graphql": "^14.1.1",
-    "graphql-tag": "^2.10.1"
+    "graphql-tag": "^2.10.1",
+    "yargs": "^13.2.2"
   },
   "devDependencies": {
     "@octokit/graphql": "^2.1.0",
