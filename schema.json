@@ -18572,7 +18572,7 @@
       {
         "kind": "ENUM",
         "name": "PinnableItemType",
-        "description": "Represents items that can be pinned to a profile page.",
+        "description": "Represents items that can be pinned to a profile page or dashboard.",
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -18586,6 +18586,12 @@
           {
             "name": "GIST",
             "description": "A gist.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "ISSUE",
+            "description": "An issue.",
             "isDeprecated": false,
             "deprecationReason": null
           }
