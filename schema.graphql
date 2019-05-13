@@ -9669,13 +9669,18 @@ type PinnableItemEdge {
 }
 
 """
-Represents items that can be pinned to a profile page.
+Represents items that can be pinned to a profile page or dashboard.
 """
 enum PinnableItemType {
   """
   A gist.
   """
   GIST
+
+  """
+  An issue.
+  """
+  ISSUE
 
   """
   A repository.
