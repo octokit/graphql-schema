@@ -41774,6 +41774,22 @@
             "deprecationReason": null
           },
           {
+            "name": "origin",
+            "description": "The organization that originated the advisory",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "publishedAt",
             "description": "When the advisory was published",
             "args": [],

@@ -16383,6 +16383,11 @@ type SecurityAdvisory implements Node {
   identifiers: [SecurityAdvisoryIdentifier!]!
 
   """
+  The organization that originated the advisory
+  """
+  origin: String!
+
+  """
   When the advisory was published
   """
   publishedAt: DateTime!
