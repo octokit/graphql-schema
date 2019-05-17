@@ -20,7 +20,7 @@ const REQUEST_DEFAULTS = {
   owner,
   repo
 }
-const request = require('@octokit/request').defaults(REQUEST_DEFAULTS)
+const request = require('@octokit/request').request.defaults(REQUEST_DEFAULTS)
 const graphql = require('@octokit/graphql').defaults(REQUEST_DEFAULTS)
 
 const schema = require('..').schema
