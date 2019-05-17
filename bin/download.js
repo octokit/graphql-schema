@@ -10,7 +10,7 @@ if (!process.env.GH_TOKEN) {
 }
 
 const execa = require('execa')
-const request = require('@octokit/request').defaults({
+const request = require('@octokit/request').request.defaults({
   headers: {
     authorization: `bearer ${process.env.GH_TOKEN}`
   }
