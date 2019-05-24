@@ -24,9 +24,10 @@
     "@octokit/graphql": "^2.1.0",
     "dotenv": "^8.0.0",
     "execa": "^1.0.0",
-    "graphql-tag": "^2.10.1",
     "graphql": "^14.1.1",
-    "semantic-release": "^16.0.0-beta.18"
+    "graphql-tag": "^2.10.1",
+    "semantic-release": "^16.0.0-beta.18",
+    "standard": "^12.0.1"
   },
   "repository": {
     "type": "git",
