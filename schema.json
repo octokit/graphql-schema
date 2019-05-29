@@ -5499,6 +5499,22 @@
             "deprecationReason": null
           },
           {
+            "name": "openGraphImageUrl",
+            "description": "The image used to represent this repository in Open Graph data.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "URI",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "owner",
             "description": "The User owner of the repository.",
             "args": [],
@@ -6303,6 +6319,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "URI",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "usesCustomOpenGraphImage",
+            "description": "Whether this repository has a custom image to use with Open Graph as opposed to being represented by the owner's avatar.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
                 "ofType": null
               }
             },
@@ -20604,6 +20636,22 @@
             "deprecationReason": null
           },
           {
+            "name": "openGraphImageUrl",
+            "description": "The image used to represent this repository in Open Graph data.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "URI",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "owner",
             "description": "The User owner of the repository.",
             "args": [],
@@ -20700,6 +20748,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "URI",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "usesCustomOpenGraphImage",
+            "description": "Whether this repository has a custom image to use with Open Graph as opposed to being represented by the owner's avatar.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
                 "ofType": null
               }
             },
@@ -28709,19 +28773,31 @@
         "enumValues": [
           {
             "name": "ADMIN",
-            "description": "Can read, clone, push, and add collaborators",
+            "description": "Can read, clone, and push to this repository. Can also manage issues, pull requests, and repository settings, including adding collaborators",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "MAINTAIN",
+            "description": "Can read, clone, and push to this repository. They can also manage issues, pull requests, and some repository settings",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "WRITE",
-            "description": "Can read, clone and push",
+            "description": "Can read, clone, and push to this repository. Can also manage issues and pull requests",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "TRIAGE",
+            "description": "Can read and clone this repository. Can also manage issues and pull requests",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "READ",
-            "description": "Can read and clone",
+            "description": "Can read and clone this repository. Can also open and comment on issues and pull requests",
             "isDeprecated": false,
             "deprecationReason": null
           }
