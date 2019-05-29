@@ -14864,6 +14864,11 @@ type Repository implements Node & ProjectOwner & RegistryPackageOwner & Reposito
   ): GitObject
 
   """
+  The image used to represent this repository in Open Graph data.
+  """
+  openGraphImageUrl: URI!
+
+  """
   The User owner of the repository.
   """
   owner: RepositoryOwner!
@@ -15190,6 +15195,11 @@ type Repository implements Node & ProjectOwner & RegistryPackageOwner & Reposito
   url: URI!
 
   """
+  Whether this repository has a custom image to use with Open Graph as opposed to being represented by the owner's avatar.
+  """
+  usesCustomOpenGraphImage: Boolean!
+
+  """
   Indicates whether the viewer has admin permissions on this repository.
   """
   viewerCanAdminister: Boolean!
@@ -15497,6 +15507,11 @@ interface RepositoryInfo {
   nameWithOwner: String!
 
   """
+  The image used to represent this repository in Open Graph data.
+  """
+  openGraphImageUrl: URI!
+
+  """
   The User owner of the repository.
   """
   owner: RepositoryOwner!
@@ -15530,6 +15545,11 @@ interface RepositoryInfo {
   The HTTP URL for this repository
   """
   url: URI!
+
+  """
+  Whether this repository has a custom image to use with Open Graph as opposed to being represented by the owner's avatar.
+  """
+  usesCustomOpenGraphImage: Boolean!
 }
 
 """
@@ -15813,17 +15833,28 @@ The access level to a repository
 """
 enum RepositoryPermission {
   """
-  Can read, clone, push, and add collaborators
+  Can read, clone, and push to this repository. Can also manage issues, pull
+  requests, and repository settings, including adding collaborators
   """
   ADMIN
 
   """
-  Can read and clone
+  Can read, clone, and push to this repository. They can also manage issues, pull requests, and some repository settings
+  """
+  MAINTAIN
+
+  """
+  Can read and clone this repository. Can also open and comment on issues and pull requests
   """
   READ
 
   """
-  Can read, clone and push
+  Can read and clone this repository. Can also manage issues and pull requests
+  """
+  TRIAGE
+
+  """
+  Can read, clone, and push to this repository. Can also manage issues and pull requests
   """
   WRITE
 }
