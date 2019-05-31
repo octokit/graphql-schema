@@ -10492,7 +10492,7 @@ type PublicKey implements Node {
   accessedAt: DateTime
 
   """
-  Identifies the date and time when the object was created.
+  Identifies the date and time when the key was created. Keys created before March 5th, 2014 have inaccurate values.
   """
   createdAt: DateTime!
 
@@ -10513,7 +10513,7 @@ type PublicKey implements Node {
   key: String!
 
   """
-  Identifies the date and time when the object was last updated.
+  Identifies the date and time when the key was updated. Keys created before March 5th, 2014 may have inaccurate values.
   """
   updatedAt: DateTime!
 }
@@ -17030,6 +17030,16 @@ type Status implements Node {
 Represents an individual commit status context
 """
 type StatusContext implements Node {
+  """
+  The avatar of the OAuth application or the user that created the status
+  """
+  avatarUrl(
+    """
+    The size of the resulting square image.
+    """
+    size: Int = 40
+  ): URI
+
   """
   This commit this status context is attached to.
   """
