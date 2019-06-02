@@ -1079,6 +1079,11 @@ input ChangeUserStatusInput {
   emoji: String
 
   """
+  If set, the user status will not be shown after this date.
+  """
+  expiresAt: DateTime
+
+  """
   Whether this status should indicate you are not fully available on GitHub, e.g., you are away.
   """
   limitedAvailability: Boolean = false
@@ -20100,6 +20105,11 @@ type UserStatus implements Node {
   An emoji summarizing the user's status.
   """
   emoji: String
+
+  """
+  If set, the status will not be shown after this date.
+  """
+  expiresAt: DateTime
 
   """
   ID of the object.
