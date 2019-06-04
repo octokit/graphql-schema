@@ -6042,7 +6042,7 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
     Allows filtering timeline events by a `since` timestamp.
     """
     since: DateTime
-  ): IssueTimelineConnection!
+  ): IssueTimelineConnection! @deprecated(reason: "`timeline` will be removed Use Issue.timelineItems instead. Removal on 2019-10-01 UTC.")
 
   """
   A list of events, comments, commits, etc. associated with the issue.
@@ -11129,7 +11129,7 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     Allows filtering timeline events by a `since` timestamp.
     """
     since: DateTime
-  ): PullRequestTimelineConnection!
+  ): PullRequestTimelineConnection! @deprecated(reason: "`timeline` will be removed Use PullRequest.timelineItems instead. Removal on 2019-10-01 UTC.")
 
   """
   A list of events, comments, commits, etc. associated with the pull request.
