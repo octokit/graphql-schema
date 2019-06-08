@@ -2848,7 +2848,7 @@
                     "ofType": null
                   }
                 },
-                "defaultValue": "[\"OWNER\", \"COLLABORATOR\"]"
+                "defaultValue": "[OWNER, COLLABORATOR]"
               },
               {
                 "name": "ownerAffiliations",
@@ -2862,7 +2862,7 @@
                     "ofType": null
                   }
                 },
-                "defaultValue": "[\"OWNER\", \"COLLABORATOR\"]"
+                "defaultValue": "[OWNER, COLLABORATOR]"
               },
               {
                 "name": "isLocked",
@@ -3297,7 +3297,7 @@
                     "ofType": null
                   }
                 },
-                "defaultValue": "[\"OWNER\", \"COLLABORATOR\"]"
+                "defaultValue": "[OWNER, COLLABORATOR]"
               },
               {
                 "name": "ownerAffiliations",
@@ -3311,7 +3311,7 @@
                     "ofType": null
                   }
                 },
-                "defaultValue": "[\"OWNER\", \"COLLABORATOR\"]"
+                "defaultValue": "[OWNER, COLLABORATOR]"
               },
               {
                 "name": "isLocked",
@@ -3761,7 +3761,7 @@
                     "ofType": null
                   }
                 },
-                "defaultValue": "[\"OWNER\", \"COLLABORATOR\", \"ORGANIZATION_MEMBER\"]"
+                "defaultValue": "[OWNER, COLLABORATOR, ORGANIZATION_MEMBER]"
               },
               {
                 "name": "ownerAffiliations",
@@ -3775,7 +3775,7 @@
                     "ofType": null
                   }
                 },
-                "defaultValue": "[\"OWNER\", \"COLLABORATOR\"]"
+                "defaultValue": "[OWNER, COLLABORATOR]"
               },
               {
                 "name": "isLocked",
@@ -4661,7 +4661,7 @@
                     "ofType": null
                   }
                 },
-                "defaultValue": "[\"OWNER\", \"COLLABORATOR\"]"
+                "defaultValue": "[OWNER, COLLABORATOR]"
               },
               {
                 "name": "ownerAffiliations",
@@ -4675,7 +4675,7 @@
                     "ofType": null
                   }
                 },
-                "defaultValue": "[\"OWNER\", \"COLLABORATOR\"]"
+                "defaultValue": "[OWNER, COLLABORATOR]"
               },
               {
                 "name": "isLocked",
@@ -7035,7 +7035,7 @@
                     "ofType": null
                   }
                 },
-                "defaultValue": "[\"ARCHIVED\", \"NOT_ARCHIVED\"]"
+                "defaultValue": "[ARCHIVED, NOT_ARCHIVED]"
               }
             ],
             "type": {
@@ -7488,7 +7488,7 @@
                     "ofType": null
                   }
                 },
-                "defaultValue": "[\"ARCHIVED\", \"NOT_ARCHIVED\"]"
+                "defaultValue": "[ARCHIVED, NOT_ARCHIVED]"
               }
             ],
             "type": {
@@ -8590,7 +8590,7 @@
                     "ofType": null
                   }
                 },
-                "defaultValue": "[\"ARCHIVED\", \"NOT_ARCHIVED\"]"
+                "defaultValue": "[ARCHIVED, NOT_ARCHIVED]"
               }
             ],
             "type": {
@@ -12101,7 +12101,7 @@
                     "ofType": null
                   }
                 },
-                "defaultValue": "[\"ARCHIVED\", \"NOT_ARCHIVED\"]"
+                "defaultValue": "[ARCHIVED, NOT_ARCHIVED]"
               }
             ],
             "type": {
@@ -14749,7 +14749,7 @@
                     "ofType": null
                   }
                 },
-                "defaultValue": "[\"OWNER\", \"COLLABORATOR\"]"
+                "defaultValue": "[OWNER, COLLABORATOR]"
               },
               {
                 "name": "ownerAffiliations",
@@ -14763,7 +14763,7 @@
                     "ofType": null
                   }
                 },
-                "defaultValue": "[\"OWNER\", \"COLLABORATOR\"]"
+                "defaultValue": "[OWNER, COLLABORATOR]"
               },
               {
                 "name": "isLocked",
@@ -15018,7 +15018,7 @@
                     "ofType": null
                   }
                 },
-                "defaultValue": "[\"OWNER\", \"COLLABORATOR\"]"
+                "defaultValue": "[OWNER, COLLABORATOR]"
               },
               {
                 "name": "ownerAffiliations",
@@ -15032,7 +15032,7 @@
                     "ofType": null
                   }
                 },
-                "defaultValue": "[\"OWNER\", \"COLLABORATOR\"]"
+                "defaultValue": "[OWNER, COLLABORATOR]"
               },
               {
                 "name": "isLocked",
@@ -15682,7 +15682,7 @@
                     "ofType": null
                   }
                 },
-                "defaultValue": "[\"OWNER\", \"COLLABORATOR\"]"
+                "defaultValue": "[OWNER, COLLABORATOR]"
               },
               {
                 "name": "ownerAffiliations",
@@ -15696,7 +15696,7 @@
                     "ofType": null
                   }
                 },
-                "defaultValue": "[\"OWNER\", \"COLLABORATOR\"]"
+                "defaultValue": "[OWNER, COLLABORATOR]"
               },
               {
                 "name": "isLocked",
@@ -15797,7 +15797,7 @@
                     "ofType": null
                   }
                 },
-                "defaultValue": "[\"OWNER\", \"COLLABORATOR\"]"
+                "defaultValue": "[OWNER, COLLABORATOR]"
               },
               {
                 "name": "ownerAffiliations",
@@ -15811,7 +15811,7 @@
                     "ofType": null
                   }
                 },
-                "defaultValue": "[\"OWNER\", \"COLLABORATOR\"]"
+                "defaultValue": "[OWNER, COLLABORATOR]"
               },
               {
                 "name": "isLocked",
@@ -16227,7 +16227,7 @@
       {
         "kind": "SCALAR",
         "name": "Float",
-        "description": "Represents signed double-precision fractional values as specified by [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point).",
+        "description": "Represents signed double-precision fractional values as specified by [IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point).",
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -18636,6 +18636,36 @@
           {
             "name": "ISSUE",
             "description": "An issue.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "PROJECT",
+            "description": "A project.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "PULL_REQUEST",
+            "description": "A pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "USER",
+            "description": "A user.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "ORGANIZATION",
+            "description": "An organization.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "TEAM",
+            "description": "A team.",
             "isDeprecated": false,
             "deprecationReason": null
           }
