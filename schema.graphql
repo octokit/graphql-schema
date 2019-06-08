@@ -9688,9 +9688,34 @@ enum PinnableItemType {
   ISSUE
 
   """
+  An organization.
+  """
+  ORGANIZATION
+
+  """
+  A project.
+  """
+  PROJECT
+
+  """
+  A pull request.
+  """
+  PULL_REQUEST
+
+  """
   A repository.
   """
   REPOSITORY
+
+  """
+  A team.
+  """
+  TEAM
+
+  """
+  A user.
+  """
+  USER
 }
 
 """
