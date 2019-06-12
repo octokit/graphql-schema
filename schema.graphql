@@ -914,6 +914,11 @@ type BranchProtectionRule implements Node {
   requiresApprovingReviews: Boolean!
 
   """
+  Are reviews from code owners required to update matching branches.
+  """
+  requiresCodeOwnerReviews: Boolean!
+
+  """
   Are commits required to be signed.
   """
   requiresCommitSignatures: Boolean!
