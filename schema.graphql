@@ -4903,7 +4903,42 @@ type Gist implements Node & Starrable {
     The maximum number of files to return.
     """
     limit: Int = 10
+
+    """
+    The oid of the files to return
+    """
+    oid: GitObjectID
   ): [GistFile]
+
+  """
+  A list of forks associated with the gist
+  """
+  forks(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for gists returned from the connection
+    """
+    orderBy: GistOrder
+  ): GistConnection!
   id: ID!
 
   """
