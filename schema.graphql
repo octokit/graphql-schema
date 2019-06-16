@@ -2545,8 +2545,12 @@ input ContributionOrder {
 
   """
   The field by which to order contributions.
+
+  **Upcoming Change on 2019-10-01 UTC**
+  **Description:** `field` will be removed. Only one order field is supported.
+  **Reason:** `field` will be removed.
   """
-  field: ContributionOrderField!
+  field: ContributionOrderField
 }
 
 """
