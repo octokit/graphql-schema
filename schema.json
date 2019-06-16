@@ -44311,15 +44311,11 @@
         "inputFields": [
           {
             "name": "field",
-            "description": "The field by which to order contributions.",
+            "description": "The field by which to order contributions.\n\n**Upcoming Change on 2019-10-01 UTC**\n**Description:** `field` will be removed. Only one order field is supported.\n**Reason:** `field` will be removed.\n",
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "ENUM",
-                "name": "ContributionOrderField",
-                "ofType": null
-              }
+              "kind": "ENUM",
+              "name": "ContributionOrderField",
+              "ofType": null
             },
             "defaultValue": null
           },
