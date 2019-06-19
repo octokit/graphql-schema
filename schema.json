@@ -4897,6 +4897,22 @@
             "deprecationReason": null
           },
           {
+            "name": "isTemplate",
+            "description": "Identifies if the repository is a template that can be used to generate new repositories.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "issue",
             "description": "Returns a single issue from the current repository by number.",
             "args": [
@@ -6289,6 +6305,18 @@
                 "name": "StargazerConnection",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "templateRepository",
+            "description": "The repository from which this repository was generated, if any.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "Repository",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -20879,6 +20907,22 @@
             "deprecationReason": null
           },
           {
+            "name": "isTemplate",
+            "description": "Identifies if the repository is a template that can be used to generate new repositories.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "licenseInfo",
             "description": "The license associated with the repository",
             "args": [],
@@ -21092,6 +21136,35 @@
             "ofType": null
           }
         ]
+      },
+      {
+        "kind": "ENUM",
+        "name": "RepositoryVisibility",
+        "description": "The repository's visibility level.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "PRIVATE",
+            "description": "The repository is visible only to those with explicit access.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "PUBLIC",
+            "description": "The repository is visible to everyone.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "INTERNAL",
+            "description": "The repository is visible only to users in the same business.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
       },
       {
         "kind": "ENUM",
@@ -47155,6 +47228,11 @@
             "kind": "OBJECT",
             "name": "MarketplaceListing",
             "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "App",
+            "ofType": null
           }
         ]
       },
@@ -48051,6 +48129,33 @@
             "type": {
               "kind": "OBJECT",
               "name": "CloneProjectPayload",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "cloneTemplateRepository",
+            "description": "Create a new repository with the same files and directory structure as a template repository.",
+            "args": [
+              {
+                "name": "input",
+                "description": null,
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "CloneTemplateRepositoryInput",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "OBJECT",
+              "name": "CloneTemplateRepositoryPayload",
               "ofType": null
             },
             "isDeprecated": false,
@@ -54273,6 +54378,128 @@
               "kind": "SCALAR",
               "name": "Boolean",
               "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "clientMutationId",
+            "description": "A unique identifier for the client performing the mutation.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "CloneTemplateRepositoryPayload",
+        "description": "Autogenerated return type of CloneTemplateRepository",
+        "fields": [
+          {
+            "name": "clientMutationId",
+            "description": "A unique identifier for the client performing the mutation.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "repository",
+            "description": "The new repository.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "Repository",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "CloneTemplateRepositoryInput",
+        "description": "Autogenerated input type of CloneTemplateRepository",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "repositoryId",
+            "description": "The Node ID of the template repository.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "name",
+            "description": "The name of the new repository.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "ownerId",
+            "description": "The ID of the owner for the new repository.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "description",
+            "description": "A short description of the new repository.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "visibility",
+            "description": "Indicates the repository's visibility level.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "RepositoryVisibility",
+                "ofType": null
+              }
             },
             "defaultValue": null
           },
