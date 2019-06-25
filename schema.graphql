@@ -8132,6 +8132,11 @@ type Milestone implements Closable & Node & UniformResourceLocatable {
   id: ID!
 
   """
+  Just for debugging on review-lab
+  """
+  issuePrioritiesDebug: String!
+
+  """
   A list of issues associated with the milestone.
   """
   issues(
