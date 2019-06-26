@@ -29756,7 +29756,7 @@
         "fields": [
           {
             "name": "accessedAt",
-            "description": "The last time this authorization was used to perform an action",
+            "description": "The last time this authorization was used to perform an action. Values will be null for keys not owned by the user.",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -29768,28 +29768,28 @@
           },
           {
             "name": "createdAt",
-            "description": "Identifies the date and time when the key was created. Keys created before March 5th, 2014 have inaccurate values.",
+            "description": "Identifies the date and time when the key was created. Keys created before March 5th, 2014 have inaccurate values. Values will be null for keys not owned by the user.",
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "DateTime",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "fingerprint",
-            "description": "The fingerprint for this PublicKey",
+            "description": "The fingerprint for this PublicKey.",
             "args": [],
             "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -29812,23 +29812,19 @@
           },
           {
             "name": "isReadOnly",
-            "description": "Whether this PublicKey is read-only or not",
+            "description": "Whether this PublicKey is read-only or not. Values will be null for keys not owned by the user.",
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Boolean",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "key",
-            "description": "The public key string",
+            "description": "The public key string.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -29844,16 +29840,12 @@
           },
           {
             "name": "updatedAt",
-            "description": "Identifies the date and time when the key was updated. Keys created before March 5th, 2014 may have inaccurate values.",
+            "description": "Identifies the date and time when the key was updated. Keys created before March 5th, 2014 may have inaccurate values. Values will be null for keys not owned by the user.",
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "DateTime",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -48367,6 +48359,33 @@
             "deprecationReason": null
           },
           {
+            "name": "createRepository",
+            "description": "Create a new repository.",
+            "args": [
+              {
+                "name": "input",
+                "description": null,
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "CreateRepositoryInput",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "OBJECT",
+              "name": "CreateRepositoryPayload",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "declineTopicSuggestion",
             "description": "Rejects a suggested topic for the repository.",
             "args": [
@@ -54516,6 +54535,160 @@
                 "name": "RepositoryVisibility",
                 "ofType": null
               }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "clientMutationId",
+            "description": "A unique identifier for the client performing the mutation.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "CreateRepositoryPayload",
+        "description": "Autogenerated return type of CreateRepository",
+        "fields": [
+          {
+            "name": "clientMutationId",
+            "description": "A unique identifier for the client performing the mutation.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "repository",
+            "description": "The new repository.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "Repository",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "CreateRepositoryInput",
+        "description": "Autogenerated input type of CreateRepository",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "name",
+            "description": "The name of the new repository.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "ownerId",
+            "description": "The ID of the owner for the new repository.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "description",
+            "description": "A short description of the new repository.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "visibility",
+            "description": "Indicates the repository's visibility level.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "RepositoryVisibility",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "template",
+            "description": "Whether this repository should be marked as a template such that anyone who can access it can create new repositories with the same files and directory structure.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": "false"
+          },
+          {
+            "name": "homepageUrl",
+            "description": "The URL for a web page about this repository.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "URI",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "hasWikiEnabled",
+            "description": "Indicates if the repository should have the wiki feature enabled.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": "false"
+          },
+          {
+            "name": "hasIssuesEnabled",
+            "description": "Indicates if the repository should have the issues feature enabled.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": "true"
+          },
+          {
+            "name": "teamId",
+            "description": "When an organization is specified as the owner, this ID identifies the team that should be granted access to the new repository.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
             },
             "defaultValue": null
           },
