@@ -9189,7 +9189,7 @@ type Organization implements Actor & MemberStatusable & Node & ProfileOwner & Pr
     If non-null, filters repositories according to privacy
     """
     privacy: RepositoryPrivacy
-  ): RepositoryConnection! @deprecated(reason: "pinnedRepositories will be removed Use ProfileOwner.pinnedItems instead. Removal on 2019-07-01 UTC.")
+  ): RepositoryConnection! @deprecated(reason: "pinnedRepositories will be removed Use ProfileOwner.pinnedItems instead. Removal on 2019-10-01 UTC.")
 
   """
   Find project by number.
@@ -15975,7 +15975,7 @@ interface RepositoryOwner {
     If non-null, filters repositories according to privacy
     """
     privacy: RepositoryPrivacy
-  ): RepositoryConnection! @deprecated(reason: "pinnedRepositories will be removed Use ProfileOwner.pinnedItems instead. Removal on 2019-07-01 UTC.")
+  ): RepositoryConnection! @deprecated(reason: "pinnedRepositories will be removed Use ProfileOwner.pinnedItems instead. Removal on 2019-10-01 UTC.")
 
   """
   A list of repositories that the user owns.
@@ -19769,7 +19769,7 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RegistryPackag
     If non-null, filters repositories according to privacy
     """
     privacy: RepositoryPrivacy
-  ): RepositoryConnection! @deprecated(reason: "pinnedRepositories will be removed Use ProfileOwner.pinnedItems instead. Removal on 2019-07-01 UTC.")
+  ): RepositoryConnection! @deprecated(reason: "pinnedRepositories will be removed Use ProfileOwner.pinnedItems instead. Removal on 2019-10-01 UTC.")
 
   """
   Find project by number.
