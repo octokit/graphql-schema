@@ -1361,6 +1361,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "ReadyForReviewEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "Ref",
             "ofType": null
           },
@@ -1631,6 +1636,11 @@
           {
             "kind": "OBJECT",
             "name": "PullRequestCommit",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "ReadyForReviewEvent",
             "ofType": null
           },
           {
@@ -37131,38 +37141,6 @@
             "deprecationReason": null
           },
           {
-            "name": "message",
-            "description": "Identifies the message associated with the 'review_dismissed' event.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "isDeprecated": true,
-            "deprecationReason": "`message` is being removed because it not nullable, whereas the underlying field is optional. Use `dismissalMessage` instead. Removal on 2019-07-01 UTC."
-          },
-          {
-            "name": "messageHtml",
-            "description": "The message associated with the event, rendered to HTML.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "HTML",
-                "ofType": null
-              }
-            },
-            "isDeprecated": true,
-            "deprecationReason": "`messageHtml` is being removed because it not nullable, whereas the underlying field is optional. Use `dismissalMessageHTML` instead. Removal on 2019-07-01 UTC."
-          },
-          {
             "name": "previousReviewState",
             "description": "Identifies the previous state of the review with the 'review_dismissed' event.",
             "args": [],
@@ -37650,6 +37628,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "ReadyForReviewEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "IssueComment",
             "ofType": null
           },
@@ -38073,6 +38056,120 @@
           {
             "kind": "INTERFACE",
             "name": "Node",
+            "ofType": null
+          }
+        ],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ReadyForReviewEvent",
+        "description": "Represents a 'ready_for_review' event on a given pull request.",
+        "fields": [
+          {
+            "name": "actor",
+            "description": "Identifies the actor who performed the event.",
+            "args": [],
+            "type": {
+              "kind": "INTERFACE",
+              "name": "Actor",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "createdAt",
+            "description": "Identifies the date and time when the object was created.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "id",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pullRequest",
+            "description": "PullRequest referenced by event.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "PullRequest",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "resourcePath",
+            "description": "The HTTP path for this ready for review event.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "URI",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "url",
+            "description": "The HTTP URL for this ready for review event.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "URI",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "Node",
+            "ofType": null
+          },
+          {
+            "kind": "INTERFACE",
+            "name": "UniformResourceLocatable",
             "ofType": null
           }
         ],
@@ -38882,6 +38979,12 @@
           {
             "name": "REVIEW_REQUEST_REMOVED_EVENT",
             "description": "Represents an 'review_request_removed' event on a given pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "READY_FOR_REVIEW_EVENT",
+            "description": "Represents a 'ready_for_review' event on a given pull request.",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -43061,18 +43164,7 @@
           {
             "name": "firstIssueContribution",
             "description": "The first issue the user opened on GitHub. This will be null if that issue was opened outside the collection's time range and ignoreTimeRange is false. If the issue is not visible but the user has opted to show private contributions, a RestrictedContribution will be returned.",
-            "args": [
-              {
-                "name": "ignoreTimeRange",
-                "description": "If true, the first issue will be returned even if it was opened outside of the collection's time range.\n\n**Upcoming Change on 2019-07-01 UTC**\n**Description:** `ignoreTimeRange` will be removed. Use a `ContributionsCollection` starting sufficiently far back\n**Reason:** ignore_time_range will be removed\n",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                },
-                "defaultValue": "false"
-              }
-            ],
+            "args": [],
             "type": {
               "kind": "UNION",
               "name": "CreatedIssueOrRestrictedContribution",
@@ -43084,18 +43176,7 @@
           {
             "name": "firstPullRequestContribution",
             "description": "The first pull request the user opened on GitHub. This will be null if that pull request was opened outside the collection's time range and ignoreTimeRange is not true. If the pull request is not visible but the user has opted to show private contributions, a RestrictedContribution will be returned.",
-            "args": [
-              {
-                "name": "ignoreTimeRange",
-                "description": "If true, the first pull request will be returned even if it was opened outside of the collection's time range.\n\n**Upcoming Change on 2019-07-01 UTC**\n**Description:** `ignoreTimeRange` will be removed. Use a `ContributionsCollection` starting sufficiently far back\n**Reason:** ignore_time_range will be removed\n",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                },
-                "defaultValue": "false"
-              }
-            ],
+            "args": [],
             "type": {
               "kind": "UNION",
               "name": "CreatedPullRequestOrRestrictedContribution",
@@ -43107,18 +43188,7 @@
           {
             "name": "firstRepositoryContribution",
             "description": "The first repository the user created on GitHub. This will be null if that first repository was created outside the collection's time range and ignoreTimeRange is false. If the repository is not visible, then a RestrictedContribution is returned.",
-            "args": [
-              {
-                "name": "ignoreTimeRange",
-                "description": "If true, the first repository will be returned even if it was opened outside of the collection's time range.\n\n**Upcoming Change on 2019-07-01 UTC**\n**Description:** `ignoreTimeRange` will be removed. Use a `ContributionsCollection` starting sufficiently far back\n**Reason:** ignore_time_range will be removed\n",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                },
-                "defaultValue": "false"
-              }
-            ],
+            "args": [],
             "type": {
               "kind": "UNION",
               "name": "CreatedRepositoryOrRestrictedContribution",
@@ -43336,18 +43406,7 @@
           {
             "name": "joinedGitHubContribution",
             "description": "When the user signed up for GitHub. This will be null if that sign up date falls outside the collection's time range and ignoreTimeRange is false.",
-            "args": [
-              {
-                "name": "ignoreTimeRange",
-                "description": "If true, the contribution will be returned even if the user signed up outside of the collection's time range.\n\n**Upcoming Change on 2019-07-01 UTC**\n**Description:** `ignoreTimeRange` will be removed. Use a `ContributionsCollection` starting sufficiently far back\n**Reason:** ignore_time_range will be removed\n",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                },
-                "defaultValue": "false"
-              }
-            ],
+            "args": [],
             "type": {
               "kind": "OBJECT",
               "name": "JoinedGitHubContribution",

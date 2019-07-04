@@ -2659,16 +2659,7 @@ type ContributionsCollection {
   the issue is not visible but the user has opted to show private contributions,
   a RestrictedContribution will be returned.
   """
-  firstIssueContribution(
-    """
-    If true, the first issue will be returned even if it was opened outside of the collection's time range.
-
-    **Upcoming Change on 2019-07-01 UTC**
-    **Description:** `ignoreTimeRange` will be removed. Use a `ContributionsCollection` starting sufficiently far back
-    **Reason:** ignore_time_range will be removed
-    """
-    ignoreTimeRange: Boolean = false
-  ): CreatedIssueOrRestrictedContribution
+  firstIssueContribution: CreatedIssueOrRestrictedContribution
 
   """
   The first pull request the user opened on GitHub. This will be null if that
@@ -2676,16 +2667,7 @@ type ContributionsCollection {
   ignoreTimeRange is not true. If the pull request is not visible but the user
   has opted to show private contributions, a RestrictedContribution will be returned.
   """
-  firstPullRequestContribution(
-    """
-    If true, the first pull request will be returned even if it was opened outside of the collection's time range.
-
-    **Upcoming Change on 2019-07-01 UTC**
-    **Description:** `ignoreTimeRange` will be removed. Use a `ContributionsCollection` starting sufficiently far back
-    **Reason:** ignore_time_range will be removed
-    """
-    ignoreTimeRange: Boolean = false
-  ): CreatedPullRequestOrRestrictedContribution
+  firstPullRequestContribution: CreatedPullRequestOrRestrictedContribution
 
   """
   The first repository the user created on GitHub. This will be null if that
@@ -2693,16 +2675,7 @@ type ContributionsCollection {
   ignoreTimeRange is false. If the repository is not visible, then a
   RestrictedContribution is returned.
   """
-  firstRepositoryContribution(
-    """
-    If true, the first repository will be returned even if it was opened outside of the collection's time range.
-
-    **Upcoming Change on 2019-07-01 UTC**
-    **Description:** `ignoreTimeRange` will be removed. Use a `ContributionsCollection` starting sufficiently far back
-    **Reason:** ignore_time_range will be removed
-    """
-    ignoreTimeRange: Boolean = false
-  ): CreatedRepositoryOrRestrictedContribution
+  firstRepositoryContribution: CreatedRepositoryOrRestrictedContribution
 
   """
   Does the user have any more activity in the timeline that occurred prior to the collection's time range?
@@ -2790,16 +2763,7 @@ type ContributionsCollection {
   When the user signed up for GitHub. This will be null if that sign up date
   falls outside the collection's time range and ignoreTimeRange is false.
   """
-  joinedGitHubContribution(
-    """
-    If true, the contribution will be returned even if the user signed up outside of the collection's time range.
-
-    **Upcoming Change on 2019-07-01 UTC**
-    **Description:** `ignoreTimeRange` will be removed. Use a `ContributionsCollection` starting sufficiently far back
-    **Reason:** ignore_time_range will be removed
-    """
-    ignoreTimeRange: Boolean = false
-  ): JoinedGitHubContribution
+  joinedGitHubContribution: JoinedGitHubContribution
 
   """
   The date of the most recent restricted contribution the user made in this time
@@ -12734,7 +12698,7 @@ type PullRequestTimelineItemEdge {
 """
 An item in a pull request timeline
 """
-union PullRequestTimelineItems = AddedToProjectEvent | AssignedEvent | BaseRefChangedEvent | BaseRefForcePushedEvent | ClosedEvent | CommentDeletedEvent | ConvertedNoteToIssueEvent | CrossReferencedEvent | DemilestonedEvent | DeployedEvent | DeploymentEnvironmentChangedEvent | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IssueComment | LabeledEvent | LockedEvent | MentionedEvent | MergedEvent | MilestonedEvent | MovedColumnsInProjectEvent | PinnedEvent | PullRequestCommit | PullRequestCommitCommentThread | PullRequestReview | PullRequestReviewThread | PullRequestRevisionMarker | ReferencedEvent | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | ReviewDismissedEvent | ReviewRequestRemovedEvent | ReviewRequestedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnpinnedEvent | UnsubscribedEvent | UserBlockedEvent
+union PullRequestTimelineItems = AddedToProjectEvent | AssignedEvent | BaseRefChangedEvent | BaseRefForcePushedEvent | ClosedEvent | CommentDeletedEvent | ConvertedNoteToIssueEvent | CrossReferencedEvent | DemilestonedEvent | DeployedEvent | DeploymentEnvironmentChangedEvent | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IssueComment | LabeledEvent | LockedEvent | MentionedEvent | MergedEvent | MilestonedEvent | MovedColumnsInProjectEvent | PinnedEvent | PullRequestCommit | PullRequestCommitCommentThread | PullRequestReview | PullRequestReviewThread | PullRequestRevisionMarker | ReadyForReviewEvent | ReferencedEvent | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | ReviewDismissedEvent | ReviewRequestRemovedEvent | ReviewRequestedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnpinnedEvent | UnsubscribedEvent | UserBlockedEvent
 
 """
 The connection type for PullRequestTimelineItems.
@@ -12929,6 +12893,11 @@ enum PullRequestTimelineItemsItemType {
   Represents the latest point in the pull request timeline for which the viewer has seen the pull request's commits.
   """
   PULL_REQUEST_REVISION_MARKER
+
+  """
+  Represents a 'ready_for_review' event on a given pull request.
+  """
+  READY_FOR_REVIEW_EVENT
 
   """
   Represents a 'referenced' event on a given `ReferencedSubject`.
@@ -13785,6 +13754,37 @@ enum ReactionOrderField {
   Allows ordering a list of reactions by when they were created.
   """
   CREATED_AT
+}
+
+"""
+Represents a 'ready_for_review' event on a given pull request.
+"""
+type ReadyForReviewEvent implements Node & UniformResourceLocatable {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+  id: ID!
+
+  """
+  PullRequest referenced by event.
+  """
+  pullRequest: PullRequest!
+
+  """
+  The HTTP path for this ready for review event.
+  """
+  resourcePath: URI!
+
+  """
+  The HTTP URL for this ready for review event.
+  """
+  url: URI!
 }
 
 """
@@ -16472,16 +16472,6 @@ type ReviewDismissedEvent implements Node & UniformResourceLocatable {
   """
   dismissalMessageHTML: String
   id: ID!
-
-  """
-  Identifies the message associated with the 'review_dismissed' event.
-  """
-  message: String! @deprecated(reason: "`message` is being removed because it not nullable, whereas the underlying field is optional. Use `dismissalMessage` instead. Removal on 2019-07-01 UTC.")
-
-  """
-  The message associated with the event, rendered to HTML.
-  """
-  messageHtml: HTML! @deprecated(reason: "`messageHtml` is being removed because it not nullable, whereas the underlying field is optional. Use `dismissalMessageHTML` instead. Removal on 2019-07-01 UTC.")
 
   """
   Identifies the previous state of the review with the 'review_dismissed' event.
