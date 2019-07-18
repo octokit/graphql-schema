@@ -3311,6 +3311,11 @@ input CreateProjectInput {
   The owner ID to create the project under.
   """
   ownerId: ID!
+
+  """
+  The name of the GitHub-provided template.
+  """
+  template: ProjectTemplate
 }
 
 """
@@ -10790,6 +10795,31 @@ enum ProjectState {
   The project is open.
   """
   OPEN
+}
+
+"""
+GitHub-provided templates for Projects
+"""
+enum ProjectTemplate {
+  """
+  Create a board with v2 triggers to automatically move cards across To do, In progress and Done columns.
+  """
+  AUTOMATED_KANBAN_V2
+
+  """
+  Create a board with triggers to automatically move cards across columns with review automation.
+  """
+  AUTOMATED_REVIEWS_KANBAN
+
+  """
+  Create a board with columns for To do, In progress and Done.
+  """
+  BASIC_KANBAN
+
+  """
+  Create a board to triage and prioritize bugs with To do, priority, and Done columns.
+  """
+  BUG_TRIAGE
 }
 
 """
