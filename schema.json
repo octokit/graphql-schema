@@ -50284,6 +50284,16 @@
             "defaultValue": null
           },
           {
+            "name": "template",
+            "description": "The name of the GitHub-provided template.",
+            "type": {
+              "kind": "ENUM",
+              "name": "ProjectTemplate",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
             "name": "clientMutationId",
             "description": "A unique identifier for the client performing the mutation.",
             "type": {
@@ -50296,6 +50306,41 @@
         ],
         "interfaces": null,
         "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "ProjectTemplate",
+        "description": "GitHub-provided templates for Projects",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "BASIC_KANBAN",
+            "description": "Create a board with columns for To do, In progress and Done.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "AUTOMATED_KANBAN_V2",
+            "description": "Create a board with v2 triggers to automatically move cards across To do, In progress and Done columns.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "AUTOMATED_REVIEWS_KANBAN",
+            "description": "Create a board with triggers to automatically move cards across columns with review automation.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "BUG_TRIAGE",
+            "description": "Create a board to triage and prioritize bugs with To do, priority, and Done columns.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
         "possibleTypes": null
       },
       {
