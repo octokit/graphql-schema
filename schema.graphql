@@ -585,6 +585,11 @@ type AssignedEvent implements Node {
   assignable: Assignable!
 
   """
+  Identifies the user or mannequin that was assigned.
+  """
+  assignee: Assignee
+
+  """
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
@@ -593,8 +598,13 @@ type AssignedEvent implements Node {
   """
   Identifies the user who was assigned.
   """
-  user: User
+  user: User @deprecated(reason: "Assignees can now be mannequins. Use the `assignee` field instead. Removal on 2020-01-01 UTC.")
 }
+
+"""
+Types that can be assigned to issues.
+"""
+union Assignee = Mannequin | Organization | User
 
 """
 Represents a 'base_ref_changed' event on a given issue or pull request.
@@ -5019,7 +5029,7 @@ type FollowingConnection {
 """
 A Gist.
 """
-type Gist implements Node & Starrable {
+type Gist implements Node & Starrable & UniformResourceLocatable {
   """
   A list of comments associated with the gist
   """
@@ -5127,6 +5137,11 @@ type Gist implements Node & Starrable {
   pushedAt: DateTime
 
   """
+  The HTML path to this resource.
+  """
+  resourcePath: URI!
+
+  """
   A list of users who have starred this starrable.
   """
   stargazers(
@@ -5160,6 +5175,11 @@ type Gist implements Node & Starrable {
   Identifies the date and time when the object was last updated.
   """
   updatedAt: DateTime!
+
+  """
+  The HTTP URL for this Gist.
+  """
+  url: URI!
 
   """
   Returns a boolean indicating whether the viewing user has starred this starrable.
@@ -13493,6 +13513,16 @@ type Query {
   ): SecurityVulnerabilityConnection!
 
   """
+  Look up a single Sponsors Listing
+  """
+  sponsorsListing(
+    """
+    Select the Sponsors listing which matches this slug
+    """
+    slug: String!
+  ): SponsorsListing
+
+  """
   Look up a topic by name.
   """
   topic(
@@ -16703,6 +16733,102 @@ type ReviewRequestedEvent implements Node {
 }
 
 """
+A Saved Reply is text a user can use to reply quickly.
+"""
+type SavedReply implements Node {
+  """
+  The body of the saved reply.
+  """
+  body: String!
+
+  """
+  The saved reply body rendered to HTML.
+  """
+  bodyHTML: HTML!
+
+  """
+  Identifies the primary key from the database.
+  """
+  databaseId: Int
+  id: ID!
+
+  """
+  The title of the saved reply.
+  """
+  title: String!
+
+  """
+  The user that saved this reply.
+  """
+  user: Actor
+}
+
+"""
+The connection type for SavedReply.
+"""
+type SavedReplyConnection {
+  """
+  A list of edges.
+  """
+  edges: [SavedReplyEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [SavedReply]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An edge in a connection.
+"""
+type SavedReplyEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: SavedReply
+}
+
+"""
+Ordering options for saved reply connections.
+"""
+input SavedReplyOrder {
+  """
+  The ordering direction.
+  """
+  direction: OrderDirection!
+
+  """
+  The field to order saved replies by.
+  """
+  field: SavedReplyOrderField!
+}
+
+"""
+Properties by which saved reply connections can be ordered.
+"""
+enum SavedReplyOrderField {
+  """
+  Order saved reply by when they were updated.
+  """
+  UPDATED_AT
+}
+
+"""
 The results of a search.
 """
 union SearchResultItem = App | Issue | MarketplaceListing | Organization | PullRequest | Repository | User
@@ -17248,6 +17374,27 @@ type SmimeSignature implements GitSignature {
   True if the signature was made with GitHub's signing key.
   """
   wasSignedByGitHub: Boolean!
+}
+
+"""
+A GitHub Sponsors listing.
+"""
+type SponsorsListing implements Node {
+  """
+  The full description of the listing.
+  """
+  fullDescription: String!
+  id: ID!
+
+  """
+  The short description of the listing.
+  """
+  shortDescription: String!
+
+  """
+  The short name of the listing.
+  """
+  slug: String!
 }
 
 """
@@ -18598,6 +18745,11 @@ type UnassignedEvent implements Node {
   assignable: Assignable!
 
   """
+  Identifies the user or mannequin that was unassigned.
+  """
+  assignee: Assignee
+
+  """
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
@@ -18606,7 +18758,7 @@ type UnassignedEvent implements Node {
   """
   Identifies the subject (user) who was unassigned.
   """
-  user: User
+  user: User @deprecated(reason: "Assignees can now be mannequins. Use the `assignee` field instead. Removal on 2020-01-01 UTC.")
 }
 
 """
@@ -20291,6 +20443,36 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RegistryPackag
   The HTTP path for this user
   """
   resourcePath: URI!
+
+  """
+  Replies this user has saved
+  """
+  savedReplies(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    The field to order saved replies by.
+    """
+    orderBy: SavedReplyOrder = {field: UPDATED_AT, direction: DESC}
+  ): SavedReplyConnection
 
   """
   Repositories the user has starred.
