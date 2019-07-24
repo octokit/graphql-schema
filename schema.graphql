@@ -604,7 +604,7 @@ type AssignedEvent implements Node {
 """
 Types that can be assigned to issues.
 """
-union Assignee = Mannequin | Organization | User
+union Assignee = Bot | Mannequin | Organization | User
 
 """
 Represents a 'base_ref_changed' event on a given issue or pull request.
@@ -20887,6 +20887,11 @@ type UserStatus implements Node {
   An emoji summarizing the user's status.
   """
   emoji: String
+
+  """
+  The status emoji as HTML.
+  """
+  emojiHTML: HTML
 
   """
   If set, the status will not be shown after this date.
