@@ -1273,6 +1273,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "MarkedAsDuplicateEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "MarketplaceCategory",
             "ofType": null
           },
@@ -3440,6 +3445,16 @@
                   "ofType": null
                 },
                 "defaultValue": null
+              },
+              {
+                "name": "publicOnly",
+                "description": "Filter registry package by whether it is publicly visible",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "false"
               }
             ],
             "type": {
@@ -4693,6 +4708,16 @@
                   "ofType": null
                 },
                 "defaultValue": null
+              },
+              {
+                "name": "publicOnly",
+                "description": "Filter registry package by whether it is publicly visible",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "false"
               }
             ],
             "type": {
@@ -7454,6 +7479,16 @@
                   "ofType": null
                 },
                 "defaultValue": null
+              },
+              {
+                "name": "publicOnly",
+                "description": "Filter registry package by whether it is publicly visible",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "false"
               }
             ],
             "type": {
@@ -16559,6 +16594,16 @@
                   "ofType": null
                 },
                 "defaultValue": null
+              },
+              {
+                "name": "publicOnly",
+                "description": "Filter registry package by whether it is publicly visible",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "false"
               }
             ],
             "type": {
@@ -40592,6 +40637,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "MarkedAsDuplicateEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "MentionedEvent",
             "ofType": null
           },
@@ -41305,6 +41355,67 @@
         "possibleTypes": null
       },
       {
+        "kind": "OBJECT",
+        "name": "MarkedAsDuplicateEvent",
+        "description": "Represents a 'marked_as_duplicate' event on a given issue or pull request.",
+        "fields": [
+          {
+            "name": "actor",
+            "description": "Identifies the actor who performed the event.",
+            "args": [],
+            "type": {
+              "kind": "INTERFACE",
+              "name": "Actor",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "createdAt",
+            "description": "Identifies the date and time when the object was created.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "id",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "Node",
+            "ofType": null
+          }
+        ],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
         "kind": "UNION",
         "name": "IssueOrPullRequest",
         "description": "Used for return value of Repository.issueOrPullRequest.",
@@ -41958,6 +42069,12 @@
             "deprecationReason": null
           },
           {
+            "name": "MARKED_AS_DUPLICATE_EVENT",
+            "description": "Represents a 'marked_as_duplicate' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "MENTIONED_EVENT",
             "description": "Represents a 'mentioned' event on a given issue or pull request.",
             "isDeprecated": false,
@@ -42581,6 +42698,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "MarkedAsDuplicateEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "MentionedEvent",
             "ofType": null
           },
@@ -42726,6 +42848,12 @@
           {
             "name": "LOCKED_EVENT",
             "description": "Represents a 'locked' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "MARKED_AS_DUPLICATE_EVENT",
+            "description": "Represents a 'marked_as_duplicate' event on a given issue or pull request.",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -50448,6 +50576,45 @@
             "deprecationReason": null
           }
         ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "IssueOrPullRequestEdge",
+        "description": "An edge in a connection.",
+        "fields": [
+          {
+            "name": "cursor",
+            "description": "A cursor for use in pagination.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "node",
+            "description": "The item at the end of the edge.",
+            "args": [],
+            "type": {
+              "kind": "UNION",
+              "name": "IssueOrPullRequest",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
         "possibleTypes": null
       },
       {
