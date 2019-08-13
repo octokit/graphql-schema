@@ -27120,12 +27120,12 @@ input TransferIssueInput {
   clientMutationId: String
 
   """
-  The ID of the issue to be transferred
+  The Node ID of the issue to be transferred
   """
   issueId: ID!
 
   """
-  The ID of the repository the issue should be transferred to
+  The Node ID of the repository the issue should be transferred to
   """
   repositoryId: ID!
 }
