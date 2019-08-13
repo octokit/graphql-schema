@@ -77273,7 +77273,7 @@
         "inputFields": [
           {
             "name": "issueId",
-            "description": "The ID of the issue to be transferred",
+            "description": "The Node ID of the issue to be transferred",
             "type": {
               "kind": "NON_NULL",
               "name": null,
@@ -77287,7 +77287,7 @@
           },
           {
             "name": "repositoryId",
-            "description": "The ID of the repository the issue should be transferred to",
+            "description": "The Node ID of the repository the issue should be transferred to",
             "type": {
               "kind": "NON_NULL",
               "name": null,
