@@ -11869,6 +11869,12 @@
         "interfaces": null,
         "enumValues": [
           {
+            "name": "ARCHIVED",
+            "description": "Unable to create comment because repository is archived.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "INSUFFICIENT_ACCESS",
             "description": "You must be the author or have write access to this repository to update this comment.",
             "isDeprecated": false,
