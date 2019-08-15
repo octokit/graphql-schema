@@ -1738,6 +1738,11 @@ The possible errors that will prevent a user from updating a comment.
 """
 enum CommentCannotUpdateReason {
   """
+  Unable to create comment because repository is archived.
+  """
+  ARCHIVED
+
+  """
   You cannot update this comment
   """
   DENIED
