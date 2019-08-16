@@ -21,7 +21,7 @@
   "author": "Gregor Martynus (https://twitter.com/gr2m)",
   "license": "MIT",
   "devDependencies": {
-    "@octokit/graphql": "^3.0.0",
+    "@octokit/graphql": "^4.0.0",
     "dotenv": "^8.0.0",
     "execa": "^2.0.0",
     "graphql": "^14.1.1",
