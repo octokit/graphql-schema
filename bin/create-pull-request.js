@@ -21,7 +21,7 @@ const REQUEST_DEFAULTS = {
   repo
 }
 const request = require('@octokit/request').request.defaults(REQUEST_DEFAULTS)
-const graphql = require('@octokit/graphql').defaults(REQUEST_DEFAULTS)
+const graphql = require('@octokit/graphql').graphql.defaults(REQUEST_DEFAULTS)
 
 const schema = require('..').schema
 // NOTE: require('..') does some magic caching that I couldn’t figure out to
