@@ -21304,11 +21304,23 @@
           },
           {
             "name": "description",
-            "description": "Identifies the description of the release.",
+            "description": "The description of the release.",
             "args": [],
             "type": {
               "kind": "SCALAR",
               "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "descriptionHTML",
+            "description": "The description of this release rendered to HTML.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "HTML",
               "ofType": null
             },
             "isDeprecated": false,
@@ -21364,7 +21376,7 @@
           },
           {
             "name": "name",
-            "description": "Identifies the title of the release.",
+            "description": "The title of the release.",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -21465,6 +21477,29 @@
                 "name": "URI",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "shortDescriptionHTML",
+            "description": "A description of the release, rendered to HTML without any links in it.",
+            "args": [
+              {
+                "name": "limit",
+                "description": "How many characters to return.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": "200"
+              }
+            ],
+            "type": {
+              "kind": "SCALAR",
+              "name": "HTML",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -64189,7 +64224,7 @@
       {
         "kind": "OBJECT",
         "name": "PushAllowance",
-        "description": "A team or user who has the ability to push to a protected branch.",
+        "description": "A team, user or app who has the ability to push to a protected branch.",
         "fields": [
           {
             "name": "actor",
@@ -64260,6 +64295,11 @@
           {
             "kind": "OBJECT",
             "name": "Team",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "App",
             "ofType": null
           }
         ]
@@ -81813,7 +81853,7 @@
           },
           {
             "name": "pushActorIds",
-            "description": "A list of User or Team IDs allowed to push to matching branches.",
+            "description": "A list of User, Team or App IDs allowed to push to matching branches.",
             "type": {
               "kind": "LIST",
               "name": null,
@@ -82047,7 +82087,7 @@
           },
           {
             "name": "pushActorIds",
-            "description": "A list of User or Team IDs allowed to push to matching branches.",
+            "description": "A list of User, Team or App IDs allowed to push to matching branches.",
             "type": {
               "kind": "LIST",
               "name": null,
