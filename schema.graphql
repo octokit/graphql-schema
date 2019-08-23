@@ -3298,7 +3298,7 @@ input CreateBranchProtectionRuleInput {
   pattern: String!
 
   """
-  A list of User or Team IDs allowed to push to matching branches.
+  A list of User, Team or App IDs allowed to push to matching branches.
   """
   pushActorIds: [ID!]
 
@@ -17102,7 +17102,7 @@ enum PullRequestTimelineItemsItemType {
 }
 
 """
-A team or user who has the ability to push to a protected branch.
+A team, user or app who has the ability to push to a protected branch.
 """
 type PushAllowance implements Node {
   """
@@ -17120,7 +17120,7 @@ type PushAllowance implements Node {
 """
 Types that can be an actor.
 """
-union PushAllowanceActor = Team | User
+union PushAllowanceActor = App | Team | User
 
 """
 The connection type for PushAllowance.
@@ -19085,9 +19085,14 @@ type Release implements Node & UniformResourceLocatable {
   createdAt: DateTime!
 
   """
-  Identifies the description of the release.
+  The description of the release.
   """
   description: String
+
+  """
+  The description of this release rendered to HTML.
+  """
+  descriptionHTML: HTML
   id: ID!
 
   """
@@ -19101,7 +19106,7 @@ type Release implements Node & UniformResourceLocatable {
   isPrerelease: Boolean!
 
   """
-  Identifies the title of the release.
+  The title of the release.
   """
   name: String
 
@@ -19144,6 +19149,16 @@ type Release implements Node & UniformResourceLocatable {
   The HTTP path for this issue
   """
   resourcePath: URI!
+
+  """
+  A description of the release, rendered to HTML without any links in it.
+  """
+  shortDescriptionHTML(
+    """
+    How many characters to return.
+    """
+    limit: Int = 200
+  ): HTML
 
   """
   The Git tag the release points to
@@ -27598,7 +27613,7 @@ input UpdateBranchProtectionRuleInput {
   pattern: String
 
   """
-  A list of User or Team IDs allowed to push to matching branches.
+  A list of User, Team or App IDs allowed to push to matching branches.
   """
   pushActorIds: [ID!]
 
