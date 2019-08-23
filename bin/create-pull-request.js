@@ -39,14 +39,14 @@ request('/user')
     console.log(`🤖  Signed in as ${login}. Creating a pull request on ${repoName}`)
 
     console.log(`🤖  Looking for last commit sha of ${repoName}/git/refs/heads/master`)
-    return request(`/repos/:owner/:repo/git/refs/heads/master`)
+    return request('/repos/:owner/:repo/git/refs/heads/master')
   })
 
   .then(response => {
     lastCommitSha = response.data.object.sha
 
     console.log(`🤖  Creating new branch: ${branchName} using last sha ${lastCommitSha}`)
-    return request(`POST /repos/:owner/:repo/git/refs`, {
+    return request('POST /repos/:owner/:repo/git/refs', {
       ref: `refs/heads/${branchName}`,
       sha: lastCommitSha
     })
@@ -63,7 +63,7 @@ request('/user')
   })
 
   .then(response => {
-    console.log(`🤖  Getting sha’s for schema.graphql & schema.json`)
+    console.log('🤖  Getting sha’s for schema.graphql & schema.json')
     const query = `query getShas($owner: String!, $repo: String!) {
       repository(owner:$owner, name:$repo) {
         json: object(expression: "${branchName}:schema.json") {
@@ -91,7 +91,7 @@ request('/user')
     console.log(`🤖  schema.graphql: ${graphqlSha}`)
     console.log(`🤖  schema.json: ${jsonSha}`)
 
-    console.log(`🤖  updating schema.graphql...`)
+    console.log('🤖  updating schema.graphql...')
     return request(`PUT /repos/:owner/:repo/contents/schema.graphql?ref=${branchName}`, {
       path: 'schema.graphql',
       content: Buffer.from(schema.idl).toString('base64'),
@@ -101,13 +101,13 @@ request('/user')
     })
 
       .then(() => {
-        console.log(`🤖  schema.graphql updated`)
+        console.log('🤖  schema.graphql updated')
       })
 
       .then(delayWriteOperiation)
 
       .then(() => {
-        console.log(`🤖  updating schema.json...`)
+        console.log('🤖  updating schema.json...')
         return request(`PUT /repos/:owner/:repo/contents/schema.json?ref=${branchName}`, {
           path: 'schema.json',
           content: Buffer.from(JSON.stringify(schema.json, null, 2)).toString('base64'),
@@ -120,14 +120,14 @@ request('/user')
       .then(delayWriteOperiation)
 
       .then(() => {
-        console.log(`🤖  schema.json updated`)
+        console.log('🤖  schema.json updated')
       })
   })
 
   .then(() => {
-    console.log(`🤖  creating pull request...`)
-    return request(`POST /repos/:owner/:repo/pulls`, {
-      title: `🤖🚨  GitHub’s GraphQL Schema changes detected`,
+    console.log('🤖  creating pull request...')
+    return request('POST /repos/:owner/:repo/pulls', {
+      title: '🤖🚨  GitHub’s GraphQL Schema changes detected',
       head: branchName,
       base: 'master',
       body: `Dearest humans,

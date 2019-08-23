@@ -35,11 +35,11 @@ request('/graphql')
 
     const { stdout } = await execa('git', ['status', 'schema.graphql'])
     if (/nothing to commit/.test(stdout)) {
-      console.log(`✅  Schema is up-to-date`)
+      console.log('✅  Schema is up-to-date')
       return
     }
 
-    console.log(`📼  New schema recorded`)
+    console.log('📼  New schema recorded')
 
     if (process.env.TRAVIS_EVENT_TYPE === 'cron') {
       console.log('🤖  Fixture changes detected in cron job. Creating pull request ...')
