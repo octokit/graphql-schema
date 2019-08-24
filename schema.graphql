@@ -17762,42 +17762,42 @@ Emojis that can be attached to Issues, Pull Requests and Comments.
 """
 enum ReactionContent {
   """
-  Represents the 😕 emoji.
+  Represents the `:confused:` emoji.
   """
   CONFUSED
 
   """
-  Represents the 👀 emoji.
+  Represents the `:eyes:` emoji.
   """
   EYES
 
   """
-  Represents the ❤️ emoji.
+  Represents the `:heart:` emoji.
   """
   HEART
 
   """
-  Represents the 🎉 emoji.
+  Represents the `:hooray:` emoji.
   """
   HOORAY
 
   """
-  Represents the 😄 emoji.
+  Represents the `:laugh:` emoji.
   """
   LAUGH
 
   """
-  Represents the 🚀 emoji.
+  Represents the `:rocket:` emoji.
   """
   ROCKET
 
   """
-  Represents the 👎 emoji.
+  Represents the `:-1:` emoji.
   """
   THUMBS_DOWN
 
   """
-  Represents the 👍 emoji.
+  Represents the `:+1:` emoji.
   """
   THUMBS_UP
 }
