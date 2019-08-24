@@ -745,7 +745,7 @@
                   "name": "SecurityAdvisoryOrder",
                   "ofType": null
                 },
-                "defaultValue": "{field:\"UPDATED_AT\",direction:\"DESC\"}"
+                "defaultValue": "{field: UPDATED_AT, direction: DESC}"
               },
               {
                 "name": "identifier",
@@ -869,7 +869,7 @@
                   "name": "SecurityVulnerabilityOrder",
                   "ofType": null
                 },
-                "defaultValue": "{field:\"UPDATED_AT\",direction:\"DESC\"}"
+                "defaultValue": "{field: UPDATED_AT, direction: DESC}"
               },
               {
                 "name": "ecosystem",
@@ -4162,7 +4162,7 @@
                   "name": "SavedReplyOrder",
                   "ofType": null
                 },
-                "defaultValue": "{field:\"UPDATED_AT\",direction:\"DESC\"}"
+                "defaultValue": "{field: UPDATED_AT, direction: DESC}"
               }
             ],
             "type": {
@@ -6165,7 +6165,7 @@
                   "name": "DeploymentOrder",
                   "ofType": null
                 },
-                "defaultValue": "{field:\"CREATED_AT\",direction:\"ASC\"}"
+                "defaultValue": "{field: CREATED_AT, direction: ASC}"
               },
               {
                 "name": "after",
@@ -16039,7 +16039,7 @@
                   "name": "AuditLogOrder",
                   "ofType": null
                 },
-                "defaultValue": "{field:\"CREATED_AT\",direction:\"DESC\"}"
+                "defaultValue": "{field: CREATED_AT, direction: DESC}"
               }
             ],
             "type": {
@@ -16245,7 +16245,7 @@
                   "name": "UserStatusOrder",
                   "ofType": null
                 },
-                "defaultValue": "{field:\"UPDATED_AT\",direction:\"DESC\"}"
+                "defaultValue": "{field: UPDATED_AT, direction: DESC}"
               }
             ],
             "type": {
@@ -18449,7 +18449,7 @@
                   "name": "UserStatusOrder",
                   "ofType": null
                 },
-                "defaultValue": "{field:\"UPDATED_AT\",direction:\"DESC\"}"
+                "defaultValue": "{field: UPDATED_AT, direction: DESC}"
               }
             ],
             "type": {
@@ -22274,7 +22274,7 @@
                   "name": "PullRequestOrder",
                   "ofType": null
                 },
-                "defaultValue": "{field:\"CREATED_AT\",direction:\"ASC\"}"
+                "defaultValue": "{field: CREATED_AT, direction: ASC}"
               }
             ],
             "type": {
@@ -22555,7 +22555,7 @@
                   "name": "DeploymentOrder",
                   "ofType": null
                 },
-                "defaultValue": "{field:\"CREATED_AT\",direction:\"ASC\"}"
+                "defaultValue": "{field: CREATED_AT, direction: ASC}"
               },
               {
                 "name": "after",
@@ -24910,49 +24910,49 @@
         "enumValues": [
           {
             "name": "THUMBS_UP",
-            "description": "Represents the 👍 emoji.",
+            "description": "Represents the `:+1:` emoji.",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "THUMBS_DOWN",
-            "description": "Represents the 👎 emoji.",
+            "description": "Represents the `:-1:` emoji.",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "LAUGH",
-            "description": "Represents the 😄 emoji.",
+            "description": "Represents the `:laugh:` emoji.",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "HOORAY",
-            "description": "Represents the 🎉 emoji.",
+            "description": "Represents the `:hooray:` emoji.",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "CONFUSED",
-            "description": "Represents the 😕 emoji.",
+            "description": "Represents the `:confused:` emoji.",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "HEART",
-            "description": "Represents the ❤️ emoji.",
+            "description": "Represents the `:heart:` emoji.",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "ROCKET",
-            "description": "Represents the 🚀 emoji.",
+            "description": "Represents the `:rocket:` emoji.",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "EYES",
-            "description": "Represents the 👀 emoji.",
+            "description": "Represents the `:eyes:` emoji.",
             "isDeprecated": false,
             "deprecationReason": null
           }
@@ -33255,7 +33255,7 @@
                   "name": "UserStatusOrder",
                   "ofType": null
                 },
-                "defaultValue": "{field:\"UPDATED_AT\",direction:\"DESC\"}"
+                "defaultValue": "{field: UPDATED_AT, direction: DESC}"
               }
             ],
             "type": {
@@ -65430,7 +65430,7 @@
                   "name": "SecurityVulnerabilityOrder",
                   "ofType": null
                 },
-                "defaultValue": "{field:\"UPDATED_AT\",direction:\"DESC\"}"
+                "defaultValue": "{field: UPDATED_AT, direction: DESC}"
               },
               {
                 "name": "ecosystem",
@@ -67226,7 +67226,7 @@
                   "name": "ContributionOrder",
                   "ofType": null
                 },
-                "defaultValue": "{field:\"OCCURRED_AT\",direction:\"DESC\"}"
+                "defaultValue": "{field: OCCURRED_AT, direction: DESC}"
               }
             ],
             "type": {
@@ -67440,7 +67440,7 @@
                   "name": "ContributionOrder",
                   "ofType": null
                 },
-                "defaultValue": "{field:\"OCCURRED_AT\",direction:\"DESC\"}"
+                "defaultValue": "{field: OCCURRED_AT, direction: DESC}"
               }
             ],
             "type": {
@@ -67562,7 +67562,7 @@
                   "name": "ContributionOrder",
                   "ofType": null
                 },
-                "defaultValue": "{field:\"OCCURRED_AT\",direction:\"DESC\"}"
+                "defaultValue": "{field: OCCURRED_AT, direction: DESC}"
               }
             ],
             "type": {
@@ -67674,7 +67674,7 @@
                   "name": "ContributionOrder",
                   "ofType": null
                 },
-                "defaultValue": "{field:\"OCCURRED_AT\",direction:\"DESC\"}"
+                "defaultValue": "{field: OCCURRED_AT, direction: DESC}"
               }
             ],
             "type": {
@@ -69617,7 +69617,7 @@
                   "name": "ContributionOrder",
                   "ofType": null
                 },
-                "defaultValue": "{field:\"OCCURRED_AT\",direction:\"DESC\"}"
+                "defaultValue": "{field: OCCURRED_AT, direction: DESC}"
               }
             ],
             "type": {
@@ -69711,7 +69711,7 @@
                   "name": "CommitContributionOrder",
                   "ofType": null
                 },
-                "defaultValue": "{field:\"OCCURRED_AT\",direction:\"DESC\"}"
+                "defaultValue": "{field: OCCURRED_AT, direction: DESC}"
               }
             ],
             "type": {
@@ -70256,7 +70256,7 @@
                   "name": "ContributionOrder",
                   "ofType": null
                 },
-                "defaultValue": "{field:\"OCCURRED_AT\",direction:\"DESC\"}"
+                "defaultValue": "{field: OCCURRED_AT, direction: DESC}"
               }
             ],
             "type": {
@@ -70350,7 +70350,7 @@
                   "name": "ContributionOrder",
                   "ofType": null
                 },
-                "defaultValue": "{field:\"OCCURRED_AT\",direction:\"DESC\"}"
+                "defaultValue": "{field: OCCURRED_AT, direction: DESC}"
               }
             ],
             "type": {
