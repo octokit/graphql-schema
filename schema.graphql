@@ -18945,6 +18945,11 @@ type RegistryPackageVersion implements Node {
   platform: String
 
   """
+  Indicates whether this version is a pre-release.
+  """
+  preRelease: Boolean!
+
+  """
   The README of this package version
   """
   readme: String

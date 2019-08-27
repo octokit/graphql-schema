@@ -27743,6 +27743,22 @@
             "deprecationReason": null
           },
           {
+            "name": "preRelease",
+            "description": "Indicates whether this version is a pre-release.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "readme",
             "description": "The README of this package version",
             "args": [],
