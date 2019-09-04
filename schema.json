@@ -16187,6 +16187,18 @@
             "deprecationReason": null
           },
           {
+            "name": "descriptionHTML",
+            "description": "The organization's public profile description rendered to HTML.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "email",
             "description": "The organization's public email.",
             "args": [],
@@ -78287,6 +78299,16 @@
             "defaultValue": null
           },
           {
+            "name": "mergeMethod",
+            "description": "The merge method to use. If omitted, defaults to 'MERGE'",
+            "type": {
+              "kind": "ENUM",
+              "name": "PullRequestMergeMethod",
+              "ofType": null
+            },
+            "defaultValue": "MERGE"
+          },
+          {
             "name": "clientMutationId",
             "description": "A unique identifier for the client performing the mutation.",
             "type": {
@@ -78299,6 +78321,35 @@
         ],
         "interfaces": null,
         "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "PullRequestMergeMethod",
+        "description": "Represents available types of methods to use when merging a pull request.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "MERGE",
+            "description": "Add all commits from the head branch to the base branch with a merge commit.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "SQUASH",
+            "description": "Combine all commits from the head branch into a single commit in the base branch.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "REBASE",
+            "description": "Add all commits from the head branch onto the base branch individually.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
         "possibleTypes": null
       },
       {

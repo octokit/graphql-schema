@@ -8835,6 +8835,11 @@ input MergePullRequestInput {
   expectedHeadOid: GitObjectID
 
   """
+  The merge method to use. If omitted, defaults to 'MERGE'
+  """
+  mergeMethod: PullRequestMergeMethod = MERGE
+
+  """
   ID of the pull request to be merged.
   """
   pullRequestId: ID!
@@ -12624,6 +12629,11 @@ type Organization implements Actor & MemberStatusable & Node & ProfileOwner & Pr
   description: String
 
   """
+  The organization's public profile description rendered to HTML.
+  """
+  descriptionHTML: String
+
+  """
   The organization's public email.
   """
   email: String
@@ -15881,6 +15891,26 @@ type PullRequestEdge {
   The item at the end of the edge.
   """
   node: PullRequest
+}
+
+"""
+Represents available types of methods to use when merging a pull request.
+"""
+enum PullRequestMergeMethod {
+  """
+  Add all commits from the head branch to the base branch with a merge commit.
+  """
+  MERGE
+
+  """
+  Add all commits from the head branch onto the base branch individually.
+  """
+  REBASE
+
+  """
+  Combine all commits from the head branch into a single commit in the base branch.
+  """
+  SQUASH
 }
 
 """
