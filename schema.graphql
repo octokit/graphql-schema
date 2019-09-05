@@ -696,6 +696,11 @@ interface AuditEntry {
   createdAt: PreciseDateTime!
 
   """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
+
+  """
   The user affected by the action
   """
   user: User
@@ -8502,6 +8507,11 @@ type MembersCanDeleteReposClearAuditEntry implements AuditEntry & EnterpriseAudi
   id: ID!
 
   """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
+
+  """
   The Organization associated with the Audit Entry.
   """
   organization: Organization
@@ -8603,6 +8613,11 @@ type MembersCanDeleteReposDisableAuditEntry implements AuditEntry & EnterpriseAu
   id: ID!
 
   """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
+
+  """
   The Organization associated with the Audit Entry.
   """
   organization: Organization
@@ -8702,6 +8717,11 @@ type MembersCanDeleteReposEnableAuditEntry implements AuditEntry & EnterpriseAud
   """
   enterpriseUrl: URI
   id: ID!
+
+  """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
 
   """
   The Organization associated with the Audit Entry.
@@ -9785,6 +9805,11 @@ type OauthApplicationCreateAuditEntry implements AuditEntry & Node & OauthApplic
   oauthApplicationUrl: URI
 
   """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
+
+  """
   The Organization associated with the Audit Entry.
   """
   organization: Organization
@@ -9876,6 +9901,46 @@ enum OauthApplicationRevokeTokensAuditEntryState {
 }
 
 """
+The corresponding operation type for the action
+"""
+enum OperationType {
+  """
+  An existing resource was accessed
+  """
+  ACCESS
+
+  """
+  A resource performed an authentication event
+  """
+  AUTHENTICATION
+
+  """
+  A new resource was created
+  """
+  CREATE
+
+  """
+  An existing resource was modified
+  """
+  MODIFY
+
+  """
+  An existing resource was removed
+  """
+  REMOVE
+
+  """
+  An existing resource was restored
+  """
+  RESTORE
+
+  """
+  An existing resource was transferred between multiple resources
+  """
+  TRANSFER
+}
+
+"""
 Possible directions in which to order a list of items when provided an `orderBy` argument.
 """
 enum OrderDirection {
@@ -9939,6 +10004,11 @@ type OrgAddBillingManagerAuditEntry implements AuditEntry & Node & OrganizationA
   The email address used to invite a billing manager for the organization.
   """
   invitationEmail: String
+
+  """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
 
   """
   The Organization associated with the Audit Entry.
@@ -10025,6 +10095,11 @@ type OrgAddMemberAuditEntry implements AuditEntry & Node & OrganizationAuditEntr
   """
   createdAt: PreciseDateTime!
   id: ID!
+
+  """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
 
   """
   The Organization associated with the Audit Entry.
@@ -10153,6 +10228,11 @@ type OrgBlockUserAuditEntry implements AuditEntry & Node & OrganizationAuditEntr
   id: ID!
 
   """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
+
+  """
   The Organization associated with the Audit Entry.
   """
   organization: Organization
@@ -10237,6 +10317,11 @@ type OrgConfigDisableCollaboratorsOnlyAuditEntry implements AuditEntry & Node & 
   """
   createdAt: PreciseDateTime!
   id: ID!
+
+  """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
 
   """
   The Organization associated with the Audit Entry.
@@ -10325,6 +10410,11 @@ type OrgConfigEnableCollaboratorsOnlyAuditEntry implements AuditEntry & Node & O
   id: ID!
 
   """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
+
+  """
   The Organization associated with the Audit Entry.
   """
   organization: Organization
@@ -10409,6 +10499,11 @@ type OrgDisableOauthAppRestrictionsAuditEntry implements AuditEntry & Node & Org
   """
   createdAt: PreciseDateTime!
   id: ID!
+
+  """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
 
   """
   The Organization associated with the Audit Entry.
@@ -10507,6 +10602,11 @@ type OrgDisableSamlAuditEntry implements AuditEntry & Node & OrganizationAuditEn
   issuerUrl: URI
 
   """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
+
+  """
   The Organization associated with the Audit Entry.
   """
   organization: Organization
@@ -10603,6 +10703,11 @@ type OrgDisableTwoFactorRequirementAuditEntry implements AuditEntry & Node & Org
   id: ID!
 
   """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
+
+  """
   The Organization associated with the Audit Entry.
   """
   organization: Organization
@@ -10687,6 +10792,11 @@ type OrgEnableOauthAppRestrictionsAuditEntry implements AuditEntry & Node & Orga
   """
   createdAt: PreciseDateTime!
   id: ID!
+
+  """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
 
   """
   The Organization associated with the Audit Entry.
@@ -10785,6 +10895,11 @@ type OrgEnableSamlAuditEntry implements AuditEntry & Node & OrganizationAuditEnt
   issuerUrl: URI
 
   """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
+
+  """
   The Organization associated with the Audit Entry.
   """
   organization: Organization
@@ -10881,6 +10996,11 @@ type OrgEnableTwoFactorRequirementAuditEntry implements AuditEntry & Node & Orga
   id: ID!
 
   """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
+
+  """
   The Organization associated with the Audit Entry.
   """
   organization: Organization
@@ -10970,6 +11090,11 @@ type OrgInviteMemberAuditEntry implements AuditEntry & Node & OrganizationAuditE
   """
   email: String
   id: ID!
+
+  """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
 
   """
   The Organization associated with the Audit Entry.
@@ -11078,6 +11203,11 @@ type OrgInviteToBusinessAuditEntry implements AuditEntry & EnterpriseAuditEntryD
   id: ID!
 
   """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
+
+  """
   The Organization associated with the Audit Entry.
   """
   organization: Organization
@@ -11177,6 +11307,11 @@ type OrgOauthAppAccessApprovedAuditEntry implements AuditEntry & Node & OauthApp
   The HTTP URL for the OAuth Application
   """
   oauthApplicationUrl: URI
+
+  """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
 
   """
   The Organization associated with the Audit Entry.
@@ -11280,6 +11415,11 @@ type OrgOauthAppAccessDeniedAuditEntry implements AuditEntry & Node & OauthAppli
   oauthApplicationUrl: URI
 
   """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
+
+  """
   The Organization associated with the Audit Entry.
   """
   organization: Organization
@@ -11381,6 +11521,11 @@ type OrgOauthAppAccessRequestedAuditEntry implements AuditEntry & Node & OauthAp
   oauthApplicationUrl: URI
 
   """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
+
+  """
   The Organization associated with the Audit Entry.
   """
   organization: Organization
@@ -11465,6 +11610,11 @@ type OrgRemoveBillingManagerAuditEntry implements AuditEntry & Node & Organizati
   """
   createdAt: PreciseDateTime!
   id: ID!
+
+  """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
 
   """
   The Organization associated with the Audit Entry.
@@ -11581,6 +11731,11 @@ type OrgRemoveMemberAuditEntry implements AuditEntry & Node & OrganizationAuditE
   The types of membership the member has with the organization.
   """
   membershipTypes: [OrgRemoveMemberAuditEntryMembershipType!]
+
+  """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
 
   """
   The Organization associated with the Audit Entry.
@@ -11735,6 +11890,11 @@ type OrgRemoveOutsideCollaboratorAuditEntry implements AuditEntry & Node & Organ
   membershipTypes: [OrgRemoveOutsideCollaboratorAuditEntryMembershipType!]
 
   """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
+
+  """
   The Organization associated with the Audit Entry.
   """
   organization: Organization
@@ -11862,6 +12022,11 @@ type OrgRestoreMemberAuditEntry implements AuditEntry & Node & OrganizationAudit
   """
   createdAt: PreciseDateTime!
   id: ID!
+
+  """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
 
   """
   The Organization associated with the Audit Entry.
@@ -12085,6 +12250,11 @@ type OrgUnblockUserAuditEntry implements AuditEntry & Node & OrganizationAuditEn
   id: ID!
 
   """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
+
+  """
   The Organization associated with the Audit Entry.
   """
   organization: Organization
@@ -12169,6 +12339,11 @@ type OrgUpdateDefaultRepositoryPermissionAuditEntry implements AuditEntry & Node
   """
   createdAt: PreciseDateTime!
   id: ID!
+
+  """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
 
   """
   The Organization associated with the Audit Entry.
@@ -12292,6 +12467,11 @@ type OrgUpdateMemberAuditEntry implements AuditEntry & Node & OrganizationAuditE
   id: ID!
 
   """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
+
+  """
   The Organization associated with the Audit Entry.
   """
   organization: Organization
@@ -12408,6 +12588,11 @@ type OrgUpdateMemberRepositoryCreationPermissionAuditEntry implements AuditEntry
   id: ID!
 
   """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
+
+  """
   The Organization associated with the Audit Entry.
   """
   organization: Organization
@@ -12517,6 +12702,11 @@ type OrgUpdateMemberRepositoryInvitationPermissionAuditEntry implements AuditEnt
   """
   createdAt: PreciseDateTime!
   id: ID!
+
+  """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
 
   """
   The Organization associated with the Audit Entry.
@@ -13849,6 +14039,11 @@ type PrivateRepositoryForkingDisableAuditEntry implements AuditEntry & Enterpris
   id: ID!
 
   """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
+
+  """
   The Organization associated with the Audit Entry.
   """
   organization: Organization
@@ -13968,6 +14163,11 @@ type PrivateRepositoryForkingEnableAuditEntry implements AuditEntry & Enterprise
   """
   enterpriseUrl: URI
   id: ID!
+
+  """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
 
   """
   The Organization associated with the Audit Entry.
@@ -19781,6 +19981,11 @@ type RepoAccessAuditEntry implements AuditEntry & Node & OrganizationAuditEntryD
   id: ID!
 
   """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
+
+  """
   The Organization associated with the Audit Entry.
   """
   organization: Organization
@@ -19910,6 +20115,11 @@ type RepoAddMemberAuditEntry implements AuditEntry & Node & OrganizationAuditEnt
   """
   createdAt: PreciseDateTime!
   id: ID!
+
+  """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
 
   """
   The Organization associated with the Audit Entry.
@@ -20043,6 +20253,11 @@ type RepoAddTopicAuditEntry implements AuditEntry & Node & OrganizationAuditEntr
   id: ID!
 
   """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
+
+  """
   The Organization associated with the Audit Entry.
   """
   organization: Organization
@@ -20157,6 +20372,11 @@ type RepoArchivedAuditEntry implements AuditEntry & Node & OrganizationAuditEntr
   """
   createdAt: PreciseDateTime!
   id: ID!
+
+  """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
 
   """
   The Organization associated with the Audit Entry.
@@ -20300,6 +20520,11 @@ type RepoChangeMergeSettingAuditEntry implements AuditEntry & Node & Organizatio
   mergeType: RepoChangeMergeSettingAuditEntryMergeType
 
   """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
+
+  """
   The Organization associated with the Audit Entry.
   """
   organization: Organization
@@ -20426,6 +20651,11 @@ type RepoConfigDisableAnonymousGitAccessAuditEntry implements AuditEntry & Node 
   id: ID!
 
   """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
+
+  """
   The Organization associated with the Audit Entry.
   """
   organization: Organization
@@ -20530,6 +20760,11 @@ type RepoConfigDisableCollaboratorsOnlyAuditEntry implements AuditEntry & Node &
   """
   createdAt: PreciseDateTime!
   id: ID!
+
+  """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
 
   """
   The Organization associated with the Audit Entry.
@@ -20638,6 +20873,11 @@ type RepoConfigDisableContributorsOnlyAuditEntry implements AuditEntry & Node & 
   id: ID!
 
   """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
+
+  """
   The Organization associated with the Audit Entry.
   """
   organization: Organization
@@ -20742,6 +20982,11 @@ type RepoConfigDisableSockpuppetDisallowedAuditEntry implements AuditEntry & Nod
   """
   createdAt: PreciseDateTime!
   id: ID!
+
+  """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
 
   """
   The Organization associated with the Audit Entry.
@@ -20850,6 +21095,11 @@ type RepoConfigEnableAnonymousGitAccessAuditEntry implements AuditEntry & Node &
   id: ID!
 
   """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
+
+  """
   The Organization associated with the Audit Entry.
   """
   organization: Organization
@@ -20954,6 +21204,11 @@ type RepoConfigEnableCollaboratorsOnlyAuditEntry implements AuditEntry & Node & 
   """
   createdAt: PreciseDateTime!
   id: ID!
+
+  """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
 
   """
   The Organization associated with the Audit Entry.
@@ -21062,6 +21317,11 @@ type RepoConfigEnableContributorsOnlyAuditEntry implements AuditEntry & Node & O
   id: ID!
 
   """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
+
+  """
   The Organization associated with the Audit Entry.
   """
   organization: Organization
@@ -21166,6 +21426,11 @@ type RepoConfigEnableSockpuppetDisallowedAuditEntry implements AuditEntry & Node
   """
   createdAt: PreciseDateTime!
   id: ID!
+
+  """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
 
   """
   The Organization associated with the Audit Entry.
@@ -21274,6 +21539,11 @@ type RepoConfigLockAnonymousGitAccessAuditEntry implements AuditEntry & Node & O
   id: ID!
 
   """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
+
+  """
   The Organization associated with the Audit Entry.
   """
   organization: Organization
@@ -21378,6 +21648,11 @@ type RepoConfigUnlockAnonymousGitAccessAuditEntry implements AuditEntry & Node &
   """
   createdAt: PreciseDateTime!
   id: ID!
+
+  """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
 
   """
   The Organization associated with the Audit Entry.
@@ -21494,6 +21769,11 @@ type RepoCreateAuditEntry implements AuditEntry & Node & OrganizationAuditEntryD
   """
   forkSourceName: String
   id: ID!
+
+  """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
 
   """
   The Organization associated with the Audit Entry.
@@ -21627,6 +21907,11 @@ type RepoDestroyAuditEntry implements AuditEntry & Node & OrganizationAuditEntry
   id: ID!
 
   """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
+
+  """
   The Organization associated with the Audit Entry.
   """
   organization: Organization
@@ -21758,6 +22043,11 @@ type RepoRemoveMemberAuditEntry implements AuditEntry & Node & OrganizationAudit
   id: ID!
 
   """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
+
+  """
   The Organization associated with the Audit Entry.
   """
   organization: Organization
@@ -21887,6 +22177,11 @@ type RepoRemoveTopicAuditEntry implements AuditEntry & Node & OrganizationAuditE
   """
   createdAt: PreciseDateTime!
   id: ID!
+
+  """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
 
   """
   The Organization associated with the Audit Entry.
@@ -23817,6 +24112,11 @@ type RepositoryVisibilityChangeDisableAuditEntry implements AuditEntry & Enterpr
   id: ID!
 
   """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
+
+  """
   The Organization associated with the Audit Entry.
   """
   organization: Organization
@@ -23916,6 +24216,11 @@ type RepositoryVisibilityChangeEnableAuditEntry implements AuditEntry & Enterpri
   """
   enterpriseUrl: URI
   id: ID!
+
+  """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
 
   """
   The Organization associated with the Audit Entry.
@@ -25986,6 +26291,11 @@ type TeamAddMemberAuditEntry implements AuditEntry & Node & OrganizationAuditEnt
   isLdapMapped: Boolean
 
   """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
+
+  """
   The Organization associated with the Audit Entry.
   """
   organization: Organization
@@ -26095,6 +26405,11 @@ type TeamAddRepositoryAuditEntry implements AuditEntry & Node & OrganizationAudi
   Whether the team was mapped to an LDAP Group.
   """
   isLdapMapped: Boolean
+
+  """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
 
   """
   The Organization associated with the Audit Entry.
@@ -26251,6 +26566,11 @@ type TeamChangeParentTeamAuditEntry implements AuditEntry & Node & OrganizationA
   Whether the team was mapped to an LDAP Group.
   """
   isLdapMapped: Boolean
+
+  """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
 
   """
   The Organization associated with the Audit Entry.
@@ -26645,6 +26965,11 @@ type TeamRemoveMemberAuditEntry implements AuditEntry & Node & OrganizationAudit
   isLdapMapped: Boolean
 
   """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
+
+  """
   The Organization associated with the Audit Entry.
   """
   organization: Organization
@@ -26754,6 +27079,11 @@ type TeamRemoveRepositoryAuditEntry implements AuditEntry & Node & OrganizationA
   Whether the team was mapped to an LDAP Group.
   """
   isLdapMapped: Boolean
+
+  """
+  The corresponding operation type for the action
+  """
+  operationType: OperationType
 
   """
   The Organization associated with the Audit Entry.
