@@ -30752,6 +30752,18 @@
             "deprecationReason": null
           },
           {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "user",
             "description": "The user affected by the action",
             "args": [],
@@ -31090,6 +31102,59 @@
             "ofType": null
           }
         ]
+      },
+      {
+        "kind": "ENUM",
+        "name": "OperationType",
+        "description": "The corresponding operation type for the action",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "ACCESS",
+            "description": "An existing resource was accessed",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "AUTHENTICATION",
+            "description": "A resource performed an authentication event",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "CREATE",
+            "description": "A new resource was created",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "MODIFY",
+            "description": "An existing resource was modified",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "REMOVE",
+            "description": "An existing resource was removed",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "RESTORE",
+            "description": "An existing resource was restored",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "TRANSFER",
+            "description": "An existing resource was transferred between multiple resources",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
       },
       {
         "kind": "UNION",
@@ -32349,6 +32414,18 @@
                 "name": "ID",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -35343,6 +35420,18 @@
             "deprecationReason": null
           },
           {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "organization",
             "description": "The Organization associated with the Audit Entry.",
             "args": [],
@@ -35622,6 +35711,18 @@
                 "name": "ID",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -35929,6 +36030,18 @@
             "type": {
               "kind": "SCALAR",
               "name": "URI",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
               "ofType": null
             },
             "isDeprecated": false,
@@ -36345,6 +36458,18 @@
             "deprecationReason": null
           },
           {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "organization",
             "description": "The Organization associated with the Audit Entry.",
             "args": [],
@@ -36583,6 +36708,18 @@
                 "name": "ID",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -36914,6 +37051,18 @@
             "deprecationReason": null
           },
           {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "organization",
             "description": "The Organization associated with the Audit Entry.",
             "args": [],
@@ -37152,6 +37301,18 @@
                 "name": "ID",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -37400,6 +37561,18 @@
             "deprecationReason": null
           },
           {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "organization",
             "description": "The Organization associated with the Audit Entry.",
             "args": [],
@@ -37638,6 +37811,18 @@
                 "name": "ID",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -37904,6 +38089,18 @@
             "type": {
               "kind": "SCALAR",
               "name": "URI",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
               "ofType": null
             },
             "isDeprecated": false,
@@ -38177,6 +38374,18 @@
             "deprecationReason": null
           },
           {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "organization",
             "description": "The Organization associated with the Audit Entry.",
             "args": [],
@@ -38415,6 +38624,18 @@
                 "name": "ID",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -38681,6 +38902,18 @@
             "type": {
               "kind": "SCALAR",
               "name": "URI",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
               "ofType": null
             },
             "isDeprecated": false,
@@ -38954,6 +39187,18 @@
             "deprecationReason": null
           },
           {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "organization",
             "description": "The Organization associated with the Audit Entry.",
             "args": [],
@@ -39204,6 +39449,18 @@
                 "name": "ID",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -39500,6 +39757,18 @@
             "deprecationReason": null
           },
           {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "organization",
             "description": "The Organization associated with the Audit Entry.",
             "args": [],
@@ -39778,6 +40047,18 @@
             "type": {
               "kind": "SCALAR",
               "name": "URI",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
               "ofType": null
             },
             "isDeprecated": false,
@@ -40068,6 +40349,18 @@
             "deprecationReason": null
           },
           {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "organization",
             "description": "The Organization associated with the Audit Entry.",
             "args": [],
@@ -40352,6 +40645,18 @@
             "deprecationReason": null
           },
           {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "organization",
             "description": "The Organization associated with the Audit Entry.",
             "args": [],
@@ -40595,6 +40900,18 @@
                 "name": "ID",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -40899,6 +41216,18 @@
                   "ofType": null
                 }
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -41249,6 +41578,18 @@
             "deprecationReason": null
           },
           {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "organization",
             "description": "The Organization associated with the Audit Entry.",
             "args": [],
@@ -41551,6 +41892,18 @@
                 "name": "ID",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -42430,6 +42783,18 @@
             "deprecationReason": null
           },
           {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "organization",
             "description": "The Organization associated with the Audit Entry.",
             "args": [],
@@ -42668,6 +43033,18 @@
                 "name": "ID",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -42975,6 +43352,18 @@
             "deprecationReason": null
           },
           {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "organization",
             "description": "The Organization associated with the Audit Entry.",
             "args": [],
@@ -43277,6 +43666,18 @@
             "deprecationReason": null
           },
           {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "organization",
             "description": "The Organization associated with the Audit Entry.",
             "args": [],
@@ -43567,6 +43968,18 @@
             "deprecationReason": null
           },
           {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "organization",
             "description": "The Organization associated with the Audit Entry.",
             "args": [],
@@ -43841,6 +44254,18 @@
                 "name": "ID",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -44183,6 +44608,18 @@
             "deprecationReason": null
           },
           {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "organization",
             "description": "The Organization associated with the Audit Entry.",
             "args": [],
@@ -44479,6 +44916,18 @@
                 "name": "ID",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -44821,6 +45270,18 @@
             "deprecationReason": null
           },
           {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "organization",
             "description": "The Organization associated with the Audit Entry.",
             "args": [],
@@ -45153,6 +45614,18 @@
                 "name": "ID",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -45529,6 +46002,18 @@
             "deprecationReason": null
           },
           {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "organization",
             "description": "The Organization associated with the Audit Entry.",
             "args": [],
@@ -45890,6 +46375,18 @@
             "deprecationReason": null
           },
           {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "organization",
             "description": "The Organization associated with the Audit Entry.",
             "args": [],
@@ -46215,6 +46712,18 @@
             "deprecationReason": null
           },
           {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "organization",
             "description": "The Organization associated with the Audit Entry.",
             "args": [],
@@ -46506,6 +47015,18 @@
                 "name": "ID",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -46807,6 +47328,18 @@
             "deprecationReason": null
           },
           {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "organization",
             "description": "The Organization associated with the Audit Entry.",
             "args": [],
@@ -47098,6 +47631,18 @@
                 "name": "ID",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -47399,6 +47944,18 @@
             "deprecationReason": null
           },
           {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "organization",
             "description": "The Organization associated with the Audit Entry.",
             "args": [],
@@ -47690,6 +48247,18 @@
                 "name": "ID",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -47991,6 +48560,18 @@
             "deprecationReason": null
           },
           {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "organization",
             "description": "The Organization associated with the Audit Entry.",
             "args": [],
@@ -48282,6 +48863,18 @@
                 "name": "ID",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -48583,6 +49176,18 @@
             "deprecationReason": null
           },
           {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "organization",
             "description": "The Organization associated with the Audit Entry.",
             "args": [],
@@ -48874,6 +49479,18 @@
                 "name": "ID",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -49194,6 +49811,18 @@
                 "name": "ID",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -49536,6 +50165,18 @@
             "deprecationReason": null
           },
           {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "organization",
             "description": "The Organization associated with the Audit Entry.",
             "args": [],
@@ -49873,6 +50514,18 @@
             "deprecationReason": null
           },
           {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "organization",
             "description": "The Organization associated with the Audit Entry.",
             "args": [],
@@ -50205,6 +50858,18 @@
                 "name": "ID",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -50571,6 +51236,18 @@
             "deprecationReason": null
           },
           {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "organization",
             "description": "The Organization associated with the Audit Entry.",
             "args": [],
@@ -50855,6 +51532,18 @@
             "deprecationReason": null
           },
           {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "organization",
             "description": "The Organization associated with the Audit Entry.",
             "args": [],
@@ -51109,6 +51798,18 @@
             "type": {
               "kind": "SCALAR",
               "name": "Boolean",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
               "ofType": null
             },
             "isDeprecated": false,
@@ -51417,6 +52118,18 @@
             "type": {
               "kind": "SCALAR",
               "name": "Boolean",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
               "ofType": null
             },
             "isDeprecated": false,
@@ -51778,6 +52491,18 @@
             "type": {
               "kind": "SCALAR",
               "name": "Boolean",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
               "ofType": null
             },
             "isDeprecated": false,
@@ -52188,6 +52913,18 @@
             "deprecationReason": null
           },
           {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "organization",
             "description": "The Organization associated with the Audit Entry.",
             "args": [],
@@ -52490,6 +53227,18 @@
             "type": {
               "kind": "SCALAR",
               "name": "Boolean",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "operationType",
+            "description": "The corresponding operation type for the action",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "OperationType",
               "ofType": null
             },
             "isDeprecated": false,
