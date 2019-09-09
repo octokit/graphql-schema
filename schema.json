@@ -56753,6 +56753,16 @@
                   "ofType": null
                 },
                 "defaultValue": null
+              },
+              {
+                "name": "skip",
+                "description": "Skips the first _n_ elements in the list.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
               }
             ],
             "type": {
