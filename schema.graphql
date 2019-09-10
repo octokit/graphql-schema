@@ -5252,6 +5252,21 @@ type FollowingConnection {
 }
 
 """
+A generic hovercard context with a message and icon
+"""
+type GenericHovercardContext implements HovercardContext {
+  """
+  A string describing this context
+  """
+  message: String!
+
+  """
+  An octicon to accompany this context
+  """
+  octicon: String!
+}
+
+"""
 A Gist.
 """
 type Gist implements Node & Starrable & UniformResourceLocatable {
@@ -5774,21 +5789,6 @@ type GitActor {
 }
 
 """
-An edge in a connection.
-"""
-type GitActorEdge {
-  """
-  A cursor for use in pagination.
-  """
-  cursor: String!
-
-  """
-  The item at the end of the edge.
-  """
-  node: GitActor
-}
-
-"""
 Represents information about the GitHub instance.
 """
 type GitHubMetadata {
@@ -6140,6 +6140,31 @@ type HeadRefRestoredEvent implements Node {
 }
 
 """
+Detail needed to display a hovercard for a user
+"""
+type Hovercard {
+  """
+  Each of the contexts for this hovercard
+  """
+  contexts: [HovercardContext!]!
+}
+
+"""
+An individual line of a hovercard
+"""
+interface HovercardContext {
+  """
+  A string describing this context
+  """
+  message: String!
+
+  """
+  An octicon to accompany this context
+  """
+  octicon: String!
+}
+
+"""
 The possible states in which authentication can be configured with an identity provider.
 """
 enum IdentityProviderConfigurationState {
@@ -6192,21 +6217,6 @@ input ImportProjectInput {
   Whether the Project is public or not.
   """
   public: Boolean = false
-}
-
-"""
-An installation on a repository
-"""
-type InstalledAppEdge {
-  """
-  A cursor for use in pagination.
-  """
-  cursor: String!
-
-  """
-  The item at the end of the edge.
-  """
-  node: App
 }
 
 """
@@ -6347,6 +6357,16 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
   The actor who edited the comment.
   """
   editor: Actor
+
+  """
+  The hovercard information for this issue
+  """
+  hovercard(
+    """
+    Whether or not to include notification contexts
+    """
+    includeNotificationContexts: Boolean = true
+  ): Hovercard!
   id: ID!
 
   """
@@ -12809,6 +12829,11 @@ type Organization implements Actor & MemberStatusable & Node & ProfileOwner & Pr
   ): URI!
 
   """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
   Identifies the primary key from the database.
   """
   databaseId: Int
@@ -13385,6 +13410,11 @@ type Organization implements Actor & MemberStatusable & Node & ProfileOwner & Pr
   teamsUrl: URI!
 
   """
+  Identifies the date and time when the object was last updated.
+  """
+  updatedAt: DateTime!
+
+  """
   The HTTP URL for this organization.
   """
   url: URI!
@@ -13783,6 +13813,106 @@ enum OrganizationMemberRole {
 }
 
 """
+An organization teams hovercard context
+"""
+type OrganizationTeamsHovercardContext implements HovercardContext {
+  """
+  A string describing this context
+  """
+  message: String!
+
+  """
+  An octicon to accompany this context
+  """
+  octicon: String!
+
+  """
+  Teams in this organization the user is a member of that are relevant
+  """
+  relevantTeams(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): TeamConnection!
+
+  """
+  The path for the full team list for this user
+  """
+  teamsResourcePath: URI!
+
+  """
+  The URL for the full team list for this user
+  """
+  teamsUrl: URI!
+
+  """
+  The total number of teams the user is on in the organization
+  """
+  totalTeamCount: Int!
+}
+
+"""
+An organization list hovercard context
+"""
+type OrganizationsHovercardContext implements HovercardContext {
+  """
+  A string describing this context
+  """
+  message: String!
+
+  """
+  An octicon to accompany this context
+  """
+  octicon: String!
+
+  """
+  Organizations this user is a member of that are relevant
+  """
+  relevantOrganizations(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): OrganizationConnection!
+
+  """
+  The total number of organizations this user is in
+  """
+  totalOrganizationCount: Int!
+}
+
+"""
 Information about pagination in a connection.
 """
 type PageInfo {
@@ -13805,21 +13935,6 @@ type PageInfo {
   When paginating backwards, the cursor to continue.
   """
   startCursor: String
-}
-
-"""
-Represents a pending collaborator on a repository.
-"""
-type PendingCollaboratorEdge {
-  """
-  A cursor for use in pagination.
-  """
-  cursor: String!
-
-  """
-  The item at the end of the edge.
-  """
-  node: User
 }
 
 """
@@ -15004,31 +15119,6 @@ enum ProjectState {
 }
 
 """
-Represents a connection between a project (parent) and a team (child).
-"""
-type ProjectTeamEdge {
-  """
-  A cursor for use in pagination.
-  """
-  cursor: String!
-
-  """
-  The item at the end of the edge.
-  """
-  node: Team
-
-  """
-  The HTTP path for this project's team
-  """
-  projectTeamResourcePath: URI!
-
-  """
-  The HTTP URL for this project's team
-  """
-  projectTeamUrl: URI!
-}
-
-"""
 GitHub-provided templates for Projects
 """
 enum ProjectTemplate {
@@ -15051,21 +15141,6 @@ enum ProjectTemplate {
   Create a board to triage and prioritize bugs with To do, priority, and Done columns.
   """
   BUG_TRIAGE
-}
-
-"""
-Represents a user project.
-"""
-type ProjectUserEdge {
-  """
-  A cursor for use in pagination.
-  """
-  cursor: String!
-
-  """
-  The item at the end of the edge.
-  """
-  node: User
 }
 
 """
@@ -15370,6 +15445,16 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   The owner of the repository associated with this pull request's head Ref.
   """
   headRepositoryOwner: RepositoryOwner
+
+  """
+  The hovercard information for this issue
+  """
+  hovercard(
+    """
+    Whether or not to include notification contexts
+    """
+    includeNotificationContexts: Boolean = true
+  ): Hovercard!
   id: ID!
 
   """
@@ -23478,26 +23563,6 @@ enum RepositoryContributionType {
 }
 
 """
-A user who has contributed to a repository.
-"""
-type RepositoryContributorEdge {
-  """
-  The number of contributions the user has made in the repository.
-  """
-  contributionsCount: Int!
-
-  """
-  A cursor for use in pagination.
-  """
-  cursor: String!
-
-  """
-  The item at the end of the edge.
-  """
-  node: User
-}
-
-"""
 An edge in a connection.
 """
 type RepositoryEdge {
@@ -24621,6 +24686,22 @@ type ReviewRequestedEvent implements Node {
 }
 
 """
+A hovercard context with a message describing the current code review state of the pull
+request.
+"""
+type ReviewStatusHovercardContext implements HovercardContext {
+  """
+  A string describing this context
+  """
+  message: String!
+
+  """
+  An octicon to accompany this context
+  """
+  octicon: String!
+}
+
+"""
 A Saved Reply is text a user can use to reply quickly.
 """
 type SavedReply implements Node {
@@ -25265,21 +25346,6 @@ type SmimeSignature implements GitSignature {
 }
 
 """
-Represents a sponsor.
-"""
-type SponsorEdge {
-  """
-  A cursor for use in pagination.
-  """
-  cursor: String!
-
-  """
-  The item at the end of the edge.
-  """
-  node: User
-}
-
-"""
 Entities that can be sponsored through GitHub Sponsors
 """
 interface Sponsorable {
@@ -25605,22 +25671,6 @@ type StarredRepositoryEdge {
   """
   cursor: String!
   node: Repository!
-
-  """
-  Identifies when the item was starred.
-  """
-  starredAt: DateTime!
-}
-
-"""
-Represents a starred topic.
-"""
-type StarredTopicEdge {
-  """
-  A cursor for use in pagination.
-  """
-  cursor: String!
-  node: Topic!
 
   """
   Identifies when the item was starred.
@@ -26719,21 +26769,6 @@ type TeamEdge {
 }
 
 """
-Represents a team's eligibility to be a child team of another
-"""
-type TeamEligibilityEdge {
-  """
-  A cursor for use in pagination.
-  """
-  cursor: String!
-
-  """
-  The item at the end of the edge.
-  """
-  node: Team
-}
-
-"""
 The connection type for User.
 """
 type TeamMemberConnection {
@@ -26887,36 +26922,6 @@ enum TeamPrivacy {
   A visible team can be seen and @mentioned by every member of the organization.
   """
   VISIBLE
-}
-
-"""
-Represents a connection between a team (parent) and a project (child).
-"""
-type TeamProjectEdge {
-  """
-  A cursor for use in pagination.
-  """
-  cursor: String!
-
-  """
-  The parent team that grants inherited permission to this project
-  """
-  inheritedPermissionOrigin: Team
-
-  """
-  The item at the end of the edge.
-  """
-  node: Project
-
-  """
-  The HTTP path for this team's project
-  """
-  teamProjectResourcePath: URI!
-
-  """
-  The HTTP URL for this team's project
-  """
-  teamProjectUrl: URI!
 }
 
 """
@@ -29084,6 +29089,16 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RegistryPackag
     """
     privacy: GistPrivacy
   ): GistConnection!
+
+  """
+  The hovercard information for this user in a given context
+  """
+  hovercard(
+    """
+    The ID of the subject to get the hovercard in the context of
+    """
+    primarySubjectId: ID
+  ): Hovercard!
   id: ID!
 
   """
@@ -30271,6 +30286,26 @@ enum UserStatusOrderField {
   Order user statuses by when they were updated.
   """
   UPDATED_AT
+}
+
+"""
+A hovercard context with a message describing how the viewer is related.
+"""
+type ViewerHovercardContext implements HovercardContext {
+  """
+  A string describing this context
+  """
+  message: String!
+
+  """
+  An octicon to accompany this context
+  """
+  octicon: String!
+
+  """
+  Identifies the user who is related to this context.
+  """
+  viewer: User!
 }
 
 """
