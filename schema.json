@@ -6041,6 +6041,16 @@
                 "defaultValue": null
               },
               {
+                "name": "query",
+                "description": "Filters users with query on user name and login",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
                 "name": "after",
                 "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
