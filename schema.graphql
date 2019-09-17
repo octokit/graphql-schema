@@ -22377,7 +22377,7 @@ enum ReportedContentClassifiers {
 """
 A repository contains the content for a project.
 """
-type Repository implements Node & ProjectOwner & RegistryPackageOwner & RepositoryInfo & Starrable & Subscribable & UniformResourceLocatable {
+type Repository implements Node & ProjectOwner & RegistryPackageOwner & RegistryPackageSearch & RepositoryInfo & Starrable & Subscribable & UniformResourceLocatable {
   """
   A list of users that can be assigned to issues in this repository.
   """
@@ -23202,6 +23202,41 @@ type Repository implements Node & ProjectOwner & RegistryPackageOwner & Reposito
     Find registry packages in a repository.
     """
     repositoryId: ID
+  ): RegistryPackageConnection!
+
+  """
+  A list of registry packages for a particular search query.
+  """
+  registryPackagesForQuery(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Filter registry package by type.
+    """
+    packageType: RegistryPackageType
+
+    """
+    Find registry package by search query.
+    """
+    query: String
   ): RegistryPackageConnection!
 
   """
