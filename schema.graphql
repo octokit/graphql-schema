@@ -8003,6 +8003,11 @@ type Mannequin implements Actor & Node & UniformResourceLocatable {
   Identifies the primary key from the database.
   """
   databaseId: Int
+
+  """
+  The mannequin's email on the source instance.
+  """
+  email: String
   id: ID!
 
   """
@@ -25067,6 +25072,11 @@ type SecurityAdvisoryConnection {
 The possible ecosystems of a security vulnerability's package.
 """
 enum SecurityAdvisoryEcosystem {
+  """
+  PHP packages hosted at packagist.org
+  """
+  COMPOSER
+
   """
   Java artifacts hosted at the Maven central repository
   """
