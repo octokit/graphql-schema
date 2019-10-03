@@ -10210,7 +10210,7 @@
           },
           {
             "name": "bodyHTML",
-            "description": "Identifies the body of the issue rendered to HTML.",
+            "description": "The body rendered to HTML.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -24453,7 +24453,7 @@
           },
           {
             "name": "bodyHTML",
-            "description": "Identifies the comment body rendered to HTML.",
+            "description": "The body rendered to HTML.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -29645,7 +29645,7 @@
           },
           {
             "name": "bodyHTML",
-            "description": "The comment body rendered to HTML.",
+            "description": "The body rendered to HTML.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -35910,7 +35910,7 @@
           },
           {
             "name": "bodyHTML",
-            "description": "The discussion body rendered to HTML.",
+            "description": "The body rendered to HTML.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -36799,7 +36799,7 @@
           },
           {
             "name": "bodyHTML",
-            "description": "The comment body rendered to HTML.",
+            "description": "The body rendered to HTML.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -58043,7 +58043,7 @@
           },
           {
             "name": "bodyHTML",
-            "description": "The comment body of this review comment rendered to HTML.",
+            "description": "The body rendered to HTML.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -58800,7 +58800,7 @@
           },
           {
             "name": "bodyHTML",
-            "description": "The body of this review rendered to HTML.",
+            "description": "The body rendered to HTML.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -81247,6 +81247,70 @@
               "kind": "SCALAR",
               "name": "Boolean",
               "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "assigneeIds",
+            "description": "An array of Node IDs of users for this pull request.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "milestoneId",
+            "description": "The Node ID of the milestone for this pull request.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "labelIds",
+            "description": "An array of Node IDs of labels for this pull request.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "projectIds",
+            "description": "An array of Node IDs for projects associated with this pull request.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              }
             },
             "defaultValue": null
           },
