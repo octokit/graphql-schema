@@ -2491,7 +2491,7 @@ type CommitCommentThread implements Node & RepositoryNode {
   """
   The commit the comments were made on.
   """
-  commit: Commit!
+  commit: Commit
   id: ID!
 
   """
@@ -19817,7 +19817,7 @@ type PullRequestReviewComment implements Comment & Deletable & Node & Reactable 
   """
   Identifies the commit associated with the comment.
   """
-  commit: Commit!
+  commit: Commit
 
   """
   Identifies when the comment was created.
@@ -20700,6 +20700,21 @@ enum PullRequestTimelineItemsItemType {
   Represents a 'user_blocked' event on a given user.
   """
   USER_BLOCKED_EVENT
+}
+
+"""
+The possible target states when updating a pull request.
+"""
+enum PullRequestUpdateState {
+  """
+  A pull request that has been closed without being merged.
+  """
+  CLOSED
+
+  """
+  A pull request that is still open.
+  """
+  OPEN
 }
 
 """
@@ -28951,7 +28966,17 @@ type SponsorsListing implements Node {
   The full description of the listing.
   """
   fullDescription: String!
+
+  """
+  The full description of the listing rendered to HTML.
+  """
+  fullDescriptionHTML: HTML!
   id: ID!
+
+  """
+  The listing's full name.
+  """
+  name: String!
 
   """
   The short description of the listing.
@@ -33231,6 +33256,11 @@ input UpdatePullRequestInput {
   The Node ID of the pull request.
   """
   pullRequestId: ID!
+
+  """
+  The target state of the pull request.
+  """
+  state: PullRequestUpdateState
 
   """
   The title of the pull request.
