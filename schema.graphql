@@ -26292,6 +26292,11 @@ type Repository implements Node & ProjectOwner & RegistryPackageOwner & Registry
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Filters users with query on user name and login
+    """
+    query: String
   ): UserConnection!
 
   """
