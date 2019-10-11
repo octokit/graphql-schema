@@ -5706,7 +5706,7 @@ type EnterpriseBillingInfo {
   """
   The number of available seats across all owned organizations based on the unique number of billable users.
   """
-  availableSeats: Int!
+  availableSeats: Int! @deprecated(reason: "`availableSeats` will be replaced with `totalAvailableLicenses` to provide more clarity on the value being returned Use EnterpriseBillingInfo.totalAvailableLicenses instead. Removal on 2020-01-01 UTC.")
 
   """
   The bandwidth quota in GB for all organizations owned by the enterprise.
@@ -5726,7 +5726,7 @@ type EnterpriseBillingInfo {
   """
   The total seats across all organizations owned by the enterprise.
   """
-  seats: Int!
+  seats: Int! @deprecated(reason: "`seats` will be replaced with `totalLicenses` to provide more clarity on the value being returned Use EnterpriseBillingInfo.totalLicenses instead. Removal on 2020-01-01 UTC.")
 
   """
   The storage quota in GB for all organizations owned by the enterprise.
@@ -5742,6 +5742,16 @@ type EnterpriseBillingInfo {
   The storage usage as a percentage of the storage quota.
   """
   storageUsagePercentage: Int!
+
+  """
+  The number of available licenses across all owned organizations based on the unique number of billable users.
+  """
+  totalAvailableLicenses: Int!
+
+  """
+  The total number of licenses allocated.
+  """
+  totalLicenses: Int!
 }
 
 """
