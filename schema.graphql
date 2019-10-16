@@ -26856,6 +26856,31 @@ type Repository implements Node & ProjectOwner & RegistryPackageOwner & Registry
   viewerSubscription: SubscriptionState
 
   """
+  A list of vulnerability alerts that are on this repository.
+  """
+  vulnerabilityAlerts(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): RepositoryVulnerabilityAlertConnection
+
+  """
   A list of users watching the repository.
   """
   watchers(
@@ -27847,6 +27872,122 @@ type RepositoryVisibilityChangeEnableAuditEntry implements AuditEntry & Enterpri
   The HTTP URL for the user.
   """
   userUrl: URI
+}
+
+"""
+A alert for a repository with an affected vulnerability.
+"""
+type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
+  """
+  The affected version
+  """
+  affectedRange: String! @deprecated(reason: "advisory specific fields are being removed from repositoryVulnerabilityAlert objects Use `securityVulnerability.vulnerableVersionRange` instead. Removal on 2019-10-01 UTC.")
+
+  """
+  The reason the alert was dismissed
+  """
+  dismissReason: String
+
+  """
+  When was the alert dimissed?
+  """
+  dismissedAt: DateTime
+
+  """
+  The user who dismissed the alert
+  """
+  dismisser: User
+
+  """
+  The external identifier for the vulnerability
+  """
+  externalIdentifier: String @deprecated(reason: "advisory specific fields are being removed from repositoryVulnerabilityAlert objects Use `securityAdvisory.identifiers` instead. Removal on 2019-10-01 UTC.")
+
+  """
+  The external reference for the vulnerability
+  """
+  externalReference: String! @deprecated(reason: "advisory specific fields are being removed from repositoryVulnerabilityAlert objects Use `securityAdvisory.references` instead. Removal on 2019-10-01 UTC.")
+
+  """
+  The fixed version
+  """
+  fixedIn: String @deprecated(reason: "advisory specific fields are being removed from repositoryVulnerabilityAlert objects Use `securityVulnerability.firstPatchedVersion` instead. Removal on 2019-10-01 UTC.")
+  id: ID!
+
+  """
+  The affected package
+  """
+  packageName: String! @deprecated(reason: "advisory specific fields are being removed from repositoryVulnerabilityAlert objects Use `securityVulnerability.package` instead. Removal on 2019-10-01 UTC.")
+
+  """
+  The associated repository
+  """
+  repository: Repository!
+
+  """
+  The associated security advisory
+  """
+  securityAdvisory: SecurityAdvisory
+
+  """
+  The associated security vulnerablity
+  """
+  securityVulnerability: SecurityVulnerability
+
+  """
+  The vulnerable manifest filename
+  """
+  vulnerableManifestFilename: String!
+
+  """
+  The vulnerable manifest path
+  """
+  vulnerableManifestPath: String!
+
+  """
+  The vulnerable requirements
+  """
+  vulnerableRequirements: String
+}
+
+"""
+The connection type for RepositoryVulnerabilityAlert.
+"""
+type RepositoryVulnerabilityAlertConnection {
+  """
+  A list of edges.
+  """
+  edges: [RepositoryVulnerabilityAlertEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [RepositoryVulnerabilityAlert]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An edge in a connection.
+"""
+type RepositoryVulnerabilityAlertEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: RepositoryVulnerabilityAlert
 }
 
 """
