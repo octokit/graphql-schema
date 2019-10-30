@@ -16519,6 +16519,11 @@ type Organization implements Actor & MemberStatusable & Node & ProfileOwner & Pr
   samlIdentityProvider: OrganizationIdentityProvider
 
   """
+  The GitHub Sponsors listing for this user.
+  """
+  sponsorsListing: SponsorsListing
+
+  """
   This object's sponsorships as the maintainer.
   """
   sponsorshipsAsMaintainer(
@@ -21227,7 +21232,7 @@ type Query {
     Select the Sponsors listing which matches this slug
     """
     slug: String!
-  ): SponsorsListing
+  ): SponsorsListing @deprecated(reason: "`Query.sponsorsListing` will be removed. Use `Sponsorable.sponsorsListing` instead. Removal on 2020-04-01 UTC.")
 
   """
   Look up a topic by name.
@@ -29062,6 +29067,11 @@ Entities that can be sponsored through GitHub Sponsors
 """
 interface Sponsorable {
   """
+  The GitHub Sponsors listing for this user.
+  """
+  sponsorsListing: SponsorsListing
+
+  """
   This object's sponsorships as the maintainer.
   """
   sponsorshipsAsMaintainer(
@@ -34903,6 +34913,11 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RegistryPackag
     """
     orderBy: SavedReplyOrder = {field: UPDATED_AT, direction: DESC}
   ): SavedReplyConnection
+
+  """
+  The GitHub Sponsors listing for this user.
+  """
+  sponsorsListing: SponsorsListing
 
   """
   This object's sponsorships as the maintainer.
