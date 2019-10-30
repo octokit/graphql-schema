@@ -1105,8 +1105,8 @@
               "name": "SponsorsListing",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "`Query.sponsorsListing` will be removed. Use `Sponsorable.sponsorsListing` instead. Removal on 2020-04-01 UTC."
           },
           {
             "name": "topic",
@@ -4394,6 +4394,18 @@
             "type": {
               "kind": "OBJECT",
               "name": "SavedReplyConnection",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "sponsorsListing",
+            "description": "The GitHub Sponsors listing for this user.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "SponsorsListing",
               "ofType": null
             },
             "isDeprecated": false,
@@ -16861,6 +16873,18 @@
         "description": "Entities that can be sponsored through GitHub Sponsors",
         "fields": [
           {
+            "name": "sponsorsListing",
+            "description": "The GitHub Sponsors listing for this user.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "SponsorsListing",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "sponsorshipsAsMaintainer",
             "description": "This object's sponsorships as the maintainer.",
             "args": [
@@ -18766,6 +18790,18 @@
             "type": {
               "kind": "OBJECT",
               "name": "OrganizationIdentityProvider",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "sponsorsListing",
+            "description": "The GitHub Sponsors listing for this user.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "SponsorsListing",
               "ofType": null
             },
             "isDeprecated": false,
