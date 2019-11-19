@@ -6752,6 +6752,22 @@
             "deprecationReason": null
           },
           {
+            "name": "hasProjectsEnabled",
+            "description": "Indicates if the repository has the Projects feature enabled.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "hasWikiEnabled",
             "description": "Indicates if the repository has wiki feature enabled.",
             "args": [],
@@ -23636,6 +23652,22 @@
           {
             "name": "hasIssuesEnabled",
             "description": "Indicates if the repository has issues feature enabled.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "hasProjectsEnabled",
+            "description": "Indicates if the repository has the Projects feature enabled.",
             "args": [],
             "type": {
               "kind": "NON_NULL",

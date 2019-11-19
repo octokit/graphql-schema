@@ -26094,6 +26094,11 @@ type Repository implements Node & ProjectOwner & RegistryPackageOwner & Registry
   hasIssuesEnabled: Boolean!
 
   """
+  Indicates if the repository has the Projects feature enabled.
+  """
+  hasProjectsEnabled: Boolean!
+
+  """
   Indicates if the repository has wiki feature enabled.
   """
   hasWikiEnabled: Boolean!
@@ -27121,6 +27126,11 @@ interface RepositoryInfo {
   Indicates if the repository has issues feature enabled.
   """
   hasIssuesEnabled: Boolean!
+
+  """
+  Indicates if the repository has the Projects feature enabled.
+  """
+  hasProjectsEnabled: Boolean!
 
   """
   Indicates if the repository has wiki feature enabled.
