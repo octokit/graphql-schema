@@ -29269,6 +29269,11 @@ A GitHub Sponsors listing.
 """
 type SponsorsListing implements Node {
   """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
   The full description of the listing.
   """
   fullDescription: String!
