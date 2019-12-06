@@ -26926,6 +26926,11 @@ type Repository implements Node & ProjectOwner & RegistryPackageOwner & Registry
   ): StargazerConnection!
 
   """
+  Temporary authentication token for cloning this repository.
+  """
+  tempCloneToken: String
+
+  """
   The repository from which this repository was generated, if any.
   """
   templateRepository: Repository
