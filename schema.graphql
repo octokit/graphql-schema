@@ -28019,6 +28019,11 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   affectedRange: String! @deprecated(reason: "advisory specific fields are being removed from repositoryVulnerabilityAlert objects Use `securityVulnerability.vulnerableVersionRange` instead. Removal on 2019-10-01 UTC.")
 
   """
+  When was the alert created?
+  """
+  createdAt: DateTime!
+
+  """
   The reason the alert was dismissed
   """
   dismissReason: String
