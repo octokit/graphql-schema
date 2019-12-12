@@ -76876,6 +76876,22 @@
             "deprecationReason": "advisory specific fields are being removed from repositoryVulnerabilityAlert objects Use `securityVulnerability.vulnerableVersionRange` instead. Removal on 2019-10-01 UTC."
           },
           {
+            "name": "createdAt",
+            "description": "When was the alert created?",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "dismissReason",
             "description": "The reason the alert was dismissed",
             "args": [],
