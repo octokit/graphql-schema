@@ -25960,6 +25960,11 @@ enum ReportedContentClassifiers {
   ABUSE
 
   """
+  A duplicated piece of content
+  """
+  DUPLICATE
+
+  """
   An irrelevant piece of content
   """
   OFF_TOPIC
@@ -26118,6 +26123,11 @@ type Repository implements Node & ProjectOwner & RegistryPackageOwner & Registry
   The Ref associated with the repository's default branch.
   """
   defaultBranchRef: Ref
+
+  """
+  Whether or not branches are automatically deleted when merged in this repository.
+  """
+  deleteBranchOnMerge: Boolean!
 
   """
   A list of deploy keys that are on this repository.
