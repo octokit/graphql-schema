@@ -6147,6 +6147,22 @@
             "deprecationReason": null
           },
           {
+            "name": "deleteBranchOnMerge",
+            "description": "Whether or not branches are automatically deleted when merged in this repository.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "deployKeys",
             "description": "A list of deploy keys that are on this repository.",
             "args": [
@@ -86904,6 +86920,12 @@
           {
             "name": "OUTDATED",
             "description": "An outdated piece of content",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "DUPLICATE",
+            "description": "A duplicated piece of content",
             "isDeprecated": false,
             "deprecationReason": null
           },
