@@ -7898,7 +7898,7 @@ type EnterpriseUserAccount implements Actor & Node {
   ): EnterpriseOrganizationMembershipConnection!
 
   """
-  The HTTP path for this actor.
+  The HTTP path for this user.
   """
   resourcePath: URI!
 
@@ -7908,7 +7908,7 @@ type EnterpriseUserAccount implements Actor & Node {
   updatedAt: DateTime!
 
   """
-  The HTTP URL for this actor.
+  The HTTP URL for this user.
   """
   url: URI!
 
