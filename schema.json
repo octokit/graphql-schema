@@ -34420,7 +34420,7 @@
           },
           {
             "name": "resourcePath",
-            "description": "The HTTP path for this actor.",
+            "description": "The HTTP path for this user.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -34452,7 +34452,7 @@
           },
           {
             "name": "url",
-            "description": "The HTTP URL for this actor.",
+            "description": "The HTTP URL for this user.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
