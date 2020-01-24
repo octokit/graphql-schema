@@ -18451,6 +18451,16 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   changedFiles: Int!
 
   """
+  The HTTP path for the checks of this pull request.
+  """
+  checksResourcePath: URI!
+
+  """
+  The HTTP URL for the checks of this pull request.
+  """
+  checksUrl: URI!
+
+  """
   `true` if the pull request is closed
   """
   closed: Boolean!
