@@ -52297,6 +52297,38 @@
             "deprecationReason": null
           },
           {
+            "name": "checksResourcePath",
+            "description": "The HTTP path for the checks of this pull request.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "URI",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "checksUrl",
+            "description": "The HTTP URL for the checks of this pull request.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "URI",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "closed",
             "description": "`true` if the pull request is closed",
             "args": [],
