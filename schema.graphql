@@ -388,9 +388,14 @@ input AddPullRequestReviewCommentInput {
   position: Int
 
   """
+  The node ID of the pull request reviewing
+  """
+  pullRequestId: ID
+
+  """
   The Node ID of the review to modify.
   """
-  pullRequestReviewId: ID!
+  pullRequestReviewId: ID
 }
 
 """
@@ -2663,6 +2668,37 @@ type CommitHistoryConnection {
   Identifies the total count of items in the connection.
   """
   totalCount: Int!
+}
+
+"""
+Represents a 'connected' event on a given issue or pull request.
+"""
+type ConnectedEvent implements Node {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+  id: ID!
+
+  """
+  Reference originated in a different repository.
+  """
+  isCrossRepository: Boolean!
+
+  """
+  Issue or pull request that made the reference.
+  """
+  source: ReferencedSubject!
+
+  """
+  Issue or pull request which was connected.
+  """
+  subject: ReferencedSubject!
 }
 
 """
@@ -5193,6 +5229,37 @@ enum DeploymentStatusState {
   The deployment was successful.
   """
   SUCCESS
+}
+
+"""
+Represents a 'disconnected' event on a given issue or pull request.
+"""
+type DisconnectedEvent implements Node {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+  id: ID!
+
+  """
+  Reference originated in a different repository.
+  """
+  isCrossRepository: Boolean!
+
+  """
+  Issue or pull request from which the issue was disconnected.
+  """
+  source: ReferencedSubject!
+
+  """
+  Issue or pull request which was disconnected.
+  """
+  subject: ReferencedSubject!
 }
 
 """
@@ -9949,7 +10016,7 @@ type IssueTimelineItemEdge {
 """
 An item in an issue timeline
 """
-union IssueTimelineItems = AddedToProjectEvent | AssignedEvent | ClosedEvent | CommentDeletedEvent | ConvertedNoteToIssueEvent | CrossReferencedEvent | DemilestonedEvent | IssueComment | LabeledEvent | LockedEvent | MarkedAsDuplicateEvent | MentionedEvent | MilestonedEvent | MovedColumnsInProjectEvent | PinnedEvent | ReferencedEvent | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnpinnedEvent | UnsubscribedEvent | UserBlockedEvent
+union IssueTimelineItems = AddedToProjectEvent | AssignedEvent | ClosedEvent | CommentDeletedEvent | ConnectedEvent | ConvertedNoteToIssueEvent | CrossReferencedEvent | DemilestonedEvent | DisconnectedEvent | IssueComment | LabeledEvent | LockedEvent | MarkedAsDuplicateEvent | MentionedEvent | MilestonedEvent | MovedColumnsInProjectEvent | PinnedEvent | ReferencedEvent | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | UserBlockedEvent
 
 """
 The connection type for IssueTimelineItems.
@@ -10031,6 +10098,11 @@ enum IssueTimelineItemsItemType {
   COMMENT_DELETED_EVENT
 
   """
+  Represents a 'connected' event on a given issue or pull request.
+  """
+  CONNECTED_EVENT
+
+  """
   Represents a 'converted_note_to_issue' event on a given issue or pull request.
   """
   CONVERTED_NOTE_TO_ISSUE_EVENT
@@ -10044,6 +10116,11 @@ enum IssueTimelineItemsItemType {
   Represents a 'demilestoned' event on a given issue or pull request.
   """
   DEMILESTONED_EVENT
+
+  """
+  Represents a 'disconnected' event on a given issue or pull request.
+  """
+  DISCONNECTED_EVENT
 
   """
   Represents a comment on an Issue.
@@ -10129,6 +10206,11 @@ enum IssueTimelineItemsItemType {
   Represents an 'unlocked' event on a given issue or pull request.
   """
   UNLOCKED_EVENT
+
+  """
+  Represents an 'unmarked_as_duplicate' event on a given issue or pull request.
+  """
+  UNMARKED_AS_DUPLICATE_EVENT
 
   """
   Represents an 'unpinned' event on a given issue or pull request.
@@ -20263,7 +20345,7 @@ type PullRequestTimelineItemEdge {
 """
 An item in a pull request timeline
 """
-union PullRequestTimelineItems = AddedToProjectEvent | AssignedEvent | BaseRefChangedEvent | BaseRefForcePushedEvent | ClosedEvent | CommentDeletedEvent | ConvertedNoteToIssueEvent | CrossReferencedEvent | DemilestonedEvent | DeployedEvent | DeploymentEnvironmentChangedEvent | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IssueComment | LabeledEvent | LockedEvent | MarkedAsDuplicateEvent | MentionedEvent | MergedEvent | MilestonedEvent | MovedColumnsInProjectEvent | PinnedEvent | PullRequestCommit | PullRequestCommitCommentThread | PullRequestReview | PullRequestReviewThread | PullRequestRevisionMarker | ReadyForReviewEvent | ReferencedEvent | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | ReviewDismissedEvent | ReviewRequestRemovedEvent | ReviewRequestedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnpinnedEvent | UnsubscribedEvent | UserBlockedEvent
+union PullRequestTimelineItems = AddedToProjectEvent | AssignedEvent | BaseRefChangedEvent | BaseRefForcePushedEvent | ClosedEvent | CommentDeletedEvent | ConnectedEvent | ConvertedNoteToIssueEvent | CrossReferencedEvent | DemilestonedEvent | DeployedEvent | DeploymentEnvironmentChangedEvent | DisconnectedEvent | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IssueComment | LabeledEvent | LockedEvent | MarkedAsDuplicateEvent | MentionedEvent | MergedEvent | MilestonedEvent | MovedColumnsInProjectEvent | PinnedEvent | PullRequestCommit | PullRequestCommitCommentThread | PullRequestReview | PullRequestReviewThread | PullRequestRevisionMarker | ReadyForReviewEvent | ReferencedEvent | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | ReviewDismissedEvent | ReviewRequestRemovedEvent | ReviewRequestedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | UserBlockedEvent
 
 """
 The connection type for PullRequestTimelineItems.
@@ -20355,6 +20437,11 @@ enum PullRequestTimelineItemsItemType {
   COMMENT_DELETED_EVENT
 
   """
+  Represents a 'connected' event on a given issue or pull request.
+  """
+  CONNECTED_EVENT
+
+  """
   Represents a 'converted_note_to_issue' event on a given issue or pull request.
   """
   CONVERTED_NOTE_TO_ISSUE_EVENT
@@ -20378,6 +20465,11 @@ enum PullRequestTimelineItemsItemType {
   Represents a 'deployment_environment_changed' event on a given pull request.
   """
   DEPLOYMENT_ENVIRONMENT_CHANGED_EVENT
+
+  """
+  Represents a 'disconnected' event on a given issue or pull request.
+  """
+  DISCONNECTED_EVENT
 
   """
   Represents a 'head_ref_deleted' event on a given pull request.
@@ -20528,6 +20620,11 @@ enum PullRequestTimelineItemsItemType {
   Represents an 'unlocked' event on a given issue or pull request.
   """
   UNLOCKED_EVENT
+
+  """
+  Represents an 'unmarked_as_duplicate' event on a given issue or pull request.
+  """
+  UNMARKED_AS_DUPLICATE_EVENT
 
   """
   Represents an 'unpinned' event on a given issue or pull request.
@@ -29537,9 +29634,14 @@ input SubmitPullRequestReviewInput {
   event: PullRequestReviewEvent!
 
   """
+  The Pull Request ID to submit any pending reviews.
+  """
+  pullRequestId: ID
+
+  """
   The Pull Request Review ID to submit.
   """
-  pullRequestReviewId: ID!
+  pullRequestReviewId: ID
 }
 
 """
@@ -32258,6 +32360,22 @@ type UnmarkIssueAsDuplicatePayload {
   The issue or pull request that was marked as a duplicate.
   """
   duplicate: IssueOrPullRequest
+}
+
+"""
+Represents an 'unmarked_as_duplicate' event on a given issue or pull request.
+"""
+type UnmarkedAsDuplicateEvent implements Node {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+  id: ID!
 }
 
 """
