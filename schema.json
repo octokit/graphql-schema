@@ -889,16 +889,22 @@
         "fields": null,
         "inputFields": [
           {
+            "name": "pullRequestId",
+            "description": "The node ID of the pull request reviewing",
+            "type": {
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
             "name": "pullRequestReviewId",
             "description": "The Node ID of the review to modify.",
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
             },
             "defaultValue": null
           },
@@ -7485,6 +7491,115 @@
         ],
         "inputFields": null,
         "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ConnectedEvent",
+        "description": "Represents a 'connected' event on a given issue or pull request.",
+        "fields": [
+          {
+            "name": "actor",
+            "description": "Identifies the actor who performed the event.",
+            "args": [],
+            "type": {
+              "kind": "INTERFACE",
+              "name": "Actor",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "createdAt",
+            "description": "Identifies the date and time when the object was created.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "id",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "isCrossRepository",
+            "description": "Reference originated in a different repository.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "source",
+            "description": "Issue or pull request that made the reference.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "UNION",
+                "name": "ReferencedSubject",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "subject",
+            "description": "Issue or pull request which was connected.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "UNION",
+                "name": "ReferencedSubject",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "Node",
+            "ofType": null
+          }
+        ],
         "enumValues": null,
         "possibleTypes": null
       },
@@ -14171,6 +14286,115 @@
             "deprecationReason": null
           }
         ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "DisconnectedEvent",
+        "description": "Represents a 'disconnected' event on a given issue or pull request.",
+        "fields": [
+          {
+            "name": "actor",
+            "description": "Identifies the actor who performed the event.",
+            "args": [],
+            "type": {
+              "kind": "INTERFACE",
+              "name": "Actor",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "createdAt",
+            "description": "Identifies the date and time when the object was created.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "id",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "isCrossRepository",
+            "description": "Reference originated in a different repository.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "source",
+            "description": "Issue or pull request from which the issue was disconnected.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "UNION",
+                "name": "ReferencedSubject",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "subject",
+            "description": "Issue or pull request which was disconnected.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "UNION",
+                "name": "ReferencedSubject",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "Node",
+            "ofType": null
+          }
+        ],
+        "enumValues": null,
         "possibleTypes": null
       },
       {
@@ -26753,6 +26977,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "ConnectedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "ConvertedNoteToIssueEvent",
             "ofType": null
           },
@@ -26764,6 +26993,11 @@
           {
             "kind": "OBJECT",
             "name": "DemilestonedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "DisconnectedEvent",
             "ofType": null
           },
           {
@@ -26849,6 +27083,11 @@
           {
             "kind": "OBJECT",
             "name": "UnlockedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UnmarkedAsDuplicateEvent",
             "ofType": null
           },
           {
@@ -27075,6 +27314,12 @@
             "deprecationReason": null
           },
           {
+            "name": "CONNECTED_EVENT",
+            "description": "Represents a 'connected' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "CONVERTED_NOTE_TO_ISSUE_EVENT",
             "description": "Represents a 'converted_note_to_issue' event on a given issue or pull request.",
             "isDeprecated": false,
@@ -27083,6 +27328,12 @@
           {
             "name": "DEMILESTONED_EVENT",
             "description": "Represents a 'demilestoned' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "DISCONNECTED_EVENT",
+            "description": "Represents a 'disconnected' event on a given issue or pull request.",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -27185,6 +27436,12 @@
           {
             "name": "USER_BLOCKED_EVENT",
             "description": "Represents a 'user_blocked' event on a given user.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "UNMARKED_AS_DUPLICATE_EVENT",
+            "description": "Represents an 'unmarked_as_duplicate' event on a given issue or pull request.",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -35791,6 +36048,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "ConnectedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "ConvertedNoteToIssueEvent",
             "ofType": null
           },
@@ -35827,6 +36089,11 @@
           {
             "kind": "OBJECT",
             "name": "DeploymentStatus",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "DisconnectedEvent",
             "ofType": null
           },
           {
@@ -36552,6 +36819,11 @@
           {
             "kind": "OBJECT",
             "name": "UnlockedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UnmarkedAsDuplicateEvent",
             "ofType": null
           },
           {
@@ -57399,6 +57671,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "ConnectedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "ConvertedNoteToIssueEvent",
             "ofType": null
           },
@@ -57420,6 +57697,11 @@
           {
             "kind": "OBJECT",
             "name": "DeploymentEnvironmentChangedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "DisconnectedEvent",
             "ofType": null
           },
           {
@@ -57570,6 +57852,11 @@
           {
             "kind": "OBJECT",
             "name": "UnlockedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UnmarkedAsDuplicateEvent",
             "ofType": null
           },
           {
@@ -57898,6 +58185,12 @@
             "deprecationReason": null
           },
           {
+            "name": "CONNECTED_EVENT",
+            "description": "Represents a 'connected' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "CONVERTED_NOTE_TO_ISSUE_EVENT",
             "description": "Represents a 'converted_note_to_issue' event on a given issue or pull request.",
             "isDeprecated": false,
@@ -57906,6 +58199,12 @@
           {
             "name": "DEMILESTONED_EVENT",
             "description": "Represents a 'demilestoned' event on a given issue or pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "DISCONNECTED_EVENT",
+            "description": "Represents a 'disconnected' event on a given issue or pull request.",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -58008,6 +58307,12 @@
           {
             "name": "USER_BLOCKED_EVENT",
             "description": "Represents a 'user_blocked' event on a given user.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "UNMARKED_AS_DUPLICATE_EVENT",
+            "description": "Represents an 'unmarked_as_duplicate' event on a given issue or pull request.",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -82145,16 +82450,22 @@
         "fields": null,
         "inputFields": [
           {
+            "name": "pullRequestId",
+            "description": "The Pull Request ID to submit any pending reviews.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
             "name": "pullRequestReviewId",
             "description": "The Pull Request Review ID to submit.",
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
             },
             "defaultValue": null
           },
@@ -89825,6 +90136,67 @@
         ],
         "inputFields": null,
         "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UnmarkedAsDuplicateEvent",
+        "description": "Represents an 'unmarked_as_duplicate' event on a given issue or pull request.",
+        "fields": [
+          {
+            "name": "actor",
+            "description": "Identifies the actor who performed the event.",
+            "args": [],
+            "type": {
+              "kind": "INTERFACE",
+              "name": "Actor",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "createdAt",
+            "description": "Identifies the date and time when the object was created.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "id",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "Node",
+            "ofType": null
+          }
+        ],
         "enumValues": null,
         "possibleTypes": null
       },
