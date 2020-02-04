@@ -13465,7 +13465,7 @@
           },
           {
             "name": "environment",
-            "description": "The environment to which this deployment was made.",
+            "description": "The latest environment to which this deployment was made.",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -13492,12 +13492,36 @@
             "deprecationReason": null
           },
           {
+            "name": "latestEnvironment",
+            "description": "The latest environment to which this deployment was made.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "latestStatus",
             "description": "The latest status of this deployment.",
             "args": [],
             "type": {
               "kind": "OBJECT",
               "name": "DeploymentStatus",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "originalEnvironment",
+            "description": "The original environment to which this deployment was made.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
               "ofType": null
             },
             "isDeprecated": false,
