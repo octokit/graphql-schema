@@ -4898,15 +4898,25 @@ type Deployment implements Node {
   description: String
 
   """
-  The environment to which this deployment was made.
+  The latest environment to which this deployment was made.
   """
   environment: String
   id: ID!
 
   """
+  The latest environment to which this deployment was made.
+  """
+  latestEnvironment: String
+
+  """
   The latest status of this deployment.
   """
   latestStatus: DeploymentStatus
+
+  """
+  The original environment to which this deployment was made.
+  """
+  originalEnvironment: String
 
   """
   Extra information that a deployment system might need.
