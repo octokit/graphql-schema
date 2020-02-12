@@ -7,8 +7,10 @@
   "description": "GitHub’s GraphQL Schema with validation. Automatically updated.",
   "main": "index.js",
   "scripts": {
+    "lint": "prettier --check '{bin,lib,test}/**/*.{js}' README.md package.json",
+    "lint:fix": "prettier --write '{bin,lib,test}/**/*.{js}' README.md package.json",
     "test": "node test",
-    "posttest": "standard",
+    "posttest": "npm run -s lint",
     "update": "node bin/download.js"
   },
   "keywords": [
@@ -25,8 +27,8 @@
     "execa": "^4.0.0",
     "graphql": "^14.1.1",
     "graphql-tag": "^2.10.1",
-    "semantic-release": "^17.0.0",
-    "standard": "^14.0.2"
+    "prettier": "^1.19.1",
+    "semantic-release": "^17.0.0"
   },
   "repository": {
     "type": "git",
