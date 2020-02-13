@@ -2,7 +2,7 @@
 
 > GitHub’s GraphQL Schema with validation. Automatically updated.
 
-[![Build Status](https://travis-ci.org/octokit/graphql-schema.svg?branch=master)](https://travis-ci.org/octokit/graphql-schema)
+![Test](https://github.com/octokit/graphql-schema/workflows/Test/badge.svg)
 [![Greenkeeper badge](https://badges.greenkeeper.io/octokit/graphql-schema.svg)](https://greenkeeper.io/)
 
 ## Usage
