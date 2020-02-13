@@ -4,15 +4,15 @@ const writeFileSync = require("fs").writeFileSync;
 
 require("dotenv").config();
 
-if (!process.env.GH_TOKEN) {
-  console.log("GH_TOKEN not set");
+if (!process.env.GITHUB_TOKEN) {
+  console.log("GITHUB_TOKEN not set");
   process.exit(1);
 }
 
 const execa = require("execa");
 const request = require("@octokit/request").request.defaults({
   headers: {
-    authorization: `bearer ${process.env.GH_TOKEN}`
+    authorization: `bearer ${process.env.GITHUB_TOKEN}`
   }
 });
 
