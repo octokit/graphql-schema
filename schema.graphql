@@ -2170,6 +2170,11 @@ type Commit implements GitObject & Node & Subscribable & UniformResourceLocatabl
   status: Status
 
   """
+  Check and Status rollup information for this commit.
+  """
+  statusCheckRollup: StatusCheckRollup
+
+  """
   Returns a URL to download a tarball archive for a repository.
   Note: For private repositories, these links are temporary and expire after five minutes.
   """
@@ -29621,6 +29626,92 @@ type Status implements Node {
   The combined commit status.
   """
   state: StatusState!
+}
+
+"""
+Represents the rollup for both the check runs and status for a commit.
+"""
+type StatusCheckRollup implements Node {
+  """
+  The commit the status and check runs are attached to.
+  """
+  commit: Commit
+
+  """
+  A list of status contexts and check runs for this commit.
+  """
+  contexts(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): StatusCheckRollupContextConnection!
+  id: ID!
+
+  """
+  The combined status for the commit.
+  """
+  state: StatusState!
+}
+
+"""
+Types that can be inside a StatusCheckRollup context.
+"""
+union StatusCheckRollupContext = StatusContext
+
+"""
+The connection type for StatusCheckRollupContext.
+"""
+type StatusCheckRollupContextConnection {
+  """
+  A list of edges.
+  """
+  edges: [StatusCheckRollupContextEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [StatusCheckRollupContext]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An edge in a connection.
+"""
+type StatusCheckRollupContextEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: StatusCheckRollupContext
 }
 
 """
