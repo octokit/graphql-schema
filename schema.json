@@ -80516,6 +80516,18 @@
             "deprecationReason": null
           },
           {
+            "name": "permalink",
+            "description": "The permalink for the advisory",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "URI",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "publishedAt",
             "description": "When the advisory was published",
             "args": [],
