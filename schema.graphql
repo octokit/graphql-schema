@@ -28881,6 +28881,11 @@ type SecurityAdvisory implements Node {
   origin: String!
 
   """
+  The permalink for the advisory
+  """
+  permalink: URI
+
+  """
   When the advisory was published
   """
   publishedAt: DateTime!
