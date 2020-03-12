@@ -2175,6 +2175,31 @@ type Commit implements GitObject & Node & Subscribable & UniformResourceLocatabl
   statusCheckRollup: StatusCheckRollup
 
   """
+  Returns a list of all submodules in this repository as of this Commit parsed from the .gitmodules file.
+  """
+  submodules(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): SubmoduleConnection!
+
+  """
   Returns a URL to download a tarball archive for a repository.
   Note: For private repositories, these links are temporary and expire after five minutes.
   """
@@ -27107,6 +27132,32 @@ type Repository implements Node & ProjectOwner & RegistryPackageOwner & Registry
   ): StargazerConnection!
 
   """
+  Returns a list of all submodules in this repository parsed from the
+  .gitmodules file as of the default branch's HEAD commit.
+  """
+  submodules(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): SubmoduleConnection!
+
+  """
   Temporary authentication token for cloning this repository.
   """
   tempCloneToken: String
@@ -30232,6 +30283,76 @@ type SubmitPullRequestReviewPayload {
 }
 
 """
+A pointer to a repository at a specific revision embedded inside another repository.
+"""
+type Submodule {
+  """
+  The branch of the upstream submodule for tracking updates
+  """
+  branch: String
+
+  """
+  The git URL of the submodule repository
+  """
+  gitUrl: URI!
+
+  """
+  The name of the submodule in .gitmodules
+  """
+  name: String!
+
+  """
+  The path in the superproject that this submodule is located in
+  """
+  path: String!
+
+  """
+  The commit revision of the subproject repository being tracked by the submodule
+  """
+  subprojectCommitOid: GitObjectID
+}
+
+"""
+The connection type for Submodule.
+"""
+type SubmoduleConnection {
+  """
+  A list of edges.
+  """
+  edges: [SubmoduleEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [Submodule]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An edge in a connection.
+"""
+type SubmoduleEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: Submodule
+}
+
+"""
 Entities that can be subscribed to for web and email notifications.
 """
 interface Subscribable {
@@ -32618,6 +32739,11 @@ type TreeEntry {
   The Repository the tree entry belongs to
   """
   repository: Repository!
+
+  """
+  If the TreeEntry is for a directory occupied by a submodule project, this returns the corresponding submodule
+  """
+  submodule: Submodule
 
   """
   Entry file type.
