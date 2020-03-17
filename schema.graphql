@@ -2866,6 +2866,25 @@ input ContributionOrder {
   The ordering direction.
   """
   direction: OrderDirection!
+
+  """
+  The field by which to order contributions.
+
+  **Upcoming Change on 2019-10-01 UTC**
+  **Description:** `field` will be removed. Only one order field is supported.
+  **Reason:** `field` will be removed.
+  """
+  field: ContributionOrderField
+}
+
+"""
+Properties by which contribution connections can be ordered.
+"""
+enum ContributionOrderField {
+  """
+  Order contributions by when they were made.
+  """
+  OCCURRED_AT
 }
 
 """
@@ -9697,6 +9716,36 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
   """
   A list of events, comments, commits, etc. associated with the issue.
   """
+  timeline(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Allows filtering timeline events by a `since` timestamp.
+    """
+    since: DateTime
+  ): IssueTimelineConnection! @deprecated(reason: "`timeline` will be removed Use Issue.timelineItems instead. Removal on 2019-10-01 UTC.")
+
+  """
+  A list of events, comments, commits, etc. associated with the issue.
+  """
   timelineItems(
     """
     Returns the elements in the list that come after the specified cursor.
@@ -10228,6 +10277,31 @@ enum IssueState {
   An issue that is still open
   """
   OPEN
+}
+
+"""
+The connection type for IssueTimelineItem.
+"""
+type IssueTimelineConnection {
+  """
+  A list of edges.
+  """
+  edges: [IssueTimelineItemEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [IssueTimelineItem]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
 }
 
 """
@@ -11293,6 +11367,11 @@ type MarketplaceListing implements Node {
   fullDescriptionHTML: HTML!
 
   """
+  Whether this listing has been submitted for review from GitHub for approval to be displayed in the Marketplace.
+  """
+  hasApprovalBeenRequested: Boolean! @deprecated(reason: "`hasApprovalBeenRequested` will be removed. Use `isVerificationPendingFromDraft` instead. Removal on 2019-10-01 UTC.")
+
+  """
   Does this listing have any plans with a free trial?
   """
   hasPublishedFreeTrialPlans: Boolean!
@@ -11324,9 +11403,19 @@ type MarketplaceListing implements Node {
   installedForViewer: Boolean!
 
   """
+  Whether this listing has been approved for display in the Marketplace.
+  """
+  isApproved: Boolean! @deprecated(reason: "`isApproved` will be removed. Use `isPublic` instead. Removal on 2019-10-01 UTC.")
+
+  """
   Whether this listing has been removed from the Marketplace.
   """
   isArchived: Boolean!
+
+  """
+  Whether this listing has been removed from the Marketplace.
+  """
+  isDelisted: Boolean! @deprecated(reason: "`isDelisted` will be removed. Use `isArchived` instead. Removal on 2019-10-01 UTC.")
 
   """
   Whether this listing is still an editable draft that has not been submitted
@@ -16482,6 +16571,60 @@ type Organization implements Actor & MemberStatusable & Node & ProfileOwner & Pr
   pinnedItemsRemaining: Int!
 
   """
+  A list of repositories this user has pinned to their profile
+  """
+  pinnedRepositories(
+    """
+    Array of viewer's affiliation options for repositories returned from the
+    connection. For example, OWNER will include only repositories that the
+    current viewer owns.
+    """
+    affiliations: [RepositoryAffiliation]
+
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    If non-null, filters repositories according to whether they have been locked
+    """
+    isLocked: Boolean
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for repositories returned from the connection
+    """
+    orderBy: RepositoryOrder
+
+    """
+    Array of owner's affiliation options for repositories returned from the
+    connection. For example, OWNER will include only repositories that the
+    organization or user being viewed owns.
+    """
+    ownerAffiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
+
+    """
+    If non-null, filters repositories according to privacy
+    """
+    privacy: RepositoryPrivacy
+  ): RepositoryConnection! @deprecated(reason: "pinnedRepositories will be removed Use ProfileOwner.pinnedItems instead. Removal on 2019-10-01 UTC.")
+
+  """
   Find project by number.
   """
   project(
@@ -19257,6 +19400,36 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   """
   A list of events, comments, commits, etc. associated with the pull request.
   """
+  timeline(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Allows filtering timeline events by a `since` timestamp.
+    """
+    since: DateTime
+  ): PullRequestTimelineConnection! @deprecated(reason: "`timeline` will be removed Use PullRequest.timelineItems instead. Removal on 2019-10-01 UTC.")
+
+  """
+  A list of events, comments, commits, etc. associated with the pull request.
+  """
   timelineItems(
     """
     Returns the elements in the list that come after the specified cursor.
@@ -20533,6 +20706,51 @@ enum PullRequestState {
   A pull request that is still open.
   """
   OPEN
+}
+
+"""
+The connection type for PullRequestTimelineItem.
+"""
+type PullRequestTimelineConnection {
+  """
+  A list of edges.
+  """
+  edges: [PullRequestTimelineItemEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [PullRequestTimelineItem]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An item in an pull request timeline
+"""
+union PullRequestTimelineItem = AssignedEvent | BaseRefForcePushedEvent | ClosedEvent | Commit | CommitCommentThread | CrossReferencedEvent | DemilestonedEvent | DeployedEvent | DeploymentEnvironmentChangedEvent | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IssueComment | LabeledEvent | LockedEvent | MergedEvent | MilestonedEvent | PullRequestReview | PullRequestReviewComment | PullRequestReviewThread | ReferencedEvent | RenamedTitleEvent | ReopenedEvent | ReviewDismissedEvent | ReviewRequestRemovedEvent | ReviewRequestedEvent | SubscribedEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnsubscribedEvent | UserBlockedEvent
+
+"""
+An edge in a connection.
+"""
+type PullRequestTimelineItemEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: PullRequestTimelineItem
 }
 
 """
@@ -27520,6 +27738,60 @@ interface RepositoryOwner {
   login: String!
 
   """
+  A list of repositories this user has pinned to their profile
+  """
+  pinnedRepositories(
+    """
+    Array of viewer's affiliation options for repositories returned from the
+    connection. For example, OWNER will include only repositories that the
+    current viewer owns.
+    """
+    affiliations: [RepositoryAffiliation]
+
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    If non-null, filters repositories according to whether they have been locked
+    """
+    isLocked: Boolean
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for repositories returned from the connection
+    """
+    orderBy: RepositoryOrder
+
+    """
+    Array of owner's affiliation options for repositories returned from the
+    connection. For example, OWNER will include only repositories that the
+    organization or user being viewed owns.
+    """
+    ownerAffiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
+
+    """
+    If non-null, filters repositories according to privacy
+    """
+    privacy: RepositoryPrivacy
+  ): RepositoryConnection! @deprecated(reason: "pinnedRepositories will be removed Use ProfileOwner.pinnedItems instead. Removal on 2019-10-01 UTC.")
+
+  """
   A list of repositories that the user owns.
   """
   repositories(
@@ -27944,6 +28216,11 @@ A alert for a repository with an affected vulnerability.
 """
 type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   """
+  The affected version
+  """
+  affectedRange: String! @deprecated(reason: "advisory specific fields are being removed from repositoryVulnerabilityAlert objects Use `securityVulnerability.vulnerableVersionRange` instead. Removal on 2019-10-01 UTC.")
+
+  """
   When was the alert created?
   """
   createdAt: DateTime!
@@ -27962,7 +28239,27 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   The user who dismissed the alert
   """
   dismisser: User
+
+  """
+  The external identifier for the vulnerability
+  """
+  externalIdentifier: String @deprecated(reason: "advisory specific fields are being removed from repositoryVulnerabilityAlert objects Use `securityAdvisory.identifiers` instead. Removal on 2019-10-01 UTC.")
+
+  """
+  The external reference for the vulnerability
+  """
+  externalReference: String! @deprecated(reason: "advisory specific fields are being removed from repositoryVulnerabilityAlert objects Use `securityAdvisory.references` instead. Removal on 2019-10-01 UTC.")
+
+  """
+  The fixed version
+  """
+  fixedIn: String @deprecated(reason: "advisory specific fields are being removed from repositoryVulnerabilityAlert objects Use `securityVulnerability.firstPatchedVersion` instead. Removal on 2019-10-01 UTC.")
   id: ID!
+
+  """
+  The affected package
+  """
+  packageName: String! @deprecated(reason: "advisory specific fields are being removed from repositoryVulnerabilityAlert objects Use `securityVulnerability.package` instead. Removal on 2019-10-01 UTC.")
 
   """
   The associated repository
@@ -34876,6 +35173,60 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RegistryPackag
   Returns how many more items this profile owner can pin to their profile.
   """
   pinnedItemsRemaining: Int!
+
+  """
+  A list of repositories this user has pinned to their profile
+  """
+  pinnedRepositories(
+    """
+    Array of viewer's affiliation options for repositories returned from the
+    connection. For example, OWNER will include only repositories that the
+    current viewer owns.
+    """
+    affiliations: [RepositoryAffiliation]
+
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    If non-null, filters repositories according to whether they have been locked
+    """
+    isLocked: Boolean
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for repositories returned from the connection
+    """
+    orderBy: RepositoryOrder
+
+    """
+    Array of owner's affiliation options for repositories returned from the
+    connection. For example, OWNER will include only repositories that the
+    organization or user being viewed owns.
+    """
+    ownerAffiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
+
+    """
+    If non-null, filters repositories according to privacy
+    """
+    privacy: RepositoryPrivacy
+  ): RepositoryConnection! @deprecated(reason: "pinnedRepositories will be removed Use ProfileOwner.pinnedItems instead. Removal on 2019-10-01 UTC.")
 
   """
   Find project by number.
