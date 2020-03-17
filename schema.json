@@ -46984,7 +46984,7 @@
                     "ofType": null
                   }
                 },
-                "defaultValue": "[OWNER, COLLABORATOR]"
+                "defaultValue": null
               },
               {
                 "name": "ownerAffiliations",
@@ -47451,7 +47451,7 @@
                     "ofType": null
                   }
                 },
-                "defaultValue": "[OWNER, COLLABORATOR]"
+                "defaultValue": null
               },
               {
                 "name": "ownerAffiliations",
@@ -73675,7 +73675,7 @@
                     "ofType": null
                   }
                 },
-                "defaultValue": "[OWNER, COLLABORATOR]"
+                "defaultValue": null
               },
               {
                 "name": "ownerAffiliations",
@@ -77384,7 +77384,7 @@
                     "ofType": null
                   }
                 },
-                "defaultValue": "[OWNER, COLLABORATOR]"
+                "defaultValue": null
               },
               {
                 "name": "ownerAffiliations",
@@ -77499,7 +77499,7 @@
                     "ofType": null
                   }
                 },
-                "defaultValue": "[OWNER, COLLABORATOR]"
+                "defaultValue": null
               },
               {
                 "name": "ownerAffiliations",
@@ -97332,7 +97332,7 @@
                     "ofType": null
                   }
                 },
-                "defaultValue": "[OWNER, COLLABORATOR]"
+                "defaultValue": null
               },
               {
                 "name": "ownerAffiliations",
@@ -97979,7 +97979,7 @@
                     "ofType": null
                   }
                 },
-                "defaultValue": "[OWNER, COLLABORATOR]"
+                "defaultValue": null
               },
               {
                 "name": "ownerAffiliations",
@@ -98733,7 +98733,7 @@
               },
               {
                 "name": "affiliations",
-                "description": "Affiliation options for repositories returned from the connection",
+                "description": "Affiliation options for repositories returned from the connection. If none specified, the results will include repositories for which the current viewer is an owner or collaborator, or member.",
                 "type": {
                   "kind": "LIST",
                   "name": null,
@@ -98743,7 +98743,7 @@
                     "ofType": null
                   }
                 },
-                "defaultValue": "[OWNER, COLLABORATOR, ORGANIZATION_MEMBER]"
+                "defaultValue": null
               },
               {
                 "name": "ownerAffiliations",

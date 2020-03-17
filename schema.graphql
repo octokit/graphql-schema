@@ -16579,7 +16579,7 @@ type Organization implements Actor & MemberStatusable & Node & ProfileOwner & Pr
     connection. For example, OWNER will include only repositories that the
     current viewer owns.
     """
-    affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
+    affiliations: [RepositoryAffiliation]
 
     """
     Returns the elements in the list that come after the specified cursor.
@@ -16783,7 +16783,7 @@ type Organization implements Actor & MemberStatusable & Node & ProfileOwner & Pr
     connection. For example, OWNER will include only repositories that the
     current viewer owns.
     """
-    affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
+    affiliations: [RepositoryAffiliation]
 
     """
     Returns the elements in the list that come after the specified cursor.
@@ -26354,7 +26354,7 @@ type Repository implements Node & ProjectOwner & RegistryPackageOwner & Registry
     connection. For example, OWNER will include only repositories that the
     current viewer owns.
     """
-    affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
+    affiliations: [RepositoryAffiliation]
 
     """
     Returns the elements in the list that come after the specified cursor.
@@ -27746,7 +27746,7 @@ interface RepositoryOwner {
     connection. For example, OWNER will include only repositories that the
     current viewer owns.
     """
-    affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
+    affiliations: [RepositoryAffiliation]
 
     """
     Returns the elements in the list that come after the specified cursor.
@@ -27800,7 +27800,7 @@ interface RepositoryOwner {
     connection. For example, OWNER will include only repositories that the
     current viewer owns.
     """
-    affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
+    affiliations: [RepositoryAffiliation]
 
     """
     Returns the elements in the list that come after the specified cursor.
@@ -35183,7 +35183,7 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RegistryPackag
     connection. For example, OWNER will include only repositories that the
     current viewer owns.
     """
-    affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
+    affiliations: [RepositoryAffiliation]
 
     """
     Returns the elements in the list that come after the specified cursor.
@@ -35462,7 +35462,7 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RegistryPackag
     connection. For example, OWNER will include only repositories that the
     current viewer owns.
     """
-    affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
+    affiliations: [RepositoryAffiliation]
 
     """
     Returns the elements in the list that come after the specified cursor.
@@ -35790,9 +35790,11 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RegistryPackag
   """
   watching(
     """
-    Affiliation options for repositories returned from the connection
+    Affiliation options for repositories returned from the connection. If none
+    specified, the results will include repositories for which the current
+    viewer is an owner or collaborator, or member.
     """
-    affiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR, ORGANIZATION_MEMBER]
+    affiliations: [RepositoryAffiliation]
 
     """
     Returns the elements in the list that come after the specified cursor.
