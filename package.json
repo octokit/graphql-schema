@@ -27,7 +27,7 @@
     "execa": "^4.0.0",
     "graphql": "^14.1.1",
     "graphql-tag": "^2.10.1",
-    "prettier": "^1.19.1",
+    "prettier": "^2.0.0",
     "semantic-release": "^17.0.0"
   },
   "repository": {
