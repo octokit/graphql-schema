@@ -7,8 +7,8 @@
   "description": "GitHub’s GraphQL Schema with validation. Automatically updated.",
   "main": "index.js",
   "scripts": {
-    "lint": "prettier --check '{bin,lib,test}/**/*.{js}' README.md package.json",
-    "lint:fix": "prettier --write '{bin,lib,test}/**/*.{js}' README.md package.json",
+    "lint": "prettier --check '{bin,lib,test}/**/*.js' README.md package.json",
+    "lint:fix": "prettier --write '{bin,lib,test}/**/*.js' README.md package.json",
     "test": "node test",
     "posttest": "npm run -s lint",
     "update": "node bin/download.js"

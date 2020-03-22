@@ -1,2 +1,2 @@
-require('./smoke')
-require('./validate')
+require("./smoke");
+require("./validate");
