@@ -3175,6 +3175,16 @@
             "description": "Repository refs that are protected by this rule",
             "args": [
               {
+                "name": "query",
+                "description": "Filters refs with query on name",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
                 "name": "after",
                 "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
@@ -75007,6 +75017,16 @@
             "name": "refs",
             "description": "Fetch a list of refs from the repository",
             "args": [
+              {
+                "name": "query",
+                "description": "Filters refs with query on name",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
               {
                 "name": "after",
                 "description": "Returns the elements in the list that come after the specified cursor.",
