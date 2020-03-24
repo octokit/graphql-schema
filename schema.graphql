@@ -1081,6 +1081,11 @@ type BranchProtectionRule implements Node {
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Filters refs with query on name
+    """
+    query: String
   ): RefConnection!
 
   """
@@ -26914,6 +26919,11 @@ type Repository implements Node & ProjectOwner & RegistryPackageOwner & Registry
     Ordering options for refs returned from the connection.
     """
     orderBy: RefOrder
+
+    """
+    Filters refs with query on name
+    """
+    query: String
 
     """
     A ref name prefix like `refs/heads/`, `refs/tags/`, etc.
