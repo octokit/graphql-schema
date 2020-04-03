@@ -99182,26 +99182,6 @@
             "description": "Repositories the user has starred.",
             "args": [
               {
-                "name": "ownedByViewer",
-                "description": "Filters starred repositories to only return repositories owned by the viewer.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "orderBy",
-                "description": "Order for connection",
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "StarOrder",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
                 "name": "after",
                 "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
@@ -99237,6 +99217,26 @@
                 "type": {
                   "kind": "SCALAR",
                   "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "ownedByViewer",
+                "description": "Filters starred repositories to only return repositories owned by the viewer.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "orderBy",
+                "description": "Order for connection",
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "StarOrder",
                   "ofType": null
                 },
                 "defaultValue": null
