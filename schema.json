@@ -6091,6 +6091,18 @@
             "deprecationReason": null
           },
           {
+            "name": "onBehalfOf",
+            "description": "The organization this commit was made on behalf of.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "Organization",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "parents",
             "description": "The parents of a commit.",
             "args": [
