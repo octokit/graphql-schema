@@ -22,8 +22,8 @@ assert.strict.equal(
   undefined,
   "goodQuery validation returns no errors"
 );
-assert.strict.equal(
+assert.match(
   badQuery[0].message,
-  'Cannot query field "foo" on type "User".',
+  /Cannot query field "foo" on type "User"/,
   "badQuery validation returns GraphQLError error"
 );
