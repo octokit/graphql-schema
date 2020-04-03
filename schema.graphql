@@ -2190,6 +2190,11 @@ type Commit implements GitObject & Node & Subscribable & UniformResourceLocatabl
   oid: GitObjectID!
 
   """
+  The organization this commit was made on behalf of.
+  """
+  onBehalfOf: Organization
+
+  """
   The parents of a commit.
   """
   parents(
