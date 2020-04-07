@@ -30273,6 +30273,11 @@ type StarredRepositoryConnection {
   edges: [StarredRepositoryEdge]
 
   """
+  Is the list of stars for this user truncated? This is true for users that have many stars.
+  """
+  isOverLimit: Boolean!
+
+  """
   A list of nodes.
   """
   nodes: [Repository]
