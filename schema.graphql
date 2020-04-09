@@ -5095,7 +5095,7 @@ type Deployment implements Node {
   """
   Identifies the actor who triggered the deployment.
   """
-  creator: Actor
+  creator: Actor!
 
   """
   Identifies the primary key from the database.
@@ -5337,7 +5337,7 @@ type DeploymentStatus implements Node {
   """
   Identifies the actor who triggered the deployment.
   """
-  creator: Actor
+  creator: Actor!
 
   """
   Identifies the deployment associated with status.
