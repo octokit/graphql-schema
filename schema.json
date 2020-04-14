@@ -9508,6 +9508,120 @@
       },
       {
         "kind": "OBJECT",
+        "name": "ConvertToDraftEvent",
+        "description": "Represents a 'convert_to_draft' event on a given pull request.",
+        "fields": [
+          {
+            "name": "actor",
+            "description": "Identifies the actor who performed the event.",
+            "args": [],
+            "type": {
+              "kind": "INTERFACE",
+              "name": "Actor",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "createdAt",
+            "description": "Identifies the date and time when the object was created.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "id",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pullRequest",
+            "description": "PullRequest referenced by event.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "PullRequest",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "resourcePath",
+            "description": "The HTTP path for this convert to draft event.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "URI",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "url",
+            "description": "The HTTP URL for this convert to draft event.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "URI",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "Node",
+            "ofType": null
+          },
+          {
+            "kind": "INTERFACE",
+            "name": "UniformResourceLocatable",
+            "ofType": null
+          }
+        ],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
         "name": "ConvertedNoteToIssueEvent",
         "description": "Represents a 'converted_note_to_issue' event on a given issue or pull request.",
         "fields": [
@@ -37670,6 +37784,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "ConvertToDraftEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "ConvertedNoteToIssueEvent",
             "ofType": null
           },
@@ -59441,6 +59560,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "ConvertToDraftEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "ConvertedNoteToIssueEvent",
             "ofType": null
           },
@@ -59910,6 +60034,12 @@
           {
             "name": "READY_FOR_REVIEW_EVENT",
             "description": "Represents a 'ready_for_review' event on a given pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "CONVERT_TO_DRAFT_EVENT",
+            "description": "Represents a 'convert_to_draft' event on a given pull request.",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -92087,6 +92217,11 @@
           {
             "kind": "OBJECT",
             "name": "Commit",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "ConvertToDraftEvent",
             "ofType": null
           },
           {
