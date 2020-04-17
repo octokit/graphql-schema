@@ -44537,6 +44537,12 @@
             "description": "SAML SSO enforcement requires an external identity",
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "USER_ACCOUNT_DELETED",
+            "description": "User account has been deleted",
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "possibleTypes": null
