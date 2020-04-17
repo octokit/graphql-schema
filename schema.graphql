@@ -15613,6 +15613,11 @@ enum OrgRemoveMemberAuditEntryReason {
   The organization required 2FA of its billing managers and this user did not have 2FA enabled.
   """
   TWO_FACTOR_REQUIREMENT_NON_COMPLIANCE
+
+  """
+  User account has been deleted
+  """
+  USER_ACCOUNT_DELETED
 }
 
 """
