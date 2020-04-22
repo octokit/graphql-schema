@@ -26410,7 +26410,7 @@
               }
             },
             "isDeprecated": true,
-            "deprecationReason": "`timeline` will be removed Use Issue.timelineItems instead. Removal on 2019-10-01 UTC."
+            "deprecationReason": "`timeline` will be removed Use Issue.timelineItems instead. Removal on 2020-10-01 UTC."
           },
           {
             "name": "timelineItems",
@@ -55614,7 +55614,7 @@
               }
             },
             "isDeprecated": true,
-            "deprecationReason": "`timeline` will be removed Use PullRequest.timelineItems instead. Removal on 2019-10-01 UTC."
+            "deprecationReason": "`timeline` will be removed Use PullRequest.timelineItems instead. Removal on 2020-10-01 UTC."
           },
           {
             "name": "timelineItems",
