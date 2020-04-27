@@ -8305,16 +8305,6 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "field",
-            "description": "The field by which to order contributions.\n\n**Upcoming Change on 2019-10-01 UTC**\n**Description:** `field` will be removed. Only one order field is supported.\n**Reason:** `field` will be removed.\n",
-            "type": {
-              "kind": "ENUM",
-              "name": "ContributionOrderField",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
             "name": "direction",
             "description": "The ordering direction.",
             "type": {
@@ -8331,23 +8321,6 @@
         ],
         "interfaces": null,
         "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "ENUM",
-        "name": "ContributionOrderField",
-        "description": "Properties by which contribution connections can be ordered.",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": [
-          {
-            "name": "OCCURRED_AT",
-            "description": "Order contributions by when they were made.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
         "possibleTypes": null
       },
       {
@@ -31045,22 +31018,6 @@
             "deprecationReason": null
           },
           {
-            "name": "hasApprovalBeenRequested",
-            "description": "Whether this listing has been submitted for review from GitHub for approval to be displayed in the Marketplace.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Boolean",
-                "ofType": null
-              }
-            },
-            "isDeprecated": true,
-            "deprecationReason": "`hasApprovalBeenRequested` will be removed. Use `isVerificationPendingFromDraft` instead. Removal on 2019-10-01 UTC."
-          },
-          {
             "name": "hasPublishedFreeTrialPlans",
             "description": "Does this listing have any plans with a free trial?",
             "args": [],
@@ -31165,22 +31122,6 @@
             "deprecationReason": null
           },
           {
-            "name": "isApproved",
-            "description": "Whether this listing has been approved for display in the Marketplace.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Boolean",
-                "ofType": null
-              }
-            },
-            "isDeprecated": true,
-            "deprecationReason": "`isApproved` will be removed. Use `isPublic` instead. Removal on 2019-10-01 UTC."
-          },
-          {
             "name": "isArchived",
             "description": "Whether this listing has been removed from the Marketplace.",
             "args": [],
@@ -31195,22 +31136,6 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
-          },
-          {
-            "name": "isDelisted",
-            "description": "Whether this listing has been removed from the Marketplace.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Boolean",
-                "ofType": null
-              }
-            },
-            "isDeprecated": true,
-            "deprecationReason": "`isDelisted` will be removed. Use `isArchived` instead. Removal on 2019-10-01 UTC."
           },
           {
             "name": "isDraft",
@@ -47620,121 +47545,6 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
-          },
-          {
-            "name": "pinnedRepositories",
-            "description": "A list of repositories this user has pinned to their profile",
-            "args": [
-              {
-                "name": "privacy",
-                "description": "If non-null, filters repositories according to privacy",
-                "type": {
-                  "kind": "ENUM",
-                  "name": "RepositoryPrivacy",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "orderBy",
-                "description": "Ordering options for repositories returned from the connection",
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "RepositoryOrder",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "affiliations",
-                "description": "Array of viewer's affiliation options for repositories returned from the connection. For example, OWNER will include only repositories that the current viewer owns.",
-                "type": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "ENUM",
-                    "name": "RepositoryAffiliation",
-                    "ofType": null
-                  }
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "ownerAffiliations",
-                "description": "Array of owner's affiliation options for repositories returned from the connection. For example, OWNER will include only repositories that the organization or user being viewed owns.",
-                "type": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "ENUM",
-                    "name": "RepositoryAffiliation",
-                    "ofType": null
-                  }
-                },
-                "defaultValue": "[OWNER, COLLABORATOR]"
-              },
-              {
-                "name": "isLocked",
-                "description": "If non-null, filters repositories according to whether they have been locked",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "after",
-                "description": "Returns the elements in the list that come after the specified cursor.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "before",
-                "description": "Returns the elements in the list that come before the specified cursor.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "first",
-                "description": "Returns the first _n_ elements from the list.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "last",
-                "description": "Returns the last _n_ elements from the list.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                },
-                "defaultValue": null
-              }
-            ],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "RepositoryConnection",
-                "ofType": null
-              }
-            },
-            "isDeprecated": true,
-            "deprecationReason": "pinnedRepositories will be removed Use ProfileOwner.pinnedItems instead. Removal on 2019-10-01 UTC."
           },
           {
             "name": "project",
@@ -78171,121 +77981,6 @@
             "deprecationReason": null
           },
           {
-            "name": "pinnedRepositories",
-            "description": "A list of repositories this user has pinned to their profile",
-            "args": [
-              {
-                "name": "privacy",
-                "description": "If non-null, filters repositories according to privacy",
-                "type": {
-                  "kind": "ENUM",
-                  "name": "RepositoryPrivacy",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "orderBy",
-                "description": "Ordering options for repositories returned from the connection",
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "RepositoryOrder",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "affiliations",
-                "description": "Array of viewer's affiliation options for repositories returned from the connection. For example, OWNER will include only repositories that the current viewer owns.",
-                "type": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "ENUM",
-                    "name": "RepositoryAffiliation",
-                    "ofType": null
-                  }
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "ownerAffiliations",
-                "description": "Array of owner's affiliation options for repositories returned from the connection. For example, OWNER will include only repositories that the organization or user being viewed owns.",
-                "type": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "ENUM",
-                    "name": "RepositoryAffiliation",
-                    "ofType": null
-                  }
-                },
-                "defaultValue": "[OWNER, COLLABORATOR]"
-              },
-              {
-                "name": "isLocked",
-                "description": "If non-null, filters repositories according to whether they have been locked",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "after",
-                "description": "Returns the elements in the list that come after the specified cursor.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "before",
-                "description": "Returns the elements in the list that come before the specified cursor.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "first",
-                "description": "Returns the first _n_ elements from the list.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "last",
-                "description": "Returns the last _n_ elements from the list.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                },
-                "defaultValue": null
-              }
-            ],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "RepositoryConnection",
-                "ofType": null
-              }
-            },
-            "isDeprecated": true,
-            "deprecationReason": "pinnedRepositories will be removed Use ProfileOwner.pinnedItems instead. Removal on 2019-10-01 UTC."
-          },
-          {
             "name": "repositories",
             "description": "A list of repositories that the user owns.",
             "args": [
@@ -79377,22 +79072,6 @@
         "description": "A alert for a repository with an affected vulnerability.",
         "fields": [
           {
-            "name": "affectedRange",
-            "description": "The affected version",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "isDeprecated": true,
-            "deprecationReason": "advisory specific fields are being removed from repositoryVulnerabilityAlert objects Use `securityVulnerability.vulnerableVersionRange` instead. Removal on 2019-10-01 UTC."
-          },
-          {
             "name": "createdAt",
             "description": "When was the alert created?",
             "args": [],
@@ -79445,46 +79124,6 @@
             "deprecationReason": null
           },
           {
-            "name": "externalIdentifier",
-            "description": "The external identifier for the vulnerability",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "advisory specific fields are being removed from repositoryVulnerabilityAlert objects Use `securityAdvisory.identifiers` instead. Removal on 2019-10-01 UTC."
-          },
-          {
-            "name": "externalReference",
-            "description": "The external reference for the vulnerability",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "isDeprecated": true,
-            "deprecationReason": "advisory specific fields are being removed from repositoryVulnerabilityAlert objects Use `securityAdvisory.references` instead. Removal on 2019-10-01 UTC."
-          },
-          {
-            "name": "fixedIn",
-            "description": "The fixed version",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "advisory specific fields are being removed from repositoryVulnerabilityAlert objects Use `securityVulnerability.firstPatchedVersion` instead. Removal on 2019-10-01 UTC."
-          },
-          {
             "name": "id",
             "description": null,
             "args": [],
@@ -79499,22 +79138,6 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
-          },
-          {
-            "name": "packageName",
-            "description": "The affected package",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "isDeprecated": true,
-            "deprecationReason": "advisory specific fields are being removed from repositoryVulnerabilityAlert objects Use `securityVulnerability.package` instead. Removal on 2019-10-01 UTC."
           },
           {
             "name": "repository",
@@ -98208,121 +97831,6 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
-          },
-          {
-            "name": "pinnedRepositories",
-            "description": "A list of repositories this user has pinned to their profile",
-            "args": [
-              {
-                "name": "privacy",
-                "description": "If non-null, filters repositories according to privacy",
-                "type": {
-                  "kind": "ENUM",
-                  "name": "RepositoryPrivacy",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "orderBy",
-                "description": "Ordering options for repositories returned from the connection",
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "RepositoryOrder",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "affiliations",
-                "description": "Array of viewer's affiliation options for repositories returned from the connection. For example, OWNER will include only repositories that the current viewer owns.",
-                "type": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "ENUM",
-                    "name": "RepositoryAffiliation",
-                    "ofType": null
-                  }
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "ownerAffiliations",
-                "description": "Array of owner's affiliation options for repositories returned from the connection. For example, OWNER will include only repositories that the organization or user being viewed owns.",
-                "type": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "ENUM",
-                    "name": "RepositoryAffiliation",
-                    "ofType": null
-                  }
-                },
-                "defaultValue": "[OWNER, COLLABORATOR]"
-              },
-              {
-                "name": "isLocked",
-                "description": "If non-null, filters repositories according to whether they have been locked",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "after",
-                "description": "Returns the elements in the list that come after the specified cursor.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "before",
-                "description": "Returns the elements in the list that come before the specified cursor.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "first",
-                "description": "Returns the first _n_ elements from the list.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "last",
-                "description": "Returns the last _n_ elements from the list.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                },
-                "defaultValue": null
-              }
-            ],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "RepositoryConnection",
-                "ofType": null
-              }
-            },
-            "isDeprecated": true,
-            "deprecationReason": "pinnedRepositories will be removed Use ProfileOwner.pinnedItems instead. Removal on 2019-10-01 UTC."
           },
           {
             "name": "project",
