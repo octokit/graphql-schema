@@ -1550,6 +1550,12 @@ input CloneTemplateRepositoryInput {
   description: String
 
   """
+  Whether to copy all branches from the template to the new repository. Defaults
+  to copying only the default branch of the template.
+  """
+  includeAllBranches: Boolean = false
+
+  """
   The name of the new repository.
   """
   name: String!
