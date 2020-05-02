@@ -82448,6 +82448,27 @@
         "possibleTypes": null
       },
       {
+        "kind": "UNION",
+        "name": "Sponsor",
+        "description": "Entites that can sponsor others via GitHub Sponsors",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": [
+          {
+            "kind": "OBJECT",
+            "name": "Organization",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "User",
+            "ofType": null
+          }
+        ]
+      },
+      {
         "kind": "INTERFACE",
         "name": "Sponsorable",
         "description": "Entities that can be sponsored through GitHub Sponsors",
@@ -83325,11 +83346,23 @@
           },
           {
             "name": "sponsor",
-            "description": "The entity that is sponsoring. Returns null if the sponsorship is private",
+            "description": "The user that is sponsoring. Returns null if the sponsorship is private or if sponsor is not a user.",
             "args": [],
             "type": {
               "kind": "OBJECT",
               "name": "User",
+              "ofType": null
+            },
+            "isDeprecated": true,
+            "deprecationReason": "`Sponsorship.sponsor` will be removed. Use `Sponsorship.sponsorEntity` instead. Removal on 2020-10-01 UTC."
+          },
+          {
+            "name": "sponsorEntity",
+            "description": "The user or organization that is sponsoring. Returns null if the sponsorship is private.",
+            "args": [],
+            "type": {
+              "kind": "UNION",
+              "name": "Sponsor",
               "ofType": null
             },
             "isDeprecated": false,
