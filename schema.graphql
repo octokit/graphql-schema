@@ -29615,6 +29615,11 @@ type SmimeSignature implements GitSignature {
 }
 
 """
+Entites that can sponsor others via GitHub Sponsors
+"""
+union Sponsor = Organization | User
+
+"""
 Entities that can be sponsored through GitHub Sponsors
 """
 interface Sponsorable {
@@ -29940,9 +29945,14 @@ type Sponsorship implements Node {
   privacyLevel: SponsorshipPrivacy!
 
   """
-  The entity that is sponsoring. Returns null if the sponsorship is private
+  The user that is sponsoring. Returns null if the sponsorship is private or if sponsor is not a user.
   """
-  sponsor: User
+  sponsor: User @deprecated(reason: "`Sponsorship.sponsor` will be removed. Use `Sponsorship.sponsorEntity` instead. Removal on 2020-10-01 UTC.")
+
+  """
+  The user or organization that is sponsoring. Returns null if the sponsorship is private.
+  """
+  sponsorEntity: Sponsor
 
   """
   The entity that is being sponsored
