@@ -97653,6 +97653,45 @@
             "deprecationReason": null
           },
           {
+            "name": "organizationVerifiedDomainEmails",
+            "description": "Verified email addresses that match verified domains for a specified organization the user is a member of.",
+            "args": [
+              {
+                "name": "login",
+                "description": "The login of the organization to match verified domains from.",
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "organizations",
             "description": "A list of organizations the user belongs to.",
             "args": [
