@@ -10,6 +10,8 @@ type Schema = {
 };
 
 declare module "@octokit/graphql-schema" {
-  function validate(query: any): ReadonlyArray<GraphQLError>;
+  function validate(
+    query: ReadonlyArray<string> | Readonly<string>
+  ): ReadonlyArray<GraphQLError>;
   var schema: Schema;
 }
