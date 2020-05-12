@@ -37,5 +37,6 @@
   "bugs": {
     "url": "https://github.com/octokit/graphql-schema/issues"
   },
-  "homepage": "https://github.com/octokit/graphql-schema#readme"
+  "homepage": "https://github.com/octokit/graphql-schema#readme",
+  "types": "index.d.ts"
 }
