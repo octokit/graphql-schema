@@ -8629,7 +8629,7 @@
                   "name": "ContributionOrder",
                   "ofType": null
                 },
-                "defaultValue": "{field: OCCURRED_AT, direction: DESC}"
+                "defaultValue": "{direction: DESC}"
               }
             ],
             "type": {
@@ -8843,7 +8843,7 @@
                   "name": "ContributionOrder",
                   "ofType": null
                 },
-                "defaultValue": "{field: OCCURRED_AT, direction: DESC}"
+                "defaultValue": "{direction: DESC}"
               }
             ],
             "type": {
@@ -8965,7 +8965,7 @@
                   "name": "ContributionOrder",
                   "ofType": null
                 },
-                "defaultValue": "{field: OCCURRED_AT, direction: DESC}"
+                "defaultValue": "{direction: DESC}"
               }
             ],
             "type": {
@@ -9077,7 +9077,7 @@
                   "name": "ContributionOrder",
                   "ofType": null
                 },
-                "defaultValue": "{field: OCCURRED_AT, direction: DESC}"
+                "defaultValue": "{direction: DESC}"
               }
             ],
             "type": {
@@ -27618,7 +27618,7 @@
                   "name": "ContributionOrder",
                   "ofType": null
                 },
-                "defaultValue": "{field: OCCURRED_AT, direction: DESC}"
+                "defaultValue": "{direction: DESC}"
               }
             ],
             "type": {
@@ -56503,7 +56503,7 @@
                   "name": "ContributionOrder",
                   "ofType": null
                 },
-                "defaultValue": "{field: OCCURRED_AT, direction: DESC}"
+                "defaultValue": "{direction: DESC}"
               }
             ],
             "type": {
@@ -58404,7 +58404,7 @@
                   "name": "ContributionOrder",
                   "ofType": null
                 },
-                "defaultValue": "{field: OCCURRED_AT, direction: DESC}"
+                "defaultValue": "{direction: DESC}"
               }
             ],
             "type": {

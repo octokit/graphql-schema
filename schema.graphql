@@ -3072,7 +3072,7 @@ type ContributionsCollection {
     """
     Ordering options for contributions returned from the connection.
     """
-    orderBy: ContributionOrder = {field: OCCURRED_AT, direction: DESC}
+    orderBy: ContributionOrder = {direction: DESC}
   ): CreatedIssueContributionConnection!
 
   """
@@ -3168,7 +3168,7 @@ type ContributionsCollection {
     """
     Ordering options for contributions returned from the connection.
     """
-    orderBy: ContributionOrder = {field: OCCURRED_AT, direction: DESC}
+    orderBy: ContributionOrder = {direction: DESC}
   ): CreatedPullRequestContributionConnection!
 
   """
@@ -3218,7 +3218,7 @@ type ContributionsCollection {
     """
     Ordering options for contributions returned from the connection.
     """
-    orderBy: ContributionOrder = {field: OCCURRED_AT, direction: DESC}
+    orderBy: ContributionOrder = {direction: DESC}
   ): CreatedPullRequestReviewContributionConnection!
 
   """
@@ -3263,7 +3263,7 @@ type ContributionsCollection {
     """
     Ordering options for contributions returned from the connection.
     """
-    orderBy: ContributionOrder = {field: OCCURRED_AT, direction: DESC}
+    orderBy: ContributionOrder = {direction: DESC}
   ): CreatedRepositoryContributionConnection!
 
   """
@@ -10295,7 +10295,7 @@ type IssueContributionsByRepository {
     """
     Ordering options for contributions returned from the connection.
     """
-    orderBy: ContributionOrder = {field: OCCURRED_AT, direction: DESC}
+    orderBy: ContributionOrder = {direction: DESC}
   ): CreatedIssueContributionConnection!
 
   """
@@ -19930,7 +19930,7 @@ type PullRequestContributionsByRepository {
     """
     Ordering options for contributions returned from the connection.
     """
-    orderBy: ContributionOrder = {field: OCCURRED_AT, direction: DESC}
+    orderBy: ContributionOrder = {direction: DESC}
   ): CreatedPullRequestContributionConnection!
 
   """
@@ -20612,7 +20612,7 @@ type PullRequestReviewContributionsByRepository {
     """
     Ordering options for contributions returned from the connection.
     """
-    orderBy: ContributionOrder = {field: OCCURRED_AT, direction: DESC}
+    orderBy: ContributionOrder = {direction: DESC}
   ): CreatedPullRequestReviewContributionConnection!
 
   """
