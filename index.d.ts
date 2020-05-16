@@ -9,9 +9,14 @@ type Schema = {
   json: JsonSchema;
 };
 
-declare module "@octokit/graphql-schema" {
-  function validate(
-    query: ReadonlyArray<string> | Readonly<string>
-  ): ReadonlyArray<GraphQLError>;
-  var schema: Schema;
+type Validate = (query: ReadonlyArray<string> | Readonly<string>) => ReadonlyArray<GraphQLError>;
+
+declare namespace GraphqlSchema {
+  const validate: Validate;
+  const schema: Schema;
 }
+
+export const schema: Schema
+export const validate: Validate
+
+export default GraphqlSchema
