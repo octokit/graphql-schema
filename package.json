@@ -10,6 +10,7 @@
     "lint": "prettier --check '{bin,lib,test}/**/*.js' README.md package.json",
     "lint:fix": "prettier --write '{bin,lib,test}/**/*.js' README.md package.json",
     "test": "node test",
+    "validate:ts": "tsc --noEmit --noImplicitAny test/typescript-validate.ts",
     "posttest": "npm run -s lint",
     "update": "node bin/download.js"
   },
