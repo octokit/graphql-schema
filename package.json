@@ -28,7 +28,8 @@
     "graphql": "^15.0.0",
     "graphql-tag": "^2.10.3",
     "prettier": "^2.0.1",
-    "semantic-release": "^17.0.0"
+    "semantic-release": "^17.0.0",
+    "typescript": "^3.9.2"
   },
   "repository": {
     "type": "git",
