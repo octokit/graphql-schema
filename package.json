@@ -10,6 +10,7 @@
     "lint": "prettier --check '{bin,lib,test}/**/*.js' README.md package.json",
     "lint:fix": "prettier --write '{bin,lib,test}/**/*.js' README.md package.json",
     "test": "node test",
+    "validate:ts": "tsc --noEmit --noImplicitAny test/typescript-validate.ts",
     "posttest": "npm run -s lint",
     "update": "node bin/download.js"
   },
@@ -26,9 +27,10 @@
     "dotenv": "^8.0.0",
     "execa": "^4.0.0",
     "graphql": "^15.0.0",
-    "graphql-tag": "^2.10.1",
+    "graphql-tag": "^2.10.3",
     "prettier": "^2.0.1",
-    "semantic-release": "^17.0.0"
+    "semantic-release": "^17.0.0",
+    "typescript": "^3.9.2"
   },
   "repository": {
     "type": "git",
@@ -37,5 +39,6 @@
   "bugs": {
     "url": "https://github.com/octokit/graphql-schema/issues"
   },
-  "homepage": "https://github.com/octokit/graphql-schema#readme"
+  "homepage": "https://github.com/octokit/graphql-schema#readme",
+  "types": "index.d.ts"
 }
