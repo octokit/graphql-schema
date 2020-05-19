@@ -2548,6 +2548,224 @@
       },
       {
         "kind": "OBJECT",
+        "name": "AutomaticBaseChangeFailedEvent",
+        "description": "Represents a 'automatic_base_change_failed' event on a given pull request.",
+        "fields": [
+          {
+            "name": "actor",
+            "description": "Identifies the actor who performed the event.",
+            "args": [],
+            "type": {
+              "kind": "INTERFACE",
+              "name": "Actor",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "createdAt",
+            "description": "Identifies the date and time when the object was created.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "id",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "newBase",
+            "description": "The new base for this PR",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "oldBase",
+            "description": "The old base for this PR",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pullRequest",
+            "description": "PullRequest referenced by event.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "PullRequest",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "Node",
+            "ofType": null
+          }
+        ],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "AutomaticBaseChangeSucceededEvent",
+        "description": "Represents a 'automatic_base_change_succeeded' event on a given pull request.",
+        "fields": [
+          {
+            "name": "actor",
+            "description": "Identifies the actor who performed the event.",
+            "args": [],
+            "type": {
+              "kind": "INTERFACE",
+              "name": "Actor",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "createdAt",
+            "description": "Identifies the date and time when the object was created.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "id",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "newBase",
+            "description": "The new base for this PR",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "oldBase",
+            "description": "The old base for this PR",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pullRequest",
+            "description": "PullRequest referenced by event.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "PullRequest",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "Node",
+            "ofType": null
+          }
+        ],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
         "name": "BaseRefChangedEvent",
         "description": "Represents a 'base_ref_changed' event on a given issue or pull request.",
         "fields": [
@@ -37736,6 +37954,16 @@
           },
           {
             "kind": "OBJECT",
+            "name": "AutomaticBaseChangeFailedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "AutomaticBaseChangeSucceededEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "BaseRefChangedEvent",
             "ofType": null
           },
@@ -59438,6 +59666,16 @@
           },
           {
             "kind": "OBJECT",
+            "name": "AutomaticBaseChangeFailedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "AutomaticBaseChangeSucceededEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "BaseRefChangedEvent",
             "ofType": null
           },
@@ -59865,6 +60103,18 @@
           {
             "name": "PULL_REQUEST_REVISION_MARKER",
             "description": "Represents the latest point in the pull request timeline for which the viewer has seen the pull request's commits.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "AUTOMATIC_BASE_CHANGE_FAILED_EVENT",
+            "description": "Represents a 'automatic_base_change_failed' event on a given pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "AUTOMATIC_BASE_CHANGE_SUCCEEDED_EVENT",
+            "description": "Represents a 'automatic_base_change_succeeded' event on a given pull request.",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -90734,7 +90984,7 @@
           },
           {
             "name": "permission",
-            "description": "The permission level the team has on the repository",
+            "description": "The permission level the team has on the repository\n\n**Upcoming Change on 2020-10-01 UTC**\n**Description:** Type for `permission` will change from `RepositoryPermission!` to `String`.\n**Reason:** This field may return additional values\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
