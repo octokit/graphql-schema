@@ -77263,7 +77263,7 @@
           },
           {
             "name": "permission",
-            "description": "The permission the user has on the repository.",
+            "description": "The permission the user has on the repository.\n\n**Upcoming Change on 2020-10-01 UTC**\n**Description:** Type for `permission` will change from `RepositoryPermission!` to `String`.\n**Reason:** This field may return additional values\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
