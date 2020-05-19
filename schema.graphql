@@ -882,6 +882,68 @@ enum AuditLogOrderField {
 }
 
 """
+Represents a 'automatic_base_change_failed' event on a given pull request.
+"""
+type AutomaticBaseChangeFailedEvent implements Node {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+  id: ID!
+
+  """
+  The new base for this PR
+  """
+  newBase: String!
+
+  """
+  The old base for this PR
+  """
+  oldBase: String!
+
+  """
+  PullRequest referenced by event.
+  """
+  pullRequest: PullRequest!
+}
+
+"""
+Represents a 'automatic_base_change_succeeded' event on a given pull request.
+"""
+type AutomaticBaseChangeSucceededEvent implements Node {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+  id: ID!
+
+  """
+  The new base for this PR
+  """
+  newBase: String!
+
+  """
+  The old base for this PR
+  """
+  oldBase: String!
+
+  """
+  PullRequest referenced by event.
+  """
+  pullRequest: PullRequest!
+}
+
+"""
 Represents a 'base_ref_changed' event on a given issue or pull request.
 """
 type BaseRefChangedEvent implements Node {
@@ -20970,7 +21032,7 @@ type PullRequestTimelineItemEdge {
 """
 An item in a pull request timeline
 """
-union PullRequestTimelineItems = AddedToProjectEvent | AssignedEvent | BaseRefChangedEvent | BaseRefForcePushedEvent | ClosedEvent | CommentDeletedEvent | ConnectedEvent | ConvertToDraftEvent | ConvertedNoteToIssueEvent | CrossReferencedEvent | DemilestonedEvent | DeployedEvent | DeploymentEnvironmentChangedEvent | DisconnectedEvent | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IssueComment | LabeledEvent | LockedEvent | MarkedAsDuplicateEvent | MentionedEvent | MergedEvent | MilestonedEvent | MovedColumnsInProjectEvent | PinnedEvent | PullRequestCommit | PullRequestCommitCommentThread | PullRequestReview | PullRequestReviewThread | PullRequestRevisionMarker | ReadyForReviewEvent | ReferencedEvent | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | ReviewDismissedEvent | ReviewRequestRemovedEvent | ReviewRequestedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | UserBlockedEvent
+union PullRequestTimelineItems = AddedToProjectEvent | AssignedEvent | AutomaticBaseChangeFailedEvent | AutomaticBaseChangeSucceededEvent | BaseRefChangedEvent | BaseRefForcePushedEvent | ClosedEvent | CommentDeletedEvent | ConnectedEvent | ConvertToDraftEvent | ConvertedNoteToIssueEvent | CrossReferencedEvent | DemilestonedEvent | DeployedEvent | DeploymentEnvironmentChangedEvent | DisconnectedEvent | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IssueComment | LabeledEvent | LockedEvent | MarkedAsDuplicateEvent | MentionedEvent | MergedEvent | MilestonedEvent | MovedColumnsInProjectEvent | PinnedEvent | PullRequestCommit | PullRequestCommitCommentThread | PullRequestReview | PullRequestReviewThread | PullRequestRevisionMarker | ReadyForReviewEvent | ReferencedEvent | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | ReviewDismissedEvent | ReviewRequestRemovedEvent | ReviewRequestedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | UserBlockedEvent
 
 """
 The connection type for PullRequestTimelineItems.
@@ -21040,6 +21102,16 @@ enum PullRequestTimelineItemsItemType {
   Represents an 'assigned' event on any assignable object.
   """
   ASSIGNED_EVENT
+
+  """
+  Represents a 'automatic_base_change_failed' event on a given pull request.
+  """
+  AUTOMATIC_BASE_CHANGE_FAILED_EVENT
+
+  """
+  Represents a 'automatic_base_change_succeeded' event on a given pull request.
+  """
+  AUTOMATIC_BASE_CHANGE_SUCCEEDED_EVENT
 
   """
   Represents a 'base_ref_changed' event on a given issue or pull request.
@@ -32606,6 +32678,10 @@ type TeamRepositoryEdge {
 
   """
   The permission level the team has on the repository
+
+  **Upcoming Change on 2020-10-01 UTC**
+  **Description:** Type for `permission` will change from `RepositoryPermission!` to `String`.
+  **Reason:** This field may return additional values
   """
   permission: RepositoryPermission!
 }
