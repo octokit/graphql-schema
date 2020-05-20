@@ -3,7 +3,6 @@
 > GitHub’s GraphQL Schema with validation. Automatically updated.
 
 ![Test](https://github.com/octokit/graphql-schema/workflows/Test/badge.svg)
-[![Greenkeeper badge](https://badges.greenkeeper.io/octokit/graphql-schema.svg)](https://greenkeeper.io/)
 
 ## Usage
 
