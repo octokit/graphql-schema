@@ -47399,6 +47399,89 @@
             "deprecationReason": null
           },
           {
+            "name": "ipAllowListEnabledSetting",
+            "description": "The setting value for whether the organization has an IP allow list enabled.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "IpAllowListEnabledSettingValue",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "ipAllowListEntries",
+            "description": "The IP addresses that are allowed to access resources owned by the organization.",
+            "args": [
+              {
+                "name": "after",
+                "description": "Returns the elements in the list that come after the specified cursor.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "before",
+                "description": "Returns the elements in the list that come before the specified cursor.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "first",
+                "description": "Returns the first _n_ elements from the list.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "last",
+                "description": "Returns the last _n_ elements from the list.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "orderBy",
+                "description": "Ordering options for IP allow list entries returned.",
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "IpAllowListEntryOrder",
+                  "ofType": null
+                },
+                "defaultValue": "{field: ALLOW_LIST_VALUE, direction: ASC}"
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "IpAllowListEntryConnection",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "isVerified",
             "description": "Whether the organization has verified its profile email and website.",
             "args": [],
