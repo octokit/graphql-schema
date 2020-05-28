@@ -3147,7 +3147,7 @@
           },
           {
             "name": "isBinary",
-            "description": "Indicates whether the Blob is binary or text",
+            "description": "Indicates whether the Blob is binary or text\n\n**Upcoming Change on 2019-07-01 UTC**\n**Description:** Type for `isBinary` will change from `Boolean!` to `Boolean`.\n**Reason:** The `isBinary` field may return `null` when it cannot determine if a Blob is binary.\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -63054,7 +63054,7 @@
           },
           {
             "name": "target",
-            "description": "The object the ref points to.",
+            "description": "The object the ref points to.\n\n**Upcoming Change on 2019-07-01 UTC**\n**Description:** Type for `target` will change from `GitObject!` to `GitObject`.\n**Reason:** The `target` field may return `null` values and is changing to nullable\n",
             "args": [],
             "type": {
               "kind": "NON_NULL",
