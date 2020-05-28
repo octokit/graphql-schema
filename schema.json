@@ -48839,6 +48839,18 @@
             "deprecationReason": null
           },
           {
+            "name": "twitterUsername",
+            "description": "The organization's Twitter username.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "updatedAt",
             "description": "Identifies the date and time when the object was last updated.",
             "args": [],
@@ -99642,6 +99654,18 @@
                 "name": "RepositoryConnection",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "twitterUsername",
+            "description": "The user's Twitter username.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null

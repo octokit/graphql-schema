@@ -17293,6 +17293,11 @@ type Organization implements Actor & MemberStatusable & Node & ProfileOwner & Pr
   teamsUrl: URI!
 
   """
+  The organization's Twitter username.
+  """
+  twitterUsername: String
+
+  """
   Identifies the date and time when the object was last updated.
   """
   updatedAt: DateTime!
@@ -36098,6 +36103,11 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RegistryPackag
     """
     since: DateTime
   ): RepositoryConnection!
+
+  """
+  The user's Twitter username.
+  """
+  twitterUsername: String
 
   """
   Identifies the date and time when the object was last updated.
