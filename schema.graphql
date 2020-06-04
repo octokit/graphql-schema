@@ -15683,6 +15683,11 @@ enum OrgRemoveMemberAuditEntryReason {
   SAML_SSO_ENFORCEMENT_REQUIRES_EXTERNAL_IDENTITY
 
   """
+  User was removed from organization during account recovery
+  """
+  TWO_FACTOR_ACCOUNT_RECOVERY
+
+  """
   The organization required 2FA of its billing managers and this user did not have 2FA enabled.
   """
   TWO_FACTOR_REQUIREMENT_NON_COMPLIANCE
