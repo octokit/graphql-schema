@@ -44783,6 +44783,12 @@
             "description": "User account has been deleted",
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "TWO_FACTOR_ACCOUNT_RECOVERY",
+            "description": "User was removed from organization during account recovery",
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "possibleTypes": null
