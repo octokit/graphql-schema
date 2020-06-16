@@ -30943,6 +30943,11 @@ type Team implements MemberStatusable & Node & Subscribable {
   createdAt: DateTime!
 
   """
+  Identifies the primary key from the database.
+  """
+  databaseId: Int
+
+  """
   The description of the team.
   """
   description: String
