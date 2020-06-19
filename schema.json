@@ -47816,6 +47816,16 @@
                 "defaultValue": null
               },
               {
+                "name": "packageType",
+                "description": "Filter registry package by type.",
+                "type": {
+                  "kind": "ENUM",
+                  "name": "PackageType",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
                 "name": "orderBy",
                 "description": "Ordering of the returned packages.",
                 "type": {
@@ -51585,6 +51595,16 @@
                 "type": {
                   "kind": "SCALAR",
                   "name": "ID",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "packageType",
+                "description": "Filter registry package by type.",
+                "type": {
+                  "kind": "ENUM",
+                  "name": "PackageType",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -76583,6 +76603,16 @@
                 "defaultValue": null
               },
               {
+                "name": "packageType",
+                "description": "Filter registry package by type.",
+                "type": {
+                  "kind": "ENUM",
+                  "name": "PackageType",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
                 "name": "orderBy",
                 "description": "Ordering of the returned packages.",
                 "type": {
@@ -99096,6 +99126,16 @@
                 "type": {
                   "kind": "SCALAR",
                   "name": "ID",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "packageType",
+                "description": "Filter registry package by type.",
+                "type": {
+                  "kind": "ENUM",
+                  "name": "PackageType",
                   "ofType": null
                 },
                 "defaultValue": null
