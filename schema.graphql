@@ -16859,6 +16859,11 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
     orderBy: PackageOrder = {field: CREATED_AT, direction: DESC}
 
     """
+    Filter registry package by type.
+    """
+    packageType: PackageType
+
+    """
     Find packages in a repository by ID.
     """
     repositoryId: ID
@@ -18097,6 +18102,11 @@ interface PackageOwner {
     Ordering of the returned packages.
     """
     orderBy: PackageOrder = {field: CREATED_AT, direction: DESC}
+
+    """
+    Filter registry package by type.
+    """
+    packageType: PackageType
 
     """
     Find packages in a repository by ID.
@@ -27464,6 +27474,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
     orderBy: PackageOrder = {field: CREATED_AT, direction: DESC}
 
     """
+    Filter registry package by type.
+    """
+    packageType: PackageType
+
+    """
     Find packages in a repository by ID.
     """
     repositoryId: ID
@@ -35833,6 +35848,11 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
     Ordering of the returned packages.
     """
     orderBy: PackageOrder = {field: CREATED_AT, direction: DESC}
+
+    """
+    Filter registry package by type.
+    """
+    packageType: PackageType
 
     """
     Find packages in a repository by ID.
