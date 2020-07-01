@@ -3147,16 +3147,12 @@
           },
           {
             "name": "isBinary",
-            "description": "Indicates whether the Blob is binary or text\n\n**Upcoming Change on 2019-07-01 UTC**\n**Description:** Type for `isBinary` will change from `Boolean!` to `Boolean`.\n**Reason:** The `isBinary` field may return `null` when it cannot determine if a Blob is binary.\n",
+            "description": "Indicates whether the Blob is binary or text. Returns null if unable to determine the encoding.",
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Boolean",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
