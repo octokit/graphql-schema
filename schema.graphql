@@ -22816,13 +22816,9 @@ type Ref implements Node {
   repository: Repository!
 
   """
-  The object the ref points to.
-
-  **Upcoming Change on 2019-07-01 UTC**
-  **Description:** Type for `target` will change from `GitObject!` to `GitObject`.
-  **Reason:** The `target` field may return `null` values and is changing to nullable
+  The object the ref points to. Returns null when object does not exist.
   """
-  target: GitObject!
+  target: GitObject
 }
 
 """
