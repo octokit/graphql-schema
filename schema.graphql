@@ -7548,7 +7548,7 @@ type EnterprisePendingMemberInvitationEdge {
   """
   Whether the invitation has a license for the enterprise.
   """
-  isUnlicensed: Boolean!
+  isUnlicensed: Boolean! @deprecated(reason: "All pending members consume a license Removal on 2020-07-01 UTC.")
 
   """
   The item at the end of the edge.
