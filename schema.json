@@ -20143,8 +20143,8 @@
                 "ofType": null
               }
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "All pending members consume a license Removal on 2020-07-01 UTC."
           },
           {
             "name": "node",
