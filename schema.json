@@ -17110,8 +17110,8 @@
                 "ofType": null
               }
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "All members consume a license Removal on 2021-01-01 UTC."
           },
           {
             "name": "node",
@@ -17496,8 +17496,8 @@
                 "ofType": null
               }
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "All outside collaborators consume a license Removal on 2021-01-01 UTC."
           },
           {
             "name": "node",
@@ -19930,8 +19930,8 @@
                 "ofType": null
               }
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "All pending collaborators consume a license Removal on 2021-01-01 UTC."
           },
           {
             "name": "node",
