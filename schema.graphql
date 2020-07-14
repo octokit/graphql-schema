@@ -6277,7 +6277,7 @@ type EnterpriseMemberEdge {
   """
   Whether the user does not have a license for the enterprise.
   """
-  isUnlicensed: Boolean!
+  isUnlicensed: Boolean! @deprecated(reason: "All members consume a license Removal on 2021-01-01 UTC.")
 
   """
   The item at the end of the edge.
@@ -6442,7 +6442,7 @@ type EnterpriseOutsideCollaboratorEdge {
   """
   Whether the outside collaborator does not have a license for the enterprise.
   """
-  isUnlicensed: Boolean!
+  isUnlicensed: Boolean! @deprecated(reason: "All outside collaborators consume a license Removal on 2021-01-01 UTC.")
 
   """
   The item at the end of the edge.
@@ -7468,7 +7468,7 @@ type EnterprisePendingCollaboratorEdge {
   """
   Whether the invited collaborator does not have a license for the enterprise.
   """
-  isUnlicensed: Boolean!
+  isUnlicensed: Boolean! @deprecated(reason: "All pending collaborators consume a license Removal on 2021-01-01 UTC.")
 
   """
   The item at the end of the edge.
