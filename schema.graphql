@@ -16503,9 +16503,39 @@ enum OrgUpdateMemberRepositoryCreationPermissionAuditEntryVisibility {
   ALL
 
   """
+  All organization members are restricted from creating internal repositories.
+  """
+  INTERNAL
+
+  """
+  All organization members are allowed to create any repositories.
+  """
+  NONE
+
+  """
+  All organization members are restricted from creating private repositories.
+  """
+  PRIVATE
+
+  """
+  All organization members are restricted from creating private or internal repositories.
+  """
+  PRIVATE_INTERNAL
+
+  """
   All organization members are restricted from creating public repositories.
   """
   PUBLIC
+
+  """
+  All organization members are restricted from creating public or internal repositories.
+  """
+  PUBLIC_INTERNAL
+
+  """
+  All organization members are restricted from creating public or private repositories.
+  """
+  PUBLIC_PRIVATE
 }
 
 """
