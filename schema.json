@@ -46908,6 +46908,42 @@
             "description": "All organization members are restricted from creating public repositories.",
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "NONE",
+            "description": "All organization members are allowed to create any repositories.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "PRIVATE",
+            "description": "All organization members are restricted from creating private repositories.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "INTERNAL",
+            "description": "All organization members are restricted from creating internal repositories.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "PUBLIC_INTERNAL",
+            "description": "All organization members are restricted from creating public or internal repositories.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "PRIVATE_INTERNAL",
+            "description": "All organization members are restricted from creating private or internal repositories.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "PUBLIC_PRIVATE",
+            "description": "All organization members are restricted from creating public or private repositories.",
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "possibleTypes": null
