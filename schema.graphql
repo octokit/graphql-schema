@@ -26630,6 +26630,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
     orderBy: MilestoneOrder
 
     """
+    Filters milestones with a query on the title
+    """
+    query: String
+
+    """
     Filter by the state of the milestones.
     """
     states: [MilestoneState!]
