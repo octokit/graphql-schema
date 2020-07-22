@@ -74355,6 +74355,16 @@
                   "ofType": null
                 },
                 "defaultValue": null
+              },
+              {
+                "name": "query",
+                "description": "Filters milestones with a query on the title",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
               }
             ],
             "type": {
