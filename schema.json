@@ -73741,6 +73741,22 @@
             "deprecationReason": null
           },
           {
+            "name": "isEmpty",
+            "description": "Returns whether or not this repository is empty.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "isFork",
             "description": "Identifies if the repository is a fork.",
             "args": [],
