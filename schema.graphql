@@ -26381,6 +26381,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
   isDisabled: Boolean!
 
   """
+  Returns whether or not this repository is empty.
+  """
+  isEmpty: Boolean!
+
+  """
   Identifies if the repository is a fork.
   """
   isFork: Boolean!
