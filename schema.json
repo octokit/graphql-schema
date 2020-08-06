@@ -1199,16 +1199,22 @@
             "defaultValue": null
           },
           {
+            "name": "pullRequestId",
+            "description": "The node ID of the pull request reviewing",
+            "type": {
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
             "name": "pullRequestReviewId",
             "description": "The Node ID of the review to modify.",
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
             },
             "defaultValue": null
           },
