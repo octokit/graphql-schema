@@ -503,9 +503,14 @@ input AddPullRequestReviewThreadInput {
   path: String!
 
   """
+  The node ID of the pull request reviewing
+  """
+  pullRequestId: ID
+
+  """
   The Node ID of the review to modify.
   """
-  pullRequestReviewId: ID!
+  pullRequestReviewId: ID
 
   """
   The side of the diff on which the line resides. For multi-line comments, this is the side for the end of the line range.
