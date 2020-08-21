@@ -75714,6 +75714,34 @@
             "deprecationReason": null
           },
           {
+            "name": "viewerDefaultCommitEmail",
+            "description": "The last commit email for the viewer.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "viewerDefaultMergeMethod",
+            "description": "The last used merge method by the viewer or the default for the repository.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "PullRequestMergeMethod",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "viewerHasStarred",
             "description": "Returns a boolean indicating whether the viewing user has starred this starrable.",
             "args": [],
@@ -75737,6 +75765,26 @@
               "kind": "ENUM",
               "name": "RepositoryPermission",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "viewerPossibleCommitEmails",
+            "description": "A list of emails this viewer can commit with.",
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null

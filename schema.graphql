@@ -27168,6 +27168,16 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
   viewerCanUpdateTopics: Boolean!
 
   """
+  The last commit email for the viewer.
+  """
+  viewerDefaultCommitEmail: String
+
+  """
+  The last used merge method by the viewer or the default for the repository.
+  """
+  viewerDefaultMergeMethod: PullRequestMergeMethod!
+
+  """
   Returns a boolean indicating whether the viewing user has starred this starrable.
   """
   viewerHasStarred: Boolean!
@@ -27176,6 +27186,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
   The users permission level on the repository. Will return null if authenticated as an GitHub App.
   """
   viewerPermission: RepositoryPermission
+
+  """
+  A list of emails this viewer can commit with.
+  """
+  viewerPossibleCommitEmails: [String!]
 
   """
   Identifies if the viewer is watching, not watching, or ignoring the subscribable entity.
