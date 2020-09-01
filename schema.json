@@ -33418,6 +33418,16 @@
             "defaultValue": null
           },
           {
+            "name": "authorEmail",
+            "description": "The email address to associate with this commit.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
             "name": "clientMutationId",
             "description": "A unique identifier for the client performing the mutation.",
             "type": {
