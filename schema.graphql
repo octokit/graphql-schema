@@ -22509,6 +22509,11 @@ type RateLimit {
   The time at which the current rate limit window resets in UTC epoch seconds.
   """
   resetAt: DateTime!
+
+  """
+  The number of points used in the current rate limit window.
+  """
+  used: Int!
 }
 
 """
