@@ -57568,6 +57568,60 @@
             "deprecationReason": null
           },
           {
+            "name": "viewerMergeBodyText",
+            "description": "The merge body text for the viewer and method.",
+            "args": [
+              {
+                "name": "mergeType",
+                "description": "The merge method for the message.",
+                "type": {
+                  "kind": "ENUM",
+                  "name": "PullRequestMergeMethod",
+                  "ofType": null
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "viewerMergeHeadlineText",
+            "description": "The merge headline text for the viewer and method.",
+            "args": [
+              {
+                "name": "mergeType",
+                "description": "The merge method for the message.",
+                "type": {
+                  "kind": "ENUM",
+                  "name": "PullRequestMergeMethod",
+                  "ofType": null
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "viewerSubscription",
             "description": "Identifies if the viewer is watching, not watching, or ignoring the subscribable entity.",
             "args": [],
