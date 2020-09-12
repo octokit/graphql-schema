@@ -2845,6 +2845,91 @@
       },
       {
         "kind": "OBJECT",
+        "name": "BaseRefDeletedEvent",
+        "description": "Represents a 'base_ref_deleted' event on a given pull request.",
+        "fields": [
+          {
+            "name": "actor",
+            "description": "Identifies the actor who performed the event.",
+            "args": [],
+            "type": {
+              "kind": "INTERFACE",
+              "name": "Actor",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "baseRefName",
+            "description": "Identifies the name of the Ref associated with the `base_ref_deleted` event.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "createdAt",
+            "description": "Identifies the date and time when the object was created.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "id",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pullRequest",
+            "description": "PullRequest referenced by event.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "PullRequest",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "Node",
+            "ofType": null
+          }
+        ],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
         "name": "BaseRefForcePushedEvent",
         "description": "Represents a 'base_ref_force_pushed' event on a given pull request.",
         "fields": [
@@ -38131,6 +38216,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "BaseRefDeletedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "BaseRefForcePushedEvent",
             "ofType": null
           },
@@ -61031,6 +61121,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "BaseRefDeletedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "BaseRefForcePushedEvent",
             "ofType": null
           },
@@ -61257,6 +61352,11 @@
           {
             "kind": "OBJECT",
             "name": "BaseRefChangedEvent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "BaseRefDeletedEvent",
             "ofType": null
           },
           {
@@ -61707,6 +61807,12 @@
           {
             "name": "BASE_REF_FORCE_PUSHED_EVENT",
             "description": "Represents a 'base_ref_force_pushed' event on a given pull request.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "BASE_REF_DELETED_EVENT",
+            "description": "Represents a 'base_ref_deleted' event on a given pull request.",
             "isDeprecated": false,
             "deprecationReason": null
           },
