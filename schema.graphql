@@ -2213,6 +2213,16 @@ type Commit implements GitObject & Node & Subscribable & UniformResourceLocatabl
   ): DeploymentConnection
 
   """
+  The tree entry representing the file located at the given path.
+  """
+  file(
+    """
+    The path for the file
+    """
+    path: String!
+  ): TreeEntry
+
+  """
   The linear commit history starting from (and including) this commit, in the same order as `git log`.
   """
   history(
@@ -21504,6 +21514,16 @@ type PullRequestReviewThread implements Node {
   id: ID!
 
   """
+  Whether or not the thread has been collapsed (outdated or resolved)
+  """
+  isCollapsed: Boolean!
+
+  """
+  Indicates whether this thread was outdated by newer changes.
+  """
+  isOutdated: Boolean!
+
+  """
   Whether this thread has been resolved
   """
   isResolved: Boolean!
@@ -21522,6 +21542,11 @@ type PullRequestReviewThread implements Node {
   The original start line in the file to which this thread refers (multi-line only).
   """
   originalStartLine: Int
+
+  """
+  Identifies the file path of this thread.
+  """
+  path: String!
 
   """
   Identifies the pull request associated with this thread.
@@ -21547,6 +21572,11 @@ type PullRequestReviewThread implements Node {
   The start line in the file to which this thread refers (multi-line only)
   """
   startLine: Int
+
+  """
+  Indicates whether the current viewer can reply to this thread.
+  """
+  viewerCanReply: Boolean!
 
   """
   Whether or not the viewer can resolve this thread
@@ -32719,6 +32749,16 @@ Represents a Git tree entry.
 """
 type TreeEntry {
   """
+  The extension of the file
+  """
+  extension: String
+
+  """
+  Whether or not this tree entry is generated
+  """
+  isGenerated: Boolean!
+
+  """
   Entry file mode.
   """
   mode: Int!
@@ -32737,6 +32777,11 @@ type TreeEntry {
   Entry file Git object ID.
   """
   oid: GitObjectID!
+
+  """
+  The full path of the file.
+  """
+  path: String
 
   """
   The Repository the tree entry belongs to
