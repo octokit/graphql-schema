@@ -3793,6 +3793,11 @@ input CreateIssueInput {
   clientMutationId: String
 
   """
+  The name of an issue template in the repository, assigns labels and assignees from the template to the issue
+  """
+  issueTemplate: String
+
+  """
   An array of Node IDs of labels for this issue.
   """
   labelIds: [ID!]
@@ -10603,6 +10608,31 @@ enum IssueState {
   An issue that is still open
   """
   OPEN
+}
+
+"""
+A repository issue template.
+"""
+type IssueTemplate {
+  """
+  The template purpose.
+  """
+  about: String
+
+  """
+  The suggested issue body.
+  """
+  body: String
+
+  """
+  The template name.
+  """
+  name: String!
+
+  """
+  The suggested issue title.
+  """
+  title: String
 }
 
 """
@@ -26442,6 +26472,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
   ): CommitCommentConnection!
 
   """
+  Returns a list of contact links associated to the repository
+  """
+  contactLinks: [RepositoryContactLink!]
+
+  """
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
@@ -26627,6 +26662,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
   isArchived: Boolean!
 
   """
+  Returns true if blank issue creation is allowed
+  """
+  isBlankIssuesEnabled: Boolean!
+
+  """
   Returns whether or not this repository disabled.
   """
   isDisabled: Boolean!
@@ -26657,6 +26697,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
   isPrivate: Boolean!
 
   """
+  Returns true if this repository has a security policy
+  """
+  isSecurityPolicyEnabled: Boolean
+
+  """
   Identifies if the repository is a template that can be used to generate new repositories.
   """
   isTemplate: Boolean!
@@ -26680,6 +26725,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
     """
     number: Int!
   ): IssueOrPullRequest
+
+  """
+  Returns a list of issue templates associated to the repository
+  """
+  issueTemplates: [IssueTemplate!]
 
   """
   A list of issues that have been opened in the repository.
@@ -27248,6 +27298,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
   resourcePath: URI!
 
   """
+  The security policy URL.
+  """
+  securityPolicyUrl: URI
+
+  """
   A description of the repository, rendered to HTML without any links in it.
   """
   shortDescriptionHTML(
@@ -27573,6 +27628,26 @@ type RepositoryConnection {
   The total size in kilobytes of all repositories in the connection.
   """
   totalDiskUsage: Int!
+}
+
+"""
+A repository contact link.
+"""
+type RepositoryContactLink {
+  """
+  The contact link purpose.
+  """
+  about: String!
+
+  """
+  The contact link name.
+  """
+  name: String!
+
+  """
+  The contact link URL.
+  """
+  url: URI!
 }
 
 """
