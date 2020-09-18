@@ -963,10 +963,25 @@ type BaseRefChangedEvent implements Node {
   createdAt: DateTime!
 
   """
+  Identifies the name of the base ref for the pull request after it was changed.
+  """
+  currentRefName: String!
+
+  """
   Identifies the primary key from the database.
   """
   databaseId: Int
   id: ID!
+
+  """
+  Identifies the name of the base ref for the pull request before it was changed.
+  """
+  previousRefName: String!
+
+  """
+  PullRequest referenced by event.
+  """
+  pullRequest: PullRequest!
 }
 
 """
@@ -2045,6 +2060,11 @@ type CommentDeletedEvent implements Node {
   Identifies the primary key from the database.
   """
   databaseId: Int
+
+  """
+  The user who authored the deleted comment.
+  """
+  deletedCommentAuthor: Actor
   id: ID!
 }
 
@@ -11656,10 +11676,25 @@ type MarkedAsDuplicateEvent implements Node {
   actor: Actor
 
   """
+  The authoritative issue or pull request which has been duplicated by another.
+  """
+  canonical: IssueOrPullRequest
+
+  """
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The issue or pull request which has been marked as a duplicate of another.
+  """
+  duplicate: IssueOrPullRequest
   id: ID!
+
+  """
+  Canonical and duplicate belong to different repositories.
+  """
+  isCrossRepository: Boolean!
 }
 
 """
@@ -20914,6 +20949,11 @@ type PullRequestReview implements Comment & Deletable & Node & Reactable & Repos
   Author's association with the subject of the comment.
   """
   authorAssociation: CommentAuthorAssociation!
+
+  """
+  Indicates whether the author of this review has push access to the repository.
+  """
+  authorCanPushToRepository: Boolean!
 
   """
   Identifies the pull request review body.
@@ -33333,10 +33373,25 @@ type UnmarkedAsDuplicateEvent implements Node {
   actor: Actor
 
   """
+  The authoritative issue or pull request which has been duplicated by another.
+  """
+  canonical: IssueOrPullRequest
+
+  """
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The issue or pull request which has been marked as a duplicate of another.
+  """
+  duplicate: IssueOrPullRequest
   id: ID!
+
+  """
+  Canonical and duplicate belong to different repositories.
+  """
+  isCrossRepository: Boolean!
 }
 
 """
