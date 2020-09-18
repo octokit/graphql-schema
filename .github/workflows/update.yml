@@ -30,6 +30,7 @@ jobs:
           author: "Octokit Bot <octokitbot@martynus.net>"
           path: "schema.graphql"
           commit-message: "WIP: schema.graphql changed - please review"
+          labels: maintenance
       - name: update schema.json
         uses: gr2m/create-or-update-pull-request-action@v1.x
         env:
