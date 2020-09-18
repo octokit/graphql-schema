@@ -2804,6 +2804,22 @@
             "deprecationReason": null
           },
           {
+            "name": "currentRefName",
+            "description": "Identifies the name of the base ref for the pull request after it was changed.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "databaseId",
             "description": "Identifies the primary key from the database.",
             "args": [],
@@ -2825,6 +2841,38 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "previousRefName",
+            "description": "Identifies the name of the base ref for the pull request before it was changed.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pullRequest",
+            "description": "PullRequest referenced by event.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "PullRequest",
                 "ofType": null
               }
             },
@@ -5742,6 +5790,18 @@
             "type": {
               "kind": "SCALAR",
               "name": "Int",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "deletedCommentAuthor",
+            "description": "The user who authored the deleted comment.",
+            "args": [],
+            "type": {
+              "kind": "INTERFACE",
+              "name": "Actor",
               "ofType": null
             },
             "isDeprecated": false,
@@ -31404,6 +31464,18 @@
             "deprecationReason": null
           },
           {
+            "name": "canonical",
+            "description": "The authoritative issue or pull request which has been duplicated by another.",
+            "args": [],
+            "type": {
+              "kind": "UNION",
+              "name": "IssueOrPullRequest",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "createdAt",
             "description": "Identifies the date and time when the object was created.",
             "args": [],
@@ -31420,6 +31492,18 @@
             "deprecationReason": null
           },
           {
+            "name": "duplicate",
+            "description": "The issue or pull request which has been marked as a duplicate of another.",
+            "args": [],
+            "type": {
+              "kind": "UNION",
+              "name": "IssueOrPullRequest",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "id",
             "description": null,
             "args": [],
@@ -31429,6 +31513,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "isCrossRepository",
+            "description": "Canonical and duplicate belong to different repositories.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
                 "ofType": null
               }
             },
@@ -59042,6 +59142,22 @@
               "ofType": {
                 "kind": "ENUM",
                 "name": "CommentAuthorAssociation",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "authorCanPushToRepository",
+            "description": "Indicates whether the author of this review has push access to the repository.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
                 "ofType": null
               }
             },
@@ -92811,6 +92927,18 @@
             "deprecationReason": null
           },
           {
+            "name": "canonical",
+            "description": "The authoritative issue or pull request which has been duplicated by another.",
+            "args": [],
+            "type": {
+              "kind": "UNION",
+              "name": "IssueOrPullRequest",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "createdAt",
             "description": "Identifies the date and time when the object was created.",
             "args": [],
@@ -92827,6 +92955,18 @@
             "deprecationReason": null
           },
           {
+            "name": "duplicate",
+            "description": "The issue or pull request which has been marked as a duplicate of another.",
+            "args": [],
+            "type": {
+              "kind": "UNION",
+              "name": "IssueOrPullRequest",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "id",
             "description": null,
             "args": [],
@@ -92836,6 +92976,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "isCrossRepository",
+            "description": "Canonical and duplicate belong to different repositories.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
                 "ofType": null
               }
             },
