@@ -5665,6 +5665,12 @@
             "deprecationReason": null
           },
           {
+            "name": "MANNEQUIN",
+            "description": "Author is a placeholder for an unclaimed user.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "COLLABORATOR",
             "description": "Author has been invited to collaborate on the repository.",
             "isDeprecated": false,
