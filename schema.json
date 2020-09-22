@@ -26550,6 +26550,22 @@
             "deprecationReason": null
           },
           {
+            "name": "bodyResourcePath",
+            "description": "The http path for this issue body",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "URI",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "bodyText",
             "description": "Identifies the body of the issue rendered to text.",
             "args": [],
@@ -26559,6 +26575,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "bodyUrl",
+            "description": "The http URL for this issue body",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "URI",
                 "ofType": null
               }
             },
@@ -26761,6 +26793,18 @@
                 "name": "Boolean",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "isReadByViewer",
+            "description": "Is this issue read by the viewer",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -75265,6 +75309,22 @@
             "deprecationReason": null
           },
           {
+            "name": "isInOrganization",
+            "description": "Indicates if a repository is either owned by an organization, or is a private fork of an organization repository.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "isLocked",
             "description": "Indicates if the repository has been locked or not.",
             "args": [],
@@ -75327,6 +75387,22 @@
           {
             "name": "isTemplate",
             "description": "Identifies if the repository is a template that can be used to generate new repositories.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "isUserConfigurationRepository",
+            "description": "Is this repository a user configuration repository?",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -78110,6 +78186,22 @@
             "deprecationReason": null
           },
           {
+            "name": "isInOrganization",
+            "description": "Indicates if a repository is either owned by an organization, or is a private fork of an organization repository.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "isLocked",
             "description": "Indicates if the repository has been locked or not.",
             "args": [],
@@ -78443,6 +78535,22 @@
               "ofType": {
                 "kind": "OBJECT",
                 "name": "User",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "permalink",
+            "description": "The permalink for this repository invitation.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "URI",
                 "ofType": null
               }
             },
@@ -81011,6 +81119,22 @@
         "name": "ReviewRequest",
         "description": "A request for a user to review a pull request.",
         "fields": [
+          {
+            "name": "asCodeOwner",
+            "description": "Whether this request was created for a code owner",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
           {
             "name": "databaseId",
             "description": "Identifies the primary key from the database.",
@@ -85015,6 +85139,63 @@
         "name": "Status",
         "description": "Represents a commit status.",
         "fields": [
+          {
+            "name": "combinedContexts",
+            "description": "A list of status contexts and check runs for this commit.",
+            "args": [
+              {
+                "name": "after",
+                "description": "Returns the elements in the list that come after the specified cursor.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "before",
+                "description": "Returns the elements in the list that come before the specified cursor.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "first",
+                "description": "Returns the first _n_ elements from the list.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "last",
+                "description": "Returns the last _n_ elements from the list.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "StatusCheckRollupContextConnection",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
           {
             "name": "commit",
             "description": "The commit this status is attached to.",
