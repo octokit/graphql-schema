@@ -12803,6 +12803,11 @@ type Milestone implements Closable & Node & UniformResourceLocatable {
   number: Int!
 
   """
+  Indentifies the percentage complete for the milestone
+  """
+  progressPercentage: Float!
+
+  """
   A list of pull requests associated with the milestone.
   """
   pullRequests(
@@ -19340,6 +19345,11 @@ type Project implements Closable & Node & Updatable {
   ): ProjectCardConnection!
 
   """
+  Project progress details.
+  """
+  progress: ProjectProgress!
+
+  """
   The HTTP path for this project
   """
   resourcePath: URI!
@@ -19795,6 +19805,46 @@ interface ProjectOwner {
   Can the current viewer create new projects on this owner.
   """
   viewerCanCreateProjects: Boolean!
+}
+
+"""
+Project progress stats.
+"""
+type ProjectProgress {
+  """
+  The number of done cards.
+  """
+  doneCount: Int!
+
+  """
+  The percentage of done cards.
+  """
+  donePercentage: Float!
+
+  """
+  Whether progress tracking is enabled and cards with purpose exist for this project
+  """
+  enabled: Boolean!
+
+  """
+  The number of in-progress cards.
+  """
+  inProgressCount: Int!
+
+  """
+  The percentage of in-progress cards.
+  """
+  inProgressPercentage: Float!
+
+  """
+  The number of to do cards.
+  """
+  todoCount: Int!
+
+  """
+  The percentage of to do cards.
+  """
+  todoPercentage: Float!
 }
 
 """
@@ -23250,6 +23300,11 @@ type Ref implements Node {
     """
     states: [PullRequestState!]
   ): PullRequestConnection!
+
+  """
+  Branch protection rules for this ref
+  """
+  branchProtectionRule: BranchProtectionRule
   id: ID!
 
   """
@@ -23261,6 +23316,11 @@ type Ref implements Node {
   The ref's prefix, such as `refs/heads/` or `refs/tags/`.
   """
   prefix: String!
+
+  """
+  Branch protection rules that are viewable by non-admins
+  """
+  refUpdateRule: RefUpdateRule
 
   """
   The repository the ref belongs to.
@@ -23341,6 +23401,51 @@ enum RefOrderField {
   Order refs by underlying commit date if the ref prefix is refs/tags/
   """
   TAG_COMMIT_DATE
+}
+
+"""
+A ref update rules for a viewer.
+"""
+type RefUpdateRule {
+  """
+  Can this branch be deleted.
+  """
+  allowsDeletions: Boolean!
+
+  """
+  Are force pushes allowed on this branch.
+  """
+  allowsForcePushes: Boolean!
+
+  """
+  Identifies the protection rule pattern.
+  """
+  pattern: String!
+
+  """
+  Number of approving reviews required to update matching branches.
+  """
+  requiredApprovingReviewCount: Int
+
+  """
+  List of required status check contexts that must pass for commits to be accepted to matching branches.
+  """
+  requiredStatusCheckContexts: [String]
+
+  """
+  Are merge commits prohibited from being pushed to this branch.
+  """
+  requiresLinearHistory: Boolean!
+
+  """
+  Are commits required to be signed.
+  """
+  requiresSignatures: Boolean!
+
+  """
+  Can the viewer push to the branch
+  """
+  viewerCanPush: Boolean!
 }
 
 """
