@@ -8847,6 +8847,11 @@ type Gist implements Node & Starrable & UniformResourceLocatable {
   resourcePath: URI!
 
   """
+  Returns a count of how many stargazers there are on this object
+  """
+  stargazerCount: Int!
+
+  """
   A list of users who have starred this starrable.
   """
   stargazers(
@@ -27569,6 +27574,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
   sshUrl: GitSSHRemote!
 
   """
+  Returns a count of how many stargazers there are on this object
+  """
+  stargazerCount: Int!
+
+  """
   A list of users who have starred this starrable.
   """
   stargazers(
@@ -30448,6 +30458,11 @@ interface Starrable {
   id: ID!
 
   """
+  Returns a count of how many stargazers there are on this object
+  """
+  stargazerCount: Int!
+
+  """
   A list of users who have starred this starrable.
   """
   stargazers(
@@ -32996,6 +33011,11 @@ type Topic implements Node & Starrable {
     """
     first: Int = 3
   ): [Topic!]!
+
+  """
+  Returns a count of how many stargazers there are on this object
+  """
+  stargazerCount: Int!
 
   """
   A list of users who have starred this starrable.
