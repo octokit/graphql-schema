@@ -23600,6 +23600,22 @@
             "deprecationReason": null
           },
           {
+            "name": "stargazerCount",
+            "description": "Returns a count of how many stargazers there are on this object\n",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "stargazers",
             "description": "A list of users who have starred this starrable.",
             "args": [
@@ -76828,6 +76844,22 @@
             "deprecationReason": null
           },
           {
+            "name": "stargazerCount",
+            "description": "Returns a count of how many stargazers there are on this object\n",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "stargazers",
             "description": "A list of users who have starred this starrable.",
             "args": [
@@ -84708,6 +84740,22 @@
             "deprecationReason": null
           },
           {
+            "name": "stargazerCount",
+            "description": "Returns a count of how many stargazers there are on this object\n",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "stargazers",
             "description": "A list of users who have starred this starrable.",
             "args": [
@@ -91764,6 +91812,22 @@
                     "ofType": null
                   }
                 }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "stargazerCount",
+            "description": "Returns a count of how many stargazers there are on this object\n",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
               }
             },
             "isDeprecated": false,
