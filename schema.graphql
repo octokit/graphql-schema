@@ -9920,9 +9920,19 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
   bodyHTML: HTML!
 
   """
+  The http path for this issue body
+  """
+  bodyResourcePath: URI!
+
+  """
   Identifies the body of the issue rendered to text.
   """
   bodyText: String!
+
+  """
+  The http URL for this issue body
+  """
+  bodyUrl: URI!
 
   """
   `true` if the object is closed (definition of closed may depend on type)
@@ -9994,6 +10004,11 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
   Check if this comment was edited and includes an edit with the creation data
   """
   includesCreatedEdit: Boolean!
+
+  """
+  Is this issue read by the viewer
+  """
+  isReadByViewer: Boolean
 
   """
   A list of labels associated with the object.
@@ -26933,6 +26948,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
   isFork: Boolean!
 
   """
+  Indicates if a repository is either owned by an organization, or is a private fork of an organization repository.
+  """
+  isInOrganization: Boolean!
+
+  """
   Indicates if the repository has been locked or not.
   """
   isLocked: Boolean!
@@ -26956,6 +26976,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
   Identifies if the repository is a template that can be used to generate new repositories.
   """
   isTemplate: Boolean!
+
+  """
+  Is this repository a user configuration repository?
+  """
+  isUserConfigurationRepository: Boolean!
 
   """
   Returns a single issue from the current repository by number.
@@ -28006,6 +28031,11 @@ interface RepositoryInfo {
   isFork: Boolean!
 
   """
+  Indicates if a repository is either owned by an organization, or is a private fork of an organization repository.
+  """
+  isInOrganization: Boolean!
+
+  """
   Indicates if the repository has been locked or not.
   """
   isLocked: Boolean!
@@ -28115,6 +28145,11 @@ type RepositoryInvitation implements Node {
   The user who created the invitation.
   """
   inviter: User!
+
+  """
+  The permalink for this repository invitation.
+  """
+  permalink: URI!
 
   """
   The permission granted on this repository by this invitation.
@@ -29065,6 +29100,11 @@ type ReviewDismissedEvent implements Node & UniformResourceLocatable {
 A request for a user to review a pull request.
 """
 type ReviewRequest implements Node {
+  """
+  Whether this request was created for a code owner
+  """
+  asCodeOwner: Boolean!
+
   """
   Identifies the primary key from the database.
   """
@@ -30548,6 +30588,31 @@ type StarredRepositoryEdge {
 Represents a commit status.
 """
 type Status implements Node {
+  """
+  A list of status contexts and check runs for this commit.
+  """
+  combinedContexts(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): StatusCheckRollupContextConnection!
+
   """
   The commit this status is attached to.
   """
