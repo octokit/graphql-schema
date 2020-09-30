@@ -17984,7 +17984,7 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   ): IpAllowListEntryConnection!
 
   """
-  Whether the organization has verified its profile email and website.
+  Whether the organization has verified its profile email and website, always false on Enterprise.
   """
   isVerified: Boolean!
 
