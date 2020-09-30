@@ -50704,7 +50704,7 @@
           },
           {
             "name": "isVerified",
-            "description": "Whether the organization has verified its profile email and website.",
+            "description": "Whether the organization has verified its profile email and website, always false on Enterprise.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
