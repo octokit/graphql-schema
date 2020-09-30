@@ -36707,22 +36707,6 @@
             "deprecationReason": null
           },
           {
-            "name": "issuePrioritiesDebug",
-            "description": "Just for debugging on review-lab",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "issues",
             "description": "A list of issues associated with the milestone.",
             "args": [
