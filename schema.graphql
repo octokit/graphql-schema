@@ -13655,11 +13655,6 @@ type Milestone implements Closable & Node & UniformResourceLocatable {
   id: ID!
 
   """
-  Just for debugging on review-lab
-  """
-  issuePrioritiesDebug: String!
-
-  """
   A list of issues associated with the milestone.
   """
   issues(
@@ -17989,7 +17984,7 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   ): IpAllowListEntryConnection!
 
   """
-  Whether the organization has verified its profile email and website.
+  Whether the organization has verified its profile email and website, always false on Enterprise.
   """
   isVerified: Boolean!
 
