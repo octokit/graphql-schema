@@ -175,41 +175,6 @@
         "possibleTypes": null
       },
       {
-        "kind": "ENUM",
-        "name": "ActionExecutionCapabilitySetting",
-        "description": "The possible capabilities for action executions setting.",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": [
-          {
-            "name": "DISABLED",
-            "description": "All action executions are disabled.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "ALL_ACTIONS",
-            "description": "All action executions are enabled.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "LOCAL_ACTIONS_ONLY",
-            "description": "Only actions defined within the repo are allowed.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "NO_POLICY",
-            "description": "Organization administrators action execution capabilities.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "possibleTypes": null
-      },
-      {
         "kind": "INTERFACE",
         "name": "Actor",
         "description": "Represents an object which can take actions on GitHub. Typically a User or Bot.",
@@ -20018,73 +19983,6 @@
         "name": "EnterpriseOwnerInfo",
         "description": "Enterprise information only visible to enterprise owners.",
         "fields": [
-          {
-            "name": "actionExecutionCapabilitySettingOrganizations",
-            "description": "A list of enterprise organizations configured with the provided action execution capabilities setting value.",
-            "args": [
-              {
-                "name": "after",
-                "description": "Returns the elements in the list that come after the specified cursor.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "before",
-                "description": "Returns the elements in the list that come before the specified cursor.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "first",
-                "description": "Returns the first _n_ elements from the list.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "last",
-                "description": "Returns the last _n_ elements from the list.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "orderBy",
-                "description": "Ordering options for organizations with this setting.",
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "OrganizationOrder",
-                  "ofType": null
-                },
-                "defaultValue": "{field: LOGIN, direction: ASC}"
-              }
-            ],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "OrganizationConnection",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
           {
             "name": "admins",
             "description": "A list of all of the administrators for this enterprise.",
@@ -40173,33 +40071,6 @@
             "type": {
               "kind": "OBJECT",
               "name": "UpdateCheckSuitePreferencesPayload",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "updateEnterpriseActionExecutionCapabilitySetting",
-            "description": "Sets the action execution capability setting for an enterprise.",
-            "args": [
-              {
-                "name": "input",
-                "description": null,
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "UpdateEnterpriseActionExecutionCapabilitySettingInput",
-                    "ofType": null
-                  }
-                },
-                "defaultValue": null
-              }
-            ],
-            "type": {
-              "kind": "OBJECT",
-              "name": "UpdateEnterpriseActionExecutionCapabilitySettingPayload",
               "ofType": null
             },
             "isDeprecated": false,
@@ -97293,102 +97164,6 @@
             "type": {
               "kind": "OBJECT",
               "name": "Repository",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "UpdateEnterpriseActionExecutionCapabilitySettingInput",
-        "description": "Autogenerated input type of UpdateEnterpriseActionExecutionCapabilitySetting",
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "enterpriseId",
-            "description": "The ID of the enterprise on which to set the members can create repositories setting.",
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "capability",
-            "description": "The value for the action execution capability setting on the enterprise.",
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "ENUM",
-                "name": "ActionExecutionCapabilitySetting",
-                "ofType": null
-              }
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "clientMutationId",
-            "description": "A unique identifier for the client performing the mutation.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "UpdateEnterpriseActionExecutionCapabilitySettingPayload",
-        "description": "Autogenerated return type of UpdateEnterpriseActionExecutionCapabilitySetting",
-        "fields": [
-          {
-            "name": "clientMutationId",
-            "description": "A unique identifier for the client performing the mutation.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "enterprise",
-            "description": "The enterprise with the updated action execution capability setting.",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "Enterprise",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "message",
-            "description": "A message confirming the result of updating the action execution capability setting.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
               "ofType": null
             },
             "isDeprecated": false,
