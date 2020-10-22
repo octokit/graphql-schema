@@ -12069,6 +12069,36 @@
             "defaultValue": null
           },
           {
+            "name": "requiresLinearHistory",
+            "description": "Are merge commits prohibited from being pushed to this branch.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "allowsForcePushes",
+            "description": "Are force pushes allowed on this branch.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "allowsDeletions",
+            "description": "Can this branch be deleted.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
             "name": "isAdminEnforced",
             "description": "Can admins overwrite branch protection.",
             "type": {
@@ -96720,6 +96750,36 @@
           {
             "name": "requiresCommitSignatures",
             "description": "Are commits required to be signed.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "requiresLinearHistory",
+            "description": "Are merge commits prohibited from being pushed to this branch.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "allowsForcePushes",
+            "description": "Are force pushes allowed on this branch.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "allowsDeletions",
+            "description": "Can this branch be deleted.",
             "type": {
               "kind": "SCALAR",
               "name": "Boolean",
