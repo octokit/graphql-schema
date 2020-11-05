@@ -1161,6 +1161,16 @@ A branch protection rule.
 """
 type BranchProtectionRule implements Node {
   """
+  Can this branch be deleted.
+  """
+  allowsDeletions: Boolean!
+
+  """
+  Are force pushes allowed on this branch.
+  """
+  allowsForcePushes: Boolean!
+
+  """
   A list of conflicts matching branches protection rule and other branch protection rules
   """
   branchProtectionRuleConflicts(
@@ -1295,6 +1305,11 @@ type BranchProtectionRule implements Node {
   Are commits required to be signed.
   """
   requiresCommitSignatures: Boolean!
+
+  """
+  Are merge commits prohibited from being pushed to this branch.
+  """
+  requiresLinearHistory: Boolean!
 
   """
   Are status checks required to update matching branches.
