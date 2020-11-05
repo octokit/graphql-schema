@@ -3516,6 +3516,38 @@
         "description": "A branch protection rule.",
         "fields": [
           {
+            "name": "allowsDeletions",
+            "description": "Can this branch be deleted.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "allowsForcePushes",
+            "description": "Are force pushes allowed on this branch.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "branchProtectionRuleConflicts",
             "description": "A list of conflicts matching branches protection rule and other branch protection rules",
             "args": [
@@ -3859,6 +3891,22 @@
           {
             "name": "requiresCommitSignatures",
             "description": "Are commits required to be signed.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "requiresLinearHistory",
+            "description": "Are merge commits prohibited from being pushed to this branch.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
