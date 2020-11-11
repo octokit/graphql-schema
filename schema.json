@@ -33286,7 +33286,7 @@
         "inputFields": [
           {
             "name": "lockableId",
-            "description": "ID of the issue or pull request to be locked.",
+            "description": "ID of the item to be locked.",
             "type": {
               "kind": "NON_NULL",
               "name": null,
@@ -33300,7 +33300,7 @@
           },
           {
             "name": "lockReason",
-            "description": "A reason for why the issue or pull request will be locked.",
+            "description": "A reason for why the item will be locked.",
             "type": {
               "kind": "ENUM",
               "name": "LockReason",
@@ -95878,7 +95878,7 @@
         "inputFields": [
           {
             "name": "lockableId",
-            "description": "ID of the issue or pull request to be unlocked.",
+            "description": "ID of the item to be unlocked.",
             "type": {
               "kind": "NON_NULL",
               "name": null,
