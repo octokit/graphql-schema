@@ -12432,12 +12432,12 @@ input LockLockableInput {
   clientMutationId: String
 
   """
-  A reason for why the issue or pull request will be locked.
+  A reason for why the item will be locked.
   """
   lockReason: LockReason
 
   """
-  ID of the issue or pull request to be locked.
+  ID of the item to be locked.
   """
   lockableId: ID!
 }
@@ -34495,7 +34495,7 @@ input UnlockLockableInput {
   clientMutationId: String
 
   """
-  ID of the issue or pull request to be unlocked.
+  ID of the item to be unlocked.
   """
   lockableId: ID!
 }
