@@ -1773,6 +1773,11 @@ enum CheckConclusionState {
   STALE
 
   """
+  The check suite or run has failed at startup.
+  """
+  STARTUP_FAILURE
+
+  """
   The check suite or run has succeeded.
   """
   SUCCESS

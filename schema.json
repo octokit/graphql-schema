@@ -5061,6 +5061,12 @@
             "deprecationReason": null
           },
           {
+            "name": "STARTUP_FAILURE",
+            "description": "The check suite or run has failed at startup.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "STALE",
             "description": "The check suite or run was marked stale by GitHub. Only GitHub can use this conclusion.",
             "isDeprecated": false,
