@@ -18,7 +18,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: create pull request
-        uses: gr2m/create-or-update-pull-request-action@cherry-pick-allow-empty
+        uses: gr2m/create-or-update-pull-request-action@v1.x
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -33,7 +33,7 @@ jobs:
           commit-message: "WIP: schema.graphql changed - please review"
           labels: maintenance
       - name: update schema.json
-        uses: gr2m/create-or-update-pull-request-action@cherry-pick-allow-empty
+        uses: gr2m/create-or-update-pull-request-action@v1.x
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
