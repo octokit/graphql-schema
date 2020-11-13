@@ -17287,6 +17287,12 @@
             "description": "The deployment is in progress.",
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "WAITING",
+            "description": "The deployment is waiting.",
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "possibleTypes": null

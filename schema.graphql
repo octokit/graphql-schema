@@ -6397,6 +6397,11 @@ enum DeploymentState {
   The deployment has queued
   """
   QUEUED
+
+  """
+  The deployment is waiting.
+  """
+  WAITING
 }
 
 """
