@@ -17926,6 +17926,11 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   The organization's public email.
   """
   email: String
+
+  """
+  True if this user/organization has a GitHub Sponsors listing.
+  """
+  hasSponsorsListing: Boolean!
   id: ID!
 
   """
@@ -17962,6 +17967,11 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
     """
     orderBy: IpAllowListEntryOrder = {field: ALLOW_LIST_VALUE, direction: ASC}
   ): IpAllowListEntryConnection!
+
+  """
+  True if the viewer is sponsored by this user/organization.
+  """
+  isSponsoringViewer: Boolean!
 
   """
   Whether the organization has verified its profile email and website, always false on Enterprise.
@@ -18340,7 +18350,7 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   samlIdentityProvider: OrganizationIdentityProvider
 
   """
-  The GitHub Sponsors listing for this user.
+  The GitHub Sponsors listing for this user or organization.
   """
   sponsorsListing: SponsorsListing
 
@@ -18532,9 +18542,19 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   viewerCanCreateTeams: Boolean!
 
   """
+  Whether or not the viewer is able to sponsor this user/organization.
+  """
+  viewerCanSponsor: Boolean!
+
+  """
   Viewer is an active member of this organization.
   """
   viewerIsAMember: Boolean!
+
+  """
+  True if the viewer is sponsoring this user/organization.
+  """
+  viewerIsSponsoring: Boolean!
 
   """
   The organization's public profile URL.
@@ -30970,7 +30990,17 @@ Entities that can be sponsored through GitHub Sponsors
 """
 interface Sponsorable {
   """
-  The GitHub Sponsors listing for this user.
+  True if this user/organization has a GitHub Sponsors listing.
+  """
+  hasSponsorsListing: Boolean!
+
+  """
+  True if the viewer is sponsored by this user/organization.
+  """
+  isSponsoringViewer: Boolean!
+
+  """
+  The GitHub Sponsors listing for this user or organization.
   """
   sponsorsListing: SponsorsListing
 
@@ -31040,6 +31070,16 @@ interface Sponsorable {
     """
     orderBy: SponsorshipOrder
   ): SponsorshipConnection!
+
+  """
+  Whether or not the viewer is able to sponsor this user/organization.
+  """
+  viewerCanSponsor: Boolean!
+
+  """
+  True if the viewer is sponsoring this user/organization.
+  """
+  viewerIsSponsoring: Boolean!
 }
 
 """
@@ -31296,7 +31336,7 @@ type Sponsorship implements Node {
   sponsor: User @deprecated(reason: "`Sponsorship.sponsor` will be removed. Use `Sponsorship.sponsorEntity` instead. Removal on 2020-10-01 UTC.")
 
   """
-  The user or organization that is sponsoring. Returns null if the sponsorship is private.
+  The user or organization that is sponsoring, if you have permission to view them.
   """
   sponsorEntity: Sponsor
 
@@ -36629,6 +36669,11 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   ): GistConnection!
 
   """
+  True if this user/organization has a GitHub Sponsors listing.
+  """
+  hasSponsorsListing: Boolean!
+
+  """
   The hovercard information for this user in a given context
   """
   hovercard(
@@ -36668,6 +36713,11 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   Whether or not this user is a site administrator.
   """
   isSiteAdmin: Boolean!
+
+  """
+  True if the viewer is sponsored by this user/organization.
+  """
+  isSponsoringViewer: Boolean!
 
   """
   Whether or not this user is the viewing user.
@@ -37211,7 +37261,7 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   ): SavedReplyConnection
 
   """
-  The GitHub Sponsors listing for this user.
+  The GitHub Sponsors listing for this user or organization.
   """
   sponsorsListing: SponsorsListing
 
@@ -37388,9 +37438,19 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   viewerCanFollow: Boolean!
 
   """
+  Whether or not the viewer is able to sponsor this user/organization.
+  """
+  viewerCanSponsor: Boolean!
+
+  """
   Whether or not this user is followed by the viewer.
   """
   viewerIsFollowing: Boolean!
+
+  """
+  True if the viewer is sponsoring this user/organization.
+  """
+  viewerIsSponsoring: Boolean!
 
   """
   A list of repositories the given user is watching.
