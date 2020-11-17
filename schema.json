@@ -28796,6 +28796,16 @@
             "description": "A list of comments associated with the Issue.",
             "args": [
               {
+                "name": "orderBy",
+                "description": "Ordering options for issue comments returned from the connection.",
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "IssueCommentOrder",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
                 "name": "after",
                 "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
@@ -30535,6 +30545,62 @@
         "inputFields": null,
         "interfaces": [],
         "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "IssueCommentOrder",
+        "description": "Ways in which lists of issue comments can be ordered upon return.",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "field",
+            "description": "The field in which to order issue comments by.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "IssueCommentOrderField",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "direction",
+            "description": "The direction in which to order issue comments by the specified field.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "OrderDirection",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "IssueCommentOrderField",
+        "description": "Properties by which issue comment connections can be ordered.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "UPDATED_AT",
+            "description": "Order issue comments by update time",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
         "possibleTypes": null
       },
       {
@@ -59221,6 +59287,16 @@
             "name": "comments",
             "description": "A list of comments associated with the pull request.",
             "args": [
+              {
+                "name": "orderBy",
+                "description": "Ordering options for issue comments returned from the connection.",
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "IssueCommentOrder",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
               {
                 "name": "after",
                 "description": "Returns the elements in the list that come after the specified cursor.",
@@ -101474,6 +101550,16 @@
             "name": "issueComments",
             "description": "A list of issue comments made by this user.",
             "args": [
+              {
+                "name": "orderBy",
+                "description": "Ordering options for issue comments returned from the connection.",
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "IssueCommentOrder",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
               {
                 "name": "after",
                 "description": "Returns the elements in the list that come after the specified cursor.",

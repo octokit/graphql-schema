@@ -10839,6 +10839,11 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Ordering options for issue comments returned from the connection.
+    """
+    orderBy: IssueCommentOrder
   ): IssueCommentConnection!
 
   """
@@ -11428,6 +11433,31 @@ type IssueCommentEdge {
   The item at the end of the edge.
   """
   node: IssueComment
+}
+
+"""
+Ways in which lists of issue comments can be ordered upon return.
+"""
+input IssueCommentOrder {
+  """
+  The direction in which to order issue comments by the specified field.
+  """
+  direction: OrderDirection!
+
+  """
+  The field in which to order issue comments by.
+  """
+  field: IssueCommentOrderField!
+}
+
+"""
+Properties by which issue comment connections can be ordered.
+"""
+enum IssueCommentOrderField {
+  """
+  Order issue comments by update time
+  """
+  UPDATED_AT
 }
 
 """
@@ -21025,6 +21055,11 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Ordering options for issue comments returned from the connection.
+    """
+    orderBy: IssueCommentOrder
   ): IssueCommentConnection!
 
   """
@@ -36747,6 +36782,11 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Ordering options for issue comments returned from the connection.
+    """
+    orderBy: IssueCommentOrder
   ): IssueCommentConnection!
 
   """
