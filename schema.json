@@ -50663,6 +50663,18 @@
             "deprecationReason": null
           },
           {
+            "name": "interactionAbility",
+            "description": "The interaction ability settings for this organization.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "RepositoryInteractionAbility",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "ipAllowListEnabledSetting",
             "description": "The setting value for whether the organization has an IP allow list enabled.",
             "args": [],
@@ -77747,6 +77759,18 @@
             "deprecationReason": null
           },
           {
+            "name": "interactionAbility",
+            "description": "The interaction ability settings for this repository.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "RepositoryInteractionAbility",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "isArchived",
             "description": "Indicates if the repository is unmaintained.",
             "args": [],
@@ -80997,6 +81021,125 @@
             "ofType": null
           }
         ]
+      },
+      {
+        "kind": "OBJECT",
+        "name": "RepositoryInteractionAbility",
+        "description": "Repository interaction limit that applies to this object.",
+        "fields": [
+          {
+            "name": "expiresAt",
+            "description": "The time the currently active limit expires.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "limit",
+            "description": "The current limit that is enabled on this object.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "RepositoryInteractionLimit",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "origin",
+            "description": "The origin of the currently active interaction limit.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "RepositoryInteractionLimitOrigin",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "RepositoryInteractionLimit",
+        "description": "A repository interaction limit.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "EXISTING_USERS",
+            "description": "Users that have recently created their account will be unable to interact with the repository.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "CONTRIBUTORS_ONLY",
+            "description": "Users that have not previously committed to a repository’s default branch will be unable to interact with the repository.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "COLLABORATORS_ONLY",
+            "description": "Users that are not collaborators will not be able to interact with the repository.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "NO_LIMIT",
+            "description": "No interaction limits are enabled.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "RepositoryInteractionLimitOrigin",
+        "description": "Indicates where an interaction limit is configured.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "REPOSITORY",
+            "description": "A limit that is configured at the repository level.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "ORGANIZATION",
+            "description": "A limit that is configured at the organization level.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "USER",
+            "description": "A limit that is configured at the user-wide level.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
       },
       {
         "kind": "OBJECT",
@@ -101414,6 +101557,18 @@
                 "name": "ID",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "interactionAbility",
+            "description": "The interaction ability settings for this user.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "RepositoryInteractionAbility",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
