@@ -23,6 +23,8 @@
   "author": "Gregor Martynus (https://twitter.com/gr2m)",
   "license": "MIT",
   "devDependencies": {
+    "@graphql-codegen/cli": "^1.19.2",
+    "@graphql-codegen/typescript": "^1.18.0",
     "@octokit/graphql": "^4.0.0",
     "dotenv": "^8.0.0",
     "execa": "^4.0.0",
