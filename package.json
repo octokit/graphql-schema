@@ -12,7 +12,9 @@
     "test": "node test",
     "validate:ts": "tsc --noEmit --noImplicitAny test/typescript-validate.ts",
     "posttest": "npm run -s lint",
-    "update": "node bin/download.js"
+    "download": "node bin/download.js",
+    "generate-typescript": "node bin/generate-typescript",
+    "update": "npm run -s download && npm run -s generate-typescript"
   },
   "keywords": [
     "github",
@@ -42,5 +44,6 @@
     "url": "https://github.com/octokit/graphql-schema/issues"
   },
   "homepage": "https://github.com/octokit/graphql-schema#readme",
-  "types": "index.d.ts"
+  "types": "index.d.ts",
+  "sideEffects": false
 }

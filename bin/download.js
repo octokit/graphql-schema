@@ -38,8 +38,5 @@ request("/graphql")
       return;
     }
 
-    console.log("⌛  Generating schema.d.ts …");
-    await execa("npx", ["graphql-codegen"]);
-
     console.log("📼  New schema recorded");
   });
