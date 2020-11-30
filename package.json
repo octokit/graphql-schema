@@ -13,7 +13,7 @@
     "validate:ts": "tsc --noEmit --noImplicitAny test/typescript-validate.ts",
     "posttest": "npm run -s lint",
     "download": "node bin/download.js",
-    "generate-typescript": "node bin/generate-typescript",
+    "generate-typescript": "graphql-codegen",
     "update": "npm run -s download && npm run -s generate-typescript"
   },
   "keywords": [
@@ -25,8 +25,8 @@
   "author": "Gregor Martynus (https://twitter.com/gr2m)",
   "license": "MIT",
   "devDependencies": {
-    "@graphql-codegen/cli": "^1.19.2",
-    "@graphql-codegen/typescript": "^1.18.0",
+    "@graphql-codegen/cli": "^1.19.4",
+    "@graphql-codegen/typescript": "^1.19.0",
     "@octokit/graphql": "^4.0.0",
     "dotenv": "^8.0.0",
     "execa": "^4.0.0",
@@ -45,5 +45,16 @@
   },
   "homepage": "https://github.com/octokit/graphql-schema#readme",
   "types": "index.d.ts",
-  "sideEffects": false
+  "sideEffects": false,
+  "codegen": {
+    "overwrite": true,
+    "schema": "schema.graphql",
+    "generates": {
+      "schema.d.ts": {
+        "plugins": [
+          "typescript"
+        ]
+      }
+    }
+  }
 }
