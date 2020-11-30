@@ -116,7 +116,7 @@ request("/user")
         console.log("🤖  schema.graphql updated");
       })
 
-      .then(delayWriteOperiation)
+      .then(delayWriteOperation)
 
       .then(() => {
         console.log("🤖  updating schema.json...");
@@ -134,7 +134,7 @@ request("/user")
         );
       })
 
-      .then(delayWriteOperiation)
+      .then(delayWriteOperation)
 
       .then(() => {
         console.log("🤖  schema.json updated");
@@ -170,6 +170,6 @@ My friend Travis asked me to let you know that they found API changes in their d
   });
 
 // 1s timeout for writing operations
-function delayWriteOperiation() {
+function delayWriteOperation() {
   return new Promise((resolve) => setTimeout(resolve, 1000));
 }

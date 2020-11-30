@@ -1,5 +1,5 @@
 // import { validate, schema } from "..";
-import GrapqlSchema, { validate, schema } from ".."
+import GraphqlSchema, { validate, schema } from ".."
 
 export default async function () {
 	const query = `
@@ -11,11 +11,11 @@ export default async function () {
 	`;
 
 	/* Testing default import */
-	GrapqlSchema.validate(query);
+	GraphqlSchema.validate(query);
 
 	// Obtains schemas properly
-	GrapqlSchema.schema.json
-	GrapqlSchema.schema.idl
+	GraphqlSchema.schema.json
+	GraphqlSchema.schema.idl
 
 	/* Testing named imports */
 	validate(query);

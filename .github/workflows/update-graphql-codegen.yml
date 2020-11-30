@@ -1,0 +1,23 @@
+name: Update graphql-codegen
+"on":
+  push:
+    branches:
+      - dependabot/npm_and_yarn/graphql-codegen/*
+jobs:
+  update_graphql-codegen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@v1
+        with:
+          version: 12
+      - run: npm ci
+      - run: "npm run generate-typescript"
+      - uses: gr2m/create-or-update-pull-request-action@v1.x
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        with:
+          title: graphql-codegen updated
+          body: An update to graphql-codegen required updates to your code.
+          branch: "${{ github.ref }}"
+          commit-message: "chore(deps): upgrade graphql-codegen"

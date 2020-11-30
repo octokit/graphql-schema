@@ -19,4 +19,6 @@ declare namespace GraphqlSchema {
 export const schema: Schema
 export const validate: Validate
 
+export * from './schema'
+
 export default GraphqlSchema
