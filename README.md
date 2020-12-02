@@ -80,8 +80,9 @@ GH_TOKEN=... TRAVIS_REPO_SLUG=octokit/graphql-schema bin/create-pull-request.js
 
 ## See also
 
-- [octokit/routes](https://github.com/octokit/routes) – GitHub REST API route specifications
+- [octokit/openapi](https://github.com/octokit/openapi) – GitHub's OpenAPI specification with `x-octokit` extension
 - [octokit/webhooks](https://github.com/octokit/webhooks) – GitHub Webhooks specifications
+- [octokit/app-permissions](https://github.com/octokit/app-permissions) – GitHub App permission specifications
 
 ## LICENSE
 
