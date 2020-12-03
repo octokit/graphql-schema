@@ -66,16 +66,10 @@ npm install
 npm test
 ```
 
-Update schema files (`GH_TOKEN` requires no scope)
+Update schema files (`GITHUB_TOKEN` requires no scope)
 
 ```
-GH_TOKEN=... bin/download.js
-```
-
-Create pull request (after schema files changed). This script is run daily on Travis CI. The token requires `public_repo` scope.
-
-```
-GH_TOKEN=... TRAVIS_REPO_SLUG=octokit/graphql-schema bin/create-pull-request.js
+GITHUB_TOKEN=... npm run update
 ```
 
 ## See also
