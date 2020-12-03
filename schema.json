@@ -34364,6 +34364,22 @@
             "deprecationReason": null
           },
           {
+            "name": "hasVerifiedOwner",
+            "description": "Whether the creator of the app is a verified org",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "howItWorks",
             "description": "A technical description of how this app works with GitHub.",
             "args": [],
