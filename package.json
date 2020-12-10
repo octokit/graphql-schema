@@ -53,7 +53,10 @@
       "schema.d.ts": {
         "plugins": [
           "typescript"
-        ]
+        ],
+        "config": {
+          "enumsAsTypes": true
+        }
       }
     }
   }
