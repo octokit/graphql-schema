@@ -13,22 +13,23 @@ By participating in this project you agree to abide by its terms.
 ## Creating an Issue
 
 Before you create a new Issue:
-* Check the [Issues](https://github.com/octokit/graphql-schema/issues) on Github to ensure one doesn't already exist.
-* Clearly describe the issue, including the steps to reproduce the issue.
-* Please include links to the corresponding github documentation.
+
+- Check the [Issues](https://github.com/octokit/graphql-schema/issues) on Github to ensure one doesn't already exist.
+- Clearly describe the issue, including the steps to reproduce the issue.
+- Please include links to the corresponding github documentation.
 
 ## Making Changes
 
-* Create a topic branch from the master branch.
-* Check for unnecessary whitespace / changes with `git diff --check` before committing.
-* Keep git commit messages clear and appropriate. Ideally follow commit conventions described below.
+- Create a topic branch from the master branch.
+- Check for unnecessary whitespace / changes with `git diff --check` before committing.
+- Keep git commit messages clear and appropriate. Ideally follow commit conventions described below.
 
 ## Submitting the Pull Request
 
-* Push your changes to your topic branch on your fork of the repo.
-* Submit a pull request from your topic branch to the master branch on the `graphql-schema` repository.
-* Be sure to tag any issues your pull request is taking care of / contributing to.
-* Adding "Closes #123" to a pull request description will auto close the issue once the pull request is merged in.
+- Push your changes to your topic branch on your fork of the repo.
+- Submit a pull request from your topic branch to the master branch on the `graphql-schema` repository.
+- Be sure to tag any issues your pull request is taking care of / contributing to.
+- Adding "Closes #123" to a pull request description will auto close the issue once the pull request is merged in.
 
 ## Merging the Pull Request & releasing a new version
 

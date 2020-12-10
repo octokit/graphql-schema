@@ -7,8 +7,8 @@
   "description": "GitHub’s GraphQL Schema with validation. Automatically updated.",
   "main": "index.js",
   "scripts": {
-    "lint": "prettier --check '{bin,lib,test}/**/*.js' README.md package.json",
-    "lint:fix": "prettier --write '{bin,lib,test}/**/*.js' README.md package.json",
+    "lint": "prettier --check '{bin,lib,test}/**/*.{js,ts}' *.md package.json",
+    "lint:fix": "prettier --write '{bin,lib,test}/**/*.{js,ts}' *.md package.json",
     "test": "node test",
     "validate:ts": "tsc --noEmit --noImplicitAny test/typescript-validate.ts",
     "posttest": "npm run -s lint",
@@ -53,7 +53,10 @@
       "schema.d.ts": {
         "plugins": [
           "typescript"
-        ]
+        ],
+        "config": {
+          "enumsAsTypes": true
+        }
       }
     }
   }
