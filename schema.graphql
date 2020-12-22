@@ -2072,6 +2072,11 @@ enum CheckStatusState {
   The check suite or run has been requested.
   """
   REQUESTED
+
+  """
+  The check suite or run is in waiting state.
+  """
+  WAITING
 }
 
 """
@@ -30016,6 +30021,11 @@ enum RequestableCheckStatusState {
   The check suite or run has been queued.
   """
   QUEUED
+
+  """
+  The check suite or run is in waiting state.
+  """
+  WAITING
 }
 
 """
