@@ -5788,6 +5788,12 @@
             "deprecationReason": null
           },
           {
+            "name": "WAITING",
+            "description": "The check suite or run is in waiting state.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "REQUESTED",
             "description": "The check suite or run has been requested.",
             "isDeprecated": false,
@@ -83361,6 +83367,12 @@
           {
             "name": "COMPLETED",
             "description": "The check suite or run has been completed.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "WAITING",
+            "description": "The check suite or run is in waiting state.",
             "isDeprecated": false,
             "deprecationReason": null
           }
