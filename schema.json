@@ -64635,7 +64635,7 @@
       {
         "kind": "UNION",
         "name": "PullRequestTimelineItem",
-        "description": "An item in an pull request timeline",
+        "description": "An item in a pull request timeline",
         "fields": null,
         "inputFields": null,
         "interfaces": null,
