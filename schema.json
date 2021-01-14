@@ -8577,7 +8577,7 @@
           },
           {
             "name": "committedViaWeb",
-            "description": "Check if commited via GitHub web UI.",
+            "description": "Check if committed via GitHub web UI.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -8593,7 +8593,7 @@
           },
           {
             "name": "committer",
-            "description": "Committership details of the commit.",
+            "description": "Committer details of the commit.",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -14122,7 +14122,7 @@
           },
           {
             "name": "private",
-            "description": "If true, restricts the visiblity of this discussion to team members and organization admins. If false or not specified, allows any organization member to view this discussion.",
+            "description": "If true, restricts the visibility of this discussion to team members and organization admins. If false or not specified, allows any organization member to view this discussion.",
             "type": {
               "kind": "SCALAR",
               "name": "Boolean",
@@ -28033,7 +28033,7 @@
           },
           {
             "name": "OCSP_ERROR",
-            "description": "Valid siganture, though certificate revocation check failed",
+            "description": "Valid signature, though certificate revocation check failed",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -37428,7 +37428,7 @@
           },
           {
             "name": "progressPercentage",
-            "description": "Indentifies the percentage complete for the milestone",
+            "description": "Identifies the percentage complete for the milestone",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -49229,7 +49229,7 @@
           },
           {
             "name": "restoredIssueAssignmentsCount",
-            "description": "The number of issue assignemnts for the restored member.",
+            "description": "The number of issue assignments for the restored member.",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -53937,7 +53937,7 @@
           },
           {
             "name": "idpCertificate",
-            "description": "The x509 certificate used by the Identity Provder to sign assertions and responses.",
+            "description": "The x509 certificate used by the Identity Provider to sign assertions and responses.",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -56604,7 +56604,7 @@
       {
         "kind": "SCALAR",
         "name": "PreciseDateTime",
-        "description": "An ISO-8601 encoded UTC date string with millisecond precison.",
+        "description": "An ISO-8601 encoded UTC date string with millisecond precision.",
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -76486,7 +76486,7 @@
           },
           {
             "name": "forkSourceName",
-            "description": "The name of the root repository for this netork.",
+            "description": "The name of the root repository for this network.",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -83668,7 +83668,7 @@
           },
           {
             "name": "dismissedAt",
-            "description": "When was the alert dimissed?",
+            "description": "When was the alert dismissed?",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -83736,7 +83736,7 @@
           },
           {
             "name": "securityVulnerability",
-            "description": "The associated security vulnerablity",
+            "description": "The associated security vulnerability",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -87424,7 +87424,7 @@
       {
         "kind": "UNION",
         "name": "Sponsor",
-        "description": "Entites that can sponsor others via GitHub Sponsors",
+        "description": "Entities that can sponsor others via GitHub Sponsors",
         "fields": null,
         "inputFields": null,
         "interfaces": null,
