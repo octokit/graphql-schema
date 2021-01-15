@@ -24788,6 +24788,11 @@ type Release implements Node & UniformResourceLocatable {
   isDraft: Boolean!
 
   """
+  Whether or not the release is the latest releast
+  """
+  isLatest: Boolean!
+
+  """
   Whether or not the release is a prerelease
   """
   isPrerelease: Boolean!
@@ -28379,6 +28384,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
     """
     orderBy: LanguageOrder
   ): LanguageConnection
+
+  """
+  Get the latest release for the repository if one exists.
+  """
+  latestRelease: Release
 
   """
   The license associated with the repository
