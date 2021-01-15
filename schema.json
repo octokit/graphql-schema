@@ -11065,6 +11065,22 @@
             "deprecationReason": null
           },
           {
+            "name": "contributionLevel",
+            "description": "Indication of contributions, relative to other days. Can be used to indicate which color to represent this day on a calendar.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "ContributionLevel",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "date",
             "description": "The day this square represents.",
             "args": [],
@@ -11226,6 +11242,47 @@
         "inputFields": null,
         "interfaces": [],
         "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "ContributionLevel",
+        "description": "Varying levels of contributions from none to many.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "NONE",
+            "description": "No contributions occurred.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "FIRST_QUARTILE",
+            "description": "Lowest 25% of days of contributions.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "SECOND_QUARTILE",
+            "description": "Second lowest 25% of days of contributions. More contributions than the first quartile.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "THIRD_QUARTILE",
+            "description": "Second highest 25% of days of contributions. More contributions than second quartile, less than the fourth quartile.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "FOURTH_QUARTILE",
+            "description": "Highest 25% of days of contributions. More contributions than the third quartile.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
         "possibleTypes": null
       },
       {
