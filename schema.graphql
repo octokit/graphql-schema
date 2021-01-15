@@ -3999,6 +3999,12 @@ type ContributionCalendarDay {
   contributionCount: Int!
 
   """
+  Indication of contributions, relative to other days. Can be used to indicate
+  which color to represent this day on a calendar.
+  """
+  contributionLevel: ContributionLevel!
+
+  """
   The day this square represents.
   """
   date: Date!
@@ -4047,6 +4053,36 @@ type ContributionCalendarWeek {
   The date of the earliest square in this week.
   """
   firstDay: Date!
+}
+
+"""
+Varying levels of contributions from none to many.
+"""
+enum ContributionLevel {
+  """
+  Lowest 25% of days of contributions.
+  """
+  FIRST_QUARTILE
+
+  """
+  Highest 25% of days of contributions. More contributions than the third quartile.
+  """
+  FOURTH_QUARTILE
+
+  """
+  No contributions occurred.
+  """
+  NONE
+
+  """
+  Second lowest 25% of days of contributions. More contributions than the first quartile.
+  """
+  SECOND_QUARTILE
+
+  """
+  Second highest 25% of days of contributions. More contributions than second quartile, less than the fourth quartile.
+  """
+  THIRD_QUARTILE
 }
 
 """
