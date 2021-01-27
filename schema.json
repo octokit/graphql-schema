@@ -86479,6 +86479,18 @@
             "deprecationReason": null
           },
           {
+            "name": "notificationsPermalink",
+            "description": "The permalink for the advisory's dependabot alerts page",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "URI",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "origin",
             "description": "The organization that originated the advisory",
             "args": [],
