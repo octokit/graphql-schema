@@ -510,7 +510,7 @@ export type AuditLogOrder = {
 };
 
 /** Properties by which Audit Log connections can be ordered. */
-export type AuditLogOrderField = 
+export type AuditLogOrderField =
   /** Order audit log entries by timestamp */
   | 'CREATED_AT';
 
@@ -980,7 +980,7 @@ export type CheckAnnotationEdge = {
 };
 
 /** Represents an annotation's information level. */
-export type CheckAnnotationLevel = 
+export type CheckAnnotationLevel =
   /** An annotation indicating an inescapable error. */
   | 'FAILURE'
   /** An annotation indicating some information. */
@@ -1019,7 +1019,7 @@ export type CheckAnnotationSpan = {
 };
 
 /** The possible states for a check suite or run conclusion. */
-export type CheckConclusionState = 
+export type CheckConclusionState =
   /** The check suite or run requires action. */
   | 'ACTION_REQUIRED'
   /** The check suite or run has been cancelled. */
@@ -1157,14 +1157,14 @@ export type CheckRunOutputImage = {
 };
 
 /** The possible types of check runs. */
-export type CheckRunType = 
+export type CheckRunType =
   /** Every check run available. */
   | 'ALL'
   /** The latest check run. */
   | 'LATEST';
 
 /** The possible states for a check suite or run status. */
-export type CheckStatusState = 
+export type CheckStatusState =
   /** The check suite or run has been completed. */
   | 'COMPLETED'
   /** The check suite or run is in progress. */
@@ -1428,7 +1428,7 @@ export type CodeOfConduct = Node & {
 };
 
 /** Collaborators affiliation level with a subject. */
-export type CollaboratorAffiliation = 
+export type CollaboratorAffiliation =
   /** All collaborators the authenticated user can see. */
   | 'ALL'
   /** All collaborators with permissions to an organization-owned subject, regardless of organization membership status. */
@@ -1479,7 +1479,7 @@ export type CommentUserContentEditsArgs = {
 };
 
 /** A comment author association with repository. */
-export type CommentAuthorAssociation = 
+export type CommentAuthorAssociation =
   /** Author has been invited to collaborate on the repository. */
   | 'COLLABORATOR'
   /** Author has previously committed to the repository. */
@@ -1498,7 +1498,7 @@ export type CommentAuthorAssociation =
   | 'OWNER';
 
 /** The possible errors that will prevent a user from updating a comment. */
-export type CommentCannotUpdateReason = 
+export type CommentCannotUpdateReason =
   /** Unable to create comment because repository is archived. */
   | 'ARCHIVED'
   /** You cannot update this comment */
@@ -1887,7 +1887,7 @@ export type CommitContributionOrder = {
 };
 
 /** Properties by which commit contribution connections can be ordered. */
-export type CommitContributionOrderField = 
+export type CommitContributionOrderField =
   /** Order commit contributions by how many commits they represent. */
   | 'COMMIT_COUNT'
   /** Order commit contributions by when they were made. */
@@ -2028,7 +2028,7 @@ export type ContributionCalendarWeek = {
 };
 
 /** Varying levels of contributions from none to many. */
-export type ContributionLevel = 
+export type ContributionLevel =
   /** Lowest 25% of days of contributions. */
   | 'FIRST_QUARTILE'
   /** Highest 25% of days of contributions. More contributions than the third quartile. */
@@ -2961,7 +2961,7 @@ export type DeclineTopicSuggestionPayload = {
 };
 
 /** The possible default permissions for repositories. */
-export type DefaultRepositoryPermissionField = 
+export type DefaultRepositoryPermissionField =
   /** Can read, write, and administrate repos by default */
   | 'ADMIN'
   /** No access */
@@ -3371,12 +3371,12 @@ export type DeploymentOrder = {
 };
 
 /** Properties by which deployment connections can be ordered. */
-export type DeploymentOrderField = 
+export type DeploymentOrderField =
   /** Order collection by creation time */
   | 'CREATED_AT';
 
 /** The possible states in which a deployment can be. */
-export type DeploymentState = 
+export type DeploymentState =
   /** The pending deployment was not updated after 30 minutes. */
   | 'ABANDONED'
   /** The deployment is currently active. */
@@ -3443,7 +3443,7 @@ export type DeploymentStatusEdge = {
 };
 
 /** The possible states for a deployment status. */
-export type DeploymentStatusState = 
+export type DeploymentStatusState =
   /** The deployment experienced an error. */
   | 'ERROR'
   /** The deployment has failed. */
@@ -3462,7 +3462,7 @@ export type DeploymentStatusState =
   | 'WAITING';
 
 /** The possible sides of a diff. */
-export type DiffSide = 
+export type DiffSide =
   /** The left side of the diff. */
   | 'LEFT'
   /** The right side of the diff. */
@@ -3682,12 +3682,12 @@ export type EnterpriseAdministratorInvitationOrder = {
 };
 
 /** Properties by which enterprise administrator invitation connections can be ordered. */
-export type EnterpriseAdministratorInvitationOrderField = 
+export type EnterpriseAdministratorInvitationOrderField =
   /** Order enterprise administrator member invitations by creation time */
   | 'CREATED_AT';
 
 /** The possible administrator roles in an enterprise account. */
-export type EnterpriseAdministratorRole = 
+export type EnterpriseAdministratorRole =
   /** Represents a billing manager of the enterprise account. */
   | 'BILLING_MANAGER'
   /** Represents an owner of the enterprise account. */
@@ -3739,7 +3739,7 @@ export type EnterpriseBillingInfo = {
 };
 
 /** The possible values for the enterprise default repository permission setting. */
-export type EnterpriseDefaultRepositoryPermissionSettingValue = 
+export type EnterpriseDefaultRepositoryPermissionSettingValue =
   /** Organization members will be able to clone, pull, push, and add new collaborators to all organization repositories. */
   | 'ADMIN'
   /** Organization members will only be able to clone and pull public repositories. */
@@ -3752,7 +3752,7 @@ export type EnterpriseDefaultRepositoryPermissionSettingValue =
   | 'WRITE';
 
 /** The possible values for an enabled/disabled enterprise setting. */
-export type EnterpriseEnabledDisabledSettingValue = 
+export type EnterpriseEnabledDisabledSettingValue =
   /** The setting is disabled for organizations in the enterprise. */
   | 'DISABLED'
   /** The setting is enabled for organizations in the enterprise. */
@@ -3761,7 +3761,7 @@ export type EnterpriseEnabledDisabledSettingValue =
   | 'NO_POLICY';
 
 /** The possible values for an enabled/no policy enterprise setting. */
-export type EnterpriseEnabledSettingValue = 
+export type EnterpriseEnabledSettingValue =
   /** The setting is enabled for organizations in the enterprise. */
   | 'ENABLED'
   /** There is no policy set for organizations in the enterprise. */
@@ -3837,14 +3837,14 @@ export type EnterpriseMemberOrder = {
 };
 
 /** Properties by which enterprise member connections can be ordered. */
-export type EnterpriseMemberOrderField = 
+export type EnterpriseMemberOrderField =
   /** Order enterprise members by creation time */
   | 'CREATED_AT'
   /** Order enterprise members by login */
   | 'LOGIN';
 
 /** The possible values for the enterprise members can create repositories setting. */
-export type EnterpriseMembersCanCreateRepositoriesSettingValue = 
+export type EnterpriseMembersCanCreateRepositoriesSettingValue =
   /** Members will be able to create public and private repositories. */
   | 'ALL'
   /** Members will not be able to create public or private repositories. */
@@ -3857,7 +3857,7 @@ export type EnterpriseMembersCanCreateRepositoriesSettingValue =
   | 'PUBLIC';
 
 /** The possible values for the members can make purchases setting. */
-export type EnterpriseMembersCanMakePurchasesSettingValue = 
+export type EnterpriseMembersCanMakePurchasesSettingValue =
   /** The setting is disabled for organizations in the enterprise. */
   | 'DISABLED'
   /** The setting is enabled for organizations in the enterprise. */
@@ -4480,7 +4480,7 @@ export type EnterpriseServerInstallationOrder = {
 };
 
 /** Properties by which Enterprise Server installation connections can be ordered. */
-export type EnterpriseServerInstallationOrderField = 
+export type EnterpriseServerInstallationOrderField =
   /** Order Enterprise Server installations by creation time */
   | 'CREATED_AT'
   /** Order Enterprise Server installations by customer name */
@@ -4591,7 +4591,7 @@ export type EnterpriseServerUserAccountEmailOrder = {
 };
 
 /** Properties by which Enterprise Server user account email connections can be ordered. */
-export type EnterpriseServerUserAccountEmailOrderField = 
+export type EnterpriseServerUserAccountEmailOrderField =
   /** Order emails by email */
   | 'EMAIL';
 
@@ -4604,7 +4604,7 @@ export type EnterpriseServerUserAccountOrder = {
 };
 
 /** Properties by which Enterprise Server user account connections can be ordered. */
-export type EnterpriseServerUserAccountOrderField = 
+export type EnterpriseServerUserAccountOrderField =
   /** Order user accounts by login */
   | 'LOGIN'
   /** Order user accounts by creation time on the Enterprise Server installation */
@@ -4659,12 +4659,12 @@ export type EnterpriseServerUserAccountsUploadOrder = {
 };
 
 /** Properties by which Enterprise Server user accounts upload connections can be ordered. */
-export type EnterpriseServerUserAccountsUploadOrderField = 
+export type EnterpriseServerUserAccountsUploadOrderField =
   /** Order user accounts uploads by creation time */
   | 'CREATED_AT';
 
 /** Synchronization state of the Enterprise Server user accounts upload */
-export type EnterpriseServerUserAccountsUploadSyncState = 
+export type EnterpriseServerUserAccountsUploadSyncState =
   /** The synchronization of the upload failed. */
   | 'FAILURE'
   /** The synchronization of the upload is pending. */
@@ -4739,14 +4739,14 @@ export type EnterpriseUserAccountEdge = {
 };
 
 /** The possible roles for enterprise membership. */
-export type EnterpriseUserAccountMembershipRole = 
+export type EnterpriseUserAccountMembershipRole =
   /** The user is a member of the enterprise membership. */
   | 'MEMBER'
   /** The user is an owner of the enterprise membership. */
   | 'OWNER';
 
 /** The possible GitHub Enterprise deployments where this user can exist. */
-export type EnterpriseUserDeployment = 
+export type EnterpriseUserDeployment =
   /** The user is part of a GitHub Enterprise Cloud deployment. */
   | 'CLOUD'
   /** The user is part of a GitHub Enterprise Server deployment. */
@@ -4823,7 +4823,7 @@ export type ExternalIdentityScimAttributes = {
 };
 
 /** The possible viewed states of a file . */
-export type FileViewedState = 
+export type FileViewedState =
   /** The file has new changes since last viewed. */
   | 'DISMISSED'
   /** The file has not been marked as viewed. */
@@ -4884,7 +4884,7 @@ export type FundingLink = {
 };
 
 /** The possible funding platforms for repository funding links. */
-export type FundingPlatform = 
+export type FundingPlatform =
   /** Community Bridge funding platform. */
   | 'COMMUNITY_BRIDGE'
   /** Custom funding platform. */
@@ -5130,7 +5130,7 @@ export type GistOrder = {
 };
 
 /** Properties by which gist connections can be ordered. */
-export type GistOrderField = 
+export type GistOrderField =
   /** Order gists by creation time */
   | 'CREATED_AT'
   /** Order gists by push time */
@@ -5139,7 +5139,7 @@ export type GistOrderField =
   | 'UPDATED_AT';
 
 /** The privacy of a Gist */
-export type GistPrivacy = 
+export type GistPrivacy =
   /** Gists that are public and secret */
   | 'ALL'
   /** Public */
@@ -5246,7 +5246,7 @@ export type GitSignature = {
 };
 
 /** The state of a Git signature. */
-export type GitSignatureState = 
+export type GitSignatureState =
   /** The signing certificate or its chain could not be verified */
   | 'BAD_CERT'
   /** Invalid email used for signing */
@@ -5370,7 +5370,7 @@ export type HovercardContext = {
 };
 
 /** The possible states in which authentication can be configured with an identity provider. */
-export type IdentityProviderConfigurationState = 
+export type IdentityProviderConfigurationState =
   /** Authentication with an identity provider is configured but not enforced. */
   | 'CONFIGURED'
   /** Authentication with an identity provider is configured and enforced. */
@@ -5402,7 +5402,7 @@ export type InviteEnterpriseAdminPayload = {
 };
 
 /** The possible values for the IP allow list enabled setting. */
-export type IpAllowListEnabledSettingValue = 
+export type IpAllowListEnabledSettingValue =
   /** The setting is disabled for the owner. */
   | 'DISABLED'
   /** The setting is enabled for the owner. */
@@ -5457,7 +5457,7 @@ export type IpAllowListEntryOrder = {
 };
 
 /** Properties by which IP allow list entry connections can be ordered. */
-export type IpAllowListEntryOrderField = 
+export type IpAllowListEntryOrderField =
   /** Order IP allow list entries by the allow list value. */
   | 'ALLOW_LIST_VALUE'
   /** Order IP allow list entries by creation time. */
@@ -5777,7 +5777,7 @@ export type IssueCommentOrder = {
 };
 
 /** Properties by which issue comment connections can be ordered. */
-export type IssueCommentOrderField = 
+export type IssueCommentOrderField =
   /** Order issue comments by update time */
   | 'UPDATED_AT';
 
@@ -5861,7 +5861,7 @@ export type IssueOrder = {
 };
 
 /** Properties by which issue connections can be ordered. */
-export type IssueOrderField = 
+export type IssueOrderField =
   /** Order issues by comment count */
   | 'COMMENTS'
   /** Order issues by creation time */
@@ -5870,7 +5870,7 @@ export type IssueOrderField =
   | 'UPDATED_AT';
 
 /** The possible states of an issue. */
-export type IssueState = 
+export type IssueState =
   /** An issue that has been closed */
   | 'CLOSED'
   /** An issue that is still open */
@@ -5946,7 +5946,7 @@ export type IssueTimelineItemsEdge = {
 };
 
 /** The possible item types found in a timeline. */
-export type IssueTimelineItemsItemType = 
+export type IssueTimelineItemsItemType =
   /** Represents a 'added_to_project' event on a given issue or pull request. */
   | 'ADDED_TO_PROJECT_EVENT'
   /** Represents an 'assigned' event on any assignable object. */
@@ -6113,7 +6113,7 @@ export type LabelOrder = {
 };
 
 /** Properties by which label connections can be ordered. */
-export type LabelOrderField = 
+export type LabelOrderField =
   /** Order labels by creation time */
   | 'CREATED_AT'
   /** Order labels by name  */
@@ -6192,7 +6192,7 @@ export type LanguageOrder = {
 };
 
 /** Properties by which language connections can be ordered. */
-export type LanguageOrderField = 
+export type LanguageOrderField =
   /** Order languages by the size of all files containing the language */
   | 'SIZE';
 
@@ -6284,7 +6284,7 @@ export type LockLockablePayload = {
 };
 
 /** The possible reasons that an issue or pull request was locked. */
-export type LockReason = 
+export type LockReason =
   /** The issue or pull request was locked because the conversation was off-topic. */
   | 'OFF_TOPIC'
   /** The issue or pull request was locked because the conversation was resolved. */
@@ -6804,7 +6804,7 @@ export type MergePullRequestPayload = {
 };
 
 /** Whether or not a PullRequest can be merged. */
-export type MergeableState = 
+export type MergeableState =
   /** The pull request cannot be merged due to merge conflicts. */
   | 'CONFLICTING'
   /** The pull request can be merged. */
@@ -6933,7 +6933,7 @@ export type MilestoneOrder = {
 };
 
 /** Properties by which milestone connections can be ordered. */
-export type MilestoneOrderField = 
+export type MilestoneOrderField =
   /** Order milestones by when they were created. */
   | 'CREATED_AT'
   /** Order milestones by when they are due. */
@@ -6944,7 +6944,7 @@ export type MilestoneOrderField =
   | 'UPDATED_AT';
 
 /** The possible states of a milestone. */
-export type MilestoneState = 
+export type MilestoneState =
   /** A milestone that has been closed. */
   | 'CLOSED'
   /** A milestone that is still open. */
@@ -8089,7 +8089,7 @@ export type Node = {
 };
 
 /** The possible values for the notification restriction setting. */
-export type NotificationRestrictionSettingValue = 
+export type NotificationRestrictionSettingValue =
   /** The setting is disabled for the owner. */
   | 'DISABLED'
   /** The setting is enabled for the owner. */
@@ -8160,7 +8160,7 @@ export type OauthApplicationCreateAuditEntry = AuditEntry & Node & OauthApplicat
 };
 
 /** The state of an OAuth Application when it was created. */
-export type OauthApplicationCreateAuditEntryState = 
+export type OauthApplicationCreateAuditEntryState =
   /** The OAuth Application was active and allowed to have OAuth Accesses. */
   | 'ACTIVE'
   /** The OAuth Application was in the process of being deleted. */
@@ -8169,7 +8169,7 @@ export type OauthApplicationCreateAuditEntryState =
   | 'SUSPENDED';
 
 /** The corresponding operation type for the action */
-export type OperationType = 
+export type OperationType =
   /** An existing resource was accessed */
   | 'ACCESS'
   /** A resource performed an authentication event */
@@ -8186,7 +8186,7 @@ export type OperationType =
   | 'TRANSFER';
 
 /** Possible directions in which to order a list of items when provided an `orderBy` argument. */
-export type OrderDirection = 
+export type OrderDirection =
   /** Specifies an ascending order for a given `orderBy` argument. */
   | 'ASC'
   /** Specifies a descending order for a given `orderBy` argument. */
@@ -8277,7 +8277,7 @@ export type OrgAddMemberAuditEntry = AuditEntry & Node & OrganizationAuditEntryD
 };
 
 /** The permissions available to members on an Organization. */
-export type OrgAddMemberAuditEntryPermission = 
+export type OrgAddMemberAuditEntryPermission =
   /** Can read, clone, push, and add collaborators to repositories. */
   | 'ADMIN'
   /** Can read and clone repositories. */
@@ -8454,7 +8454,7 @@ export type OrgCreateAuditEntry = AuditEntry & Node & OrganizationAuditEntryData
 };
 
 /** The billing plans available for organizations. */
-export type OrgCreateAuditEntryBillingPlan = 
+export type OrgCreateAuditEntryBillingPlan =
   /** Team Plan */
   | 'BUSINESS'
   /** Enterprise Cloud Plan */
@@ -8993,7 +8993,7 @@ export type OrgRemoveBillingManagerAuditEntry = AuditEntry & Node & Organization
 };
 
 /** The reason a billing manager was removed from an Organization. */
-export type OrgRemoveBillingManagerAuditEntryReason = 
+export type OrgRemoveBillingManagerAuditEntryReason =
   /** SAML external identity missing */
   | 'SAML_EXTERNAL_IDENTITY_MISSING'
   /** SAML SSO enforcement requires an external identity */
@@ -9046,7 +9046,7 @@ export type OrgRemoveMemberAuditEntry = AuditEntry & Node & OrganizationAuditEnt
 };
 
 /** The type of membership a user has with an Organization. */
-export type OrgRemoveMemberAuditEntryMembershipType = 
+export type OrgRemoveMemberAuditEntryMembershipType =
   /**
    * Organization administrators have full access and can change several settings,
    * including the names of repositories that belong to the Organization and Owners
@@ -9071,7 +9071,7 @@ export type OrgRemoveMemberAuditEntryMembershipType =
   | 'UNAFFILIATED';
 
 /** The reason a member was removed from an Organization. */
-export type OrgRemoveMemberAuditEntryReason = 
+export type OrgRemoveMemberAuditEntryReason =
   /** SAML external identity missing */
   | 'SAML_EXTERNAL_IDENTITY_MISSING'
   /** SAML SSO enforcement requires an external identity */
@@ -9128,7 +9128,7 @@ export type OrgRemoveOutsideCollaboratorAuditEntry = AuditEntry & Node & Organiz
 };
 
 /** The type of membership a user has with an Organization. */
-export type OrgRemoveOutsideCollaboratorAuditEntryMembershipType = 
+export type OrgRemoveOutsideCollaboratorAuditEntryMembershipType =
   /** A billing manager is a user who manages the billing settings for the Organization, such as updating payment information. */
   | 'BILLING_MANAGER'
   /**
@@ -9144,7 +9144,7 @@ export type OrgRemoveOutsideCollaboratorAuditEntryMembershipType =
   | 'UNAFFILIATED';
 
 /** The reason an outside collaborator was removed from an Organization. */
-export type OrgRemoveOutsideCollaboratorAuditEntryReason = 
+export type OrgRemoveOutsideCollaboratorAuditEntryReason =
   /** SAML external identity missing */
   | 'SAML_EXTERNAL_IDENTITY_MISSING'
   /** The organization required 2FA of its billing managers and this user did not have 2FA enabled. */
@@ -9339,7 +9339,7 @@ export type OrgUpdateDefaultRepositoryPermissionAuditEntry = AuditEntry & Node &
 };
 
 /** The default permission a repository can have in an Organization. */
-export type OrgUpdateDefaultRepositoryPermissionAuditEntryPermission = 
+export type OrgUpdateDefaultRepositoryPermissionAuditEntryPermission =
   /** Can read, clone, push, and add collaborators to repositories. */
   | 'ADMIN'
   /** No default permission value. */
@@ -9394,7 +9394,7 @@ export type OrgUpdateMemberAuditEntry = AuditEntry & Node & OrganizationAuditEnt
 };
 
 /** The permissions available to members on an Organization. */
-export type OrgUpdateMemberAuditEntryPermission = 
+export type OrgUpdateMemberAuditEntryPermission =
   /** Can read, clone, push, and add collaborators to repositories. */
   | 'ADMIN'
   /** Can read and clone repositories. */
@@ -9445,7 +9445,7 @@ export type OrgUpdateMemberRepositoryCreationPermissionAuditEntry = AuditEntry &
 };
 
 /** The permissions available for repository creation on an Organization. */
-export type OrgUpdateMemberRepositoryCreationPermissionAuditEntryVisibility = 
+export type OrgUpdateMemberRepositoryCreationPermissionAuditEntryVisibility =
   /** All organization members are restricted from creating any repositories. */
   | 'ALL'
   /** All organization members are restricted from creating internal repositories. */
@@ -9951,7 +9951,7 @@ export type OrganizationInvitationEdge = {
 };
 
 /** The possible organization invitation roles. */
-export type OrganizationInvitationRole = 
+export type OrganizationInvitationRole =
   /** The user is invited to be an admin of the organization. */
   | 'ADMIN'
   /** The user is invited to be a billing manager of the organization. */
@@ -9962,7 +9962,7 @@ export type OrganizationInvitationRole =
   | 'REINSTATE';
 
 /** The possible organization invitation types. */
-export type OrganizationInvitationType = 
+export type OrganizationInvitationType =
   /** The invitation was to an email address. */
   | 'EMAIL'
   /** The invitation was to an existing user. */
@@ -9995,14 +9995,14 @@ export type OrganizationMemberEdge = {
 };
 
 /** The possible roles within an organization for its members. */
-export type OrganizationMemberRole = 
+export type OrganizationMemberRole =
   /** The user is an administrator of the organization. */
   | 'ADMIN'
   /** The user is a member of the organization. */
   | 'MEMBER';
 
 /** The possible values for the members can create repositories setting on an organization. */
-export type OrganizationMembersCanCreateRepositoriesSettingValue = 
+export type OrganizationMembersCanCreateRepositoriesSettingValue =
   /** Members will be able to create public and private repositories. */
   | 'ALL'
   /** Members will not be able to create public or private repositories. */
@@ -10019,7 +10019,7 @@ export type OrganizationOrder = {
 };
 
 /** Properties by which organization connections can be ordered. */
-export type OrganizationOrderField = 
+export type OrganizationOrderField =
   /** Order organizations by creation time */
   | 'CREATED_AT'
   /** Order organizations by login */
@@ -10184,7 +10184,7 @@ export type PackageFileOrder = {
 };
 
 /** Properties by which package file connections can be ordered. */
-export type PackageFileOrderField = 
+export type PackageFileOrderField =
   /** Order package files by creation time */
   | 'CREATED_AT';
 
@@ -10197,7 +10197,7 @@ export type PackageOrder = {
 };
 
 /** Properties by which package connections can be ordered. */
-export type PackageOrderField = 
+export type PackageOrderField =
   /** Order packages by creation time */
   | 'CREATED_AT';
 
@@ -10239,7 +10239,7 @@ export type PackageTag = Node & {
 };
 
 /** The possible types of a package. */
-export type PackageType = 
+export type PackageType =
   /** A debian package. */
   | 'DEBIAN'
   /** A docker image. */
@@ -10320,7 +10320,7 @@ export type PackageVersionOrder = {
 };
 
 /** Properties by which package version connections can be ordered. */
-export type PackageVersionOrderField = 
+export type PackageVersionOrderField =
   /** Order package versions by creation time */
   | 'CREATED_AT';
 
@@ -10384,7 +10384,7 @@ export type PinnableItemEdge = {
 };
 
 /** Represents items that can be pinned to a profile page or dashboard. */
-export type PinnableItemType = 
+export type PinnableItemType =
   /** A gist. */
   | 'GIST'
   /** An issue. */
@@ -10704,7 +10704,7 @@ export type ProjectCard = Node & {
 };
 
 /** The possible archived states of a project card. */
-export type ProjectCardArchivedState = 
+export type ProjectCardArchivedState =
   /** A project card that is archived */
   | 'ARCHIVED'
   /** A project card that is not archived */
@@ -10736,7 +10736,7 @@ export type ProjectCardEdge = {
 export type ProjectCardItem = Issue | PullRequest;
 
 /** Various content states of a ProjectCard */
-export type ProjectCardState = 
+export type ProjectCardState =
   /** The card has content only. */
   | 'CONTENT_ONLY'
   /** The card has a note only. */
@@ -10801,7 +10801,7 @@ export type ProjectColumnEdge = {
 };
 
 /** The semantic purpose of the column - todo, in progress, or done. */
-export type ProjectColumnPurpose = 
+export type ProjectColumnPurpose =
   /** The column contains cards which are complete */
   | 'DONE'
   /** The column contains cards which are currently being worked on */
@@ -10840,7 +10840,7 @@ export type ProjectOrder = {
 };
 
 /** Properties by which project connections can be ordered. */
-export type ProjectOrderField = 
+export type ProjectOrderField =
   /** Order projects by creation time */
   | 'CREATED_AT'
   /** Order projects by name */
@@ -10901,14 +10901,14 @@ export type ProjectProgress = {
 };
 
 /** State of the project; either 'open' or 'closed' */
-export type ProjectState = 
+export type ProjectState =
   /** The project is closed. */
   | 'CLOSED'
   /** The project is open. */
   | 'OPEN';
 
 /** GitHub-provided templates for Projects */
-export type ProjectTemplate = 
+export type ProjectTemplate =
   /** Create a board with v2 triggers to automatically move cards across To do, In progress and Done columns. */
   | 'AUTOMATED_KANBAN_V2'
   /** Create a board with triggers to automatically move cards across columns with review automation. */
@@ -11455,7 +11455,7 @@ export type PullRequestEdge = {
 };
 
 /** Represents available types of methods to use when merging a pull request. */
-export type PullRequestMergeMethod = 
+export type PullRequestMergeMethod =
   /** Add all commits from the head branch to the base branch with a merge commit. */
   | 'MERGE'
   /** Add all commits from the head branch onto the base branch individually. */
@@ -11472,7 +11472,7 @@ export type PullRequestOrder = {
 };
 
 /** Properties by which pull_requests connections can be ordered. */
-export type PullRequestOrderField = 
+export type PullRequestOrderField =
   /** Order pull_requests by creation time */
   | 'CREATED_AT'
   /** Order pull_requests by update time */
@@ -11711,7 +11711,7 @@ export type PullRequestReviewCommentEdge = {
 };
 
 /** The possible states of a pull request review comment. */
-export type PullRequestReviewCommentState = 
+export type PullRequestReviewCommentState =
   /** A comment that is part of a pending review */
   | 'PENDING'
   /** A comment that is part of a submitted review */
@@ -11750,7 +11750,7 @@ export type PullRequestReviewContributionsByRepositoryContributionsArgs = {
 };
 
 /** The review status of a pull request. */
-export type PullRequestReviewDecision = 
+export type PullRequestReviewDecision =
   /** The pull request has received an approving review. */
   | 'APPROVED'
   /** Changes have been requested on the pull request. */
@@ -11768,7 +11768,7 @@ export type PullRequestReviewEdge = {
 };
 
 /** The possible events to perform on a pull request review. */
-export type PullRequestReviewEvent = 
+export type PullRequestReviewEvent =
   /** Submit feedback and approve merging these changes. */
   | 'APPROVE'
   /** Submit general feedback without explicit approval. */
@@ -11779,7 +11779,7 @@ export type PullRequestReviewEvent =
   | 'REQUEST_CHANGES';
 
 /** The possible states of a pull request review. */
-export type PullRequestReviewState = 
+export type PullRequestReviewState =
   /** A review allowing the pull request to merge. */
   | 'APPROVED'
   /** A review blocking the pull request from merging. */
@@ -11875,7 +11875,7 @@ export type PullRequestRevisionMarker = {
 };
 
 /** The possible states of a pull request. */
-export type PullRequestState = 
+export type PullRequestState =
   /** A pull request that has been closed without being merged. */
   | 'CLOSED'
   /** A pull request that has been closed by being merged. */
@@ -11940,7 +11940,7 @@ export type PullRequestTimelineItemsEdge = {
 };
 
 /** The possible item types found in a timeline. */
-export type PullRequestTimelineItemsItemType = 
+export type PullRequestTimelineItemsItemType =
   /** Represents a 'added_to_project' event on a given issue or pull request. */
   | 'ADDED_TO_PROJECT_EVENT'
   /** Represents an 'assigned' event on any assignable object. */
@@ -12053,7 +12053,7 @@ export type PullRequestTimelineItemsItemType =
   | 'USER_BLOCKED_EVENT';
 
 /** The possible target states when updating a pull request. */
-export type PullRequestUpdateState = 
+export type PullRequestUpdateState =
   /** A pull request that has been closed without being merged. */
   | 'CLOSED'
   /** A pull request that is still open. */
@@ -12446,7 +12446,7 @@ export type ReactionConnection = {
 };
 
 /** Emojis that can be attached to Issues, Pull Requests and Comments. */
-export type ReactionContent = 
+export type ReactionContent =
   /** Represents the `:confused:` emoji. */
   | 'CONFUSED'
   /** Represents the `:eyes:` emoji. */
@@ -12506,7 +12506,7 @@ export type ReactionOrder = {
 };
 
 /** A list of fields that reactions can be ordered by. */
-export type ReactionOrderField = 
+export type ReactionOrderField =
   /** Allows ordering a list of reactions by when they were created. */
   | 'CREATED_AT';
 
@@ -12591,7 +12591,7 @@ export type RefOrder = {
 };
 
 /** Properties by which ref connections can be ordered. */
-export type RefOrderField = 
+export type RefOrderField =
   /** Order refs by their alphanumeric name */
   | 'ALPHABETICAL'
   /** Order refs by underlying commit date if the ref prefix is refs/tags/ */
@@ -12808,7 +12808,7 @@ export type ReleaseOrder = {
 };
 
 /** Properties by which release connections can be ordered. */
-export type ReleaseOrderField = 
+export type ReleaseOrderField =
   /** Order releases by creation time */
   | 'CREATED_AT'
   /** Order releases alphabetically by name */
@@ -13121,7 +13121,7 @@ export type RepoAccessAuditEntry = AuditEntry & Node & OrganizationAuditEntryDat
 };
 
 /** The privacy of a repository */
-export type RepoAccessAuditEntryVisibility = 
+export type RepoAccessAuditEntryVisibility =
   /** The repository is visible only to users in the same business. */
   | 'INTERNAL'
   /** The repository is visible only to those with explicit access. */
@@ -13180,7 +13180,7 @@ export type RepoAddMemberAuditEntry = AuditEntry & Node & OrganizationAuditEntry
 };
 
 /** The privacy of a repository */
-export type RepoAddMemberAuditEntryVisibility = 
+export type RepoAddMemberAuditEntryVisibility =
   /** The repository is visible only to users in the same business. */
   | 'INTERNAL'
   /** The repository is visible only to those with explicit access. */
@@ -13291,7 +13291,7 @@ export type RepoArchivedAuditEntry = AuditEntry & Node & OrganizationAuditEntryD
 };
 
 /** The privacy of a repository */
-export type RepoArchivedAuditEntryVisibility = 
+export type RepoArchivedAuditEntryVisibility =
   /** The repository is visible only to users in the same business. */
   | 'INTERNAL'
   /** The repository is visible only to those with explicit access. */
@@ -13352,7 +13352,7 @@ export type RepoChangeMergeSettingAuditEntry = AuditEntry & Node & OrganizationA
 };
 
 /** The merge options available for pull requests to this repository. */
-export type RepoChangeMergeSettingAuditEntryMergeType = 
+export type RepoChangeMergeSettingAuditEntryMergeType =
   /** The pull request is added to the base branch in a merge commit. */
   | 'MERGE'
   /** Commits from the pull request are added onto the base branch individually without a merge commit. */
@@ -13895,7 +13895,7 @@ export type RepoCreateAuditEntry = AuditEntry & Node & OrganizationAuditEntryDat
 };
 
 /** The privacy of a repository */
-export type RepoCreateAuditEntryVisibility = 
+export type RepoCreateAuditEntryVisibility =
   /** The repository is visible only to users in the same business. */
   | 'INTERNAL'
   /** The repository is visible only to those with explicit access. */
@@ -13954,7 +13954,7 @@ export type RepoDestroyAuditEntry = AuditEntry & Node & OrganizationAuditEntryDa
 };
 
 /** The privacy of a repository */
-export type RepoDestroyAuditEntryVisibility = 
+export type RepoDestroyAuditEntryVisibility =
   /** The repository is visible only to users in the same business. */
   | 'INTERNAL'
   /** The repository is visible only to those with explicit access. */
@@ -14013,7 +14013,7 @@ export type RepoRemoveMemberAuditEntry = AuditEntry & Node & OrganizationAuditEn
 };
 
 /** The privacy of a repository */
-export type RepoRemoveMemberAuditEntryVisibility = 
+export type RepoRemoveMemberAuditEntryVisibility =
   /** The repository is visible only to users in the same business. */
   | 'INTERNAL'
   /** The repository is visible only to those with explicit access. */
@@ -14074,7 +14074,7 @@ export type RepoRemoveTopicAuditEntry = AuditEntry & Node & OrganizationAuditEnt
 };
 
 /** The reasons a piece of content can be reported or minimized. */
-export type ReportedContentClassifiers = 
+export type ReportedContentClassifiers =
   /** An abusive or harassing piece of content */
   | 'ABUSE'
   /** A duplicated piece of content */
@@ -14588,7 +14588,7 @@ export type RepositoryWatchersArgs = {
 };
 
 /** The affiliation of a user to a repository */
-export type RepositoryAffiliation = 
+export type RepositoryAffiliation =
   /** Repositories that the user has been added to as a collaborator. */
   | 'COLLABORATOR'
   /**
@@ -14663,7 +14663,7 @@ export type RepositoryContactLink = {
 };
 
 /** The reason a repository is listed as 'contributed'. */
-export type RepositoryContributionType = 
+export type RepositoryContributionType =
   /** Created a commit */
   | 'COMMIT'
   /** Created an issue */
@@ -14762,7 +14762,7 @@ export type RepositoryInteractionAbility = {
 };
 
 /** A repository interaction limit. */
-export type RepositoryInteractionLimit = 
+export type RepositoryInteractionLimit =
   /** Users that are not collaborators will not be able to interact with the repository. */
   | 'COLLABORATORS_ONLY'
   /** Users that have not previously committed to a repository’s default branch will be unable to interact with the repository. */
@@ -14773,7 +14773,7 @@ export type RepositoryInteractionLimit =
   | 'NO_LIMIT';
 
 /** The length for a repository interaction limit to be enabled for. */
-export type RepositoryInteractionLimitExpiry = 
+export type RepositoryInteractionLimitExpiry =
   /** The interaction limit will expire after 1 day. */
   | 'ONE_DAY'
   /** The interaction limit will expire after 1 month. */
@@ -14786,7 +14786,7 @@ export type RepositoryInteractionLimitExpiry =
   | 'THREE_DAYS';
 
 /** Indicates where an interaction limit is configured. */
-export type RepositoryInteractionLimitOrigin = 
+export type RepositoryInteractionLimitOrigin =
   /** A limit that is configured at the organization level. */
   | 'ORGANIZATION'
   /** A limit that is configured at the repository level. */
@@ -14843,14 +14843,14 @@ export type RepositoryInvitationOrder = {
 };
 
 /** Properties by which repository invitation connections can be ordered. */
-export type RepositoryInvitationOrderField = 
+export type RepositoryInvitationOrderField =
   /** Order repository invitations by creation time */
   | 'CREATED_AT'
   /** Order repository invitations by invitee login */
   | 'INVITEE_LOGIN';
 
 /** The possible reasons a given repository could be in a locked state. */
-export type RepositoryLockReason = 
+export type RepositoryLockReason =
   /** The repository is locked due to a billing related reason. */
   | 'BILLING'
   /** The repository is locked due to a migration. */
@@ -14875,7 +14875,7 @@ export type RepositoryOrder = {
 };
 
 /** Properties by which repository connections can be ordered. */
-export type RepositoryOrderField = 
+export type RepositoryOrderField =
   /** Order repositories by creation time */
   | 'CREATED_AT'
   /** Order repositories by name */
@@ -14932,7 +14932,7 @@ export type RepositoryOwnerRepositoryArgs = {
 };
 
 /** The access level to a repository */
-export type RepositoryPermission = 
+export type RepositoryPermission =
   /**
    * Can read, clone, and push to this repository. Can also manage issues, pull
    * requests, and repository settings, including adding collaborators
@@ -14948,7 +14948,7 @@ export type RepositoryPermission =
   | 'WRITE';
 
 /** The privacy of a repository */
-export type RepositoryPrivacy = 
+export type RepositoryPrivacy =
   /** Private */
   | 'PRIVATE'
   /** Public */
@@ -14989,7 +14989,7 @@ export type RepositoryTopicEdge = {
 };
 
 /** The repository's visibility level. */
-export type RepositoryVisibility = 
+export type RepositoryVisibility =
   /** The repository is visible only to users in the same business. */
   | 'INTERNAL'
   /** The repository is visible only to those with explicit access. */
@@ -15165,7 +15165,7 @@ export type RequestReviewsPayload = {
 };
 
 /** The possible states that can be requested when creating a check run. */
-export type RequestableCheckStatusState = 
+export type RequestableCheckStatusState =
   /** The check suite or run has been completed. */
   | 'COMPLETED'
   /** The check suite or run is in progress. */
@@ -15375,7 +15375,7 @@ export type ReviewStatusHovercardContext = HovercardContext & {
 };
 
 /** The possible digest algorithms used to sign SAML requests for an identity provider. */
-export type SamlDigestAlgorithm = 
+export type SamlDigestAlgorithm =
   /** SHA1 */
   | 'SHA1'
   /** SHA256 */
@@ -15386,7 +15386,7 @@ export type SamlDigestAlgorithm =
   | 'SHA512';
 
 /** The possible signature algorithms used to sign SAML requests for a Identity Provider. */
-export type SamlSignatureAlgorithm = 
+export type SamlSignatureAlgorithm =
   /** RSA-SHA1 */
   | 'RSA_SHA1'
   /** RSA-SHA256 */
@@ -15443,7 +15443,7 @@ export type SavedReplyOrder = {
 };
 
 /** Properties by which saved reply connections can be ordered. */
-export type SavedReplyOrderField = 
+export type SavedReplyOrderField =
   /** Order saved reply by when they were updated. */
   | 'UPDATED_AT';
 
@@ -15483,7 +15483,7 @@ export type SearchResultItemEdge = {
 };
 
 /** Represents the individual results of a search. */
-export type SearchType = 
+export type SearchType =
   /** Returns results matching issues in repositories. */
   | 'ISSUE'
   /** Returns results matching repositories. */
@@ -15552,7 +15552,7 @@ export type SecurityAdvisoryConnection = {
 };
 
 /** The possible ecosystems of a security vulnerability's package. */
-export type SecurityAdvisoryEcosystem = 
+export type SecurityAdvisoryEcosystem =
   /** PHP packages hosted at packagist.org */
   | 'COMPOSER'
   /** Java artifacts hosted at the Maven central repository */
@@ -15593,7 +15593,7 @@ export type SecurityAdvisoryIdentifierFilter = {
 };
 
 /** Identifier formats available for advisories. */
-export type SecurityAdvisoryIdentifierType = 
+export type SecurityAdvisoryIdentifierType =
   /** Common Vulnerabilities and Exposures Identifier. */
   | 'CVE'
   /** GitHub Security Advisory ID. */
@@ -15608,7 +15608,7 @@ export type SecurityAdvisoryOrder = {
 };
 
 /** Properties by which security advisory connections can be ordered. */
-export type SecurityAdvisoryOrderField = 
+export type SecurityAdvisoryOrderField =
   /** Order advisories by publication time */
   | 'PUBLISHED_AT'
   /** Order advisories by update time */
@@ -15638,7 +15638,7 @@ export type SecurityAdvisoryReference = {
 };
 
 /** Severity of the vulnerability. */
-export type SecurityAdvisorySeverity = 
+export type SecurityAdvisorySeverity =
   /** Critical. */
   | 'CRITICAL'
   /** High. */
@@ -15704,7 +15704,7 @@ export type SecurityVulnerabilityOrder = {
 };
 
 /** Properties by which security vulnerability connections can be ordered. */
-export type SecurityVulnerabilityOrderField = 
+export type SecurityVulnerabilityOrderField =
   /** Order vulnerability by update time */
   | 'UPDATED_AT';
 
@@ -15965,7 +15965,7 @@ export type SponsorsTierOrder = {
 };
 
 /** Properties by which Sponsors tiers connections can be ordered. */
-export type SponsorsTierOrderField = 
+export type SponsorsTierOrderField =
   /** Order tiers by creation time. */
   | 'CREATED_AT'
   /** Order tiers by their monthly price in cents */
@@ -16028,12 +16028,12 @@ export type SponsorshipOrder = {
 };
 
 /** Properties by which sponsorship connections can be ordered. */
-export type SponsorshipOrderField = 
+export type SponsorshipOrderField =
   /** Order sponsorship by creation time. */
   | 'CREATED_AT';
 
 /** The privacy of a sponsorship */
-export type SponsorshipPrivacy = 
+export type SponsorshipPrivacy =
   /** Private */
   | 'PRIVATE'
   /** Public */
@@ -16048,7 +16048,7 @@ export type StarOrder = {
 };
 
 /** Properties by which star connections can be ordered. */
-export type StarOrderField = 
+export type StarOrderField =
   /** Allows ordering a list of stars by when they were created. */
   | 'STARRED_AT';
 
@@ -16227,7 +16227,7 @@ export type StatusContextAvatarUrlArgs = {
 };
 
 /** The possible commit status states. */
-export type StatusState = 
+export type StatusState =
   /** Status is errored. */
   | 'ERROR'
   /** Status is expected. */
@@ -16321,7 +16321,7 @@ export type SubscribedEvent = Node & {
 };
 
 /** The possible states of a subscription. */
-export type SubscriptionState = 
+export type SubscriptionState =
   /** The User is never notified. */
   | 'IGNORED'
   /** The User is notified of all conversations. */
@@ -16944,7 +16944,7 @@ export type TeamDiscussionCommentOrder = {
 };
 
 /** Properties by which team discussion comment connections can be ordered. */
-export type TeamDiscussionCommentOrderField = 
+export type TeamDiscussionCommentOrderField =
   /** Allows sequential ordering of team discussion comments (which is equivalent to chronological ordering). */
   | 'NUMBER';
 
@@ -16979,7 +16979,7 @@ export type TeamDiscussionOrder = {
 };
 
 /** Properties by which team discussion connections can be ordered. */
-export type TeamDiscussionOrderField = 
+export type TeamDiscussionOrderField =
   /** Allows chronological ordering of team discussions. */
   | 'CREATED_AT';
 
@@ -17028,21 +17028,21 @@ export type TeamMemberOrder = {
 };
 
 /** Properties by which team member connections can be ordered. */
-export type TeamMemberOrderField = 
+export type TeamMemberOrderField =
   /** Order team members by creation time */
   | 'CREATED_AT'
   /** Order team members by login */
   | 'LOGIN';
 
 /** The possible team member roles; either 'maintainer' or 'member'. */
-export type TeamMemberRole = 
+export type TeamMemberRole =
   /** A team maintainer has permission to add and remove team members. */
   | 'MAINTAINER'
   /** A team member has no administrative permissions on the team. */
   | 'MEMBER';
 
 /** Defines which types of team members are included in the returned list. Can be one of IMMEDIATE, CHILD_TEAM or ALL. */
-export type TeamMembershipType = 
+export type TeamMembershipType =
   /** Includes immediate and child team members for the team. */
   | 'ALL'
   /** Includes only child team members for the team. */
@@ -17059,12 +17059,12 @@ export type TeamOrder = {
 };
 
 /** Properties by which team connections can be ordered. */
-export type TeamOrderField = 
+export type TeamOrderField =
   /** Allows ordering a list of teams by name. */
   | 'NAME';
 
 /** The possible team privacy values. */
-export type TeamPrivacy = 
+export type TeamPrivacy =
   /** A secret team can only be seen by its members. */
   | 'SECRET'
   /** A visible team can be seen and @mentioned by every member of the organization. */
@@ -17210,7 +17210,7 @@ export type TeamRepositoryOrder = {
 };
 
 /** Properties by which team repository connections can be ordered. */
-export type TeamRepositoryOrderField = 
+export type TeamRepositoryOrderField =
   /** Order repositories by creation time */
   | 'CREATED_AT'
   /** Order repositories by name */
@@ -17225,7 +17225,7 @@ export type TeamRepositoryOrderField =
   | 'UPDATED_AT';
 
 /** The role of a user on a team. */
-export type TeamRole = 
+export type TeamRole =
   /** User has admin rights on the team. */
   | 'ADMIN'
   /** User is a member of the team. */
@@ -17297,7 +17297,7 @@ export type TopicAuditEntryData = {
 };
 
 /** Reason that the suggested topic is declined. */
-export type TopicSuggestionDeclineReason = 
+export type TopicSuggestionDeclineReason =
   /** The suggested topic is not relevant to the repository. */
   | 'NOT_RELEVANT'
   /** The viewer does not like the suggested topic. */
@@ -18960,7 +18960,7 @@ export type UserWatchingArgs = {
 };
 
 /** The possible durations that a user can be blocked for. */
-export type UserBlockDuration = 
+export type UserBlockDuration =
   /** The user was blocked for 1 day */
   | 'ONE_DAY'
   /** The user was blocked for 30 days */
@@ -19117,7 +19117,7 @@ export type UserStatusOrder = {
 };
 
 /** Properties by which user status connections can be ordered. */
-export type UserStatusOrderField = 
+export type UserStatusOrderField =
   /** Order user statuses by when they were updated. */
   | 'UPDATED_AT';
 
@@ -19180,7 +19180,7 @@ export type VerifiableDomainOrder = {
 };
 
 /** Properties by which verifiable domain connections can be ordered. */
-export type VerifiableDomainOrderField = 
+export type VerifiableDomainOrderField =
   /** Order verifiable domains by the domain name. */
   | 'DOMAIN';
 
