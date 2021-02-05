@@ -52357,6 +52357,37 @@
             "deprecationReason": null
           },
           {
+            "name": "isSponsoredBy",
+            "description": "Check if the given account is sponsoring this user/organization.",
+            "args": [
+              {
+                "name": "accountLogin",
+                "description": "The target account's login.",
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "isSponsoringViewer",
             "description": "True if the viewer is sponsored by this user/organization.",
             "args": [],
@@ -53305,6 +53336,18 @@
             "type": {
               "kind": "OBJECT",
               "name": "SponsorsListing",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "sponsorshipForViewerAsSponsor",
+            "description": "The viewer's sponsorship of this entity.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "Sponsorship",
               "ofType": null
             },
             "isDeprecated": false,
@@ -68564,6 +68607,103 @@
               "ofType": {
                 "kind": "OBJECT",
                 "name": "SecurityVulnerabilityConnection",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "sponsorables",
+            "description": "Users and organizations who can be sponsored via GitHub Sponsors.",
+            "args": [
+              {
+                "name": "after",
+                "description": "Returns the elements in the list that come after the specified cursor.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "before",
+                "description": "Returns the elements in the list that come before the specified cursor.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "first",
+                "description": "Returns the first _n_ elements from the list.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "last",
+                "description": "Returns the last _n_ elements from the list.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "orderBy",
+                "description": "Ordering options for users and organizations returned from the connection.",
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "SponsorableOrder",
+                  "ofType": null
+                },
+                "defaultValue": "{field: LOGIN, direction: ASC}"
+              },
+              {
+                "name": "onlyDependencies",
+                "description": "Whether only sponsorables who own the viewer's dependencies will be returned. Must be authenticated to use. Can check an organization instead for their dependencies owned by sponsorables by passing orgLoginForDependencies.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "false"
+              },
+              {
+                "name": "orgLoginForDependencies",
+                "description": "Optional organization username for whose dependencies should be checked. Used when onlyDependencies = true. Omit to check your own dependencies. If you are not an administrator of the organization, only dependencies from its public repositories will be considered.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "dependencyEcosystem",
+                "description": "Optional filter for which dependencies should be checked for sponsorable owners. Only sponsorable owners of dependencies in this ecosystem will be included. Used when onlyDependencies = true.",
+                "type": {
+                  "kind": "ENUM",
+                  "name": "SecurityAdvisoryEcosystem",
+                  "ofType": null
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "SponsorableItemConnection",
                 "ofType": null
               }
             },
@@ -88541,6 +88681,37 @@
             "deprecationReason": null
           },
           {
+            "name": "isSponsoredBy",
+            "description": "Check if the given account is sponsoring this user/organization.",
+            "args": [
+              {
+                "name": "accountLogin",
+                "description": "The target account's login.",
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "isSponsoringViewer",
             "description": "True if the viewer is sponsored by this user/organization.",
             "args": [],
@@ -88563,6 +88734,18 @@
             "type": {
               "kind": "OBJECT",
               "name": "SponsorsListing",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "sponsorshipForViewerAsSponsor",
+            "description": "The viewer's sponsorship of this entity.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "Sponsorship",
               "ofType": null
             },
             "isDeprecated": false,
@@ -88760,6 +88943,197 @@
             "ofType": null
           }
         ]
+      },
+      {
+        "kind": "UNION",
+        "name": "SponsorableItem",
+        "description": "Entities that can be sponsored via GitHub Sponsors",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": [
+          {
+            "kind": "OBJECT",
+            "name": "Organization",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "User",
+            "ofType": null
+          }
+        ]
+      },
+      {
+        "kind": "OBJECT",
+        "name": "SponsorableItemConnection",
+        "description": "The connection type for SponsorableItem.",
+        "fields": [
+          {
+            "name": "edges",
+            "description": "A list of edges.",
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "SponsorableItemEdge",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "nodes",
+            "description": "A list of nodes.",
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "UNION",
+                "name": "SponsorableItem",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pageInfo",
+            "description": "Information to aid in pagination.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "PageInfo",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "totalCount",
+            "description": "Identifies the total count of items in the connection.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "SponsorableItemEdge",
+        "description": "An edge in a connection.",
+        "fields": [
+          {
+            "name": "cursor",
+            "description": "A cursor for use in pagination.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "node",
+            "description": "The item at the end of the edge.",
+            "args": [],
+            "type": {
+              "kind": "UNION",
+              "name": "SponsorableItem",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "SponsorableOrder",
+        "description": "Ordering options for connections to get sponsorable entities for GitHub Sponsors.",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "field",
+            "description": "The field to order sponsorable entities by.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "SponsorableOrderField",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "direction",
+            "description": "The ordering direction.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "OrderDirection",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "SponsorableOrderField",
+        "description": "Properties by which sponsorable connections can be ordered.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "LOGIN",
+            "description": "Order sponsorable entities by login (username).",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
       },
       {
         "kind": "OBJECT",
@@ -103980,6 +104354,37 @@
             "deprecationReason": null
           },
           {
+            "name": "isSponsoredBy",
+            "description": "Check if the given account is sponsoring this user/organization.",
+            "args": [
+              {
+                "name": "accountLogin",
+                "description": "The target account's login.",
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "isSponsoringViewer",
             "description": "True if the viewer is sponsored by this user/organization.",
             "args": [],
@@ -105320,6 +105725,18 @@
             "type": {
               "kind": "OBJECT",
               "name": "SponsorsListing",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "sponsorshipForViewerAsSponsor",
+            "description": "The viewer's sponsorship of this entity.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "Sponsorship",
               "ofType": null
             },
             "isDeprecated": false,
