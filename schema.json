@@ -70901,6 +70901,22 @@
             "deprecationReason": null
           },
           {
+            "name": "repository",
+            "description": "The repository that the release belongs to.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "Repository",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "resourcePath",
             "description": "The HTTP path for this issue",
             "args": [],
