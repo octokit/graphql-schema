@@ -12811,6 +12811,8 @@ export type Release = Node & UniformResourceLocatable & {
   publishedAt?: Maybe<Scalars['DateTime']>;
   /** List of releases assets which are dependent on this release. */
   releaseAssets: ReleaseAssetConnection;
+  /** The repository that the release belongs to. */
+  repository: Repository;
   /** The HTTP path for this issue */
   resourcePath: Scalars['URI'];
   /** A description of the release, rendered to HTML without any links in it. */

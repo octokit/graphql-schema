@@ -25317,6 +25317,11 @@ type Release implements Node & UniformResourceLocatable {
   ): ReleaseAssetConnection!
 
   """
+  The repository that the release belongs to.
+  """
+  repository: Repository!
+
+  """
   The HTTP path for this issue
   """
   resourcePath: URI!
