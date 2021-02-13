@@ -16024,9 +16024,36 @@ export type SponsorableOrderField =
   /** Order sponsorable entities by login (username). */
   | 'LOGIN';
 
+/** A goal associated with a GitHub Sponsors listing, representing a target the sponsored maintainer would like to attain. */
+export type SponsorsGoal = {
+  __typename?: 'SponsorsGoal';
+  /** A description of the goal from the maintainer. */
+  description?: Maybe<Scalars['String']>;
+  /** What the objective of this goal is. */
+  kind: SponsorsGoalKind;
+  /** The percentage representing how complete this goal is, between 0-100. */
+  percentComplete: Scalars['Int'];
+  /**
+   * What the goal amount is. Represents a dollar amount for monthly sponsorship
+   * amount goals. Represents a count of unique sponsors for total sponsors count goals.
+   */
+  targetValue: Scalars['Int'];
+  /** A brief summary of the kind and target value of this goal. */
+  title: Scalars['String'];
+};
+
+/** The different kinds of goals a GitHub Sponsors member can have. */
+export type SponsorsGoalKind =
+  /** The goal is about getting a certain dollar amount from sponsorships each month. */
+  | 'MONTHLY_SPONSORSHIP_AMOUNT'
+  /** The goal is about reaching a certain number of sponsors. */
+  | 'TOTAL_SPONSORS_COUNT';
+
 /** A GitHub Sponsors listing. */
 export type SponsorsListing = Node & {
   __typename?: 'SponsorsListing';
+  /** The current goal the maintainer is trying to reach with GitHub Sponsors, if any. */
+  activeGoal?: Maybe<SponsorsGoal>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** The full description of the listing. */
