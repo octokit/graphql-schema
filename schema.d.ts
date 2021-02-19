@@ -19391,7 +19391,7 @@ export type VerifiableDomain = Node & {
   /** Whether a TXT record for verification with the expected verification token was found. */
   hasFoundVerificationToken: Scalars['Boolean'];
   id: Scalars['ID'];
-  /** Whether this domain is required to exist for an organization policy to be enforced. */
+  /** Whether this domain is required to exist for an organization or enterprise policy to be enforced. */
   isRequiredForPolicyEnforcement: Scalars['Boolean'];
   /** Whether or not the domain is verified. */
   isVerified: Scalars['Boolean'];
