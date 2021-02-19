@@ -107780,7 +107780,7 @@
           },
           {
             "name": "isRequiredForPolicyEnforcement",
-            "description": "Whether this domain is required to exist for an organization policy to be enforced.",
+            "description": "Whether this domain is required to exist for an organization or enterprise policy to be enforced.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
