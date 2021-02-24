@@ -39347,7 +39347,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for AcceptEnterpriseAdministratorInvitation",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -39374,7 +39374,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for AcceptTopicSuggestion",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -39401,7 +39401,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for AddAssigneesToAssignable",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -39428,7 +39428,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for AddComment",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -39455,7 +39455,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for AddEnterpriseSupportEntitlement",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -39482,7 +39482,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for AddLabelsToLabelable",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -39509,7 +39509,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for AddProjectCard",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -39536,7 +39536,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for AddProjectColumn",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -39563,7 +39563,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for AddPullRequestReview",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -39590,7 +39590,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for AddPullRequestReviewComment",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -39617,7 +39617,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for AddPullRequestReviewThread",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -39644,7 +39644,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for AddReaction",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -39671,7 +39671,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for AddStar",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -39698,7 +39698,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for AddVerifiableDomain",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -39725,7 +39725,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for ApproveVerifiableDomain",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -39752,7 +39752,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for ArchiveRepository",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -39779,7 +39779,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for CancelEnterpriseAdminInvitation",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -39806,7 +39806,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for ChangeUserStatus",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -39833,7 +39833,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for ClearLabelsFromLabelable",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -39860,7 +39860,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for CloneProject",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -39887,7 +39887,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for CloneTemplateRepository",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -39914,7 +39914,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for CloseIssue",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -39941,7 +39941,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for ClosePullRequest",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -39968,7 +39968,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for ConvertProjectCardNoteToIssue",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -39995,7 +39995,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for CreateBranchProtectionRule",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40022,7 +40022,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for CreateCheckRun",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40049,7 +40049,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for CreateCheckSuite",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40076,7 +40076,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for CreateEnterpriseOrganization",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40103,7 +40103,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for CreateIpAllowListEntry",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40130,7 +40130,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for CreateIssue",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40157,7 +40157,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for CreateProject",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40184,7 +40184,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for CreatePullRequest",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40211,7 +40211,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for CreateRef",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40238,7 +40238,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for CreateRepository",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40265,7 +40265,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for CreateTeamDiscussion",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40292,7 +40292,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for CreateTeamDiscussionComment",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40319,7 +40319,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for DeclineTopicSuggestion",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40346,7 +40346,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for DeleteBranchProtectionRule",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40373,7 +40373,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for DeleteDeployment",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40400,7 +40400,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for DeleteIpAllowListEntry",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40427,7 +40427,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for DeleteIssue",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40454,7 +40454,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for DeleteIssueComment",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40481,7 +40481,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for DeleteProject",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40508,7 +40508,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for DeleteProjectCard",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40535,7 +40535,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for DeleteProjectColumn",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40562,7 +40562,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for DeletePullRequestReview",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40589,7 +40589,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for DeletePullRequestReviewComment",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40616,7 +40616,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for DeleteRef",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40643,7 +40643,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for DeleteTeamDiscussion",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40670,7 +40670,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for DeleteTeamDiscussionComment",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40697,7 +40697,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for DeleteVerifiableDomain",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40724,7 +40724,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for DisablePullRequestAutoMerge",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40751,7 +40751,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for DismissPullRequestReview",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40778,7 +40778,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for EnablePullRequestAutoMerge",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40805,7 +40805,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for FollowUser",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40832,7 +40832,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for InviteEnterpriseAdmin",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40859,7 +40859,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for LinkRepositoryToProject",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40886,7 +40886,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for LockLockable",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40913,7 +40913,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for MarkFileAsViewed",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40940,7 +40940,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for MarkPullRequestReadyForReview",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40967,7 +40967,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for MergeBranch",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -40994,7 +40994,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for MergePullRequest",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41021,7 +41021,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for MinimizeComment",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41048,7 +41048,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for MoveProjectCard",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41075,7 +41075,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for MoveProjectColumn",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41102,7 +41102,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for RegenerateEnterpriseIdentityProviderRecoveryCodes",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41129,7 +41129,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for RegenerateVerifiableDomainToken",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41156,7 +41156,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for RemoveAssigneesFromAssignable",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41183,7 +41183,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for RemoveEnterpriseAdmin",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41210,7 +41210,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for RemoveEnterpriseIdentityProvider",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41237,7 +41237,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for RemoveEnterpriseOrganization",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41264,7 +41264,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for RemoveEnterpriseSupportEntitlement",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41291,7 +41291,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for RemoveLabelsFromLabelable",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41318,7 +41318,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for RemoveOutsideCollaborator",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41345,7 +41345,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for RemoveReaction",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41372,7 +41372,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for RemoveStar",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41399,7 +41399,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for ReopenIssue",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41426,7 +41426,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for ReopenPullRequest",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41453,7 +41453,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for RequestReviews",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41480,7 +41480,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for RerequestCheckSuite",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41507,7 +41507,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for ResolveReviewThread",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41534,7 +41534,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for SetEnterpriseIdentityProvider",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41561,7 +41561,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for SetOrganizationInteractionLimit",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41588,7 +41588,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for SetRepositoryInteractionLimit",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41615,7 +41615,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for SetUserInteractionLimit",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41642,7 +41642,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for SubmitPullRequestReview",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41669,7 +41669,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for TransferIssue",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41696,7 +41696,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UnarchiveRepository",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41723,7 +41723,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UnfollowUser",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41750,7 +41750,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UnlinkRepositoryFromProject",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41777,7 +41777,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UnlockLockable",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41804,7 +41804,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UnmarkFileAsViewed",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41831,7 +41831,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UnmarkIssueAsDuplicate",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41858,7 +41858,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UnminimizeComment",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41885,7 +41885,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UnresolveReviewThread",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41912,7 +41912,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateBranchProtectionRule",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41939,7 +41939,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateCheckRun",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41966,7 +41966,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateCheckSuitePreferences",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -41993,7 +41993,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateEnterpriseAdministratorRole",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42020,7 +42020,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateEnterpriseAllowPrivateRepositoryForkingSetting",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42047,7 +42047,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateEnterpriseDefaultRepositoryPermissionSetting",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42074,7 +42074,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateEnterpriseMembersCanChangeRepositoryVisibilitySetting",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42101,7 +42101,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateEnterpriseMembersCanCreateRepositoriesSetting",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42128,7 +42128,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateEnterpriseMembersCanDeleteIssuesSetting",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42155,7 +42155,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateEnterpriseMembersCanDeleteRepositoriesSetting",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42182,7 +42182,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateEnterpriseMembersCanInviteCollaboratorsSetting",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42209,7 +42209,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateEnterpriseMembersCanMakePurchasesSetting",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42236,7 +42236,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateEnterpriseMembersCanUpdateProtectedBranchesSetting",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42263,7 +42263,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateEnterpriseMembersCanViewDependencyInsightsSetting",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42290,7 +42290,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateEnterpriseOrganizationProjectsSetting",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42317,7 +42317,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateEnterpriseProfile",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42344,7 +42344,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateEnterpriseRepositoryProjectsSetting",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42371,7 +42371,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateEnterpriseTeamDiscussionsSetting",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42398,7 +42398,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateEnterpriseTwoFactorAuthenticationRequiredSetting",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42425,7 +42425,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateIpAllowListEnabledSetting",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42452,7 +42452,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateIpAllowListEntry",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42479,7 +42479,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateIssue",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42506,7 +42506,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateIssueComment",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42533,7 +42533,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateNotificationRestrictionSetting",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42560,7 +42560,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateProject",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42587,7 +42587,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateProjectCard",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42614,7 +42614,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateProjectColumn",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42641,7 +42641,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdatePullRequest",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42668,7 +42668,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdatePullRequestReview",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42695,7 +42695,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdatePullRequestReviewComment",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42722,7 +42722,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateRef",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42749,7 +42749,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateRepository",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42776,7 +42776,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateSubscription",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42803,7 +42803,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateTeamDiscussion",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42830,7 +42830,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateTeamDiscussionComment",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42857,7 +42857,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for UpdateTopics",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -42884,7 +42884,7 @@
             "args": [
               {
                 "name": "input",
-                "description": null,
+                "description": "Parameters for VerifyVerifiableDomain",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -108640,7 +108640,18 @@
           {
             "name": "args",
             "description": null,
-            "args": [],
+            "args": [
+              {
+                "name": "includeDeprecated",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "false"
+              }
+            ],
             "type": {
               "kind": "NON_NULL",
               "name": null,
@@ -108757,6 +108768,18 @@
             "deprecationReason": null
           },
           {
+            "name": "deprecationReason",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "description",
             "description": null,
             "args": [],
@@ -108764,6 +108787,22 @@
               "kind": "SCALAR",
               "name": "String",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "isDeprecated",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -108987,7 +109026,18 @@
           {
             "name": "inputFields",
             "description": null,
-            "args": [],
+            "args": [
+              {
+                "name": "includeDeprecated",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "false"
+              }
+            ],
             "type": {
               "kind": "LIST",
               "name": null,
@@ -109206,7 +109256,9 @@
         "description": "Marks an element of a GraphQL schema as no longer supported.",
         "locations": [
           "FIELD_DEFINITION",
-          "ENUM_VALUE"
+          "ENUM_VALUE",
+          "ARGUMENT_DEFINITION",
+          "INPUT_FIELD_DEFINITION"
         ],
         "args": [
           {
