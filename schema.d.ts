@@ -18836,6 +18836,8 @@ export type User = Actor & Node & PackageOwner & ProfileOwner & ProjectOwner & R
   isDeveloperProgramMember: Scalars['Boolean'];
   /** Whether or not this user is a GitHub employee. */
   isEmployee: Scalars['Boolean'];
+  /** Whether or not this user is a member of the GitHub Stars Program. */
+  isGitHubStar: Scalars['Boolean'];
   /** Whether or not the user has marked themselves as for hire. */
   isHireable: Scalars['Boolean'];
   /** Whether or not this user is a site administrator. */
