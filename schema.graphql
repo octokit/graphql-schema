@@ -38719,6 +38719,11 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   isEmployee: Boolean!
 
   """
+  Whether or not this user is a member of the GitHub Stars Program.
+  """
+  isGitHubStar: Boolean!
+
+  """
   Whether or not the user has marked themselves as for hire.
   """
   isHireable: Boolean!
