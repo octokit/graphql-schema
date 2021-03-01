@@ -12888,6 +12888,8 @@ export type Release = Node & UniformResourceLocatable & {
   shortDescriptionHTML?: Maybe<Scalars['HTML']>;
   /** The Git tag the release points to */
   tag?: Maybe<Ref>;
+  /** The tag commit for this release. */
+  tagCommit?: Maybe<Commit>;
   /** The name of the release's Git tag */
   tagName: Scalars['String'];
   /** Identifies the date and time when the object was last updated. */

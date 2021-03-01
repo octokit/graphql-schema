@@ -26117,6 +26117,11 @@ type Release implements Node & UniformResourceLocatable {
   tag: Ref
 
   """
+  The tag commit for this release.
+  """
+  tagCommit: Commit
+
+  """
   The name of the release's Git tag
   """
   tagName: String!
