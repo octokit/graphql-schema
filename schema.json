@@ -71304,6 +71304,18 @@
             "deprecationReason": null
           },
           {
+            "name": "tagCommit",
+            "description": "The tag commit for this release.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "Commit",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "tagName",
             "description": "The name of the release's Git tag",
             "args": [],
