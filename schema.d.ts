@@ -19508,6 +19508,8 @@ export type UserStatusOrderField =
 /** A domain that can be verified for an organization or an enterprise. */
 export type VerifiableDomain = Node & {
   __typename?: 'VerifiableDomain';
+  /** Identifies the date and time when the object was created. */
+  createdAt: Scalars['DateTime'];
   /** Identifies the primary key from the database. */
   databaseId?: Maybe<Scalars['Int']>;
   /** The DNS host name that should be used for verification. */
@@ -19529,6 +19531,8 @@ export type VerifiableDomain = Node & {
   punycodeEncodedDomain: Scalars['URI'];
   /** The time that the current verification token will expire. */
   tokenExpirationTime?: Maybe<Scalars['DateTime']>;
+  /** Identifies the date and time when the object was last updated. */
+  updatedAt: Scalars['DateTime'];
   /** The current verification token for the domain. */
   verificationToken?: Maybe<Scalars['String']>;
 };
@@ -19565,6 +19569,8 @@ export type VerifiableDomainOrder = {
 
 /** Properties by which verifiable domain connections can be ordered. */
 export type VerifiableDomainOrderField =
+  /** Order verifiable domains by their creation date. */
+  | 'CREATED_AT'
   /** Order verifiable domains by the domain name. */
   | 'DOMAIN';
 
