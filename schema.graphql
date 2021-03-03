@@ -40054,6 +40054,11 @@ A domain that can be verified for an organization or an enterprise.
 """
 type VerifiableDomain implements Node {
   """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
   Identifies the primary key from the database.
   """
   databaseId: Int
@@ -40103,6 +40108,11 @@ type VerifiableDomain implements Node {
   The time that the current verification token will expire.
   """
   tokenExpirationTime: DateTime
+
+  """
+  Identifies the date and time when the object was last updated.
+  """
+  updatedAt: DateTime!
 
   """
   The current verification token for the domain.
@@ -40169,6 +40179,11 @@ input VerifiableDomainOrder {
 Properties by which verifiable domain connections can be ordered.
 """
 enum VerifiableDomainOrderField {
+  """
+  Order verifiable domains by their creation date.
+  """
+  CREATED_AT
+
   """
   Order verifiable domains by the domain name.
   """
