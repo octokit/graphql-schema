@@ -52812,7 +52812,7 @@
           },
           {
             "name": "isVerified",
-            "description": "Whether the organization has verified its profile email and website, always false on Enterprise.",
+            "description": "Whether the organization has verified its profile email and website.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
