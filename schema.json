@@ -71052,6 +71052,22 @@
             "deprecationReason": null
           },
           {
+            "name": "requiresCodeOwnerReviews",
+            "description": "Are reviews from code owners required to update matching branches.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "requiresLinearHistory",
             "description": "Are merge commits prohibited from being pushed to this branch.",
             "args": [],
@@ -71070,6 +71086,22 @@
           {
             "name": "requiresSignatures",
             "description": "Are commits required to be signed.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "viewerAllowedToDismissReviews",
+            "description": "Is the viewer allowed to dismiss reviews.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
