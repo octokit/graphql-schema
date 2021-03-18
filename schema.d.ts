@@ -12870,10 +12870,14 @@ export type RefUpdateRule = {
   requiredApprovingReviewCount?: Maybe<Scalars['Int']>;
   /** List of required status check contexts that must pass for commits to be accepted to matching branches. */
   requiredStatusCheckContexts?: Maybe<Array<Maybe<Scalars['String']>>>;
+  /** Are reviews from code owners required to update matching branches. */
+  requiresCodeOwnerReviews: Scalars['Boolean'];
   /** Are merge commits prohibited from being pushed to this branch. */
   requiresLinearHistory: Scalars['Boolean'];
   /** Are commits required to be signed. */
   requiresSignatures: Scalars['Boolean'];
+  /** Is the viewer allowed to dismiss reviews. */
+  viewerAllowedToDismissReviews: Scalars['Boolean'];
   /** Can the viewer push to the branch */
   viewerCanPush: Scalars['Boolean'];
 };

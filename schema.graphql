@@ -26021,6 +26021,11 @@ type RefUpdateRule {
   requiredStatusCheckContexts: [String]
 
   """
+  Are reviews from code owners required to update matching branches.
+  """
+  requiresCodeOwnerReviews: Boolean!
+
+  """
   Are merge commits prohibited from being pushed to this branch.
   """
   requiresLinearHistory: Boolean!
@@ -26029,6 +26034,11 @@ type RefUpdateRule {
   Are commits required to be signed.
   """
   requiresSignatures: Boolean!
+
+  """
+  Is the viewer allowed to dismiss reviews.
+  """
+  viewerAllowedToDismissReviews: Boolean!
 
   """
   Can the viewer push to the branch
