@@ -11378,6 +11378,10 @@ export type PullRequest = Assignable & Closable & Comment & Labelable & Lockable
   viewerCannotUpdateReasons: Array<CommentCannotUpdateReason>;
   /** Did the viewer author this comment. */
   viewerDidAuthor: Scalars['Boolean'];
+  /** The latest review given from the viewer. */
+  viewerLatestReview?: Maybe<PullRequestReview>;
+  /** The person who has requested the viewer for review on this pull request. */
+  viewerLatestReviewRequest?: Maybe<ReviewRequest>;
   /** The merge body text for the viewer and method. */
   viewerMergeBodyText: Scalars['String'];
   /** The merge headline text for the viewer and method. */

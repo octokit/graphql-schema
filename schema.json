@@ -63403,6 +63403,30 @@
             "deprecationReason": null
           },
           {
+            "name": "viewerLatestReview",
+            "description": "The latest review given from the viewer.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "PullRequestReview",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "viewerLatestReviewRequest",
+            "description": "The person who has requested the viewer for review on this pull request.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "ReviewRequest",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "viewerMergeBodyText",
             "description": "The merge body text for the viewer and method.",
             "args": [
