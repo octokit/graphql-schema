@@ -23228,6 +23228,16 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   viewerDidAuthor: Boolean!
 
   """
+  The latest review given from the viewer.
+  """
+  viewerLatestReview: PullRequestReview
+
+  """
+  The person who has requested the viewer for review on this pull request.
+  """
+  viewerLatestReviewRequest: ReviewRequest
+
+  """
   The merge body text for the viewer and method.
   """
   viewerMergeBodyText(
