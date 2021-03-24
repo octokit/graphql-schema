@@ -4514,7 +4514,7 @@ export type EnterprisePendingMemberInvitationEdge = {
 export type EnterpriseRepositoryInfo = Node & {
   __typename?: 'EnterpriseRepositoryInfo';
   id: Scalars['ID'];
-  /** Identifies if the repository is private. */
+  /** Identifies if the repository is private or internal. */
   isPrivate: Scalars['Boolean'];
   /** The repository's name. */
   name: Scalars['String'];
@@ -14427,7 +14427,7 @@ export type Repository = Node & PackageOwner & ProjectOwner & RepositoryInfo & S
   isLocked: Scalars['Boolean'];
   /** Identifies if the repository is a mirror. */
   isMirror: Scalars['Boolean'];
-  /** Identifies if the repository is private. */
+  /** Identifies if the repository is private or internal. */
   isPrivate: Scalars['Boolean'];
   /** Returns true if this repository has a security policy */
   isSecurityPolicyEnabled?: Maybe<Scalars['Boolean']>;
@@ -14996,7 +14996,7 @@ export type RepositoryInfo = {
   isLocked: Scalars['Boolean'];
   /** Identifies if the repository is a mirror. */
   isMirror: Scalars['Boolean'];
-  /** Identifies if the repository is private. */
+  /** Identifies if the repository is private or internal. */
   isPrivate: Scalars['Boolean'];
   /** Identifies if the repository is a template that can be used to generate new repositories. */
   isTemplate: Scalars['Boolean'];

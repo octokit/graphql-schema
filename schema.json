@@ -24088,7 +24088,7 @@
           },
           {
             "name": "isPrivate",
-            "description": "Identifies if the repository is private.",
+            "description": "Identifies if the repository is private or internal.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -80723,7 +80723,7 @@
           },
           {
             "name": "isPrivate",
-            "description": "Identifies if the repository is private.",
+            "description": "Identifies if the repository is private or internal.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -83665,7 +83665,7 @@
           },
           {
             "name": "isPrivate",
-            "description": "Identifies if the repository is private.",
+            "description": "Identifies if the repository is private or internal.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
