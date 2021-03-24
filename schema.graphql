@@ -9117,7 +9117,7 @@ type EnterpriseRepositoryInfo implements Node {
   id: ID!
 
   """
-  Identifies if the repository is private.
+  Identifies if the repository is private or internal.
   """
   isPrivate: Boolean!
 
@@ -29641,7 +29641,7 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
   isMirror: Boolean!
 
   """
-  Identifies if the repository is private.
+  Identifies if the repository is private or internal.
   """
   isPrivate: Boolean!
 
@@ -30750,7 +30750,7 @@ interface RepositoryInfo {
   isMirror: Boolean!
 
   """
-  Identifies if the repository is private.
+  Identifies if the repository is private or internal.
   """
   isPrivate: Boolean!
 
