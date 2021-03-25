@@ -16289,6 +16289,8 @@ export type SponsorsTier = Node & {
   /** The tier description rendered to HTML */
   descriptionHTML: Scalars['HTML'];
   id: Scalars['ID'];
+  /** Whether this tier is only for use with one-time sponsorships. */
+  isOneTime: Scalars['Boolean'];
   /** How much this tier costs per month in cents. */
   monthlyPriceInCents: Scalars['Int'];
   /** How much this tier costs per month in dollars. */
