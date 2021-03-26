@@ -90462,6 +90462,18 @@
             "deprecationReason": null
           },
           {
+            "name": "closestLesserValueTier",
+            "description": "Get a different tier for this tier's maintainer that is at the same frequency as this tier but with a lesser cost. Returns the published tier with the monthly price closest to this tier's without going over.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "SponsorsTier",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "createdAt",
             "description": "Identifies the date and time when the object was created.",
             "args": [],
@@ -90519,6 +90531,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "isCustomAmount",
+            "description": "Whether this tier was chosen at checkout time by the sponsor rather than defined ahead of time by the maintainer who manages the Sponsors listing.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
                 "ofType": null
               }
             },
@@ -90928,6 +90956,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "isOneTimePayment",
+            "description": "Whether this sponsorship represents a one-time payment versus a recurring sponsorship.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
                 "ofType": null
               }
             },

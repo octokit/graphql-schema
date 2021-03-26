@@ -16282,6 +16282,12 @@ export type SponsorsTier = Node & {
   __typename?: 'SponsorsTier';
   /** SponsorsTier information only visible to users that can administer the associated Sponsors listing. */
   adminInfo?: Maybe<SponsorsTierAdminInfo>;
+  /**
+   * Get a different tier for this tier's maintainer that is at the same frequency
+   * as this tier but with a lesser cost. Returns the published tier with the
+   * monthly price closest to this tier's without going over.
+   */
+  closestLesserValueTier?: Maybe<SponsorsTier>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** The description of the tier. */
@@ -16289,6 +16295,11 @@ export type SponsorsTier = Node & {
   /** The tier description rendered to HTML */
   descriptionHTML: Scalars['HTML'];
   id: Scalars['ID'];
+  /**
+   * Whether this tier was chosen at checkout time by the sponsor rather than
+   * defined ahead of time by the maintainer who manages the Sponsors listing.
+   */
+  isCustomAmount: Scalars['Boolean'];
   /** Whether this tier is only for use with one-time sponsorships. */
   isOneTime: Scalars['Boolean'];
   /** How much this tier costs per month in cents. */
@@ -16364,6 +16375,8 @@ export type Sponsorship = Node & {
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   id: Scalars['ID'];
+  /** Whether this sponsorship represents a one-time payment versus a recurring sponsorship. */
+  isOneTimePayment: Scalars['Boolean'];
   /**
    * The entity that is being sponsored
    * @deprecated `Sponsorship.maintainer` will be removed. Use `Sponsorship.sponsorable` instead. Removal on 2020-04-01 UTC.
