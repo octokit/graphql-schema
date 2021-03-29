@@ -1624,7 +1624,11 @@ export type Commit = GitObject & Node & Subscribable & UniformResourceLocatable 
   abbreviatedOid: Scalars['String'];
   /** The number of additions in this commit. */
   additions: Scalars['Int'];
-  /** The pull requests associated with a commit */
+  /**
+   * The merged Pull Request that introduced the commit to the repository. If the
+   * commit is not present in the default branch, additionally returns open Pull
+   * Requests associated with the commit
+   */
   associatedPullRequests?: Maybe<PullRequestConnection>;
   /** Authorship details of the commit. */
   author?: Maybe<GitActor>;
