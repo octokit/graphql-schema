@@ -16399,6 +16399,8 @@ export type Sponsorship = Node & {
   sponsorable: Sponsorable;
   /** The associated sponsorship tier */
   tier?: Maybe<SponsorsTier>;
+  /** Identifies the date and time when the current tier was chosen for this sponsorship. */
+  tierSelectedAt?: Maybe<Scalars['DateTime']>;
 };
 
 /** The connection type for Sponsorship. */
