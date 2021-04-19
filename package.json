@@ -29,8 +29,8 @@
     "graphql-tag": "^2.10.3"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^1.19.4",
-    "@graphql-codegen/typescript": "^1.19.0",
+    "@graphql-codegen/cli": "^1.21.3",
+    "@graphql-codegen/typescript": "^1.22.0",
     "@octokit/graphql": "^4.0.0",
     "dotenv": "^8.0.0",
     "execa": "^5.0.0",
