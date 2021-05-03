@@ -12162,6 +12162,17 @@ export type PullRequestState =
   /** A pull request that is still open. */
   | 'OPEN';
 
+/** A repository pull request template. */
+export type PullRequestTemplate = {
+  __typename?: 'PullRequestTemplate';
+  /** The body of the template */
+  body?: Maybe<Scalars['String']>;
+  /** The filename of the template */
+  filename?: Maybe<Scalars['String']>;
+  /** The repository the template belongs to */
+  repository: Repository;
+};
+
 /** The connection type for PullRequestTimelineItem. */
 export type PullRequestTimelineConnection = {
   __typename?: 'PullRequestTimelineConnection';
@@ -14522,6 +14533,8 @@ export type Repository = Node & PackageOwner & ProjectOwner & RepositoryInfo & S
   projectsUrl: Scalars['URI'];
   /** Returns a single pull request from the current repository by number. */
   pullRequest?: Maybe<PullRequest>;
+  /** Returns a list of pull request templates associated to the repository */
+  pullRequestTemplates?: Maybe<Array<PullRequestTemplate>>;
   /** A list of pull requests that have been opened in the repository. */
   pullRequests: PullRequestConnection;
   /** Identifies when the repository was last pushed to. */
