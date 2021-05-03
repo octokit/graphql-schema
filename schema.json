@@ -42248,7 +42248,7 @@
           },
           {
             "name": "updateEnterpriseDefaultRepositoryPermissionSetting",
-            "description": "Sets the default repository permission for organizations in an enterprise.",
+            "description": "Sets the base repository permission for organizations in an enterprise.",
             "args": [
               {
                 "name": "input",
@@ -101842,7 +101842,7 @@
         "inputFields": [
           {
             "name": "enterpriseId",
-            "description": "The ID of the enterprise on which to set the default repository permission setting.",
+            "description": "The ID of the enterprise on which to set the base repository permission setting.",
             "type": {
               "kind": "NON_NULL",
               "name": null,
@@ -101856,7 +101856,7 @@
           },
           {
             "name": "settingValue",
-            "description": "The value for the default repository permission setting on the enterprise.",
+            "description": "The value for the base repository permission setting on the enterprise.",
             "type": {
               "kind": "NON_NULL",
               "name": null,
@@ -101902,7 +101902,7 @@
           },
           {
             "name": "enterprise",
-            "description": "The enterprise with the updated default repository permission setting.",
+            "description": "The enterprise with the updated base repository permission setting.",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -101914,7 +101914,7 @@
           },
           {
             "name": "message",
-            "description": "A message confirming the result of updating the default repository permission setting.",
+            "description": "A message confirming the result of updating the base repository permission setting.",
             "args": [],
             "type": {
               "kind": "SCALAR",

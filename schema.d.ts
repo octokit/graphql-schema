@@ -7412,7 +7412,7 @@ export type Mutation = {
   updateEnterpriseAdministratorRole?: Maybe<UpdateEnterpriseAdministratorRolePayload>;
   /** Sets whether private repository forks are enabled for an enterprise. */
   updateEnterpriseAllowPrivateRepositoryForkingSetting?: Maybe<UpdateEnterpriseAllowPrivateRepositoryForkingSettingPayload>;
-  /** Sets the default repository permission for organizations in an enterprise. */
+  /** Sets the base repository permission for organizations in an enterprise. */
   updateEnterpriseDefaultRepositoryPermissionSetting?: Maybe<UpdateEnterpriseDefaultRepositoryPermissionSettingPayload>;
   /** Sets whether organization members with admin permissions on a repository can change repository visibility. */
   updateEnterpriseMembersCanChangeRepositoryVisibilitySetting?: Maybe<UpdateEnterpriseMembersCanChangeRepositoryVisibilitySettingPayload>;
@@ -18267,9 +18267,9 @@ export type UpdateEnterpriseAllowPrivateRepositoryForkingSettingPayload = {
 export type UpdateEnterpriseDefaultRepositoryPermissionSettingInput = {
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>;
-  /** The ID of the enterprise on which to set the default repository permission setting. */
+  /** The ID of the enterprise on which to set the base repository permission setting. */
   enterpriseId: Scalars['ID'];
-  /** The value for the default repository permission setting on the enterprise. */
+  /** The value for the base repository permission setting on the enterprise. */
   settingValue: EnterpriseDefaultRepositoryPermissionSettingValue;
 };
 
@@ -18278,9 +18278,9 @@ export type UpdateEnterpriseDefaultRepositoryPermissionSettingPayload = {
   __typename?: 'UpdateEnterpriseDefaultRepositoryPermissionSettingPayload';
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>;
-  /** The enterprise with the updated default repository permission setting. */
+  /** The enterprise with the updated base repository permission setting. */
   enterprise?: Maybe<Enterprise>;
-  /** A message confirming the result of updating the default repository permission setting. */
+  /** A message confirming the result of updating the base repository permission setting. */
   message?: Maybe<Scalars['String']>;
 };
 
