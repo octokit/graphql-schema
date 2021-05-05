@@ -8597,7 +8597,7 @@ type EnterpriseOwnerInfo {
   ): OrganizationConnection!
 
   """
-  Indicates if email notification delivery for this enterprise is restricted to verified domains.
+  Indicates if email notification delivery for this enterprise is restricted to verified or approved domains.
   """
   notificationDeliveryRestrictionEnabledSetting: NotificationRestrictionSettingValue!
 
@@ -15924,7 +15924,7 @@ type Mutation {
   ): UpdateIssueCommentPayload
 
   """
-  Update the setting to restrict notifications to only verified domains available to an owner.
+  Update the setting to restrict notifications to only verified or approved domains available to an owner.
   """
   updateNotificationRestrictionSetting(
     """
@@ -19542,7 +19542,7 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   newTeamUrl: URI!
 
   """
-  Indicates if email notification delivery for this organization is restricted to verified domains.
+  Indicates if email notification delivery for this organization is restricted to verified or approved domains.
   """
   notificationDeliveryRestrictionEnabledSetting: NotificationRestrictionSettingValue!
 
@@ -40215,7 +40215,7 @@ enum UserStatusOrderField {
 }
 
 """
-A domain that can be verified for an organization or an enterprise.
+A domain that can be verified or approved for an organization or an enterprise.
 """
 type VerifiableDomain implements Node {
   """
