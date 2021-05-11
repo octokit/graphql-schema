@@ -22819,7 +22819,7 @@
           },
           {
             "name": "notificationDeliveryRestrictionEnabledSetting",
-            "description": "Indicates if email notification delivery for this enterprise is restricted to verified domains.",
+            "description": "Indicates if email notification delivery for this enterprise is restricted to verified or approved domains.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -35215,6 +35215,18 @@
             "deprecationReason": null
           },
           {
+            "name": "claimant",
+            "description": "The user that has claimed the data attributed to this mannequin.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "User",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "createdAt",
             "description": "Identifies the date and time when the object was created.",
             "args": [],
@@ -42734,7 +42746,7 @@
           },
           {
             "name": "updateNotificationRestrictionSetting",
-            "description": "Update the setting to restrict notifications to only verified domains available to an owner.",
+            "description": "Update the setting to restrict notifications to only verified or approved domains available to an owner.",
             "args": [
               {
                 "name": "input",
@@ -53179,7 +53191,7 @@
           },
           {
             "name": "notificationDeliveryRestrictionEnabledSetting",
-            "description": "Indicates if email notification delivery for this organization is restricted to verified domains.",
+            "description": "Indicates if email notification delivery for this organization is restricted to verified or approved domains.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -108723,7 +108735,7 @@
       {
         "kind": "OBJECT",
         "name": "VerifiableDomain",
-        "description": "A domain that can be verified for an organization or an enterprise.",
+        "description": "A domain that can be verified or approved for an organization or an enterprise.",
         "fields": [
           {
             "name": "createdAt",
