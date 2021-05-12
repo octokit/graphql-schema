@@ -4150,7 +4150,7 @@ export type EnterpriseOwnerInfo = {
   membersCanViewDependencyInsightsSetting: EnterpriseEnabledDisabledSettingValue;
   /** A list of enterprise organizations configured with the provided members can view dependency insights setting value. */
   membersCanViewDependencyInsightsSettingOrganizations: OrganizationConnection;
-  /** Indicates if email notification delivery for this enterprise is restricted to verified domains. */
+  /** Indicates if email notification delivery for this enterprise is restricted to verified or approved domains. */
   notificationDeliveryRestrictionEnabledSetting: NotificationRestrictionSettingValue;
   /** The setting value for whether organization projects are enabled for organizations in this enterprise. */
   organizationProjectsSetting: EnterpriseEnabledDisabledSettingValue;
@@ -6479,6 +6479,8 @@ export type Mannequin = Actor & Node & UniformResourceLocatable & {
   __typename?: 'Mannequin';
   /** A URL pointing to the GitHub App's public avatar. */
   avatarUrl: Scalars['URI'];
+  /** The user that has claimed the data attributed to this mannequin. */
+  claimant?: Maybe<User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** Identifies the primary key from the database. */
@@ -7448,7 +7450,7 @@ export type Mutation = {
   updateIssue?: Maybe<UpdateIssuePayload>;
   /** Updates an IssueComment object. */
   updateIssueComment?: Maybe<UpdateIssueCommentPayload>;
-  /** Update the setting to restrict notifications to only verified domains available to an owner. */
+  /** Update the setting to restrict notifications to only verified or approved domains available to an owner. */
   updateNotificationRestrictionSetting?: Maybe<UpdateNotificationRestrictionSettingPayload>;
   /** Updates an existing project. */
   updateProject?: Maybe<UpdateProjectPayload>;
@@ -9766,7 +9768,7 @@ export type Organization = Actor & MemberStatusable & Node & PackageOwner & Prof
   newTeamResourcePath: Scalars['URI'];
   /** The HTTP URL creating a new team */
   newTeamUrl: Scalars['URI'];
-  /** Indicates if email notification delivery for this organization is restricted to verified domains. */
+  /** Indicates if email notification delivery for this organization is restricted to verified or approved domains. */
   notificationDeliveryRestrictionEnabledSetting: NotificationRestrictionSettingValue;
   /** The billing email for the organization. */
   organizationBillingEmail?: Maybe<Scalars['String']>;
@@ -19603,7 +19605,7 @@ export type UserStatusOrderField =
   /** Order user statuses by when they were updated. */
   | 'UPDATED_AT';
 
-/** A domain that can be verified for an organization or an enterprise. */
+/** A domain that can be verified or approved for an organization or an enterprise. */
 export type VerifiableDomain = Node & {
   __typename?: 'VerifiableDomain';
   /** Identifies the date and time when the object was created. */
