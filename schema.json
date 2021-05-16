@@ -21876,6 +21876,16 @@
                 "defaultValue": "null"
               },
               {
+                "name": "isApproved",
+                "description": "Filter whether or not the domain is approved.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              },
+              {
                 "name": "orderBy",
                 "description": "Ordering options for verifiable domains returned.",
                 "type": {
@@ -52749,6 +52759,16 @@
               {
                 "name": "isVerified",
                 "description": "Filter by if the domain is verified.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              },
+              {
+                "name": "isApproved",
+                "description": "Filter by if the domain is approved.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
@@ -105217,6 +105237,37 @@
             "deprecationReason": null
           },
           {
+            "name": "canReceiveOrganizationEmailsWhenNotificationsRestricted",
+            "description": "Could this user receive email notifications, if the organization had notification restrictions enabled?",
+            "args": [
+              {
+                "name": "login",
+                "description": "The login of the organization to check.",
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "commitComments",
             "description": "A list of commit comments made by this user.",
             "args": [
@@ -108835,6 +108886,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "isApproved",
+            "description": "Whether or not the domain is approved.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
                 "ofType": null
               }
             },
