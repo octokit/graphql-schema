@@ -4238,6 +4238,7 @@ export type EnterpriseOwnerInfoDomainsArgs = {
   after?: Maybe<Scalars['String']>;
   before?: Maybe<Scalars['String']>;
   first?: Maybe<Scalars['Int']>;
+  isApproved?: Maybe<Scalars['Boolean']>;
   isVerified?: Maybe<Scalars['Boolean']>;
   last?: Maybe<Scalars['Int']>;
   orderBy?: Maybe<VerifiableDomainOrder>;
@@ -9874,6 +9875,7 @@ export type OrganizationDomainsArgs = {
   after?: Maybe<Scalars['String']>;
   before?: Maybe<Scalars['String']>;
   first?: Maybe<Scalars['Int']>;
+  isApproved?: Maybe<Scalars['Boolean']>;
   isVerified?: Maybe<Scalars['Boolean']>;
   last?: Maybe<Scalars['Int']>;
   orderBy?: Maybe<VerifiableDomainOrder>;
@@ -18998,6 +19000,8 @@ export type User = Actor & Node & PackageOwner & ProfileOwner & ProjectOwner & R
   bio?: Maybe<Scalars['String']>;
   /** The user's public profile bio as HTML. */
   bioHTML: Scalars['HTML'];
+  /** Could this user receive email notifications, if the organization had notification restrictions enabled? */
+  canReceiveOrganizationEmailsWhenNotificationsRestricted: Scalars['Boolean'];
   /** A list of commit comments made by this user. */
   commitComments: CommitCommentConnection;
   /** The user's public profile company. */
@@ -19148,6 +19152,12 @@ export type UserAnyPinnableItemsArgs = {
 /** A user is an individual's account on GitHub that owns repositories and can make new content. */
 export type UserAvatarUrlArgs = {
   size?: Maybe<Scalars['Int']>;
+};
+
+
+/** A user is an individual's account on GitHub that owns repositories and can make new content. */
+export type UserCanReceiveOrganizationEmailsWhenNotificationsRestrictedArgs = {
+  login: Scalars['String'];
 };
 
 
@@ -19621,6 +19631,8 @@ export type VerifiableDomain = Node & {
   /** Whether a TXT record for verification with the expected verification token was found. */
   hasFoundVerificationToken: Scalars['Boolean'];
   id: Scalars['ID'];
+  /** Whether or not the domain is approved. */
+  isApproved: Scalars['Boolean'];
   /** Whether this domain is required to exist for an organization or enterprise policy to be enforced. */
   isRequiredForPolicyEnforcement: Scalars['Boolean'];
   /** Whether or not the domain is verified. */
