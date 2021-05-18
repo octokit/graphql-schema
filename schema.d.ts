@@ -15911,6 +15911,8 @@ export type SecurityAdvisoryConnection = {
 export type SecurityAdvisoryEcosystem =
   /** PHP packages hosted at packagist.org */
   | 'COMPOSER'
+  /** Go modules */
+  | 'GO'
   /** Java artifacts hosted at the Maven central repository */
   | 'MAVEN'
   /** JavaScript packages hosted at npmjs.com */

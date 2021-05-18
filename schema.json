@@ -88675,6 +88675,12 @@
             "description": "PHP packages hosted at packagist.org",
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "GO",
+            "description": "Go modules",
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "possibleTypes": null
