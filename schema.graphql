@@ -32609,6 +32609,11 @@ enum SecurityAdvisoryEcosystem {
   COMPOSER
 
   """
+  Go modules
+  """
+  GO
+
+  """
   Java artifacts hosted at the Maven central repository
   """
   MAVEN
