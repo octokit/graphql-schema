@@ -91360,6 +91360,38 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "totalRecurringMonthlyPriceInCents",
+            "description": "The total amount in cents of all recurring sponsorships in the connection whose amount you can view. Does not include one-time sponsorships.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "totalRecurringMonthlyPriceInDollars",
+            "description": "The total dollar amount of all recurring sponsorships in the connection whose amount you can view. Does not include one-time sponsorships.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "inputFields": null,
