@@ -33669,6 +33669,18 @@ type SponsorshipConnection {
   Identifies the total count of items in the connection.
   """
   totalCount: Int!
+
+  """
+  The total amount in cents of all recurring sponsorships in the connection
+  whose amount you can view. Does not include one-time sponsorships.
+  """
+  totalRecurringMonthlyPriceInCents: Int!
+
+  """
+  The total dollar amount of all recurring sponsorships in the connection whose
+  amount you can view. Does not include one-time sponsorships.
+  """
+  totalRecurringMonthlyPriceInDollars: Int!
 }
 
 """
