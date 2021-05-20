@@ -16458,6 +16458,16 @@ export type SponsorshipConnection = {
   pageInfo: PageInfo;
   /** Identifies the total count of items in the connection. */
   totalCount: Scalars['Int'];
+  /**
+   * The total amount in cents of all recurring sponsorships in the connection
+   * whose amount you can view. Does not include one-time sponsorships.
+   */
+  totalRecurringMonthlyPriceInCents: Scalars['Int'];
+  /**
+   * The total dollar amount of all recurring sponsorships in the connection whose
+   * amount you can view. Does not include one-time sponsorships.
+   */
+  totalRecurringMonthlyPriceInDollars: Scalars['Int'];
 };
 
 /** An edge in a connection. */
