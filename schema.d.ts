@@ -12989,12 +12989,14 @@ export type RegenerateVerifiableDomainTokenPayload = {
 };
 
 /** A release contains the content for a release. */
-export type Release = Node & UniformResourceLocatable & {
+export type Release = Node & Reactable & UniformResourceLocatable & {
   __typename?: 'Release';
   /** The author of the release */
   author?: Maybe<User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
+  /** Identifies the primary key from the database. */
+  databaseId?: Maybe<Scalars['Int']>;
   /** The description of the release. */
   description?: Maybe<Scalars['String']>;
   /** The description of this release rendered to HTML. */
@@ -13010,6 +13012,10 @@ export type Release = Node & UniformResourceLocatable & {
   name?: Maybe<Scalars['String']>;
   /** Identifies the date and time when the release was created. */
   publishedAt?: Maybe<Scalars['DateTime']>;
+  /** A list of reactions grouped by content left on the subject. */
+  reactionGroups?: Maybe<Array<ReactionGroup>>;
+  /** A list of Reactions left on the Issue. */
+  reactions: ReactionConnection;
   /** List of releases assets which are dependent on this release. */
   releaseAssets: ReleaseAssetConnection;
   /** The repository that the release belongs to. */
@@ -13028,6 +13034,19 @@ export type Release = Node & UniformResourceLocatable & {
   updatedAt: Scalars['DateTime'];
   /** The HTTP URL for this issue */
   url: Scalars['URI'];
+  /** Can user react to this subject */
+  viewerCanReact: Scalars['Boolean'];
+};
+
+
+/** A release contains the content for a release. */
+export type ReleaseReactionsArgs = {
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  content?: Maybe<ReactionContent>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  orderBy?: Maybe<ReactionOrder>;
 };
 
 

@@ -26247,7 +26247,7 @@ type RegenerateVerifiableDomainTokenPayload {
 """
 A release contains the content for a release.
 """
-type Release implements Node & UniformResourceLocatable {
+type Release implements Node & Reactable & UniformResourceLocatable {
   """
   The author of the release
   """
@@ -26257,6 +26257,11 @@ type Release implements Node & UniformResourceLocatable {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  Identifies the primary key from the database.
+  """
+  databaseId: Int
 
   """
   The description of the release.
@@ -26293,6 +26298,46 @@ type Release implements Node & UniformResourceLocatable {
   Identifies the date and time when the release was created.
   """
   publishedAt: DateTime
+
+  """
+  A list of reactions grouped by content left on the subject.
+  """
+  reactionGroups: [ReactionGroup!]
+
+  """
+  A list of Reactions left on the Issue.
+  """
+  reactions(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Allows filtering Reactions by emoji.
+    """
+    content: ReactionContent
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Allows specifying the order in which reactions are returned.
+    """
+    orderBy: ReactionOrder
+  ): ReactionConnection!
 
   """
   List of releases assets which are dependent on this release.
@@ -26368,6 +26413,11 @@ type Release implements Node & UniformResourceLocatable {
   The HTTP URL for this issue
   """
   url: URI!
+
+  """
+  Can user react to this subject
+  """
+  viewerCanReact: Boolean!
 }
 
 """
