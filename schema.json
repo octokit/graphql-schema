@@ -70033,6 +70033,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "Release",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "TeamDiscussion",
             "ofType": null
           },
@@ -71684,6 +71689,18 @@
             "deprecationReason": null
           },
           {
+            "name": "databaseId",
+            "description": "Identifies the primary key from the database.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Int",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "description",
             "description": "The description of the release.",
             "args": [],
@@ -71791,6 +71808,103 @@
               "kind": "SCALAR",
               "name": "DateTime",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "reactionGroups",
+            "description": "A list of reactions grouped by content left on the subject.",
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "ReactionGroup",
+                  "ofType": null
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "reactions",
+            "description": "A list of Reactions left on the Issue.",
+            "args": [
+              {
+                "name": "after",
+                "description": "Returns the elements in the list that come after the specified cursor.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "before",
+                "description": "Returns the elements in the list that come before the specified cursor.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "first",
+                "description": "Returns the first _n_ elements from the list.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "last",
+                "description": "Returns the last _n_ elements from the list.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "content",
+                "description": "Allows filtering Reactions by emoji.",
+                "type": {
+                  "kind": "ENUM",
+                  "name": "ReactionContent",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "orderBy",
+                "description": "Allows specifying the order in which reactions are returned.",
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ReactionOrder",
+                  "ofType": null
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ReactionConnection",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -71988,6 +72102,22 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "viewerCanReact",
+            "description": "Can user react to this subject",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "inputFields": null,
@@ -72000,6 +72130,11 @@
           {
             "kind": "INTERFACE",
             "name": "UniformResourceLocatable",
+            "ofType": null
+          },
+          {
+            "kind": "INTERFACE",
+            "name": "Reactable",
             "ofType": null
           }
         ],
