@@ -40209,10 +40209,6 @@ type UserStatus implements Node {
   If set, the status will not be shown after this date.
   """
   expiresAt: DateTime
-
-  """
-  ID of the object.
-  """
   id: ID!
 
   """
