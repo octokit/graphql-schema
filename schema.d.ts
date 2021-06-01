@@ -11889,6 +11889,8 @@ export type PullRequest = Assignable & Closable & Comment & Labelable & Lockable
   closed: Scalars['Boolean'];
   /** Identifies the date and time when the object was closed. */
   closedAt?: Maybe<Scalars['DateTime']>;
+  /** List of issues that were may be closed by this pull request */
+  closingIssuesReferences?: Maybe<IssueConnection>;
   /** A list of comments associated with the pull request. */
   comments: IssueCommentConnection;
   /** A list of commits present in this pull request's head branch not present in the base branch. */
@@ -12043,6 +12045,16 @@ export type PullRequestAssigneesArgs = {
   before?: Maybe<Scalars['String']>;
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
+};
+
+
+/** A repository pull request. */
+export type PullRequestClosingIssuesReferencesArgs = {
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  orderBy?: Maybe<IssueOrder>;
 };
 
 
