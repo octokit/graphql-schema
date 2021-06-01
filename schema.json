@@ -108688,7 +108688,7 @@
           },
           {
             "name": "id",
-            "description": "ID of the object.",
+            "description": null,
             "args": [],
             "type": {
               "kind": "NON_NULL",
