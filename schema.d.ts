@@ -19597,7 +19597,6 @@ export type UserStatus = Node & {
   emojiHTML?: Maybe<Scalars['HTML']>;
   /** If set, the status will not be shown after this date. */
   expiresAt?: Maybe<Scalars['DateTime']>;
-  /** ID of the object. */
   id: Scalars['ID'];
   /** Whether this status indicates the user is not fully available on GitHub. */
   indicatesLimitedAvailability: Scalars['Boolean'];
