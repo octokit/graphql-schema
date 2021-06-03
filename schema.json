@@ -21281,6 +21281,69 @@
             "deprecationReason": null
           },
           {
+            "name": "labels",
+            "description": "A list of labels associated with the object.",
+            "args": [
+              {
+                "name": "orderBy",
+                "description": "Ordering options for labels returned from the connection.",
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "LabelOrder",
+                  "ofType": null
+                },
+                "defaultValue": "{field: CREATED_AT, direction: ASC}"
+              },
+              {
+                "name": "after",
+                "description": "Returns the elements in the list that come after the specified cursor.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "before",
+                "description": "Returns the elements in the list that come before the specified cursor.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "first",
+                "description": "Returns the first _n_ elements from the list.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "last",
+                "description": "Returns the last _n_ elements from the list.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "OBJECT",
+              "name": "LabelConnection",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "lastEditedAt",
             "description": "The moment the editor made the last edit",
             "args": [],
@@ -21722,6 +21785,11 @@
           {
             "kind": "INTERFACE",
             "name": "Deletable",
+            "ofType": null
+          },
+          {
+            "kind": "INTERFACE",
+            "name": "Labelable",
             "ofType": null
           },
           {
@@ -37801,7 +37869,7 @@
       {
         "kind": "OBJECT",
         "name": "Label",
-        "description": "A label for categorizing Issues or Milestones with a given Repository.",
+        "description": "A label for categorizing Issues, Pull Requests, Milestones, or Discussions with a given Repository.",
         "fields": [
           {
             "name": "color",
@@ -38448,6 +38516,11 @@
         "interfaces": null,
         "enumValues": null,
         "possibleTypes": [
+          {
+            "kind": "OBJECT",
+            "name": "Discussion",
+            "ofType": null
+          },
           {
             "kind": "OBJECT",
             "name": "Issue",
