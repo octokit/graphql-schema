@@ -4006,7 +4006,7 @@ export type DisconnectedEvent = Node & {
 };
 
 /** A discussion in a repository. */
-export type Discussion = Comment & Deletable & Lockable & Node & Reactable & RepositoryNode & Subscribable & Updatable & Votable & {
+export type Discussion = Comment & Deletable & Labelable & Lockable & Node & Reactable & RepositoryNode & Subscribable & Updatable & Votable & {
   __typename?: 'Discussion';
   /** Reason that the conversation was locked. */
   activeLockReason?: Maybe<LockReason>;
@@ -4041,6 +4041,8 @@ export type Discussion = Comment & Deletable & Lockable & Node & Reactable & Rep
   id: Scalars['ID'];
   /** Check if this comment was edited and includes an edit with the creation data */
   includesCreatedEdit: Scalars['Boolean'];
+  /** A list of labels associated with the object. */
+  labels?: Maybe<LabelConnection>;
   /** The moment the editor made the last edit */
   lastEditedAt?: Maybe<Scalars['DateTime']>;
   /** `true` if the object is locked */
@@ -4092,6 +4094,16 @@ export type DiscussionCommentsArgs = {
   before?: Maybe<Scalars['String']>;
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
+};
+
+
+/** A discussion in a repository. */
+export type DiscussionLabelsArgs = {
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  orderBy?: Maybe<LabelOrder>;
 };
 
 
@@ -6940,7 +6952,7 @@ export type JoinedGitHubContribution = Contribution & {
   user: User;
 };
 
-/** A label for categorizing Issues or Milestones with a given Repository. */
+/** A label for categorizing Issues, Pull Requests, Milestones, or Discussions with a given Repository. */
 export type Label = Node & {
   __typename?: 'Label';
   /** Identifies the label color. */
@@ -6969,7 +6981,7 @@ export type Label = Node & {
 };
 
 
-/** A label for categorizing Issues or Milestones with a given Repository. */
+/** A label for categorizing Issues, Pull Requests, Milestones, or Discussions with a given Repository. */
 export type LabelIssuesArgs = {
   after?: Maybe<Scalars['String']>;
   before?: Maybe<Scalars['String']>;
@@ -6982,7 +6994,7 @@ export type LabelIssuesArgs = {
 };
 
 
-/** A label for categorizing Issues or Milestones with a given Repository. */
+/** A label for categorizing Issues, Pull Requests, Milestones, or Discussions with a given Repository. */
 export type LabelPullRequestsArgs = {
   after?: Maybe<Scalars['String']>;
   baseRefName?: Maybe<Scalars['String']>;
