@@ -112193,7 +112193,7 @@
               },
               {
                 "name": "to",
-                "description": "Only contributions made before and up to and including this time will be counted. If omitted, defaults to the current time.",
+                "description": "Only contributions made before and up to (including) this time will be counted. If omitted, defaults to the current time or one year from the provided from argument.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "DateTime",
