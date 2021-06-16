@@ -1671,6 +1671,11 @@ type BranchProtectionRule implements Node {
   requiresCommitSignatures: Boolean!
 
   """
+  Are conversations required to be resolved before merging.
+  """
+  requiresConversationResolution: Boolean!
+
+  """
   Are merge commits prohibited from being pushed to this branch.
   """
   requiresLinearHistory: Boolean!
@@ -5131,6 +5136,11 @@ input CreateBranchProtectionRuleInput {
   Are commits required to be signed.
   """
   requiresCommitSignatures: Boolean
+
+  """
+  Are conversations required to be resolved before merging.
+  """
+  requiresConversationResolution: Boolean
 
   """
   Are merge commits prohibited from being pushed to this branch.
@@ -28176,6 +28186,11 @@ type RefUpdateRule {
   requiresCodeOwnerReviews: Boolean!
 
   """
+  Are conversations required to be resolved before merging.
+  """
+  requiresConversationResolution: Boolean!
+
+  """
   Are merge commits prohibited from being pushed to this branch.
   """
   requiresLinearHistory: Boolean!
@@ -39668,6 +39683,11 @@ input UpdateBranchProtectionRuleInput {
   Are commits required to be signed.
   """
   requiresCommitSignatures: Boolean
+
+  """
+  Are conversations required to be resolved before merging.
+  """
+  requiresConversationResolution: Boolean
 
   """
   Are merge commits prohibited from being pushed to this branch.
