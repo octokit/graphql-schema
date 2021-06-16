@@ -862,6 +862,8 @@ export type BranchProtectionRule = Node & {
   requiresCodeOwnerReviews: Scalars['Boolean'];
   /** Are commits required to be signed. */
   requiresCommitSignatures: Scalars['Boolean'];
+  /** Are conversations required to be resolved before merging. */
+  requiresConversationResolution: Scalars['Boolean'];
   /** Are merge commits prohibited from being pushed to this branch. */
   requiresLinearHistory: Scalars['Boolean'];
   /** Are status checks required to update matching branches. */
@@ -2590,6 +2592,8 @@ export type CreateBranchProtectionRuleInput = {
   requiresCodeOwnerReviews?: Maybe<Scalars['Boolean']>;
   /** Are commits required to be signed. */
   requiresCommitSignatures?: Maybe<Scalars['Boolean']>;
+  /** Are conversations required to be resolved before merging. */
+  requiresConversationResolution?: Maybe<Scalars['Boolean']>;
   /** Are merge commits prohibited from being pushed to this branch. */
   requiresLinearHistory?: Maybe<Scalars['Boolean']>;
   /** Are status checks required to update matching branches. */
@@ -13956,6 +13960,8 @@ export type RefUpdateRule = {
   requiredStatusCheckContexts?: Maybe<Array<Maybe<Scalars['String']>>>;
   /** Are reviews from code owners required to update matching branches. */
   requiresCodeOwnerReviews: Scalars['Boolean'];
+  /** Are conversations required to be resolved before merging. */
+  requiresConversationResolution: Scalars['Boolean'];
   /** Are merge commits prohibited from being pushed to this branch. */
   requiresLinearHistory: Scalars['Boolean'];
   /** Are commits required to be signed. */
@@ -19383,6 +19389,8 @@ export type UpdateBranchProtectionRuleInput = {
   requiresCodeOwnerReviews?: Maybe<Scalars['Boolean']>;
   /** Are commits required to be signed. */
   requiresCommitSignatures?: Maybe<Scalars['Boolean']>;
+  /** Are conversations required to be resolved before merging. */
+  requiresConversationResolution?: Maybe<Scalars['Boolean']>;
   /** Are merge commits prohibited from being pushed to this branch. */
   requiresLinearHistory?: Maybe<Scalars['Boolean']>;
   /** Are status checks required to update matching branches. */

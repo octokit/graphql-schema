@@ -4884,6 +4884,22 @@
             "deprecationReason": null
           },
           {
+            "name": "requiresConversationResolution",
+            "description": "Are conversations required to be resolved before merging.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "requiresLinearHistory",
             "description": "Are merge commits prohibited from being pushed to this branch.",
             "args": [],
@@ -14021,6 +14037,16 @@
                   "ofType": null
                 }
               }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "requiresConversationResolution",
+            "description": "Are conversations required to be resolved before merging.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
             },
             "defaultValue": null
           },
@@ -76902,6 +76928,22 @@
             "deprecationReason": null
           },
           {
+            "name": "requiresConversationResolution",
+            "description": "Are conversations required to be resolved before merging.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "requiresLinearHistory",
             "description": "Are merge commits prohibited from being pushed to this branch.",
             "args": [],
@@ -108031,6 +108073,16 @@
                   "ofType": null
                 }
               }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "requiresConversationResolution",
+            "description": "Are conversations required to be resolved before merging.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
             },
             "defaultValue": null
           },
