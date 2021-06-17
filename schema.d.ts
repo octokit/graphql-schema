@@ -6481,6 +6481,8 @@ export type Issue = Assignable & Closable & Comment & Labelable & Lockable & Nod
   timelineItems: IssueTimelineItemsConnection;
   /** Identifies the issue title. */
   title: Scalars['String'];
+  /** Identifies the issue title rendered to HTML. */
+  titleHTML: Scalars['String'];
   /** Identifies the date and time when the object was last updated. */
   updatedAt: Scalars['DateTime'];
   /** The HTTP URL for this issue */
@@ -12417,6 +12419,8 @@ export type PullRequest = Assignable & Closable & Comment & Labelable & Lockable
   timelineItems: PullRequestTimelineItemsConnection;
   /** Identifies the pull request title. */
   title: Scalars['String'];
+  /** Identifies the pull request title rendered to HTML. */
+  titleHTML: Scalars['HTML'];
   /** Identifies the date and time when the object was last updated. */
   updatedAt: Scalars['DateTime'];
   /** The HTTP URL for this pull request. */

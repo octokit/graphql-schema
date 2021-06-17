@@ -35575,6 +35575,22 @@
             "deprecationReason": null
           },
           {
+            "name": "titleHTML",
+            "description": "Identifies the issue title rendered to HTML.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "updatedAt",
             "description": "Identifies the date and time when the object was last updated.",
             "args": [],
@@ -68929,6 +68945,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "titleHTML",
+            "description": "Identifies the pull request title rendered to HTML.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "HTML",
                 "ofType": null
               }
             },
