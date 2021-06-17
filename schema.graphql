@@ -13366,6 +13366,11 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
   title: String!
 
   """
+  Identifies the issue title rendered to HTML.
+  """
+  titleHTML: String!
+
+  """
   Identifies the date and time when the object was last updated.
   """
   updatedAt: DateTime!
@@ -25276,6 +25281,11 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   Identifies the pull request title.
   """
   title: String!
+
+  """
+  Identifies the pull request title rendered to HTML.
+  """
+  titleHTML: HTML!
 
   """
   Identifies the date and time when the object was last updated.
