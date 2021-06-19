@@ -13832,12 +13832,26 @@ export type ReactionGroup = {
   content: ReactionContent;
   /** Identifies when the reaction was created. */
   createdAt?: Maybe<Scalars['DateTime']>;
+  /** Reactors to the reaction subject with the emotion represented by this reaction group. */
+  reactors: ReactorConnection;
   /** The subject that was reacted to. */
   subject: Reactable;
-  /** Users who have reacted to the reaction subject with the emotion represented by this reaction group */
+  /**
+   * Users who have reacted to the reaction subject with the emotion represented by this reaction group
+   * @deprecated Reactors can now be mannequins, bots, and organizations. Use the `reactors` field instead. Removal on 2021-10-01 UTC.
+   */
   users: ReactingUserConnection;
   /** Whether or not the authenticated user has left a reaction on the subject. */
   viewerHasReacted: Scalars['Boolean'];
+};
+
+
+/** A group of emoji reactions to a particular piece of content. */
+export type ReactionGroupReactorsArgs = {
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
 };
 
 
@@ -13861,6 +13875,33 @@ export type ReactionOrder = {
 export type ReactionOrderField =
   /** Allows ordering a list of reactions by when they were created. */
   | 'CREATED_AT';
+
+/** Types that can be assigned to reactions. */
+export type Reactor = Bot | Mannequin | Organization | User;
+
+/** The connection type for Reactor. */
+export type ReactorConnection = {
+  __typename?: 'ReactorConnection';
+  /** A list of edges. */
+  edges?: Maybe<Array<Maybe<ReactorEdge>>>;
+  /** A list of nodes. */
+  nodes?: Maybe<Array<Maybe<Reactor>>>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** Identifies the total count of items in the connection. */
+  totalCount: Scalars['Int'];
+};
+
+/** Represents an author of a reaction. */
+export type ReactorEdge = {
+  __typename?: 'ReactorEdge';
+  /** A cursor for use in pagination. */
+  cursor: Scalars['String'];
+  /** The author of the reaction. */
+  node: Reactor;
+  /** The moment when the user made the reaction. */
+  reactedAt: Scalars['DateTime'];
+};
 
 /** Represents a 'ready_for_review' event on a given pull request. */
 export type ReadyForReviewEvent = Node & UniformResourceLocatable & {
