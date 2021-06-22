@@ -432,6 +432,8 @@ export type App = Node & {
   /** The description of the app. */
   description?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
+  /** The IP addresses of the app. */
+  ipAllowListEntries: IpAllowListEntryConnection;
   /** The hex color code, without the leading '#', for the logo background. */
   logoBackgroundColor: Scalars['String'];
   /** A URL pointing to the app's logo. */
@@ -444,6 +446,16 @@ export type App = Node & {
   updatedAt: Scalars['DateTime'];
   /** The URL to the app's homepage. */
   url: Scalars['URI'];
+};
+
+
+/** A GitHub App. */
+export type AppIpAllowListEntriesArgs = {
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  orderBy?: Maybe<IpAllowListEntryOrder>;
 };
 
 
@@ -6400,7 +6412,7 @@ export type IpAllowListForInstalledAppsEnabledSettingValue =
   | 'ENABLED';
 
 /** Types that can own an IP allow list. */
-export type IpAllowListOwner = Enterprise | Organization;
+export type IpAllowListOwner = App | Enterprise | Organization;
 
 /** An Issue is a place to discuss ideas, enhancements, tasks, and bugs for a project. */
 export type Issue = Assignable & Closable & Comment & Labelable & Lockable & Node & Reactable & RepositoryNode & Subscribable & UniformResourceLocatable & Updatable & UpdatableComment & {
