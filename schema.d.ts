@@ -17177,6 +17177,8 @@ export type SecurityAdvisoryEcosystem =
   | 'NPM'
   /** .NET packages hosted at the NuGet Gallery */
   | 'NUGET'
+  /** Applications, runtimes, operating systems and other kinds of software */
+  | 'OTHER'
   /** Python packages hosted at PyPI.org */
   | 'PIP'
   /** Ruby gems hosted at RubyGems.org */
