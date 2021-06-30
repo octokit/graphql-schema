@@ -17592,8 +17592,8 @@ export type SponsorsTier = Node & {
   adminInfo?: Maybe<SponsorsTierAdminInfo>;
   /**
    * Get a different tier for this tier's maintainer that is at the same frequency
-   * as this tier but with a lesser cost. Returns the published tier with the
-   * monthly price closest to this tier's without going over.
+   * as this tier but with an equal or lesser cost. Returns the published tier with
+   * the monthly price closest to this tier's without going over.
    */
   closestLesserValueTier?: Maybe<SponsorsTier>;
   /** Identifies the date and time when the object was created. */
