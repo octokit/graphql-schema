@@ -95496,20 +95496,14 @@
         "interfaces": null,
         "enumValues": [
           {
-            "name": "RUBYGEMS",
-            "description": "Ruby gems hosted at RubyGems.org",
+            "name": "COMPOSER",
+            "description": "PHP packages hosted at packagist.org",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "NPM",
-            "description": "JavaScript packages hosted at npmjs.com",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "PIP",
-            "description": "Python packages hosted at PyPI.org",
+            "name": "GO",
+            "description": "Go modules",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -95520,20 +95514,26 @@
             "deprecationReason": null
           },
           {
+            "name": "NPM",
+            "description": "JavaScript packages hosted at npmjs.com",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "NUGET",
             "description": ".NET packages hosted at the NuGet Gallery",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "COMPOSER",
-            "description": "PHP packages hosted at packagist.org",
+            "name": "PIP",
+            "description": "Python packages hosted at PyPI.org",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "GO",
-            "description": "Go modules",
+            "name": "RUBYGEMS",
+            "description": "Ruby gems hosted at RubyGems.org",
             "isDeprecated": false,
             "deprecationReason": null
           },
