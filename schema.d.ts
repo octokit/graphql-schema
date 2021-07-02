@@ -10748,6 +10748,8 @@ export type Organization = Actor & MemberStatusable & Node & PackageOwner & Prof
   resourcePath: Scalars['URI'];
   /** The Organization's SAML identity providers */
   samlIdentityProvider?: Maybe<OrganizationIdentityProvider>;
+  /** Events involving this sponsorable, such as new sponsorships. */
+  sponsorsActivities: SponsorsActivityConnection;
   /** The GitHub Sponsors listing for this user or organization. */
   sponsorsListing?: Maybe<SponsorsListing>;
   /** The viewer's sponsorship of this entity. */
@@ -10962,6 +10964,17 @@ export type OrganizationRepositoryDiscussionsArgs = {
   last?: Maybe<Scalars['Int']>;
   orderBy?: Maybe<DiscussionOrder>;
   repositoryId?: Maybe<Scalars['ID']>;
+};
+
+
+/** An account on GitHub, with one or more owners, that has repositories, members and teams. */
+export type OrganizationSponsorsActivitiesArgs = {
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  orderBy?: Maybe<SponsorsActivityOrder>;
+  period?: Maybe<SponsorsActivityPeriod>;
 };
 
 
@@ -17449,6 +17462,8 @@ export type Sponsorable = {
   isSponsoredBy: Scalars['Boolean'];
   /** True if the viewer is sponsored by this user/organization. */
   isSponsoringViewer: Scalars['Boolean'];
+  /** Events involving this sponsorable, such as new sponsorships. */
+  sponsorsActivities: SponsorsActivityConnection;
   /** The GitHub Sponsors listing for this user or organization. */
   sponsorsListing?: Maybe<SponsorsListing>;
   /** The viewer's sponsorship of this entity. */
@@ -17467,6 +17482,17 @@ export type Sponsorable = {
 /** Entities that can be sponsored through GitHub Sponsors */
 export type SponsorableIsSponsoredByArgs = {
   accountLogin: Scalars['String'];
+};
+
+
+/** Entities that can be sponsored through GitHub Sponsors */
+export type SponsorableSponsorsActivitiesArgs = {
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  orderBy?: Maybe<SponsorsActivityOrder>;
+  period?: Maybe<SponsorsActivityPeriod>;
 };
 
 
@@ -17527,6 +17553,85 @@ export type SponsorableOrder = {
 export type SponsorableOrderField =
   /** Order sponsorable entities by login (username). */
   | 'LOGIN';
+
+/** An event related to sponsorship activity. */
+export type SponsorsActivity = Node & {
+  __typename?: 'SponsorsActivity';
+  /** What action this activity indicates took place. */
+  action: SponsorsActivityAction;
+  id: Scalars['ID'];
+  /** The tier that the sponsorship used to use, for tier change events. */
+  previousSponsorsTier?: Maybe<SponsorsTier>;
+  /** The user or organization who triggered this activity and was/is sponsoring the sponsorable. */
+  sponsor?: Maybe<Sponsor>;
+  /** The user or organization that is being sponsored, the maintainer. */
+  sponsorable: Sponsorable;
+  /** The associated sponsorship tier. */
+  sponsorsTier?: Maybe<SponsorsTier>;
+  /** The timestamp of this event. */
+  timestamp?: Maybe<Scalars['DateTime']>;
+};
+
+/** The possible actions that GitHub Sponsors activities can represent. */
+export type SponsorsActivityAction =
+  /** The activity was cancelling a sponsorship. */
+  | 'CANCELLED_SPONSORSHIP'
+  /** The activity was starting a sponsorship. */
+  | 'NEW_SPONSORSHIP'
+  /** The activity was scheduling a downgrade or cancellation. */
+  | 'PENDING_CHANGE'
+  /** The activity was funds being refunded to the sponsor or GitHub. */
+  | 'REFUND'
+  /** The activity was disabling matching for a previously matched sponsorship. */
+  | 'SPONSOR_MATCH_DISABLED'
+  /** The activity was changing the sponsorship tier, either directly by the sponsor or by a scheduled/pending change. */
+  | 'TIER_CHANGE';
+
+/** The connection type for SponsorsActivity. */
+export type SponsorsActivityConnection = {
+  __typename?: 'SponsorsActivityConnection';
+  /** A list of edges. */
+  edges?: Maybe<Array<Maybe<SponsorsActivityEdge>>>;
+  /** A list of nodes. */
+  nodes?: Maybe<Array<Maybe<SponsorsActivity>>>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** Identifies the total count of items in the connection. */
+  totalCount: Scalars['Int'];
+};
+
+/** An edge in a connection. */
+export type SponsorsActivityEdge = {
+  __typename?: 'SponsorsActivityEdge';
+  /** A cursor for use in pagination. */
+  cursor: Scalars['String'];
+  /** The item at the end of the edge. */
+  node?: Maybe<SponsorsActivity>;
+};
+
+/** Ordering options for GitHub Sponsors activity connections. */
+export type SponsorsActivityOrder = {
+  /** The ordering direction. */
+  direction: OrderDirection;
+  /** The field to order activity by. */
+  field: SponsorsActivityOrderField;
+};
+
+/** Properties by which GitHub Sponsors activity connections can be ordered. */
+export type SponsorsActivityOrderField =
+  /** Order activities by when they happened. */
+  | 'TIMESTAMP';
+
+/** The possible time periods for which Sponsors activities can be requested. */
+export type SponsorsActivityPeriod =
+  /** Don't restrict the activity to any date range, include all activity. */
+  | 'ALL'
+  /** The previous calendar day. */
+  | 'DAY'
+  /** The previous thirty days. */
+  | 'MONTH'
+  /** The previous seven days. */
+  | 'WEEK';
 
 /** A goal associated with a GitHub Sponsors listing, representing a target the sponsored maintainer would like to attain. */
 export type SponsorsGoal = {
@@ -20481,6 +20586,8 @@ export type User = Actor & Node & PackageOwner & ProfileOwner & ProjectOwner & R
   resourcePath: Scalars['URI'];
   /** Replies this user has saved */
   savedReplies?: Maybe<SavedReplyConnection>;
+  /** Events involving this sponsorable, such as new sponsorships. */
+  sponsorsActivities: SponsorsActivityConnection;
   /** The GitHub Sponsors listing for this user or organization. */
   sponsorsListing?: Maybe<SponsorsListing>;
   /** The viewer's sponsorship of this entity. */
@@ -20794,6 +20901,17 @@ export type UserSavedRepliesArgs = {
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
   orderBy?: Maybe<SavedReplyOrder>;
+};
+
+
+/** A user is an individual's account on GitHub that owns repositories and can make new content. */
+export type UserSponsorsActivitiesArgs = {
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  orderBy?: Maybe<SponsorsActivityOrder>;
+  period?: Maybe<SponsorsActivityPeriod>;
 };
 
 
