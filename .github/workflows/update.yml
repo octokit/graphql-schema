@@ -12,6 +12,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 12
+          cache: npm
       - run: git checkout schema-update || true
       - run: npm ci
       - run: npm run update
