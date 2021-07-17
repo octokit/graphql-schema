@@ -4372,12 +4372,12 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "Node",
+            "name": "GitObject",
             "ofType": null
           },
           {
             "kind": "INTERFACE",
-            "name": "GitObject",
+            "name": "Node",
             "ofType": null
           }
         ],
