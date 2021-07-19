@@ -9292,6 +9292,11 @@ type EnterpriseIdentityProvider implements Node {
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Filter to external identities with valid org membership only
+    """
+    membersOnly: Boolean
   ): ExternalIdentityConnection!
   id: ID!
 
@@ -22158,6 +22163,11 @@ type OrganizationIdentityProvider implements Node {
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Filter to external identities with valid org membership only
+    """
+    membersOnly: Boolean
   ): ExternalIdentityConnection!
   id: ID!
 

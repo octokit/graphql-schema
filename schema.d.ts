@@ -4691,6 +4691,7 @@ export type EnterpriseIdentityProviderExternalIdentitiesArgs = {
   before?: Maybe<Scalars['String']>;
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
+  membersOnly?: Maybe<Scalars['Boolean']>;
 };
 
 /** An object that is a member of an enterprise. */
@@ -11106,6 +11107,7 @@ export type OrganizationIdentityProviderExternalIdentitiesArgs = {
   before?: Maybe<Scalars['String']>;
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
+  membersOnly?: Maybe<Scalars['Boolean']>;
 };
 
 /** An Invitation for a user to an organization. */
