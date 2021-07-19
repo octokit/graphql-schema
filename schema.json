@@ -24937,6 +24937,16 @@
             "description": "ExternalIdentities provisioned by this identity provider.",
             "args": [
               {
+                "name": "membersOnly",
+                "description": "Filter to external identities with valid org membership only",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
                 "name": "after",
                 "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
@@ -60763,6 +60773,16 @@
             "name": "externalIdentities",
             "description": "External Identities provisioned by this Identity Provider",
             "args": [
+              {
+                "name": "membersOnly",
+                "description": "Filter to external identities with valid org membership only",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
               {
                 "name": "after",
                 "description": "Returns the elements in the list that come after the specified cursor.",
