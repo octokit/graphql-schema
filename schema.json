@@ -92828,7 +92828,7 @@
       {
         "kind": "OBJECT",
         "name": "RepositoryVulnerabilityAlert",
-        "description": "A alert for a repository with an affected vulnerability.",
+        "description": "A Dependabot alert for a repository with a dependency affected by a security vulnerability.",
         "fields": [
           {
             "name": "createdAt",

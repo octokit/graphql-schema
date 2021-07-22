@@ -34203,7 +34203,7 @@ type RepositoryVisibilityChangeEnableAuditEntry implements AuditEntry & Enterpri
 }
 
 """
-A alert for a repository with an affected vulnerability.
+A Dependabot alert for a repository with a dependency affected by a security vulnerability.
 """
 type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   """
