@@ -36155,9 +36155,19 @@ type SponsorsListing implements Node {
   id: ID!
 
   """
+  Whether this listing is publicly visible.
+  """
+  isPublic: Boolean!
+
+  """
   The listing's full name.
   """
   name: String!
+
+  """
+  A future date on which this listing is eligible to receive a payout.
+  """
+  nextPayoutDate: Date
 
   """
   The short description of the listing.
@@ -36168,6 +36178,11 @@ type SponsorsListing implements Node {
   The short name of the listing.
   """
   slug: String!
+
+  """
+  The entity this listing represents who can be sponsored on GitHub Sponsors.
+  """
+  sponsorable: Sponsorable!
 
   """
   The published tiers for this GitHub Sponsors listing.

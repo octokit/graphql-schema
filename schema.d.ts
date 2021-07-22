@@ -17672,12 +17672,18 @@ export type SponsorsListing = Node & {
   /** The full description of the listing rendered to HTML. */
   fullDescriptionHTML: Scalars['HTML'];
   id: Scalars['ID'];
+  /** Whether this listing is publicly visible. */
+  isPublic: Scalars['Boolean'];
   /** The listing's full name. */
   name: Scalars['String'];
+  /** A future date on which this listing is eligible to receive a payout. */
+  nextPayoutDate?: Maybe<Scalars['Date']>;
   /** The short description of the listing. */
   shortDescription: Scalars['String'];
   /** The short name of the listing. */
   slug: Scalars['String'];
+  /** The entity this listing represents who can be sponsored on GitHub Sponsors. */
+  sponsorable: Sponsorable;
   /** The published tiers for this GitHub Sponsors listing. */
   tiers?: Maybe<SponsorsTierConnection>;
 };
