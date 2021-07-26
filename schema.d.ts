@@ -14142,6 +14142,8 @@ export type Release = Node & Reactable & UniformResourceLocatable & {
   isLatest: Scalars['Boolean'];
   /** Whether or not the release is a prerelease */
   isPrerelease: Scalars['Boolean'];
+  /** A list of users mentioned in the release description */
+  mentions?: Maybe<UserConnection>;
   /** The title of the release. */
   name?: Maybe<Scalars['String']>;
   /** Identifies the date and time when the release was created. */
@@ -14170,6 +14172,15 @@ export type Release = Node & Reactable & UniformResourceLocatable & {
   url: Scalars['URI'];
   /** Can user react to this subject */
   viewerCanReact: Scalars['Boolean'];
+};
+
+
+/** A release contains the content for a release. */
+export type ReleaseMentionsArgs = {
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
 };
 
 
