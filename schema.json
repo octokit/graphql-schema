@@ -22912,11 +22912,6 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "Node",
-            "ofType": null
-          },
-          {
-            "kind": "INTERFACE",
             "name": "Comment",
             "ofType": null
           },
@@ -22948,6 +22943,11 @@
           {
             "kind": "INTERFACE",
             "name": "Votable",
+            "ofType": null
+          },
+          {
+            "kind": "INTERFACE",
+            "name": "Node",
             "ofType": null
           }
         ],
