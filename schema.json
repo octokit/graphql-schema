@@ -86603,6 +86603,22 @@
             "deprecationReason": null
           },
           {
+            "name": "autoMergeAllowed",
+            "description": "Whether or not Auto-merge can be enabled on pull requests in this repository.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "branchProtectionRules",
             "description": "A list of branch protection rules for this repository.",
             "args": [

@@ -15604,6 +15604,8 @@ export type Repository = Node & PackageOwner & ProjectOwner & RepositoryInfo & S
   __typename?: 'Repository';
   /** A list of users that can be assigned to issues in this repository. */
   assignableUsers: UserConnection;
+  /** Whether or not Auto-merge can be enabled on pull requests in this repository. */
+  autoMergeAllowed: Scalars['Boolean'];
   /** A list of branch protection rules for this repository. */
   branchProtectionRules: BranchProtectionRuleConnection;
   /** Returns the code of conduct for this repository */
