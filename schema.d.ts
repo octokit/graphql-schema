@@ -13165,7 +13165,7 @@ export type PullRequestReviewThread = Node & {
   /** The side of the diff on which this thread was placed. */
   diffSide: DiffSide;
   id: Scalars['ID'];
-  /** Whether or not the thread has been collapsed (outdated or resolved) */
+  /** Whether or not the thread has been collapsed (resolved) */
   isCollapsed: Scalars['Boolean'];
   /** Indicates whether this thread was outdated by newer changes. */
   isOutdated: Scalars['Boolean'];
