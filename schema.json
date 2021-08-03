@@ -72520,7 +72520,7 @@
           },
           {
             "name": "isCollapsed",
-            "description": "Whether or not the thread has been collapsed (outdated or resolved)",
+            "description": "Whether or not the thread has been collapsed (resolved)",
             "args": [],
             "type": {
               "kind": "NON_NULL",
