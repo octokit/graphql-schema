@@ -998,7 +998,6 @@ export type Cwe = Node & {
   cweId: Scalars['String'];
   /** A detailed description of this CWE */
   description: Scalars['String'];
-  /** ID of the object. */
   id: Scalars['ID'];
   /** The name of this CWE */
   name: Scalars['String'];
