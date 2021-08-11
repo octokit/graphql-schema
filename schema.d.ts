@@ -10759,6 +10759,8 @@ export type Organization = Actor & MemberStatusable & Node & PackageOwner & Prof
   sponsorsListing?: Maybe<SponsorsListing>;
   /** The viewer's sponsorship of this entity. */
   sponsorshipForViewerAsSponsor?: Maybe<Sponsorship>;
+  /** List of sponsorship updates sent from this sponsorable to sponsors. */
+  sponsorshipNewsletters: SponsorshipNewsletterConnection;
   /** This object's sponsorships as the maintainer. */
   sponsorshipsAsMaintainer: SponsorshipConnection;
   /** This object's sponsorships as the sponsor. */
@@ -11001,6 +11003,16 @@ export type OrganizationSponsorsActivitiesArgs = {
   last?: Maybe<Scalars['Int']>;
   orderBy?: Maybe<SponsorsActivityOrder>;
   period?: Maybe<SponsorsActivityPeriod>;
+};
+
+
+/** An account on GitHub, with one or more owners, that has repositories, members and teams. */
+export type OrganizationSponsorshipNewslettersArgs = {
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  orderBy?: Maybe<SponsorshipNewsletterOrder>;
 };
 
 
@@ -17549,6 +17561,8 @@ export type Sponsorable = {
   sponsorsListing?: Maybe<SponsorsListing>;
   /** The viewer's sponsorship of this entity. */
   sponsorshipForViewerAsSponsor?: Maybe<Sponsorship>;
+  /** List of sponsorship updates sent from this sponsorable to sponsors. */
+  sponsorshipNewsletters: SponsorshipNewsletterConnection;
   /** This object's sponsorships as the maintainer. */
   sponsorshipsAsMaintainer: SponsorshipConnection;
   /** This object's sponsorships as the sponsor. */
@@ -17595,6 +17609,16 @@ export type SponsorableSponsorsActivitiesArgs = {
   last?: Maybe<Scalars['Int']>;
   orderBy?: Maybe<SponsorsActivityOrder>;
   period?: Maybe<SponsorsActivityPeriod>;
+};
+
+
+/** Entities that can be sponsored through GitHub Sponsors */
+export type SponsorableSponsorshipNewslettersArgs = {
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  orderBy?: Maybe<SponsorshipNewsletterOrder>;
 };
 
 
@@ -17951,6 +17975,59 @@ export type SponsorshipEdge = {
   /** The item at the end of the edge. */
   node?: Maybe<Sponsorship>;
 };
+
+/** An update sent to sponsors of a user or organization on GitHub Sponsors. */
+export type SponsorshipNewsletter = Node & {
+  __typename?: 'SponsorshipNewsletter';
+  /** The contents of the newsletter, the message the sponsorable wanted to give. */
+  body: Scalars['String'];
+  /** Identifies the date and time when the object was created. */
+  createdAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  /** Indicates if the newsletter has been made available to sponsors. */
+  isPublished: Scalars['Boolean'];
+  /** The user or organization this newsletter is from. */
+  sponsorable: Sponsorable;
+  /** The subject of the newsletter, what it's about. */
+  subject: Scalars['String'];
+  /** Identifies the date and time when the object was last updated. */
+  updatedAt: Scalars['DateTime'];
+};
+
+/** The connection type for SponsorshipNewsletter. */
+export type SponsorshipNewsletterConnection = {
+  __typename?: 'SponsorshipNewsletterConnection';
+  /** A list of edges. */
+  edges?: Maybe<Array<Maybe<SponsorshipNewsletterEdge>>>;
+  /** A list of nodes. */
+  nodes?: Maybe<Array<Maybe<SponsorshipNewsletter>>>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** Identifies the total count of items in the connection. */
+  totalCount: Scalars['Int'];
+};
+
+/** An edge in a connection. */
+export type SponsorshipNewsletterEdge = {
+  __typename?: 'SponsorshipNewsletterEdge';
+  /** A cursor for use in pagination. */
+  cursor: Scalars['String'];
+  /** The item at the end of the edge. */
+  node?: Maybe<SponsorshipNewsletter>;
+};
+
+/** Ordering options for sponsorship newsletter connections. */
+export type SponsorshipNewsletterOrder = {
+  /** The ordering direction. */
+  direction: OrderDirection;
+  /** The field to order sponsorship newsletters by. */
+  field: SponsorshipNewsletterOrderField;
+};
+
+/** Properties by which sponsorship update connections can be ordered. */
+export type SponsorshipNewsletterOrderField =
+  /** Order sponsorship newsletters by when they were created. */
+  | 'CREATED_AT';
 
 /** Ordering options for sponsorship connections. */
 export type SponsorshipOrder = {
@@ -20704,6 +20781,8 @@ export type User = Actor & Node & PackageOwner & ProfileOwner & ProjectOwner & R
   sponsorsListing?: Maybe<SponsorsListing>;
   /** The viewer's sponsorship of this entity. */
   sponsorshipForViewerAsSponsor?: Maybe<Sponsorship>;
+  /** List of sponsorship updates sent from this sponsorable to sponsors. */
+  sponsorshipNewsletters: SponsorshipNewsletterConnection;
   /** This object's sponsorships as the maintainer. */
   sponsorshipsAsMaintainer: SponsorshipConnection;
   /** This object's sponsorships as the sponsor. */
@@ -21045,6 +21124,16 @@ export type UserSponsorsActivitiesArgs = {
   last?: Maybe<Scalars['Int']>;
   orderBy?: Maybe<SponsorsActivityOrder>;
   period?: Maybe<SponsorsActivityPeriod>;
+};
+
+
+/** A user is an individual's account on GitHub that owns repositories and can make new content. */
+export type UserSponsorshipNewslettersArgs = {
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  orderBy?: Maybe<SponsorshipNewsletterOrder>;
 };
 
 
