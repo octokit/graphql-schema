@@ -1884,10 +1884,6 @@ type CWE implements Node {
   A detailed description of this CWE
   """
   description: String!
-
-  """
-  ID of the object.
-  """
   id: ID!
 
   """

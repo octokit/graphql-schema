@@ -5468,7 +5468,7 @@
           },
           {
             "name": "id",
-            "description": "ID of the object.",
+            "description": null,
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -62928,6 +62928,16 @@
             "description": "List of files associated with this package version",
             "args": [
               {
+                "name": "orderBy",
+                "description": "Ordering of the returned package files.",
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "PackageFileOrder",
+                  "ofType": null
+                },
+                "defaultValue": "{field: CREATED_AT, direction: ASC}"
+              },
+              {
                 "name": "after",
                 "description": "Returns the elements in the list that come after the specified cursor.",
                 "type": {
@@ -62966,16 +62976,6 @@
                   "ofType": null
                 },
                 "defaultValue": null
-              },
-              {
-                "name": "orderBy",
-                "description": "Ordering of the returned package files.",
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "PackageFileOrder",
-                  "ofType": null
-                },
-                "defaultValue": "{field: CREATED_AT, direction: ASC}"
               }
             ],
             "type": {
