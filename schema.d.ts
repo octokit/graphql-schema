@@ -3251,7 +3251,7 @@ export type DeclineTopicSuggestionPayload = {
   topic?: Maybe<Topic>;
 };
 
-/** The possible default permissions for repositories. */
+/** The possible base permissions for repositories. */
 export type DefaultRepositoryPermissionField =
   /** Can read, write, and administrate repos by default */
   | 'ADMIN'
@@ -4632,13 +4632,13 @@ export type EnterpriseBillingInfo = {
   totalLicenses: Scalars['Int'];
 };
 
-/** The possible values for the enterprise default repository permission setting. */
+/** The possible values for the enterprise base repository permission setting. */
 export type EnterpriseDefaultRepositoryPermissionSettingValue =
   /** Organization members will be able to clone, pull, push, and add new collaborators to all organization repositories. */
   | 'ADMIN'
   /** Organization members will only be able to clone and pull public repositories. */
   | 'NONE'
-  /** Organizations in the enterprise choose default repository permissions for their members. */
+  /** Organizations in the enterprise choose base repository permissions for their members. */
   | 'NO_POLICY'
   /** Organization members will be able to clone and pull all organization repositories. */
   | 'READ'
@@ -4836,7 +4836,7 @@ export type EnterpriseOwnerInfo = {
   allowPrivateRepositoryForkingSettingOrganizations: OrganizationConnection;
   /** The setting value for base repository permissions for organizations in this enterprise. */
   defaultRepositoryPermissionSetting: EnterpriseDefaultRepositoryPermissionSettingValue;
-  /** A list of enterprise organizations configured with the provided default repository permission. */
+  /** A list of enterprise organizations configured with the provided base repository permission. */
   defaultRepositoryPermissionSettingOrganizations: OrganizationConnection;
   /** A list of domains owned by the enterprise. */
   domains: VerifiableDomainConnection;
@@ -4848,7 +4848,7 @@ export type EnterpriseOwnerInfo = {
   ipAllowListEntries: IpAllowListEntryConnection;
   /** The setting value for whether the enterprise has IP allow list configuration for installed GitHub Apps enabled. */
   ipAllowListForInstalledAppsEnabledSetting: IpAllowListForInstalledAppsEnabledSettingValue;
-  /** Whether or not the default repository permission is currently being updated. */
+  /** Whether or not the base repository permission is currently being updated. */
   isUpdatingDefaultRepositoryPermission: Scalars['Boolean'];
   /** Whether the two-factor authentication requirement is currently being enforced. */
   isUpdatingTwoFactorRequirement: Scalars['Boolean'];
@@ -10471,9 +10471,9 @@ export type OrgUpdateDefaultRepositoryPermissionAuditEntry = AuditEntry & Node &
   organizationResourcePath?: Maybe<Scalars['URI']>;
   /** The HTTP URL for the organization */
   organizationUrl?: Maybe<Scalars['URI']>;
-  /** The new default repository permission level for the organization. */
+  /** The new base repository permission level for the organization. */
   permission?: Maybe<OrgUpdateDefaultRepositoryPermissionAuditEntryPermission>;
-  /** The former default repository permission level for the organization. */
+  /** The former base repository permission level for the organization. */
   permissionWas?: Maybe<OrgUpdateDefaultRepositoryPermissionAuditEntryPermission>;
   /** The user affected by the action */
   user?: Maybe<User>;
