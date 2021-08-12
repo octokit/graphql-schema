@@ -95923,12 +95923,6 @@
             "description": "Ruby gems hosted at RubyGems.org",
             "isDeprecated": false,
             "deprecationReason": null
-          },
-          {
-            "name": "OTHER",
-            "description": "Applications, runtimes, operating systems and other kinds of software",
-            "isDeprecated": false,
-            "deprecationReason": null
           }
         ],
         "possibleTypes": null
