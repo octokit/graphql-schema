@@ -17308,7 +17308,7 @@
       {
         "kind": "ENUM",
         "name": "DefaultRepositoryPermissionField",
-        "description": "The possible default permissions for repositories.",
+        "description": "The possible base permissions for repositories.",
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -24813,14 +24813,14 @@
       {
         "kind": "ENUM",
         "name": "EnterpriseDefaultRepositoryPermissionSettingValue",
-        "description": "The possible values for the enterprise default repository permission setting.",
+        "description": "The possible values for the enterprise base repository permission setting.",
         "fields": null,
         "inputFields": null,
         "interfaces": null,
         "enumValues": [
           {
             "name": "NO_POLICY",
-            "description": "Organizations in the enterprise choose default repository permissions for their members.",
+            "description": "Organizations in the enterprise choose base repository permissions for their members.",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -25979,7 +25979,7 @@
           },
           {
             "name": "defaultRepositoryPermissionSettingOrganizations",
-            "description": "A list of enterprise organizations configured with the provided default repository permission.",
+            "description": "A list of enterprise organizations configured with the provided base repository permission.",
             "args": [
               {
                 "name": "after",
@@ -26323,7 +26323,7 @@
           },
           {
             "name": "isUpdatingDefaultRepositoryPermission",
-            "description": "Whether or not the default repository permission is currently being updated.",
+            "description": "Whether or not the base repository permission is currently being updated.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -56591,7 +56591,7 @@
           },
           {
             "name": "permission",
-            "description": "The new default repository permission level for the organization.",
+            "description": "The new base repository permission level for the organization.",
             "args": [],
             "type": {
               "kind": "ENUM",
@@ -56603,7 +56603,7 @@
           },
           {
             "name": "permissionWas",
-            "description": "The former default repository permission level for the organization.",
+            "description": "The former base repository permission level for the organization.",
             "args": [],
             "type": {
               "kind": "ENUM",
