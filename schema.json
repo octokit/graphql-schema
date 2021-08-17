@@ -61631,6 +61631,12 @@
             "deprecationReason": null
           },
           {
+            "name": "INTERNAL",
+            "description": "Members will be able to create only internal repositories.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "DISABLED",
             "description": "Members will not be able to create public or private repositories.",
             "isDeprecated": false,
