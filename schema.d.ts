@@ -11245,6 +11245,8 @@ export type OrganizationMembersCanCreateRepositoriesSettingValue =
   | 'ALL'
   /** Members will not be able to create public or private repositories. */
   | 'DISABLED'
+  /** Members will be able to create only internal repositories. */
+  | 'INTERNAL'
   /** Members will be able to create only private repositories. */
   | 'PRIVATE';
 
