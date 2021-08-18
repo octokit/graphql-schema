@@ -21242,6 +21242,11 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   email: String
 
   """
+  The estimated next GitHub Sponsors payout for this user/organization in cents (USD).
+  """
+  estimatedNextSponsorsPayoutInCents: Int!
+
+  """
   True if this user/organization has a GitHub Sponsors listing.
   """
   hasSponsorsListing: Boolean!
@@ -21382,6 +21387,11 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
     """
     last: Int
   ): OrganizationMemberConnection!
+
+  """
+  The estimated monthly GitHub Sponsors income for this user/organization in cents (USD).
+  """
+  monthlyEstimatedSponsorsIncomeInCents: Int!
 
   """
   The organization's public profile name.
@@ -35902,6 +35912,11 @@ Entities that can be sponsored through GitHub Sponsors
 """
 interface Sponsorable {
   """
+  The estimated next GitHub Sponsors payout for this user/organization in cents (USD).
+  """
+  estimatedNextSponsorsPayoutInCents: Int!
+
+  """
   True if this user/organization has a GitHub Sponsors listing.
   """
   hasSponsorsListing: Boolean!
@@ -35920,6 +35935,11 @@ interface Sponsorable {
   True if the viewer is sponsored by this user/organization.
   """
   isSponsoringViewer: Boolean!
+
+  """
+  The estimated monthly GitHub Sponsors income for this user/organization in cents (USD).
+  """
+  monthlyEstimatedSponsorsIncomeInCents: Int!
 
   """
   List of users and organizations this entity is sponsoring.
@@ -42326,6 +42346,11 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   email: String!
 
   """
+  The estimated next GitHub Sponsors payout for this user/organization in cents (USD).
+  """
+  estimatedNextSponsorsPayoutInCents: Int!
+
+  """
   A list of users the given user is followed by.
   """
   followers(
@@ -42611,6 +42636,11 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   The username used to login.
   """
   login: String!
+
+  """
+  The estimated monthly GitHub Sponsors income for this user/organization in cents (USD).
+  """
+  monthlyEstimatedSponsorsIncomeInCents: Int!
 
   """
   The user's public profile name.
