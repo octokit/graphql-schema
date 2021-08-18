@@ -10673,6 +10673,8 @@ export type Organization = Actor & MemberStatusable & Node & PackageOwner & Prof
   domains?: Maybe<VerifiableDomainConnection>;
   /** The organization's public email. */
   email?: Maybe<Scalars['String']>;
+  /** The estimated next GitHub Sponsors payout for this user/organization in cents (USD). */
+  estimatedNextSponsorsPayoutInCents: Scalars['Int'];
   /** True if this user/organization has a GitHub Sponsors listing. */
   hasSponsorsListing: Scalars['Boolean'];
   id: Scalars['ID'];
@@ -10703,6 +10705,8 @@ export type Organization = Actor & MemberStatusable & Node & PackageOwner & Prof
   memberStatuses: UserStatusConnection;
   /** A list of users who are members of this organization. */
   membersWithRole: OrganizationMemberConnection;
+  /** The estimated monthly GitHub Sponsors income for this user/organization in cents (USD). */
+  monthlyEstimatedSponsorsIncomeInCents: Scalars['Int'];
   /** The organization's public profile name. */
   name?: Maybe<Scalars['String']>;
   /** The HTTP path creating a new team */
@@ -17544,12 +17548,16 @@ export type SponsorOrderField =
 
 /** Entities that can be sponsored through GitHub Sponsors */
 export type Sponsorable = {
+  /** The estimated next GitHub Sponsors payout for this user/organization in cents (USD). */
+  estimatedNextSponsorsPayoutInCents: Scalars['Int'];
   /** True if this user/organization has a GitHub Sponsors listing. */
   hasSponsorsListing: Scalars['Boolean'];
   /** Check if the given account is sponsoring this user/organization. */
   isSponsoredBy: Scalars['Boolean'];
   /** True if the viewer is sponsored by this user/organization. */
   isSponsoringViewer: Scalars['Boolean'];
+  /** The estimated monthly GitHub Sponsors income for this user/organization in cents (USD). */
+  monthlyEstimatedSponsorsIncomeInCents: Scalars['Int'];
   /** List of users and organizations this entity is sponsoring. */
   sponsoring: SponsorConnection;
   /** List of sponsors for this user or organization. */
@@ -20678,6 +20686,8 @@ export type User = Actor & Node & PackageOwner & ProfileOwner & ProjectOwner & R
   databaseId?: Maybe<Scalars['Int']>;
   /** The user's publicly visible profile email. */
   email: Scalars['String'];
+  /** The estimated next GitHub Sponsors payout for this user/organization in cents (USD). */
+  estimatedNextSponsorsPayoutInCents: Scalars['Int'];
   /** A list of users the given user is followed by. */
   followers: FollowerConnection;
   /** A list of users the given user is following. */
@@ -20728,6 +20738,8 @@ export type User = Actor & Node & PackageOwner & ProfileOwner & ProjectOwner & R
   location?: Maybe<Scalars['String']>;
   /** The username used to login. */
   login: Scalars['String'];
+  /** The estimated monthly GitHub Sponsors income for this user/organization in cents (USD). */
+  monthlyEstimatedSponsorsIncomeInCents: Scalars['Int'];
   /** The user's public profile name. */
   name?: Maybe<Scalars['String']>;
   /** Find an organization by its login that the user belongs to. */

@@ -57909,6 +57909,22 @@
             "deprecationReason": null
           },
           {
+            "name": "estimatedNextSponsorsPayoutInCents",
+            "description": "The estimated next GitHub Sponsors payout for this user/organization in cents (USD).",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "hasSponsorsListing",
             "description": "True if this user/organization has a GitHub Sponsors listing.",
             "args": [],
@@ -58276,6 +58292,22 @@
               "ofType": {
                 "kind": "OBJECT",
                 "name": "OrganizationMemberConnection",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "monthlyEstimatedSponsorsIncomeInCents",
+            "description": "The estimated monthly GitHub Sponsors income for this user/organization in cents (USD).",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
                 "ofType": null
               }
             },
@@ -97290,6 +97322,22 @@
         "description": "Entities that can be sponsored through GitHub Sponsors",
         "fields": [
           {
+            "name": "estimatedNextSponsorsPayoutInCents",
+            "description": "The estimated next GitHub Sponsors payout for this user/organization in cents (USD).",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "hasSponsorsListing",
             "description": "True if this user/organization has a GitHub Sponsors listing.",
             "args": [],
@@ -97346,6 +97394,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "monthlyEstimatedSponsorsIncomeInCents",
+            "description": "The estimated monthly GitHub Sponsors income for this user/organization in cents (USD).",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
                 "ofType": null
               }
             },
@@ -114368,6 +114432,22 @@
             "deprecationReason": null
           },
           {
+            "name": "estimatedNextSponsorsPayoutInCents",
+            "description": "The estimated next GitHub Sponsors payout for this user/organization in cents (USD).",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "followers",
             "description": "A list of users the given user is followed by.",
             "args": [
@@ -115106,6 +115186,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "monthlyEstimatedSponsorsIncomeInCents",
+            "description": "The estimated monthly GitHub Sponsors income for this user/organization in cents (USD).",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
                 "ofType": null
               }
             },
