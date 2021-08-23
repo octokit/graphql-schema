@@ -15607,15 +15607,31 @@
           },
           {
             "name": "tierId",
-            "description": "The ID of tier to sponsor at.",
+            "description": "The ID of one of sponsorable's existing tiers to sponsor at. Required if amount is not specified.",
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "amount",
+            "description": "The amount to pay to the sponsorable in US dollars. Required if a tierId is not specified. Valid values: 1-12000.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Int",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "isRecurring",
+            "description": "Whether the sponsorship should happen monthly/yearly or just this one time. Required if a tierId is not specified.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
             },
             "defaultValue": null
           },
