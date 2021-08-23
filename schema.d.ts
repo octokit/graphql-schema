@@ -2943,10 +2943,20 @@ export type CreateSponsorshipInput = {
   privacyLevel?: Maybe<SponsorshipPrivacy>;
   /** Whether the sponsor should receive email updates from the sponsorable. */
   receiveEmails?: Maybe<Scalars['Boolean']>;
-  /** The ID of user or organization who is acting as the sponsor, paying for the sponsorship. */
-  sponsorId: Scalars['ID'];
-  /** The ID of user or organization who is receiving the sponsorship. */
-  sponsorableId: Scalars['ID'];
+  /**
+   * The ID of the user or organization who is acting as the sponsor, paying for
+   * the sponsorship. Required if sponsorLogin is not given.
+   */
+  sponsorId?: Maybe<Scalars['ID']>;
+  /**
+   * The username of the user or organization who is acting as the sponsor, paying
+   * for the sponsorship. Required if sponsorId is not given.
+   */
+  sponsorLogin?: Maybe<Scalars['String']>;
+  /** The ID of the user or organization who is receiving the sponsorship. Required if sponsorableLogin is not given. */
+  sponsorableId?: Maybe<Scalars['ID']>;
+  /** The username of the user or organization who is receiving the sponsorship. Required if sponsorableId is not given. */
+  sponsorableLogin?: Maybe<Scalars['String']>;
   /** The ID of one of sponsorable's existing tiers to sponsor at. Required if amount is not specified. */
   tierId?: Maybe<Scalars['ID']>;
 };
