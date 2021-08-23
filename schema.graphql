@@ -5830,14 +5830,26 @@ input CreateSponsorshipInput {
   receiveEmails: Boolean = true
 
   """
-  The ID of user or organization who is acting as the sponsor, paying for the sponsorship.
+  The ID of the user or organization who is acting as the sponsor, paying for
+  the sponsorship. Required if sponsorLogin is not given.
   """
-  sponsorId: ID!
+  sponsorId: ID
 
   """
-  The ID of user or organization who is receiving the sponsorship.
+  The username of the user or organization who is acting as the sponsor, paying
+  for the sponsorship. Required if sponsorId is not given.
   """
-  sponsorableId: ID!
+  sponsorLogin: String
+
+  """
+  The ID of the user or organization who is receiving the sponsorship. Required if sponsorableLogin is not given.
+  """
+  sponsorableId: ID
+
+  """
+  The username of the user or organization who is receiving the sponsorship. Required if sponsorableId is not given.
+  """
+  sponsorableLogin: String
 
   """
   The ID of one of sponsorable's existing tiers to sponsor at. Required if amount is not specified.

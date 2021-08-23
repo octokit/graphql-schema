@@ -15579,29 +15579,41 @@
         "inputFields": [
           {
             "name": "sponsorId",
-            "description": "The ID of user or organization who is acting as the sponsor, paying for the sponsorship.",
+            "description": "The ID of the user or organization who is acting as the sponsor, paying for the sponsorship. Required if sponsorLogin is not given.",
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "sponsorLogin",
+            "description": "The username of the user or organization who is acting as the sponsor, paying for the sponsorship. Required if sponsorId is not given.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "defaultValue": null
           },
           {
             "name": "sponsorableId",
-            "description": "The ID of user or organization who is receiving the sponsorship.",
+            "description": "The ID of the user or organization who is receiving the sponsorship. Required if sponsorableLogin is not given.",
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "sponsorableLogin",
+            "description": "The username of the user or organization who is receiving the sponsorship. Required if sponsorableId is not given.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "defaultValue": null
           },
