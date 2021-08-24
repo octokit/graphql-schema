@@ -36494,7 +36494,7 @@ type SponsorsGoal {
   percentComplete: Int!
 
   """
-  What the goal amount is. Represents a dollar amount for monthly sponsorship
+  What the goal amount is. Represents an amount in USD for monthly sponsorship
   amount goals. Represents a count of unique sponsors for total sponsors count goals.
   """
   targetValue: Int!
@@ -36510,7 +36510,7 @@ The different kinds of goals a GitHub Sponsors member can have.
 """
 enum SponsorsGoalKind {
   """
-  The goal is about getting a certain dollar amount from sponsorships each month.
+  The goal is about getting a certain amount in USD from sponsorships each month.
   """
   MONTHLY_SPONSORSHIP_AMOUNT
 
@@ -36655,7 +36655,7 @@ type SponsorsTier implements Node {
   monthlyPriceInCents: Int!
 
   """
-  How much this tier costs per month in dollars.
+  How much this tier costs per month in USD.
   """
   monthlyPriceInDollars: Int!
 
@@ -36868,7 +36868,7 @@ type SponsorshipConnection {
   totalRecurringMonthlyPriceInCents: Int!
 
   """
-  The total dollar amount of all recurring sponsorships in the connection whose
+  The total amount in USD of all recurring sponsorships in the connection whose
   amount you can view. Does not include one-time sponsorships.
   """
   totalRecurringMonthlyPriceInDollars: Int!
