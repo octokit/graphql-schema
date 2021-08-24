@@ -15891,6 +15891,8 @@ export type Repository = Node & PackageOwner & ProjectOwner & RepositoryInfo & S
   viewerPossibleCommitEmails?: Maybe<Array<Scalars['String']>>;
   /** Identifies if the viewer is watching, not watching, or ignoring the subscribable entity. */
   viewerSubscription?: Maybe<SubscriptionState>;
+  /** Indicates the repository's visibility level. */
+  visibility: RepositoryVisibility;
   /** A list of vulnerability alerts that are on this repository. */
   vulnerabilityAlerts?: Maybe<RepositoryVulnerabilityAlertConnection>;
   /** A list of users watching the repository. */
@@ -16444,6 +16446,8 @@ export type RepositoryInfo = {
   url: Scalars['URI'];
   /** Whether this repository has a custom image to use with Open Graph as opposed to being represented by the owner's avatar. */
   usesCustomOpenGraphImage: Scalars['Boolean'];
+  /** Indicates the repository's visibility level. */
+  visibility: RepositoryVisibility;
 };
 
 
