@@ -17826,7 +17826,7 @@ export type SponsorsGoal = {
   /** The percentage representing how complete this goal is, between 0-100. */
   percentComplete: Scalars['Int'];
   /**
-   * What the goal amount is. Represents a dollar amount for monthly sponsorship
+   * What the goal amount is. Represents an amount in USD for monthly sponsorship
    * amount goals. Represents a count of unique sponsors for total sponsors count goals.
    */
   targetValue: Scalars['Int'];
@@ -17836,7 +17836,7 @@ export type SponsorsGoal = {
 
 /** The different kinds of goals a GitHub Sponsors member can have. */
 export type SponsorsGoalKind =
-  /** The goal is about getting a certain dollar amount from sponsorships each month. */
+  /** The goal is about getting a certain amount in USD from sponsorships each month. */
   | 'MONTHLY_SPONSORSHIP_AMOUNT'
   /** The goal is about reaching a certain number of sponsors. */
   | 'TOTAL_SPONSORS_COUNT';
@@ -17906,7 +17906,7 @@ export type SponsorsTier = Node & {
   isOneTime: Scalars['Boolean'];
   /** How much this tier costs per month in cents. */
   monthlyPriceInCents: Scalars['Int'];
-  /** How much this tier costs per month in dollars. */
+  /** How much this tier costs per month in USD. */
   monthlyPriceInDollars: Scalars['Int'];
   /** The name of the tier. */
   name: Scalars['String'];
@@ -18018,7 +18018,7 @@ export type SponsorshipConnection = {
    */
   totalRecurringMonthlyPriceInCents: Scalars['Int'];
   /**
-   * The total dollar amount of all recurring sponsorships in the connection whose
+   * The total amount in USD of all recurring sponsorships in the connection whose
    * amount you can view. Does not include one-time sponsorships.
    */
   totalRecurringMonthlyPriceInDollars: Scalars['Int'];

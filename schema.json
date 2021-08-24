@@ -98701,7 +98701,7 @@
           },
           {
             "name": "targetValue",
-            "description": "What the goal amount is. Represents a dollar amount for monthly sponsorship amount goals. Represents a count of unique sponsors for total sponsors count goals.",
+            "description": "What the goal amount is. Represents an amount in USD for monthly sponsorship amount goals. Represents a count of unique sponsors for total sponsors count goals.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -98753,7 +98753,7 @@
           },
           {
             "name": "MONTHLY_SPONSORSHIP_AMOUNT",
-            "description": "The goal is about getting a certain dollar amount from sponsorships each month.",
+            "description": "The goal is about getting a certain amount in USD from sponsorships each month.",
             "isDeprecated": false,
             "deprecationReason": null
           }
@@ -99151,7 +99151,7 @@
           },
           {
             "name": "monthlyPriceInDollars",
-            "description": "How much this tier costs per month in dollars.",
+            "description": "How much this tier costs per month in USD.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -99737,7 +99737,7 @@
           },
           {
             "name": "totalRecurringMonthlyPriceInDollars",
-            "description": "The total dollar amount of all recurring sponsorships in the connection whose amount you can view. Does not include one-time sponsorships.",
+            "description": "The total amount in USD of all recurring sponsorships in the connection whose amount you can view. Does not include one-time sponsorships.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
