@@ -90111,6 +90111,22 @@
             "deprecationReason": null
           },
           {
+            "name": "visibility",
+            "description": "Indicates the repository's visibility level.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "RepositoryVisibility",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "vulnerabilityAlerts",
             "description": "A list of vulnerability alerts that are on this repository.",
             "args": [
@@ -91497,6 +91513,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "visibility",
+            "description": "Indicates the repository's visibility level.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "RepositoryVisibility",
                 "ofType": null
               }
             },
