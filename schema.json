@@ -19705,22 +19705,6 @@
             "deprecationReason": null
           },
           {
-            "name": "id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "reviewers",
             "description": "The teams or users that can review the deployment",
             "args": [
@@ -19811,13 +19795,7 @@
           }
         ],
         "inputFields": null,
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "Node",
-            "ofType": null
-          }
-        ],
+        "interfaces": [],
         "enumValues": null,
         "possibleTypes": null
       },
@@ -48546,11 +48524,6 @@
           {
             "kind": "OBJECT",
             "name": "DeploymentEnvironmentChangedEvent",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "DeploymentProtectionRule",
             "ofType": null
           },
           {
