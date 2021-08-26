@@ -3758,11 +3758,10 @@ export type DeploymentOrderField =
   | 'CREATED_AT';
 
 /** A protection rule. */
-export type DeploymentProtectionRule = Node & {
+export type DeploymentProtectionRule = {
   __typename?: 'DeploymentProtectionRule';
   /** Identifies the primary key from the database. */
   databaseId?: Maybe<Scalars['Int']>;
-  id: Scalars['ID'];
   /** The teams or users that can review the deployment */
   reviewers: DeploymentReviewerConnection;
   /** The timeout in minutes for this protection rule. */
