@@ -7328,12 +7328,11 @@ enum DeploymentOrderField {
 """
 A protection rule.
 """
-type DeploymentProtectionRule implements Node {
+type DeploymentProtectionRule {
   """
   Identifies the primary key from the database.
   """
   databaseId: Int
-  id: ID!
 
   """
   The teams or users that can review the deployment
