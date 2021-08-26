@@ -20766,6 +20766,8 @@ export type User = Actor & Node & PackageOwner & ProfileOwner & ProjectOwner & R
   isDeveloperProgramMember: Scalars['Boolean'];
   /** Whether or not this user is a GitHub employee. */
   isEmployee: Scalars['Boolean'];
+  /** Whether or not this user is following the viewer. Inverse of viewer_is_following */
+  isFollowingViewer: Scalars['Boolean'];
   /** Whether or not this user is a member of the GitHub Stars Program. */
   isGitHubStar: Scalars['Boolean'];
   /** Whether or not the user has marked themselves as for hire. */
@@ -20871,7 +20873,7 @@ export type User = Actor & Node & PackageOwner & ProfileOwner & ProjectOwner & R
   viewerCanFollow: Scalars['Boolean'];
   /** Whether or not the viewer is able to sponsor this user/organization. */
   viewerCanSponsor: Scalars['Boolean'];
-  /** Whether or not this user is followed by the viewer. */
+  /** Whether or not this user is followed by the viewer. Inverse of is_following_viewer. */
   viewerIsFollowing: Scalars['Boolean'];
   /** True if the viewer is sponsoring this user/organization. */
   viewerIsSponsoring: Scalars['Boolean'];

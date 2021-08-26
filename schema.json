@@ -115036,6 +115036,22 @@
             "deprecationReason": null
           },
           {
+            "name": "isFollowingViewer",
+            "description": "Whether or not this user is following the viewer. Inverse of viewer_is_following",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "isGitHubStar",
             "description": "Whether or not this user is a member of the GitHub Stars Program.",
             "args": [],
@@ -117364,7 +117380,7 @@
           },
           {
             "name": "viewerIsFollowing",
-            "description": "Whether or not this user is followed by the viewer.",
+            "description": "Whether or not this user is followed by the viewer. Inverse of is_following_viewer.",
             "args": [],
             "type": {
               "kind": "NON_NULL",
