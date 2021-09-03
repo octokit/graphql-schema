@@ -10809,8 +10809,16 @@ export type Organization = Actor & MemberStatusable & Node & PackageOwner & Prof
   sponsorsActivities: SponsorsActivityConnection;
   /** The GitHub Sponsors listing for this user or organization. */
   sponsorsListing?: Maybe<SponsorsListing>;
-  /** The viewer's sponsorship of this entity. */
+  /**
+   * The sponsorship from the viewer to this user/organization; that is, the
+   * sponsorship where you're the sponsor. Only returns a sponsorship if it is active.
+   */
   sponsorshipForViewerAsSponsor?: Maybe<Sponsorship>;
+  /**
+   * The sponsorship from this user/organization to the viewer; that is, the
+   * sponsorship you're receiving. Only returns a sponsorship if it is active.
+   */
+  sponsorshipForViewerAsSponsorable?: Maybe<Sponsorship>;
   /** List of sponsorship updates sent from this sponsorable to sponsors. */
   sponsorshipNewsletters: SponsorshipNewsletterConnection;
   /** This object's sponsorships as the maintainer. */
@@ -17619,8 +17627,16 @@ export type Sponsorable = {
   sponsorsActivities: SponsorsActivityConnection;
   /** The GitHub Sponsors listing for this user or organization. */
   sponsorsListing?: Maybe<SponsorsListing>;
-  /** The viewer's sponsorship of this entity. */
+  /**
+   * The sponsorship from the viewer to this user/organization; that is, the
+   * sponsorship where you're the sponsor. Only returns a sponsorship if it is active.
+   */
   sponsorshipForViewerAsSponsor?: Maybe<Sponsorship>;
+  /**
+   * The sponsorship from this user/organization to the viewer; that is, the
+   * sponsorship you're receiving. Only returns a sponsorship if it is active.
+   */
+  sponsorshipForViewerAsSponsorable?: Maybe<Sponsorship>;
   /** List of sponsorship updates sent from this sponsorable to sponsors. */
   sponsorshipNewsletters: SponsorshipNewsletterConnection;
   /** This object's sponsorships as the maintainer. */
@@ -17982,6 +17998,11 @@ export type Sponsorship = Node & {
   id: Scalars['ID'];
   /** Whether this sponsorship represents a one-time payment versus a recurring sponsorship. */
   isOneTimePayment: Scalars['Boolean'];
+  /**
+   * Check if the sponsor has chosen to receive sponsorship update emails sent from
+   * the sponsorable. Only returns a non-null value when the viewer has permission to know this.
+   */
+  isSponsorOptedIntoEmail?: Maybe<Scalars['Boolean']>;
   /**
    * The entity that is being sponsored
    * @deprecated `Sponsorship.maintainer` will be removed. Use `Sponsorship.sponsorable` instead. Removal on 2020-04-01 UTC.
@@ -20845,8 +20866,16 @@ export type User = Actor & Node & PackageOwner & ProfileOwner & ProjectOwner & R
   sponsorsActivities: SponsorsActivityConnection;
   /** The GitHub Sponsors listing for this user or organization. */
   sponsorsListing?: Maybe<SponsorsListing>;
-  /** The viewer's sponsorship of this entity. */
+  /**
+   * The sponsorship from the viewer to this user/organization; that is, the
+   * sponsorship where you're the sponsor. Only returns a sponsorship if it is active.
+   */
   sponsorshipForViewerAsSponsor?: Maybe<Sponsorship>;
+  /**
+   * The sponsorship from this user/organization to the viewer; that is, the
+   * sponsorship you're receiving. Only returns a sponsorship if it is active.
+   */
+  sponsorshipForViewerAsSponsorable?: Maybe<Sponsorship>;
   /** List of sponsorship updates sent from this sponsorable to sponsors. */
   sponsorshipNewsletters: SponsorshipNewsletterConnection;
   /** This object's sponsorships as the maintainer. */
