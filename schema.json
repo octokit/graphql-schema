@@ -59601,7 +59601,19 @@
           },
           {
             "name": "sponsorshipForViewerAsSponsor",
-            "description": "The viewer's sponsorship of this entity.",
+            "description": "The sponsorship from the viewer to this user/organization; that is, the sponsorship where you're the sponsor. Only returns a sponsorship if it is active.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "Sponsorship",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "sponsorshipForViewerAsSponsorable",
+            "description": "The sponsorship from this user/organization to the viewer; that is, the sponsorship you're receiving. Only returns a sponsorship if it is active.",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -97829,7 +97841,19 @@
           },
           {
             "name": "sponsorshipForViewerAsSponsor",
-            "description": "The viewer's sponsorship of this entity.",
+            "description": "The sponsorship from the viewer to this user/organization; that is, the sponsorship where you're the sponsor. Only returns a sponsorship if it is active.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "Sponsorship",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "sponsorshipForViewerAsSponsorable",
+            "description": "The sponsorship from this user/organization to the viewer; that is, the sponsorship you're receiving. Only returns a sponsorship if it is active.",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -99543,6 +99567,18 @@
                 "name": "Boolean",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "isSponsorOptedIntoEmail",
+            "description": "Check if the sponsor has chosen to receive sponsorship update emails sent from the sponsorable. Only returns a non-null value when the viewer has permission to know this.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -116879,7 +116915,19 @@
           },
           {
             "name": "sponsorshipForViewerAsSponsor",
-            "description": "The viewer's sponsorship of this entity.",
+            "description": "The sponsorship from the viewer to this user/organization; that is, the sponsorship where you're the sponsor. Only returns a sponsorship if it is active.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "Sponsorship",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "sponsorshipForViewerAsSponsorable",
+            "description": "The sponsorship from this user/organization to the viewer; that is, the sponsorship you're receiving. Only returns a sponsorship if it is active.",
             "args": [],
             "type": {
               "kind": "OBJECT",
