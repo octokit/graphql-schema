@@ -2216,6 +2216,19 @@ export type CommitMessage = {
  *
  * The Ref may be specified by its global node ID or by the
  * repository nameWithOwner and branch name.
+ *
+ * ### Examples
+ *
+ * Specify a branch using a global node ID:
+ *
+ *     { "id": "MDM6UmVmMTpyZWZzL2hlYWRzL21haW4=" }
+ *
+ * Specify a branch using nameWithOwner and branch name:
+ *
+ *     {
+ *       "nameWithOwner": "github/graphql-client",
+ *       "branchName": "main"
+ *     }
  */
 export type CommittableBranch = {
   /** The unqualified name of the branch to append the commit to. */
@@ -5912,7 +5925,7 @@ export type FileAddition = {
  * `path` values must be unique across all `additions` and `deletions`
  * provided.  Any duplication will result in a validation error.
  *
- * ## Encoding
+ * ### Encoding
  *
  * File contents must be provided in full for each `FileAddition`.
  *
@@ -5932,7 +5945,7 @@ export type FileAddition = {
  * line-ending convention (`\n` or `\r\n`), and that all files end
  * with a newline.
  *
- * ## Modeling file changes
+ * ### Modeling file changes
  *
  * Each of the the five types of conceptual changes that can be made in a
  * git commit can be described using the `FileChanges` type as follows:
@@ -8347,7 +8360,7 @@ export type Mutation = {
    * branch and also updates that branch to point to the new commit.
    * It can be thought of as similar to `git commit`.
    *
-   * ## Locating a Branch
+   * ### Locating a Branch
    *
    * Commits are appended to a `branch` of type `Ref`.
    * This must refer to a git branch (i.e.  the fully qualified path must
@@ -8357,7 +8370,7 @@ export type Mutation = {
    * ID or by passing both of `repositoryNameWithOwner` and `refName`.  For
    * more details see the documentation for `CommittableBranch`.
    *
-   * ## Describing Changes
+   * ### Describing Changes
    *
    * `fileChanges` are specified as a `FilesChanges` object describing
    * `FileAdditions` and `FileDeletions`.
@@ -8365,7 +8378,7 @@ export type Mutation = {
    * Please see the documentation for `FileChanges` for more information on
    * how to use this argument to describe any set of file changes.
    *
-   * ## Authorship
+   * ### Authorship
    *
    * Similar to the web commit interface, this mutation does not support
    * specifying the author or committer of the commit and will not add
@@ -8379,7 +8392,7 @@ export type Mutation = {
    * If you need full control over author and committer information, please
    * use the Git Database REST API instead.
    *
-   * ## Commit Signing
+   * ### Commit Signing
    *
    * Commits made using this mutation are automatically signed by GitHub if
    * supported and will be marked as verified in the user interface.
