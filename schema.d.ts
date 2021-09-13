@@ -16008,6 +16008,8 @@ export type Repository = Node & PackageOwner & ProjectOwner & RepositoryInfo & S
   environments: EnvironmentConnection;
   /** Returns how many forks there are of this repository in the whole network. */
   forkCount: Scalars['Int'];
+  /** Whether this repository allows forks. */
+  forkingAllowed: Scalars['Boolean'];
   /** A list of direct forked repositories. */
   forks: RepositoryConnection;
   /** The funding links for this repository */
