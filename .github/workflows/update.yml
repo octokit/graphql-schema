@@ -1,6 +1,5 @@
-on:
+"on":
   schedule:
-    # https://crontab.guru/every-hour
     - cron: 0 * * * *
   workflow_dispatch: {}
 name: Update
@@ -11,7 +10,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: 12
+          node-version: 16
           cache: npm
       - run: git checkout schema-update || true
       - run: npm ci
@@ -23,14 +22,18 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.OCTOKITBOT_PAT }}
         with:
-          title: "🚧 🤖📯 GraphQL Schema changed"
-          body: |
+          title: 🚧 🤖📯 GraphQL Schema changed
+          body: >
             I found new changes in GitHub's GraphQL Schema 👋🤖
 
-            I can't tell if the changes are fixes, features or breaking, you'll have to figure that out on yourself and adapt the commit messages accordingly to trigger the right release, see [our commit message conventions](https://github.com/octokit/openapi/blob/main/CONTRIBUTING.md#merging-the-pull-request--releasing-a-new-version).
-          branch: "schema-update"
-          author: "Octokit Bot <octokitbot@martynus.net>"
-          path: "schema.graphql"
+
+            I can't tell if the changes are fixes, features or breaking, you'll
+            have to figure that out on yourself and adapt the commit messages
+            accordingly to trigger the right release, see [our commit message
+            conventions](https://github.com/octokit/openapi/blob/main/CONTRIBUTING.md#merging-the-pull-request--releasing-a-new-version).
+          branch: schema-update
+          author: Octokit Bot <octokitbot@martynus.net>
+          path: schema.graphql
           commit-message: "WIP: schema.graphql changed - please review"
           labels: maintenance
       - name: update schema.json
@@ -38,6 +41,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.OCTOKITBOT_PAT }}
         with:
-          branch: "schema-update"
-          author: "Octokit Bot <octokitbot@martynus.net>"
+          branch: schema-update
+          author: Octokit Bot <octokitbot@martynus.net>
           commit-message: "build: schema.json and schema.d.ts updated"
