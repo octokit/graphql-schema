@@ -96634,6 +96634,12 @@
             "description": "Ruby gems hosted at RubyGems.org",
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "RUST",
+            "description": "Rust crates",
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "possibleTypes": null
