@@ -17597,7 +17597,9 @@ export type SecurityAdvisoryEcosystem =
   /** Python packages hosted at PyPI.org */
   | 'PIP'
   /** Ruby gems hosted at RubyGems.org */
-  | 'RUBYGEMS';
+  | 'RUBYGEMS'
+  /** Rust crates */
+  | 'RUST';
 
 /** An edge in a connection. */
 export type SecurityAdvisoryEdge = {
