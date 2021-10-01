@@ -19652,6 +19652,8 @@ export type Topic = Node & Starrable & {
    * first. Returns up to 10 Topics.
    */
   relatedTopics: Array<Topic>;
+  /** A list of repositories. */
+  repositories: RepositoryConnection;
   /** Returns a count of how many stargazers there are on this object */
   stargazerCount: Scalars['Int'];
   /** A list of users who have starred this starrable. */
@@ -19664,6 +19666,21 @@ export type Topic = Node & Starrable & {
 /** A topic aggregates entities that are related to a subject. */
 export type TopicRelatedTopicsArgs = {
   first?: Maybe<Scalars['Int']>;
+};
+
+
+/** A topic aggregates entities that are related to a subject. */
+export type TopicRepositoriesArgs = {
+  affiliations?: Maybe<Array<Maybe<RepositoryAffiliation>>>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  isLocked?: Maybe<Scalars['Boolean']>;
+  last?: Maybe<Scalars['Int']>;
+  orderBy?: Maybe<RepositoryOrder>;
+  ownerAffiliations?: Maybe<Array<Maybe<RepositoryAffiliation>>>;
+  privacy?: Maybe<RepositoryPrivacy>;
+  sponsorableOnly?: Maybe<Scalars['Boolean']>;
 };
 
 
