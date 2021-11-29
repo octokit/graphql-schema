@@ -1,0 +1,25 @@
+{
+  "overwrite": true,
+  "schema": "schema.graphql",
+  "generates": {
+    "schema.d.ts": {
+      "plugins": ["typescript"],
+      "config": {
+        "defaultScalarType": "unknown",
+        "enumsAsTypes": true,
+        "scalars": {
+          "Base64String": "string",
+          "Date": "string",
+          "DateTime": "string",
+          "GitObjectID": "string",
+          "GitSSHRemote": "string",
+          "GitTimestamp": "string",
+          "HTML": "string",
+          "PreciseDateTime": "string",
+          "URI": "string",
+          "X509Certificate": "string"
+        }
+      }
+    }
+  }
+}
