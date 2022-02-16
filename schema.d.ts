@@ -17101,6 +17101,8 @@ export type RepositoryVulnerabilityAlert = Node & RepositoryNode & {
   dismisser?: Maybe<User>;
   id: Scalars['ID'];
   /** The associated repository */
+  fixedAt?: Maybe<Scalars['DateTime']>;
+  /** When the vulnerability was fixed?*/
   repository: Repository;
   /** The associated security advisory */
   securityAdvisory?: Maybe<SecurityAdvisory>;
