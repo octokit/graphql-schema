@@ -34832,7 +34832,12 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   When was the alert dismissed?
   """
   dismissedAt: DateTime
-
+  
+  """
+  When was the alert fixed?
+  """
+  fixedAt: DateTime
+  
   """
   The user who dismissed the alert
   """
