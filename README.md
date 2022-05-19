@@ -2,14 +2,14 @@
 
 > GitHub’s GraphQL Schema with validation. Automatically updated.
 
-![Test](https://github.com/octokit/graphql-schema/workflows/Test/badge.svg)
+![Test](https://github.com/zhouzi/graphql-schema/workflows/Test/badge.svg)
 
 ## Usage
 
 ### Validation
 
 ```js
-const { validate } = require("@octokit/graphql-schema");
+const { validate } = require("github-graphql-schema");
 const errors = validate(`
 {
   viewer {
@@ -24,7 +24,7 @@ const errors = validate(`
 You can also load the current Schema directly as JSON or [IDL](https://en.wikipedia.org/wiki/Interface_description_language).
 
 ```js
-const { schema } = require("@octokit/graphql-schema");
+const { schema } = require("github-graphql-schema");
 schema.json; // JSON version
 schema.idl; // IDL version
 ```
@@ -33,7 +33,7 @@ schema.idl; // IDL version
 
 ```ts
 import { graphql } from "@octokit/graphql";
-import { Repository } from "@octokit/graphql-schema";
+import { Repository } from "github-graphql-schema";
 
 const { repository } = await graphql<{ repository: Repository }>(
   `
@@ -60,7 +60,7 @@ const { repository } = await graphql<{ repository: Repository }>(
 ## Local setup
 
 ```
-git clone https://github.com/octokit/graphql-schema.git
+git clone https://github.com/zhouzi/graphql-schema.git
 cd graphql-schema
 npm install
 npm test

@@ -1,10 +1,10 @@
 {
-  "name": "@octokit/graphql-schema",
+  "name": "github-graphql-schema",
   "version": "0.0.0-development",
   "publishConfig": {
     "access": "public"
   },
-  "description": "GitHubâs GraphQL Schema with validation. Automatically updated.",
+  "description": "GitHub’s GraphQL Schema with validation. Automatically updated.",
   "main": "index.js",
   "scripts": {
     "lint": "prettier --check '{bin,lib,test}/**/*.{js,ts}' *.md package.json",
@@ -38,7 +38,7 @@
     "semantic-release": "^18.0.0",
     "typescript": "^4.0.2"
   },
-  "repository": "github:octokit/graphql-schema",
+  "repository": "github:zhouzi/graphql-schema",
   "types": "index.d.ts",
   "sideEffects": false,
   "codegen": {
