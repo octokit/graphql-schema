@@ -11771,7 +11771,9 @@ type EnterpriseOwnerInfo {
     first: Int
 
     """
-    organizationLogins: [String!]
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
 
     """
     Ordering options for organizations with this setting.
@@ -15235,144 +15237,7 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
     Returns the last _n_ elements from the list.
     """
     last: Int
-  ): UserContentEditConnection
-
-  """
-  Can user react to this subject
-  """
-  viewerCanReact: Boolean!
-
-  """
-  Check if the viewer is able to change their subscription status for the repository.
-  """
-  viewerCanSubscribe: Boolean!
-
-  """
-  Check if the current viewer can update this object.
-  """
-  viewerCanUpdate: Boolean!
-
-  """
-  Reasons why the current viewer can not update this comment.
-  """
-  viewerCannotUpdateReasons: [CommentCannotUpdateReason!]!
-
-  """
-  Did the viewer author this comment.
-  """
-  viewerDidAuthor: Boolean!
-
-  """
-  Identifies if the viewer is watching, not watching, or ignoring the subscribable entity.
-  """
-  viewerSubscription: SubscriptionState
-}
-
-"""
-The possible state reasons of a closed issue.
-"""
-enum IssueClosedStateReason {
-  """
-  An issue that has been closed as completed
-  """
-  COMPLETED
-
-  """
-  An issue that has been closed as not planned
-  """
-  NOT_PLANNED
-}
-
-"""
-Represents a comment on an Issue.
-"""
-type IssueComment implements Comment & Deletable & Minimizable & Node & Reactable & RepositoryNode & Updatable & UpdatableComment {
-  """
-  The actor who authored the comment.
-  """
-  author: Actor
-
-  """
-  Author's association with the subject of the comment.
-  """
-  authorAssociation: CommentAuthorAssociation!
-
-  """
-  The body as Markdown.
-  """
-  body: String!
-
-  """
-  The body rendered to HTML.
-  """
-  bodyHTML: HTML!
-
-  """
-  The body rendered to text.
-  """
-  bodyText: String!
-
-  """
-  Identifies the date and time when the object was created.
-  """
-  createdAt: DateTime!
-
-  """
-  Check if this comment was created via an email reply.
-  """
-  createdViaEmail: Boolean!
-
-  """
-  Identifies the primary key from the database.
-  """
-  databaseId: Int
-
-  """
-  The actor who edited the comment.
-  """
-  editor: Actor
-  id: ID!
-
-  """
-  Check if this comment was edited and includes an edit with the creation data
-  """
-  includesCreatedEdit: Boolean!
-
-  """
-  Returns whether or not a comment has been minimized.
-  """
-  isMinimized: Boolean!
-
-  """
-  Identifies the issue associated with the comment.
-  """
-  issue: Issue!
-
-  """
-  The moment the editor made the last edit
-  """
-  lastEditedAt: DateTime
-
-  """
-  Returns why the comment was minimized.
-  """
-  minimizedReason: String
-
-  """
-  Identifies when the comment was published at.
-  """
-  publishedAt: DateTime
-
-  """
-  Returns the pull request associated with the comment, if this comment was made on a
-  pull request.
-  """
-  pullRequest: PullRequest
-
-  """
-  A list of reactions grouped by content left on the subject.
-  """
-  reactionGroups: [ReactionGroup!]
+  ): IssueConnection!
 
   """
   A list of issues tracked inside the current issue
@@ -15412,17 +15277,7 @@ type IssueComment implements Comment & Deletable & Minimizable & Node & Reactabl
   """
   Identifies the date and time when the object was last updated.
   """
-  updatedAt: DateTime!
-
-  """
-  The HTTP URL for this issue
-  """
-  url: URI!
-
-  """
-  A list of edits to this content.
-  """
-  userContentEdits(
+  trackedInIssues(
     """
     Returns the elements in the list that come after the specified cursor.
     """
@@ -23960,6 +23815,46 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   """
   The estimated next GitHub Sponsors payout for this user/organization in cents (USD).
   """
+  enterpriseOwners(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for enterprise owners returned from the connection.
+    """
+    orderBy: OrgEnterpriseOwnerOrder = {field: LOGIN, direction: ASC}
+
+    """
+    The organization role to filter by.
+    """
+    organizationRole: RoleInOrganization
+
+    """
+    The search string to look for.
+    """
+    query: String
+  ): OrganizationEnterpriseOwnerConnection!
+
+  """
+  The estimated next GitHub Sponsors payout for this user/organization in cents (USD).
+  """
   estimatedNextSponsorsPayoutInCents: Int!
 
   """
@@ -24644,6 +24539,92 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
 
   """
   A list of all repository migrations for this organization.
+  """
+  repositoryMigrations(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for repository migrations returned.
+    """
+    orderBy: RepositoryMigrationOrder = {field: CREATED_AT, direction: ASC}
+
+    """
+    Filter repository migrations by repository name.
+    """
+    repositoryName: String
+
+    """
+    Filter repository migrations by state.
+    """
+    state: MigrationState
+  ): RepositoryMigrationConnection!
+
+  """
+  When true the organization requires all members, billing managers, and outside
+  collaborators to enable two-factor authentication.
+  """
+  requiresTwoFactorAuthentication: Boolean
+
+  """
+  The HTTP path for this organization.
+  """
+  resourcePath: URI!
+
+  """
+  The Organization's SAML identity providers
+  """
+  samlIdentityProvider: OrganizationIdentityProvider
+
+  """
+  List of users and organizations this entity is sponsoring.
+  """
+  sponsoring(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for the users and organizations returned from the connection.
+    """
+    orderBy: SponsorOrder = {field: RELEVANCE, direction: DESC}
+  ): SponsorConnection!
+
+  """
+  List of sponsors for this user or organization.
   """
   repositoryMigrations(
     """
@@ -30793,7 +30774,7 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     first: Int
 
     """
-    Returns the last _n_ elements from the list.
+    Include archived items.
     """
     last: Int
   ): ProjectCardConnection!
@@ -30898,6 +30879,11 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     first: Int
 
     """
+    Include archived items.
+    """
+    includeArchived: Boolean = true
+
+    """
     Returns the last _n_ elements from the list.
     """
     last: Int
@@ -30947,81 +30933,6 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     """
     query: String
   ): ProjectV2Connection!
-
-  """
-  Find a project by project (beta) number.
-  """
-  projectNext(
-    """
-    The project (beta) number.
-    """
-    number: Int!
-  ): ProjectNext
-
-  """
-  List of project (beta) items associated with this pull request.
-  """
-  projectNextItems(
-    """
-    Returns the elements in the list that come after the specified cursor.
-    """
-    after: String
-
-    """
-    Returns the elements in the list that come before the specified cursor.
-    """
-    before: String
-
-    """
-    Returns the first _n_ elements from the list.
-    """
-    first: Int
-
-    """
-    Include archived items.
-    """
-    includeArchived: Boolean = true
-
-    """
-    Returns the last _n_ elements from the list.
-    """
-    last: Int
-  ): ProjectNextItemConnection!
-
-  """
-  A list of projects (beta) under the owner.
-  """
-  projectsNext(
-    """
-    Returns the elements in the list that come after the specified cursor.
-    """
-    after: String
-
-    """
-    Returns the elements in the list that come before the specified cursor.
-    """
-    before: String
-
-    """
-    Returns the first _n_ elements from the list.
-    """
-    first: Int
-
-    """
-    Returns the last _n_ elements from the list.
-    """
-    last: Int
-
-    """
-    A project (beta) to search for under the the owner.
-    """
-    query: String
-
-    """
-    How to order the returned projects (beta).
-    """
-    sortBy: ProjectNextOrderField = TITLE
-  ): ProjectNextConnection!
 
   """
   Identifies when the comment was published at.
@@ -37707,12 +37618,6 @@ enum ReportedContentClassifiers {
 A repository contains the content for a project.
 """
 type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent & RepositoryInfo & Starrable & Subscribable & UniformResourceLocatable {
-  """
-  Whether or not a pull request head branch that is behind its base branch can
-  always be updated even if it is not required to be up to date before merging.
-  """
-  allowUpdateBranch: Boolean!
-
   """
   Whether or not a pull request head branch that is behind its base branch can
   always be updated even if it is not required to be up to date before merging.
