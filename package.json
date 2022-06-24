@@ -35,7 +35,7 @@
     "dotenv": "^10.0.0",
     "execa": "^5.0.0",
     "prettier": "^2.0.1",
-    "semantic-release": "^18.0.0",
+    "semantic-release": "^19.0.0",
     "typescript": "^4.0.2"
   },
   "repository": "github:octokit/graphql-schema",
