@@ -27498,10 +27498,6 @@ type ProjectNextConnection {
   """
   edges: [ProjectNextEdge]
 
-"""
-The connection type for ProjectNext.
-"""
-type ProjectNextConnection {
   """
   A list of nodes.
   """
