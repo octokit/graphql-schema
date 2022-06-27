@@ -41506,6 +41506,11 @@ enum SecurityAdvisoryEcosystem {
   COMPOSER
 
   """
+  Erlang/Elixir packages hosted at hex.pm
+  """
+  ERLANG
+
+  """
   Go modules
   """
   GO
