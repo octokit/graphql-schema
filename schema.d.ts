@@ -19451,6 +19451,7 @@ export type RepositorySubmodulesArgs = {
 export type RepositoryVulnerabilityAlertsArgs = {
   after?: Maybe<Scalars['String']>;
   before?: Maybe<Scalars['String']>;
+  dependencyScopes?: Maybe<Array<RepositoryVulnerabilityAlertDependencyScope>>;
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
   states?: Maybe<Array<RepositoryVulnerabilityAlertState>>;
@@ -20100,6 +20101,8 @@ export type RepositoryVulnerabilityAlert = Node & RepositoryNode & {
   createdAt: Scalars['DateTime'];
   /** The associated Dependabot update */
   dependabotUpdate?: Maybe<DependabotUpdate>;
+  /** The scope of an alert's dependency */
+  dependencyScope?: Maybe<RepositoryVulnerabilityAlertDependencyScope>;
   /** The reason the alert was dismissed */
   dismissReason?: Maybe<Scalars['String']>;
   /** When was the alert dismissed? */
@@ -20144,6 +20147,13 @@ export type RepositoryVulnerabilityAlertConnection = {
   /** Identifies the total count of items in the connection. */
   totalCount: Scalars['Int'];
 };
+
+/** The possible scopes of an alert's dependency. */
+export type RepositoryVulnerabilityAlertDependencyScope =
+  /** A dependency that is only used in development */
+  | 'DEVELOPMENT'
+  /** A dependency that is leveraged during application runtime */
+  | 'RUNTIME';
 
 /** An edge in a connection. */
 export type RepositoryVulnerabilityAlertEdge = {
