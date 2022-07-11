@@ -25,7 +25,7 @@
   "author": "Gregor Martynus (https://twitter.com/gr2m)",
   "license": "MIT",
   "dependencies": {
-    "graphql": "^15.0.0",
+    "graphql": "^16.0.0",
     "graphql-tag": "^2.10.3"
   },
   "devDependencies": {
