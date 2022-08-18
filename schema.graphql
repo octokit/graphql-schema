@@ -40452,6 +40452,11 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   dependencyScope: RepositoryVulnerabilityAlertDependencyScope
 
   """
+  Comment explaining the reason the alert was dismissed
+  """
+  dismissComment: String
+
+  """
   The reason the alert was dismissed
   """
   dismissReason: String
