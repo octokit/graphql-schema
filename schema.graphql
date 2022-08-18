@@ -19747,7 +19747,7 @@ type Mutation {
   ): UnresolveReviewThreadPayload
 
   """
-  Create a new branch protection rule
+  Update a branch protection rule
   """
   updateBranchProtectionRule(
     """
