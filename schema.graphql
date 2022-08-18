@@ -12704,6 +12704,12 @@ enum EnterpriseUserAccountMembershipRole {
   The user is an owner of an organization in the enterprise.
   """
   OWNER
+
+  """
+  The user is not an owner of the enterprise, and not a member or owner of any
+  organizations in the enterprise; only for EMU-enabled enterprises.
+  """
+  UNAFFILIATED
 }
 
 """
