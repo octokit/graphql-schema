@@ -44427,7 +44427,7 @@ type Team implements MemberStatusable & Node & Subscribable {
     orderBy: TeamRepositoryOrder
 
     """
-    The search string to look for.
+    The search string to look for. Repositories will be returned where the name contains your search string.
     """
     query: String
   ): TeamRepositoryConnection!
