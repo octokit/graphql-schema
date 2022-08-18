@@ -6349,7 +6349,12 @@ export type EnterpriseUserAccountMembershipRole =
   /** The user is a member of an organization in the enterprise. */
   | 'MEMBER'
   /** The user is an owner of an organization in the enterprise. */
-  | 'OWNER';
+  | 'OWNER'
+  /**
+   * The user is not an owner of the enterprise, and not a member or owner of any
+   * organizations in the enterprise; only for EMU-enabled enterprises.
+   */
+  | 'UNAFFILIATED';
 
 /** The possible GitHub Enterprise deployments where this user can exist. */
 export type EnterpriseUserDeployment =
@@ -14133,12 +14138,12 @@ export type ProjectNextFieldType =
   | 'REVIEWERS'
   /** Single Select */
   | 'SINGLE_SELECT'
-  /** Tasks */
-  | 'TASKS'
   /** Text */
   | 'TEXT'
   /** Title */
-  | 'TITLE';
+  | 'TITLE'
+  /** Tracks */
+  | 'TRACKS';
 
 /** An item within a new Project. */
 export type ProjectNextItem = Node & {
@@ -14658,12 +14663,12 @@ export type ProjectV2FieldType =
   | 'REVIEWERS'
   /** Single Select */
   | 'SINGLE_SELECT'
-  /** Tasks */
-  | 'TASKS'
   /** Text */
   | 'TEXT'
   /** Title */
-  | 'TITLE';
+  | 'TITLE'
+  /** Tracks */
+  | 'TRACKS';
 
 /** The values that can be used to update a field of an item inside a Project. Only 1 value can be updated at a time. */
 export type ProjectV2FieldValue = {
