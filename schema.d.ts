@@ -9455,7 +9455,7 @@ export type Mutation = {
   unpinIssue?: Maybe<UnpinIssuePayload>;
   /** Marks a review thread as unresolved. */
   unresolveReviewThread?: Maybe<UnresolveReviewThreadPayload>;
-  /** Create a new branch protection rule */
+  /** Update a branch protection rule */
   updateBranchProtectionRule?: Maybe<UpdateBranchProtectionRulePayload>;
   /** Update a check run */
   updateCheckRun?: Maybe<UpdateCheckRunPayload>;
@@ -20175,6 +20175,8 @@ export type RepositoryVulnerabilityAlert = Node & RepositoryNode & {
   dependabotUpdate?: Maybe<DependabotUpdate>;
   /** The scope of an alert's dependency */
   dependencyScope?: Maybe<RepositoryVulnerabilityAlertDependencyScope>;
+  /** Comment explaining the reason the alert was dismissed */
+  dismissComment?: Maybe<Scalars['String']>;
   /** The reason the alert was dismissed */
   dismissReason?: Maybe<Scalars['String']>;
   /** When was the alert dismissed? */
