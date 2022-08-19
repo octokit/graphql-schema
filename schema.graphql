@@ -43590,6 +43590,11 @@ input StartRepositoryMigrationInput {
   githubPat: String
 
   """
+  Whether to lock the source repository.
+  """
+  lockSource: Boolean
+
+  """
   The signed URL to access the user-uploaded metadata archive
   """
   metadataArchiveUrl: String
