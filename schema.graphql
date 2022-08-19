@@ -10149,7 +10149,7 @@ input EnablePullRequestAutoMergeInput {
   commitHeadline: String
 
   """
-  The merge method to use. If omitted, defaults to 'MERGE'
+  The merge method to use. If omitted, defaults to `MERGE`
   """
   mergeMethod: PullRequestMergeMethod = MERGE
 
