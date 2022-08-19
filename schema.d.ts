@@ -5215,7 +5215,7 @@ export type EnablePullRequestAutoMergeInput = {
   commitBody?: InputMaybe<Scalars['String']>;
   /** Commit headline to use for the commit when the PR is mergable; if omitted, a default message will be used. */
   commitHeadline?: InputMaybe<Scalars['String']>;
-  /** The merge method to use. If omitted, defaults to 'MERGE' */
+  /** The merge method to use. If omitted, defaults to `MERGE` */
   mergeMethod?: InputMaybe<PullRequestMergeMethod>;
   /** ID of the pull request to enable auto-merge on. */
   pullRequestId: Scalars['ID'];
