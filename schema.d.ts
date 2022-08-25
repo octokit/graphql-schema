@@ -8917,12 +8917,8 @@ export type MigrationSourceType =
   | 'AZURE_DEVOPS'
   /** A Bitbucket Server migration source. */
   | 'BITBUCKET_SERVER'
-  /** A GitHub migration source. */
-  | 'GITHUB'
   /** A GitHub Migration API source. */
-  | 'GITHUB_ARCHIVE'
-  /** A GitLab migration source. */
-  | 'GITLAB';
+  | 'GITHUB_ARCHIVE';
 
 /** The Octoshift migration state. */
 export type MigrationState =
