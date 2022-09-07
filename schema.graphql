@@ -43494,6 +43494,52 @@ enum SquashMergeCommitTitle {
 }
 
 """
+Represents an SSH signature on a Commit or Tag.
+"""
+type SshSignature implements GitSignature {
+  """
+  Email used to sign this object.
+  """
+  email: String!
+
+  """
+  True if the signature is valid and verified by GitHub.
+  """
+  isValid: Boolean!
+
+  """
+  Hex-encoded fingerprint of the key that signed this object.
+  """
+  keyFingerprint: String
+
+  """
+  Payload for GPG signing object. Raw ODB object without the signature header.
+  """
+  payload: String!
+
+  """
+  ASCII-armored signature header from object.
+  """
+  signature: String!
+
+  """
+  GitHub user corresponding to the email signing this commit.
+  """
+  signer: User
+
+  """
+  The state of this signature. `VALID` if signature is valid and verified by
+  GitHub, otherwise represents reason why signature is considered invalid.
+  """
+  state: GitSignatureState!
+
+  """
+  True if the signature was made with GitHub's signing key.
+  """
+  wasSignedByGitHub: Boolean!
+}
+
+"""
 Ways in which star connections can be ordered.
 """
 input StarOrder {

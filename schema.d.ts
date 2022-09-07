@@ -21734,6 +21734,30 @@ export type SquashMergeCommitTitle =
   /** Default to the pull request's title. */
   | 'PR_TITLE';
 
+/** Represents an SSH signature on a Commit or Tag. */
+export type SshSignature = GitSignature & {
+  __typename?: 'SshSignature';
+  /** Email used to sign this object. */
+  email: Scalars['String'];
+  /** True if the signature is valid and verified by GitHub. */
+  isValid: Scalars['Boolean'];
+  /** Hex-encoded fingerprint of the key that signed this object. */
+  keyFingerprint?: Maybe<Scalars['String']>;
+  /** Payload for GPG signing object. Raw ODB object without the signature header. */
+  payload: Scalars['String'];
+  /** ASCII-armored signature header from object. */
+  signature: Scalars['String'];
+  /** GitHub user corresponding to the email signing this commit. */
+  signer?: Maybe<User>;
+  /**
+   * The state of this signature. `VALID` if signature is valid and verified by
+   * GitHub, otherwise represents reason why signature is considered invalid.
+   */
+  state: GitSignatureState;
+  /** True if the signature was made with GitHub's signing key. */
+  wasSignedByGitHub: Scalars['Boolean'];
+};
+
 /** Ways in which star connections can be ordered. */
 export type StarOrder = {
   /** The direction in which to order nodes. */
