@@ -3008,9 +3008,19 @@ input CheckRunFilter {
   checkType: CheckRunType
 
   """
-  Filters the check runs by this status.
+  Filters the check runs by these conclusions.
+  """
+  conclusions: [CheckConclusionState!]
+
+  """
+  Filters the check runs by this status. Superceded by statuses.
   """
   status: CheckStatusState
+
+  """
+  Filters the check runs by this status. Overrides status.
+  """
+  statuses: [CheckStatusState!]
 }
 
 """
@@ -51758,6 +51768,36 @@ type Workflow implements Node {
   name: String!
 
   """
+  The runs of the workflow.
+  """
+  runs(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for the connection
+    """
+    orderBy: WorkflowRunOrder = {field: CREATED_AT, direction: DESC}
+  ): WorkflowRunConnection!
+
+  """
   Identifies the date and time when the object was last updated.
   """
   updatedAt: DateTime!
@@ -51857,6 +51897,71 @@ type WorkflowRun implements Node {
   The workflow executed in this workflow run.
   """
   workflow: Workflow!
+}
+
+"""
+The connection type for WorkflowRun.
+"""
+type WorkflowRunConnection {
+  """
+  A list of edges.
+  """
+  edges: [WorkflowRunEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [WorkflowRun]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An edge in a connection.
+"""
+type WorkflowRunEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: WorkflowRun
+}
+
+"""
+Ways in which lists of workflow runs can be ordered upon return.
+"""
+input WorkflowRunOrder {
+  """
+  The direction in which to order workflow runs by the specified field.
+  """
+  direction: OrderDirection!
+
+  """
+  The field by which to order workflows.
+  """
+  field: WorkflowRunOrderField!
+}
+
+"""
+Properties by which workflow run connections can be ordered.
+"""
+enum WorkflowRunOrderField {
+  """
+  Order workflow runs by most recently created
+  """
+  CREATED_AT
 }
 
 """
