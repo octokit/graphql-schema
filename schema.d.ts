@@ -16893,7 +16893,7 @@ export type Query = {
   repositoryOwner?: Maybe<RepositoryOwner>;
   /** Lookup resource by a URL. */
   resource?: Maybe<UniformResourceLocatable>;
-  /** Perform a search across resources. */
+  /** Perform a search across resources, returning a maximum of 1,000 results. */
   search: SearchResultItemConnection;
   /** GitHub Security Advisories */
   securityAdvisories: SecurityAdvisoryConnection;
@@ -20772,26 +20772,52 @@ export type SavedReplyOrderField =
 /** The results of a search. */
 export type SearchResultItem = App | Discussion | Issue | MarketplaceListing | Organization | PullRequest | Repository | User;
 
-/** A list of results that matched against a search query. */
+/**
+ * A list of results that matched against a search query. Regardless of the number
+ * of matches, a maximum of 1,000 results will be available across all types,
+ * potentially split across many pages.
+ */
 export type SearchResultItemConnection = {
   __typename?: 'SearchResultItemConnection';
-  /** The number of pieces of code that matched the search query. */
+  /**
+   * The total number of pieces of code that matched the search query. Regardless
+   * of the total number of matches, a maximum of 1,000 results will be available
+   * across all types.
+   */
   codeCount: Scalars['Int'];
-  /** The number of discussions that matched the search query. */
+  /**
+   * The total number of discussions that matched the search query. Regardless of
+   * the total number of matches, a maximum of 1,000 results will be available
+   * across all types.
+   */
   discussionCount: Scalars['Int'];
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<SearchResultItemEdge>>>;
-  /** The number of issues that matched the search query. */
+  /**
+   * The total number of issues that matched the search query. Regardless of the
+   * total number of matches, a maximum of 1,000 results will be available across all types.
+   */
   issueCount: Scalars['Int'];
   /** A list of nodes. */
   nodes?: Maybe<Array<Maybe<SearchResultItem>>>;
   /** Information to aid in pagination. */
   pageInfo: PageInfo;
-  /** The number of repositories that matched the search query. */
+  /**
+   * The total number of repositories that matched the search query. Regardless of
+   * the total number of matches, a maximum of 1,000 results will be available
+   * across all types.
+   */
   repositoryCount: Scalars['Int'];
-  /** The number of users that matched the search query. */
+  /**
+   * The total number of users that matched the search query. Regardless of the
+   * total number of matches, a maximum of 1,000 results will be available across all types.
+   */
   userCount: Scalars['Int'];
-  /** The number of wiki pages that matched the search query. */
+  /**
+   * The total number of wiki pages that matched the search query. Regardless of
+   * the total number of matches, a maximum of 1,000 results will be available
+   * across all types.
+   */
   wikiCount: Scalars['Int'];
 };
 
