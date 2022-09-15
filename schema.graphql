@@ -7913,6 +7913,11 @@ type DeletePullRequestReviewCommentPayload {
   The pull request review the deleted comment belonged to.
   """
   pullRequestReview: PullRequestReview
+
+  """
+  The deleted pull request review comment.
+  """
+  pullRequestReviewComment: PullRequestReviewComment
 }
 
 """
