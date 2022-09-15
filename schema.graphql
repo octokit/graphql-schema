@@ -10407,6 +10407,12 @@ type Enterprise implements Node {
     first: Int
 
     """
+    Only return members with this two-factor authentication status. Does not
+    include members who only have an account on a GitHub Enterprise Server instance.
+    """
+    hasTwoFactorEnabled: Boolean = null
+
+    """
     Returns the last _n_ elements from the list.
     """
     last: Int
@@ -11182,6 +11188,11 @@ type EnterpriseOwnerInfo {
     Returns the first _n_ elements from the list.
     """
     first: Int
+
+    """
+    Only return administrators with this two-factor authentication status.
+    """
+    hasTwoFactorEnabled: Boolean = null
 
     """
     Returns the last _n_ elements from the list.
