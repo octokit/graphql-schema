@@ -1644,6 +1644,46 @@ export type CheckRunOutputImage = {
   imageUrl: Scalars['URI'];
 };
 
+/** The possible states of a check run in a status rollup. */
+export type CheckRunState =
+  /** The check run requires action. */
+  | 'ACTION_REQUIRED'
+  /** The check run has been cancelled. */
+  | 'CANCELLED'
+  /** The check run has been completed. */
+  | 'COMPLETED'
+  /** The check run has failed. */
+  | 'FAILURE'
+  /** The check run is in progress. */
+  | 'IN_PROGRESS'
+  /** The check run was neutral. */
+  | 'NEUTRAL'
+  /** The check run is in pending state. */
+  | 'PENDING'
+  /** The check run has been queued. */
+  | 'QUEUED'
+  /** The check run was skipped. */
+  | 'SKIPPED'
+  /** The check run was marked stale by GitHub. Only GitHub can use this conclusion. */
+  | 'STALE'
+  /** The check run has failed at startup. */
+  | 'STARTUP_FAILURE'
+  /** The check run has succeeded. */
+  | 'SUCCESS'
+  /** The check run has timed out. */
+  | 'TIMED_OUT'
+  /** The check run is in waiting state. */
+  | 'WAITING';
+
+/** Represents a count of the state of a check run. */
+export type CheckRunStateCount = {
+  __typename?: 'CheckRunStateCount';
+  /** The number of check runs with this state. */
+  count: Scalars['Int'];
+  /** The state of a check run. */
+  state: CheckRunState;
+};
+
 /** The possible types of check runs. */
 export type CheckRunType =
   /** Every check run available. */
@@ -22003,12 +22043,20 @@ export type StatusCheckRollupContext = CheckRun | StatusContext;
 /** The connection type for StatusCheckRollupContext. */
 export type StatusCheckRollupContextConnection = {
   __typename?: 'StatusCheckRollupContextConnection';
+  /** The number of check runs in this rollup. */
+  checkRunCount: Scalars['Int'];
+  /** Counts of check runs by state. */
+  checkRunCountsByState?: Maybe<Array<CheckRunStateCount>>;
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<StatusCheckRollupContextEdge>>>;
   /** A list of nodes. */
   nodes?: Maybe<Array<Maybe<StatusCheckRollupContext>>>;
   /** Information to aid in pagination. */
   pageInfo: PageInfo;
+  /** The number of status contexts in this rollup. */
+  statusContextCount: Scalars['Int'];
+  /** Counts of status contexts by state. */
+  statusContextCountsByState?: Maybe<Array<StatusContextStateCount>>;
   /** Identifies the total count of items in the connection. */
   totalCount: Scalars['Int'];
 };
@@ -22057,6 +22105,15 @@ export type StatusContextAvatarUrlArgs = {
 export type StatusContextIsRequiredArgs = {
   pullRequestId?: InputMaybe<Scalars['ID']>;
   pullRequestNumber?: InputMaybe<Scalars['Int']>;
+};
+
+/** Represents a count of the state of a status context. */
+export type StatusContextStateCount = {
+  __typename?: 'StatusContextStateCount';
+  /** The number of statuses with this state. */
+  count: Scalars['Int'];
+  /** The state of a status context. */
+  state: StatusState;
 };
 
 /** The possible commit status states. */
