@@ -21617,6 +21617,10 @@ export type SponsorsListing = Node & {
   activeGoal?: Maybe<SponsorsGoal>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
+  /** The HTTP path for the Sponsors dashboard for this Sponsors listing. */
+  dashboardResourcePath: Scalars['URI'];
+  /** The HTTP URL for the Sponsors dashboard for this Sponsors listing. */
+  dashboardUrl: Scalars['URI'];
   /** The full description of the listing. */
   fullDescription: Scalars['String'];
   /** The full description of the listing rendered to HTML. */
@@ -21628,6 +21632,8 @@ export type SponsorsListing = Node & {
   name: Scalars['String'];
   /** A future date on which this listing is eligible to receive a payout. */
   nextPayoutDate?: Maybe<Scalars['Date']>;
+  /** The HTTP path for this Sponsors listing. */
+  resourcePath: Scalars['URI'];
   /** The short description of the listing. */
   shortDescription: Scalars['String'];
   /** The short name of the listing. */
@@ -21636,6 +21642,8 @@ export type SponsorsListing = Node & {
   sponsorable: Sponsorable;
   /** The published tiers for this GitHub Sponsors listing. */
   tiers?: Maybe<SponsorsTierConnection>;
+  /** The HTTP URL for this Sponsors listing. */
+  url: Scalars['URI'];
 };
 
 
