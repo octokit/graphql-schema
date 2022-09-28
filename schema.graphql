@@ -487,7 +487,7 @@ input AddProjectDraftIssueInput {
   """
   The IDs of the assignees of the draft issue.
 
-  **Upcoming Change on 2022-10-01 UTC**
+  **Upcoming Change on 2023-01-01 UTC**
   **Description:** `assigneeIds` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
   to find a suitable replacement.
   **Reason:** The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API.
@@ -497,7 +497,7 @@ input AddProjectDraftIssueInput {
   """
   The body of the draft issue.
 
-  **Upcoming Change on 2022-10-01 UTC**
+  **Upcoming Change on 2023-01-01 UTC**
   **Description:** `body` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
   to find a suitable replacement.
   **Reason:** The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API.
@@ -512,7 +512,7 @@ input AddProjectDraftIssueInput {
   """
   The ID of the Project to add the draft issue to. This field is required.
 
-  **Upcoming Change on 2022-10-01 UTC**
+  **Upcoming Change on 2023-01-01 UTC**
   **Description:** `projectId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
   to find a suitable replacement.
   **Reason:** The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API.
@@ -522,7 +522,7 @@ input AddProjectDraftIssueInput {
   """
   The title of the draft issue. This field is required.
 
-  **Upcoming Change on 2022-10-01 UTC**
+  **Upcoming Change on 2023-01-01 UTC**
   **Description:** `title` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
   to find a suitable replacement.
   **Reason:** The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API.
@@ -542,7 +542,7 @@ type AddProjectDraftIssuePayload {
   """
   The draft issue added to the project.
   """
-  projectNextItem: ProjectNextItem @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  projectNextItem: ProjectNextItem @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 }
 
 """
@@ -557,7 +557,7 @@ input AddProjectNextItemInput {
   """
   The content id of the item (Issue or PullRequest). This field is required.
 
-  **Upcoming Change on 2022-10-01 UTC**
+  **Upcoming Change on 2023-01-01 UTC**
   **Description:** `contentId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
   to find a suitable replacement.
   **Reason:** The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API.
@@ -567,7 +567,7 @@ input AddProjectNextItemInput {
   """
   The ID of the Project to add the item to. This field is required.
 
-  **Upcoming Change on 2022-10-01 UTC**
+  **Upcoming Change on 2023-01-01 UTC**
   **Description:** `projectId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
   to find a suitable replacement.
   **Reason:** The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API.
@@ -587,7 +587,7 @@ type AddProjectNextItemPayload {
   """
   The item added to the project.
   """
-  projectNextItem: ProjectNextItem @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  projectNextItem: ProjectNextItem @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 }
 
 """
@@ -7802,7 +7802,7 @@ input DeleteProjectNextItemInput {
   """
   The ID of the item to be removed. This field is required.
 
-  **Upcoming Change on 2022-10-01 UTC**
+  **Upcoming Change on 2023-01-01 UTC**
   **Description:** `itemId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
   to find a suitable replacement.
   **Reason:** The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API.
@@ -7812,7 +7812,7 @@ input DeleteProjectNextItemInput {
   """
   The ID of the Project from which the item should be removed. This field is required.
 
-  **Upcoming Change on 2022-10-01 UTC**
+  **Upcoming Change on 2023-01-01 UTC**
   **Description:** `projectId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
   to find a suitable replacement.
   **Reason:** The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API.
@@ -7832,7 +7832,7 @@ type DeleteProjectNextItemPayload {
   """
   The ID of the deleted item.
   """
-  deletedItemId: ID @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  deletedItemId: ID @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 }
 
 """
@@ -15095,7 +15095,7 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
     The project (beta) number.
     """
     number: Int!
-  ): ProjectNext @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  ): ProjectNext @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   List of project (beta) items associated with this issue.
@@ -15170,7 +15170,7 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
     How to order the returned projects (beta).
     """
     sortBy: ProjectNextOrderField = TITLE
-  ): ProjectNextConnection! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  ): ProjectNextConnection! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   A list of projects under the owner.
@@ -18748,7 +18748,7 @@ type Mutation {
     Parameters for AddProjectDraftIssue
     """
     input: AddProjectDraftIssueInput!
-  ): AddProjectDraftIssuePayload @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  ): AddProjectDraftIssuePayload @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Adds an existing item (Issue or PullRequest) to a Project.
@@ -18758,7 +18758,7 @@ type Mutation {
     Parameters for AddProjectNextItem
     """
     input: AddProjectNextItemInput!
-  ): AddProjectNextItemPayload @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  ): AddProjectNextItemPayload @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Creates a new draft issue and add it to a Project.
@@ -19351,7 +19351,7 @@ type Mutation {
     Parameters for DeleteProjectNextItem
     """
     input: DeleteProjectNextItemInput!
-  ): DeleteProjectNextItemPayload @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  ): DeleteProjectNextItemPayload @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Deletes an item from a Project.
@@ -20351,7 +20351,7 @@ type Mutation {
     Parameters for UpdateProjectDraftIssue
     """
     input: UpdateProjectDraftIssueInput!
-  ): UpdateProjectDraftIssuePayload @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  ): UpdateProjectDraftIssuePayload @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Updates an existing project (beta).
@@ -20361,7 +20361,7 @@ type Mutation {
     Parameters for UpdateProjectNext
     """
     input: UpdateProjectNextInput!
-  ): UpdateProjectNextPayload @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  ): UpdateProjectNextPayload @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Updates a field of an item from a Project.
@@ -20371,7 +20371,7 @@ type Mutation {
     Parameters for UpdateProjectNextItemField
     """
     input: UpdateProjectNextItemFieldInput!
-  ): UpdateProjectNextItemFieldPayload @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  ): UpdateProjectNextItemFieldPayload @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Updates an existing project (beta).
@@ -24361,7 +24361,7 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
     The project (beta) number.
     """
     number: Int!
-  ): ProjectNext @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  ): ProjectNext @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Find a project by number.
@@ -24446,7 +24446,7 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
     How to order the returned projects (beta).
     """
     sortBy: ProjectNextOrderField = TITLE
-  ): ProjectNextConnection! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  ): ProjectNextConnection! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The HTTP path listing organization's projects
@@ -27550,7 +27550,7 @@ type ProjectNext implements Closable & Node & Updatable {
   """
   Returns true if the project is closed.
   """
-  closed: Boolean! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  closed: Boolean! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Identifies the date and time when the object was closed.
@@ -27560,22 +27560,22 @@ type ProjectNext implements Closable & Node & Updatable {
   """
   Identifies the date and time when the object was created.
   """
-  createdAt: DateTime! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  createdAt: DateTime! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The actor who originally created the project.
   """
-  creator: Actor @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  creator: Actor @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Identifies the primary key from the database.
   """
-  databaseId: Int @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  databaseId: Int @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The project's description.
   """
-  description: String @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  description: String @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   List of fields in the project
@@ -27600,7 +27600,7 @@ type ProjectNext implements Closable & Node & Updatable {
     Returns the last _n_ elements from the list.
     """
     last: Int
-  ): ProjectNextFieldConnection! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  ): ProjectNextFieldConnection! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
   id: ID!
 
   """
@@ -27626,22 +27626,22 @@ type ProjectNext implements Closable & Node & Updatable {
     Returns the last _n_ elements from the list.
     """
     last: Int
-  ): ProjectNextItemConnection! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  ): ProjectNextItemConnection! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The project's number.
   """
-  number: Int! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  number: Int! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The project's owner. Currently limited to organizations and users.
   """
-  owner: ProjectNextOwner! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  owner: ProjectNextOwner! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Returns true if the project is public.
   """
-  public: Boolean! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  public: Boolean! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The repositories the project is linked to.
@@ -27666,32 +27666,32 @@ type ProjectNext implements Closable & Node & Updatable {
     Returns the last _n_ elements from the list.
     """
     last: Int
-  ): RepositoryConnection! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  ): RepositoryConnection! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The HTTP path for this project
   """
-  resourcePath: URI! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  resourcePath: URI! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The project's short description.
   """
-  shortDescription: String @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  shortDescription: String @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The project's name.
   """
-  title: String @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  title: String @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Identifies the date and time when the object was last updated.
   """
-  updatedAt: DateTime! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  updatedAt: DateTime! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The HTTP URL for this project
   """
-  url: URI! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  url: URI! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Check if the current viewer can update this object.
@@ -27721,7 +27721,7 @@ type ProjectNext implements Closable & Node & Updatable {
     Returns the last _n_ elements from the list.
     """
     last: Int
-  ): ProjectViewConnection! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  ): ProjectViewConnection! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 }
 
 """
@@ -27771,38 +27771,38 @@ type ProjectNextField implements Node & ProjectNextFieldCommon {
   """
   Identifies the date and time when the object was created.
   """
-  createdAt: DateTime! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  createdAt: DateTime! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The field's type.
   """
-  dataType: ProjectNextFieldType! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  dataType: ProjectNextFieldType! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Identifies the primary key from the database.
   """
-  databaseId: Int @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  databaseId: Int @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
   id: ID!
 
   """
   The project field's name.
   """
-  name: String! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  name: String! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The project that contains this field.
   """
-  project: ProjectNext! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  project: ProjectNext! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The field's settings.
   """
-  settings: String @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  settings: String @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Identifies the date and time when the object was last updated.
   """
-  updatedAt: DateTime! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  updatedAt: DateTime! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 }
 
 """
@@ -27812,38 +27812,38 @@ interface ProjectNextFieldCommon {
   """
   Identifies the date and time when the object was created.
   """
-  createdAt: DateTime! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  createdAt: DateTime! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The field's type.
   """
-  dataType: ProjectNextFieldType! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  dataType: ProjectNextFieldType! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Identifies the primary key from the database.
   """
-  databaseId: Int @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
-  id: ID! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  databaseId: Int @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
+  id: ID! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The project field's name.
   """
-  name: String! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  name: String! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The project that contains this field.
   """
-  project: ProjectNext! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  project: ProjectNext! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The field's settings.
   """
-  settings: String @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  settings: String @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Identifies the date and time when the object was last updated.
   """
-  updatedAt: DateTime! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  updatedAt: DateTime! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 }
 
 """
@@ -27893,67 +27893,67 @@ enum ProjectNextFieldType {
   """
   Assignees
   """
-  ASSIGNEES @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  ASSIGNEES @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Date
   """
-  DATE @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  DATE @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Iteration
   """
-  ITERATION @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  ITERATION @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Labels
   """
-  LABELS @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  LABELS @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Linked Pull Requests
   """
-  LINKED_PULL_REQUESTS @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  LINKED_PULL_REQUESTS @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Milestone
   """
-  MILESTONE @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  MILESTONE @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Number
   """
-  NUMBER @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  NUMBER @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Repository
   """
-  REPOSITORY @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  REPOSITORY @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Reviewers
   """
-  REVIEWERS @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  REVIEWERS @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Single Select
   """
-  SINGLE_SELECT @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  SINGLE_SELECT @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Text
   """
-  TEXT @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  TEXT @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Title
   """
-  TITLE @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  TITLE @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Tracks
   """
-  TRACKS @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  TRACKS @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 }
 
 """
@@ -27963,22 +27963,22 @@ type ProjectNextItem implements Node {
   """
   The content of the referenced draft issue, issue, or pull request
   """
-  content: ProjectNextItemContent @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  content: ProjectNextItemContent @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Identifies the date and time when the object was created.
   """
-  createdAt: DateTime! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  createdAt: DateTime! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The actor who created the item.
   """
-  creator: Actor @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  creator: Actor @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Identifies the primary key from the database.
   """
-  databaseId: Int @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  databaseId: Int @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   List of field values
@@ -28003,33 +28003,33 @@ type ProjectNextItem implements Node {
     Returns the last _n_ elements from the list.
     """
     last: Int
-  ): ProjectNextItemFieldValueConnection! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  ): ProjectNextItemFieldValueConnection! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
   id: ID!
 
   """
   Whether the item is archived.
   """
-  isArchived: Boolean! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  isArchived: Boolean! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The project that contains this item.
   """
-  project: ProjectNext! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  project: ProjectNext! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The title of the item
   """
-  title: String @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  title: String @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The type of the item.
   """
-  type: ProjectItemType! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  type: ProjectItemType! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Identifies the date and time when the object was last updated.
   """
-  updatedAt: DateTime! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  updatedAt: DateTime! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 }
 
 """
@@ -28084,38 +28084,38 @@ type ProjectNextItemFieldValue implements Node {
   """
   Identifies the date and time when the object was created.
   """
-  createdAt: DateTime! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  createdAt: DateTime! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The actor who created the item.
   """
-  creator: Actor @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  creator: Actor @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Identifies the primary key from the database.
   """
-  databaseId: Int @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  databaseId: Int @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
   id: ID!
 
   """
   The project field that contains this value.
   """
-  projectField: ProjectNextField! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  projectField: ProjectNextField! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The project item that contains this value.
   """
-  projectItem: ProjectNextItem! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  projectItem: ProjectNextItem! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Identifies the date and time when the object was last updated.
   """
-  updatedAt: DateTime! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  updatedAt: DateTime! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The value of a field
   """
-  value: String @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  value: String @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 }
 
 """
@@ -28165,22 +28165,22 @@ enum ProjectNextOrderField {
   """
   The project's date and time of creation
   """
-  CREATED_AT @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  CREATED_AT @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The project's number
   """
-  NUMBER @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  NUMBER @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The project's title
   """
-  TITLE @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  TITLE @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The project's date and time of update
   """
-  UPDATED_AT @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  UPDATED_AT @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 }
 
 """
@@ -28197,7 +28197,7 @@ interface ProjectNextOwner {
     The project (beta) number.
     """
     number: Int!
-  ): ProjectNext @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  ): ProjectNext @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   A list of projects (beta) under the owner.
@@ -28232,7 +28232,7 @@ interface ProjectNextOwner {
     How to order the returned projects (beta).
     """
     sortBy: ProjectNextOrderField = TITLE
-  ): ProjectNextConnection! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  ): ProjectNextConnection! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 }
 
 """
@@ -30284,63 +30284,63 @@ type ProjectView implements Node {
   """
   Identifies the date and time when the object was created.
   """
-  createdAt: DateTime! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  createdAt: DateTime! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Identifies the primary key from the database.
   """
-  databaseId: Int @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  databaseId: Int @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The project view's filter.
   """
-  filter: String @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  filter: String @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The view's group-by field.
   """
-  groupBy: [Int!] @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  groupBy: [Int!] @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
   id: ID!
 
   """
   The project view's layout.
   """
-  layout: ProjectViewLayout! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  layout: ProjectViewLayout! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The project view's name.
   """
-  name: String! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  name: String! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The project view's number.
   """
-  number: Int! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  number: Int! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The project that contains this view.
   """
-  project: ProjectNext! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  project: ProjectNext! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The view's sort-by config.
   """
-  sortBy: [SortBy!] @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  sortBy: [SortBy!] @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Identifies the date and time when the object was last updated.
   """
-  updatedAt: DateTime! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  updatedAt: DateTime! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The view's vertical-group-by field.
   """
-  verticalGroupBy: [Int!] @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  verticalGroupBy: [Int!] @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The view's visible fields.
   """
-  visibleFields: [Int!] @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  visibleFields: [Int!] @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 }
 
 """
@@ -31028,7 +31028,7 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     The project (beta) number.
     """
     number: Int!
-  ): ProjectNext @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  ): ProjectNext @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   List of project (beta) items associated with this pull request.
@@ -31058,7 +31058,7 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     Returns the last _n_ elements from the list.
     """
     last: Int
-  ): ProjectNextItemConnection! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  ): ProjectNextItemConnection! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Find a project by number.
@@ -31103,7 +31103,7 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     How to order the returned projects (beta).
     """
     sortBy: ProjectNextOrderField = TITLE
-  ): ProjectNextConnection! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  ): ProjectNextConnection! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   A list of projects under the owner.
@@ -38861,7 +38861,7 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     The ProjectNext number.
     """
     number: Int!
-  ): ProjectNext @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  ): ProjectNext @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Finds and returns the Project according to the provided Project number.
@@ -38946,7 +38946,7 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     How to order the returned project (beta) objects.
     """
     sortBy: ProjectNextOrderField = TITLE
-  ): ProjectNextConnection! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  ): ProjectNextConnection! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The HTTP path listing the repository's projects
@@ -49133,7 +49133,7 @@ input UpdateProjectNextInput {
   """
   Set the project to closed or open.
 
-  **Upcoming Change on 2022-10-01 UTC**
+  **Upcoming Change on 2023-01-01 UTC**
   **Description:** `closed` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
   to find a suitable replacement.
   **Reason:** The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API.
@@ -49143,7 +49143,7 @@ input UpdateProjectNextInput {
   """
   Set the readme description of the project.
 
-  **Upcoming Change on 2022-10-01 UTC**
+  **Upcoming Change on 2023-01-01 UTC**
   **Description:** `description` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
   to find a suitable replacement.
   **Reason:** The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API.
@@ -49153,7 +49153,7 @@ input UpdateProjectNextInput {
   """
   The ID of the Project to update. This field is required.
 
-  **Upcoming Change on 2022-10-01 UTC**
+  **Upcoming Change on 2023-01-01 UTC**
   **Description:** `projectId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
   to find a suitable replacement.
   **Reason:** The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API.
@@ -49163,7 +49163,7 @@ input UpdateProjectNextInput {
   """
   Set the project to public or private.
 
-  **Upcoming Change on 2022-10-01 UTC**
+  **Upcoming Change on 2023-01-01 UTC**
   **Description:** `public` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
   to find a suitable replacement.
   **Reason:** The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API.
@@ -49173,7 +49173,7 @@ input UpdateProjectNextInput {
   """
   Set the short description of the project.
 
-  **Upcoming Change on 2022-10-01 UTC**
+  **Upcoming Change on 2023-01-01 UTC**
   **Description:** `shortDescription` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
   to find a suitable replacement.
   **Reason:** The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API.
@@ -49183,7 +49183,7 @@ input UpdateProjectNextInput {
   """
   Set the title of the project.
 
-  **Upcoming Change on 2022-10-01 UTC**
+  **Upcoming Change on 2023-01-01 UTC**
   **Description:** `title` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
   to find a suitable replacement.
   **Reason:** The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API.
@@ -49203,7 +49203,7 @@ input UpdateProjectNextItemFieldInput {
   """
   The id of the field to be updated.
 
-  **Upcoming Change on 2022-10-01 UTC**
+  **Upcoming Change on 2023-01-01 UTC**
   **Description:** `fieldId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
   to find a suitable replacement.
   **Reason:** The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API.
@@ -49213,7 +49213,7 @@ input UpdateProjectNextItemFieldInput {
   """
   The id of the item to be updated. This field is required.
 
-  **Upcoming Change on 2022-10-01 UTC**
+  **Upcoming Change on 2023-01-01 UTC**
   **Description:** `itemId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
   to find a suitable replacement.
   **Reason:** The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API.
@@ -49228,7 +49228,7 @@ input UpdateProjectNextItemFieldInput {
   """
   The value which will be set on the field. This field is required.
 
-  **Upcoming Change on 2022-10-01 UTC**
+  **Upcoming Change on 2023-01-01 UTC**
   **Description:** `value` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
   to find a suitable replacement.
   **Reason:** The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API.
@@ -49248,7 +49248,7 @@ type UpdateProjectNextItemFieldPayload {
   """
   The updated item.
   """
-  projectNextItem: ProjectNextItem @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  projectNextItem: ProjectNextItem @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 }
 
 """
@@ -49263,7 +49263,7 @@ type UpdateProjectNextPayload {
   """
   The updated Project.
   """
-  projectNext: ProjectNext @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  projectNext: ProjectNext @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 }
 
 """
@@ -50683,7 +50683,7 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectNextOwn
     The project (beta) number.
     """
     number: Int!
-  ): ProjectNext @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  ): ProjectNext @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   Find a project by number.
@@ -50768,7 +50768,7 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectNextOwn
     How to order the returned projects (beta).
     """
     sortBy: ProjectNextOrderField = TITLE
-  ): ProjectNextConnection! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC.")
+  ): ProjectNextConnection! @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
   The HTTP path listing user's projects
