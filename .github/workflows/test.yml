@@ -2,8 +2,8 @@ name: Test
 "on":
   push:
     branches:
-      - dependabot/npm_and_yarn/**
-  pull_request:
+      - master
+  pull_request_target:
     types:
       - opened
       - synchronize
