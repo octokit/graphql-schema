@@ -14629,6 +14629,8 @@ export type ProjectV2 = Closable & Node & Updatable & {
   updatedAt: Scalars['DateTime'];
   /** The HTTP URL for this project */
   url: Scalars['URI'];
+  /** A view of the project */
+  view?: Maybe<ProjectV2View>;
   /** Check if the current viewer can update this object. */
   viewerCanUpdate: Scalars['Boolean'];
   /** List of views in the project */
@@ -14669,6 +14671,12 @@ export type ProjectV2RepositoriesArgs = {
   first?: InputMaybe<Scalars['Int']>;
   last?: InputMaybe<Scalars['Int']>;
   orderBy?: InputMaybe<RepositoryOrder>;
+};
+
+
+/** New projects that manage issues, pull requests and drafts using tables and boards. */
+export type ProjectV2ViewArgs = {
+  number: Scalars['Int'];
 };
 
 
