@@ -4316,6 +4316,8 @@ export type DependencyGraphEcosystem =
   | 'NUGET'
   /** Python packages hosted at PyPI.org */
   | 'PIP'
+  /** Dart packages hosted at pub.dev */
+  | 'PUB'
   /** Ruby gems hosted at RubyGems.org */
   | 'RUBYGEMS'
   /** Rust crates */
@@ -21153,6 +21155,8 @@ export type SecurityAdvisoryEcosystem =
   | 'NUGET'
   /** Python packages hosted at PyPI.org */
   | 'PIP'
+  /** Dart packages hosted at pub.dev */
+  | 'PUB'
   /** Ruby gems hosted at RubyGems.org */
   | 'RUBYGEMS'
   /** Rust crates */
