@@ -15482,8 +15482,13 @@ export type ProjectV2View = Node & {
   fields?: Maybe<ProjectV2FieldConfigurationConnection>;
   /** The project view's filter. */
   filter?: Maybe<Scalars['String']>;
-  /** The view's group-by field. */
+  /**
+   * The view's group-by field.
+   * @deprecated The `ProjectV2View#order_by` API is deprecated in favour of the more capable `ProjectV2View#group_by_field` API. Check out the `ProjectV2View#group_by_fields` API as an example for the more capable alternative. Removal on 2023-04-01 UTC.
+   */
   groupBy?: Maybe<ProjectV2FieldConnection>;
+  /** The view's group-by field. */
+  groupByFields?: Maybe<ProjectV2FieldConfigurationConnection>;
   id: Scalars['ID'];
   /** The project view's layout. */
   layout: ProjectV2ViewLayout;
@@ -15519,6 +15524,16 @@ export type ProjectV2ViewFieldsArgs = {
 
 /** A view within a ProjectV2. */
 export type ProjectV2ViewGroupByArgs = {
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
+  orderBy?: InputMaybe<ProjectV2FieldOrder>;
+};
+
+
+/** A view within a ProjectV2. */
+export type ProjectV2ViewGroupByFieldsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
