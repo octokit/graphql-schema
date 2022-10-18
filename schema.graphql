@@ -30184,6 +30184,61 @@ type ProjectV2SortByEdge {
 }
 
 """
+Represents a sort by field and direction.
+"""
+type ProjectV2SortByField {
+  """
+  The direction of the sorting. Possible values are ASC and DESC.
+  """
+  direction: OrderDirection!
+
+  """
+  The field by which items are sorted.
+  """
+  field: ProjectV2FieldConfiguration!
+}
+
+"""
+The connection type for ProjectV2SortByField.
+"""
+type ProjectV2SortByFieldConnection {
+  """
+  A list of edges.
+  """
+  edges: [ProjectV2SortByFieldEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [ProjectV2SortByField]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An edge in a connection.
+"""
+type ProjectV2SortByFieldEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: ProjectV2SortByField
+}
+
+"""
 A view within a ProjectV2.
 """
 type ProjectV2View implements Node {
@@ -30336,7 +30391,32 @@ type ProjectV2View implements Node {
     Returns the last _n_ elements from the list.
     """
     last: Int
-  ): ProjectV2SortByConnection
+  ): ProjectV2SortByConnection @deprecated(reason: "The `ProjectV2View#sort_by` API is deprecated in favour of the more capable `ProjectV2View#sort_by_fields` API. Check out the `ProjectV2View#sort_by_fields` API as an example for the more capable alternative. Removal on 2023-04-01 UTC.")
+
+  """
+  The view's sort-by config.
+  """
+  sortByFields(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): ProjectV2SortByFieldConnection
 
   """
   Identifies the date and time when the object was last updated.
@@ -30371,7 +30451,37 @@ type ProjectV2View implements Node {
     Ordering options for the project v2 fields returned from the connection.
     """
     orderBy: ProjectV2FieldOrder = {field: POSITION, direction: ASC}
-  ): ProjectV2FieldConnection
+  ): ProjectV2FieldConnection @deprecated(reason: "The `ProjectV2View#vertical_group_by` API is deprecated in favour of the more capable `ProjectV2View#vertical_group_by_fields` API. Check out the `ProjectV2View#vertical_group_by_fields` API as an example for the more capable alternative. Removal on 2023-04-01 UTC.")
+
+  """
+  The view's vertical-group-by field.
+  """
+  verticalGroupByFields(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for the project v2 fields returned from the connection.
+    """
+    orderBy: ProjectV2FieldOrder = {field: POSITION, direction: ASC}
+  ): ProjectV2FieldConfigurationConnection
 
   """
   The view's visible fields.
