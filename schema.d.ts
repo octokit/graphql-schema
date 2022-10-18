@@ -15471,6 +15471,37 @@ export type ProjectV2SortByEdge = {
   node?: Maybe<ProjectV2SortBy>;
 };
 
+/** Represents a sort by field and direction. */
+export type ProjectV2SortByField = {
+  __typename?: 'ProjectV2SortByField';
+  /** The direction of the sorting. Possible values are ASC and DESC. */
+  direction: OrderDirection;
+  /** The field by which items are sorted. */
+  field: ProjectV2FieldConfiguration;
+};
+
+/** The connection type for ProjectV2SortByField. */
+export type ProjectV2SortByFieldConnection = {
+  __typename?: 'ProjectV2SortByFieldConnection';
+  /** A list of edges. */
+  edges?: Maybe<Array<Maybe<ProjectV2SortByFieldEdge>>>;
+  /** A list of nodes. */
+  nodes?: Maybe<Array<Maybe<ProjectV2SortByField>>>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** Identifies the total count of items in the connection. */
+  totalCount: Scalars['Int'];
+};
+
+/** An edge in a connection. */
+export type ProjectV2SortByFieldEdge = {
+  __typename?: 'ProjectV2SortByFieldEdge';
+  /** A cursor for use in pagination. */
+  cursor: Scalars['String'];
+  /** The item at the end of the edge. */
+  node?: Maybe<ProjectV2SortByField>;
+};
+
 /** A view within a ProjectV2. */
 export type ProjectV2View = Node & {
   __typename?: 'ProjectV2View';
@@ -15498,12 +15529,22 @@ export type ProjectV2View = Node & {
   number: Scalars['Int'];
   /** The project that contains this view. */
   project: ProjectV2;
-  /** The view's sort-by config. */
+  /**
+   * The view's sort-by config.
+   * @deprecated The `ProjectV2View#sort_by` API is deprecated in favour of the more capable `ProjectV2View#sort_by_fields` API. Check out the `ProjectV2View#sort_by_fields` API as an example for the more capable alternative. Removal on 2023-04-01 UTC.
+   */
   sortBy?: Maybe<ProjectV2SortByConnection>;
+  /** The view's sort-by config. */
+  sortByFields?: Maybe<ProjectV2SortByFieldConnection>;
   /** Identifies the date and time when the object was last updated. */
   updatedAt: Scalars['DateTime'];
-  /** The view's vertical-group-by field. */
+  /**
+   * The view's vertical-group-by field.
+   * @deprecated The `ProjectV2View#vertical_group_by` API is deprecated in favour of the more capable `ProjectV2View#vertical_group_by_fields` API. Check out the `ProjectV2View#vertical_group_by_fields` API as an example for the more capable alternative. Removal on 2023-04-01 UTC.
+   */
   verticalGroupBy?: Maybe<ProjectV2FieldConnection>;
+  /** The view's vertical-group-by field. */
+  verticalGroupByFields?: Maybe<ProjectV2FieldConfigurationConnection>;
   /**
    * The view's visible fields.
    * @deprecated The `ProjectV2View#visibleFields` API is deprecated in favour of the more capable `ProjectV2View#fields` API. Check out the `ProjectV2View#fields` API as an example for the more capable alternative. Removal on 2023-01-01 UTC.
@@ -15552,7 +15593,26 @@ export type ProjectV2ViewSortByArgs = {
 
 
 /** A view within a ProjectV2. */
+export type ProjectV2ViewSortByFieldsArgs = {
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
+};
+
+
+/** A view within a ProjectV2. */
 export type ProjectV2ViewVerticalGroupByArgs = {
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
+  orderBy?: InputMaybe<ProjectV2FieldOrder>;
+};
+
+
+/** A view within a ProjectV2. */
+export type ProjectV2ViewVerticalGroupByFieldsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
