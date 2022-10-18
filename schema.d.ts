@@ -2599,6 +2599,59 @@ export type CommittableBranch = {
   repositoryNameWithOwner?: InputMaybe<Scalars['String']>;
 };
 
+/** Represents a comparison between two commit revisions. */
+export type Comparison = Node & {
+  __typename?: 'Comparison';
+  /** The number of commits ahead of the base branch. */
+  aheadBy: Scalars['Int'];
+  /** The base revision of this comparison. */
+  baseTarget: GitObject;
+  /** The number of commits behind the base branch. */
+  behindBy: Scalars['Int'];
+  /** The commits which compose this comparison. */
+  commits: ComparisonCommitConnection;
+  /** The head revision of this comparison. */
+  headTarget: GitObject;
+  id: Scalars['ID'];
+  /** The status of this comparison. */
+  status: ComparisonStatus;
+};
+
+
+/** Represents a comparison between two commit revisions. */
+export type ComparisonCommitsArgs = {
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
+};
+
+/** The connection type for Commit. */
+export type ComparisonCommitConnection = {
+  __typename?: 'ComparisonCommitConnection';
+  /** The total count of authors and co-authors across all commits. */
+  authorCount: Scalars['Int'];
+  /** A list of edges. */
+  edges?: Maybe<Array<Maybe<CommitEdge>>>;
+  /** A list of nodes. */
+  nodes?: Maybe<Array<Maybe<Commit>>>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** Identifies the total count of items in the connection. */
+  totalCount: Scalars['Int'];
+};
+
+/** The status of a git comparison between two refs. */
+export type ComparisonStatus =
+  /** The head ref is ahead of the base ref. */
+  | 'AHEAD'
+  /** The head ref is behind the base ref. */
+  | 'BEHIND'
+  /** The head ref is both ahead and behind of the base ref, indicating git history has diverged. */
+  | 'DIVERGED'
+  /** The head ref and base ref are identical. */
+  | 'IDENTICAL';
+
 /** Represents a 'connected' event on a given issue or pull request. */
 export type ConnectedEvent = Node & {
   __typename?: 'ConnectedEvent';
@@ -17606,6 +17659,8 @@ export type Ref = Node & {
   associatedPullRequests: PullRequestConnection;
   /** Branch protection rules for this ref */
   branchProtectionRule?: Maybe<BranchProtectionRule>;
+  /** Compares the current ref as a base ref to another head ref, if the comparison can be made. */
+  compare?: Maybe<Comparison>;
   id: Scalars['ID'];
   /** The ref name. */
   name: Scalars['String'];
@@ -17631,6 +17686,12 @@ export type RefAssociatedPullRequestsArgs = {
   last?: InputMaybe<Scalars['Int']>;
   orderBy?: InputMaybe<IssueOrder>;
   states?: InputMaybe<Array<PullRequestState>>;
+};
+
+
+/** Represents a Git reference. */
+export type RefCompareArgs = {
+  headRef: Scalars['String'];
 };
 
 /** The connection type for Ref. */
