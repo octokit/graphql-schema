@@ -32212,6 +32212,63 @@ type PullRequestContributionsByRepository {
 }
 
 """
+This is a diff entry object for a pull request comparison
+"""
+type PullRequestDiffEntry implements Node {
+  id: ID!
+
+  """
+  Whether or not the patch is binary
+  """
+  isBinary: Boolean!
+
+  """
+  Whether or not the patch is a large diff
+  """
+  isLarge: Boolean!
+
+  """
+  Whether or not the patch is in a submodule
+  """
+  isSubmodule: Boolean!
+
+  """
+  The number of lines added in this patch.
+  """
+  linesAdded: Int!
+
+  """
+  The total lines added or removed in this patch.
+  """
+  linesChanged: Int!
+
+  """
+  The number of lines removed in this patch.
+  """
+  linesDeleted: Int!
+
+  """
+  The tree entry after the change.
+  """
+  newTreeEntry: TreeEntry
+
+  """
+  The tree entry before the change.
+  """
+  oldTreeEntry: TreeEntry
+
+  """
+  Identifies the status of the patch.
+  """
+  status: PatchStatus!
+
+  """
+  The textual diff of this patch.
+  """
+  text: String
+}
+
+"""
 An edge in a connection.
 """
 type PullRequestEdge {
