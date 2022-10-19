@@ -47361,6 +47361,11 @@ type TreeEntry {
   isGenerated: Boolean!
 
   """
+  The programming language this file is written in.
+  """
+  language: Language
+
+  """
   Number of lines in the file.
   """
   lineCount: Int
