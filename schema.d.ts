@@ -16468,32 +16468,6 @@ export type PullRequestContributionsByRepositoryContributionsArgs = {
   orderBy?: InputMaybe<ContributionOrder>;
 };
 
-/** This is a diff entry object for a pull request comparison */
-export type PullRequestDiffEntry = Node & {
-  __typename?: 'PullRequestDiffEntry';
-  id: Scalars['ID'];
-  /** Whether or not the patch is binary */
-  isBinary: Scalars['Boolean'];
-  /** Whether or not the patch is a large diff */
-  isLarge: Scalars['Boolean'];
-  /** Whether or not the patch is in a submodule */
-  isSubmodule: Scalars['Boolean'];
-  /** The number of lines added in this patch. */
-  linesAdded: Scalars['Int'];
-  /** The total lines added or removed in this patch. */
-  linesChanged: Scalars['Int'];
-  /** The number of lines removed in this patch. */
-  linesDeleted: Scalars['Int'];
-  /** The tree entry after the change. */
-  newTreeEntry?: Maybe<TreeEntry>;
-  /** The tree entry before the change. */
-  oldTreeEntry?: Maybe<TreeEntry>;
-  /** Identifies the status of the patch. */
-  status: PatchStatus;
-  /** The textual diff of this patch. */
-  text?: Maybe<Scalars['String']>;
-};
-
 /** An edge in a connection. */
 export type PullRequestEdge = {
   __typename?: 'PullRequestEdge';
