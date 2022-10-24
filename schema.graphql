@@ -1946,6 +1946,17 @@ type BranchProtectionRule implements Node {
   isAdminEnforced: Boolean!
 
   """
+  Whether users can pull changes from upstream when the branch is locked. Set to
+  `true` to allow fork syncing. Set to `false` to prevent fork syncing.
+  """
+  lockAllowsFetchAndMerge: Boolean!
+
+  """
+  Whether to set the branch as read-only. If this is true, users will not be able to push to the branch.
+  """
+  lockBranch: Boolean!
+
+  """
   Repository refs that are protected by this rule
   """
   matchingRefs(
@@ -5985,6 +5996,17 @@ input CreateBranchProtectionRuleInput {
   Can admins overwrite branch protection.
   """
   isAdminEnforced: Boolean
+
+  """
+  Whether users can pull changes from upstream when the branch is locked. Set to
+  `true` to allow fork syncing. Set to `false` to prevent fork syncing.
+  """
+  lockAllowsFetchAndMerge: Boolean
+
+  """
+  Whether to set the branch as read-only. If this is true, users will not be able to push to the branch.
+  """
+  lockBranch: Boolean
 
   """
   The glob-like pattern used to determine matching branches.
@@ -48126,6 +48148,17 @@ input UpdateBranchProtectionRuleInput {
   Can admins overwrite branch protection.
   """
   isAdminEnforced: Boolean
+
+  """
+  Whether users can pull changes from upstream when the branch is locked. Set to
+  `true` to allow fork syncing. Set to `false` to prevent fork syncing.
+  """
+  lockAllowsFetchAndMerge: Boolean
+
+  """
+  Whether to set the branch as read-only. If this is true, users will not be able to push to the branch.
+  """
+  lockBranch: Boolean
 
   """
   The glob-like pattern used to determine matching branches.
