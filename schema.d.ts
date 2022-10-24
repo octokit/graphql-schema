@@ -1050,6 +1050,13 @@ export type BranchProtectionRule = Node & {
   id: Scalars['ID'];
   /** Can admins overwrite branch protection. */
   isAdminEnforced: Scalars['Boolean'];
+  /**
+   * Whether users can pull changes from upstream when the branch is locked. Set to
+   * `true` to allow fork syncing. Set to `false` to prevent fork syncing.
+   */
+  lockAllowsFetchAndMerge: Scalars['Boolean'];
+  /** Whether to set the branch as read-only. If this is true, users will not be able to push to the branch. */
+  lockBranch: Scalars['Boolean'];
   /** Repository refs that are protected by this rule */
   matchingRefs: RefConnection;
   /** Identifies the protection rule pattern. */
@@ -3092,6 +3099,13 @@ export type CreateBranchProtectionRuleInput = {
   dismissesStaleReviews?: InputMaybe<Scalars['Boolean']>;
   /** Can admins overwrite branch protection. */
   isAdminEnforced?: InputMaybe<Scalars['Boolean']>;
+  /**
+   * Whether users can pull changes from upstream when the branch is locked. Set to
+   * `true` to allow fork syncing. Set to `false` to prevent fork syncing.
+   */
+  lockAllowsFetchAndMerge?: InputMaybe<Scalars['Boolean']>;
+  /** Whether to set the branch as read-only. If this is true, users will not be able to push to the branch. */
+  lockBranch?: InputMaybe<Scalars['Boolean']>;
   /** The glob-like pattern used to determine matching branches. */
   pattern: Scalars['String'];
   /** A list of User, Team, or App IDs allowed to push to matching branches. */
@@ -24003,6 +24017,13 @@ export type UpdateBranchProtectionRuleInput = {
   dismissesStaleReviews?: InputMaybe<Scalars['Boolean']>;
   /** Can admins overwrite branch protection. */
   isAdminEnforced?: InputMaybe<Scalars['Boolean']>;
+  /**
+   * Whether users can pull changes from upstream when the branch is locked. Set to
+   * `true` to allow fork syncing. Set to `false` to prevent fork syncing.
+   */
+  lockAllowsFetchAndMerge?: InputMaybe<Scalars['Boolean']>;
+  /** Whether to set the branch as read-only. If this is true, users will not be able to push to the branch. */
+  lockBranch?: InputMaybe<Scalars['Boolean']>;
   /** The glob-like pattern used to determine matching branches. */
   pattern?: InputMaybe<Scalars['String']>;
   /** A list of User, Team, or App IDs allowed to push to matching branches. */
