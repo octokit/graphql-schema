@@ -2022,6 +2022,11 @@ type BranchProtectionRule implements Node {
   repository: Repository
 
   """
+  Whether someone other than the person who last pushed to the branch must approve this pull request
+  """
+  requireLastPushApproval: Boolean!
+
+  """
   Number of approving reviews required to update matching branches.
   """
   requiredApprovingReviewCount: Int
@@ -6022,6 +6027,11 @@ input CreateBranchProtectionRuleInput {
   The global relay id of the repository in which a new branch protection rule should be created in.
   """
   repositoryId: ID!
+
+  """
+  Whether someone other than the person who last pushed to the branch must approve this pull request
+  """
+  requireLastPushApproval: Boolean
 
   """
   Number of approving reviews required to update matching branches.
@@ -48169,6 +48179,11 @@ input UpdateBranchProtectionRuleInput {
   A list of User, Team, or App IDs allowed to push to matching branches.
   """
   pushActorIds: [ID!]
+
+  """
+  Whether someone other than the person who last pushed to the branch must approve this pull request
+  """
+  requireLastPushApproval: Boolean
 
   """
   Number of approving reviews required to update matching branches.
