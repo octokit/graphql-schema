@@ -15031,6 +15031,8 @@ export type ProjectV2FieldType =
   | 'TEXT'
   /** Title */
   | 'TITLE'
+  /** Tracked by */
+  | 'TRACKED_BY'
   /** Tracks */
   | 'TRACKS';
 
