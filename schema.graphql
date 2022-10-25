@@ -29300,6 +29300,11 @@ enum ProjectV2FieldType {
   TITLE
 
   """
+  Tracked by
+  """
+  TRACKED_BY
+
+  """
   Tracks
   """
   TRACKS
