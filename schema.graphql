@@ -38888,6 +38888,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   fundingLinks: [FundingLink!]!
 
   """
+  Are discussions available on this repository?
+  """
+  hasDiscussionsEnabled: Boolean!
+
+  """
   Indicates if the repository has issues feature enabled.
   """
   hasIssuesEnabled: Boolean!
@@ -50321,6 +50326,11 @@ input UpdateRepositoryInput {
   A new description for the repository. Pass an empty string to erase the existing description.
   """
   description: String
+
+  """
+  Indicates if the repository should have the discussions feature enabled.
+  """
+  hasDiscussionsEnabled: Boolean
 
   """
   Indicates if the repository should have the issues feature enabled.
