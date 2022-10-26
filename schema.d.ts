@@ -14486,6 +14486,8 @@ export type ProjectNextFieldType =
   | 'TEXT'
   /** Title */
   | 'TITLE'
+  /** Tracked by */
+  | 'TRACKED_BY'
   /** Tracks */
   | 'TRACKS';
 
