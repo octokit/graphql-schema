@@ -28281,6 +28281,11 @@ enum ProjectNextFieldType {
   TITLE @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
 
   """
+  Tracked by
+  """
+  TRACKED_BY @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
+
+  """
   Tracks
   """
   TRACKS @deprecated(reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC.")
@@ -38881,6 +38886,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   The funding links for this repository
   """
   fundingLinks: [FundingLink!]!
+
+  """
+  Are discussions available on this repository?
+  """
+  hasDiscussionsEnabled: Boolean!
 
   """
   Indicates if the repository has issues feature enabled.
@@ -50316,6 +50326,11 @@ input UpdateRepositoryInput {
   A new description for the repository. Pass an empty string to erase the existing description.
   """
   description: String
+
+  """
+  Indicates if the repository should have the discussions feature enabled.
+  """
+  hasDiscussionsEnabled: Boolean
 
   """
   Indicates if the repository should have the issues feature enabled.

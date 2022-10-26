@@ -14486,6 +14486,8 @@ export type ProjectNextFieldType =
   | 'TEXT'
   /** Title */
   | 'TITLE'
+  /** Tracked by */
+  | 'TRACKED_BY'
   /** Tracks */
   | 'TRACKS';
 
@@ -19411,6 +19413,8 @@ export type Repository = Node & PackageOwner & ProjectOwner & ProjectV2Recent & 
   forks: RepositoryConnection;
   /** The funding links for this repository */
   fundingLinks: Array<FundingLink>;
+  /** Are discussions available on this repository? */
+  hasDiscussionsEnabled: Scalars['Boolean'];
   /** Indicates if the repository has issues feature enabled. */
   hasIssuesEnabled: Scalars['Boolean'];
   /** Indicates if the repository has the Projects feature enabled. */
@@ -25174,6 +25178,8 @@ export type UpdateRepositoryInput = {
   clientMutationId?: InputMaybe<Scalars['String']>;
   /** A new description for the repository. Pass an empty string to erase the existing description. */
   description?: InputMaybe<Scalars['String']>;
+  /** Indicates if the repository should have the discussions feature enabled. */
+  hasDiscussionsEnabled?: InputMaybe<Scalars['Boolean']>;
   /** Indicates if the repository should have the issues feature enabled. */
   hasIssuesEnabled?: InputMaybe<Scalars['Boolean']>;
   /** Indicates if the repository should have the project boards feature enabled. */
