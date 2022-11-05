@@ -19483,7 +19483,7 @@ export type Repository = Node & PackageOwner & ProjectOwner & ProjectV2Recent & 
   forks: RepositoryConnection;
   /** The funding links for this repository */
   fundingLinks: Array<FundingLink>;
-  /** Are discussions available on this repository? */
+  /** Indicates if the repository has the Discussions feature enabled. */
   hasDiscussionsEnabled: Scalars['Boolean'];
   /** Indicates if the repository has issues feature enabled. */
   hasIssuesEnabled: Scalars['Boolean'];
@@ -20266,6 +20266,8 @@ export type RepositoryInfo = {
   descriptionHTML: Scalars['HTML'];
   /** Returns how many forks there are of this repository in the whole network. */
   forkCount: Scalars['Int'];
+  /** Indicates if the repository has the Discussions feature enabled. */
+  hasDiscussionsEnabled: Scalars['Boolean'];
   /** Indicates if the repository has issues feature enabled. */
   hasIssuesEnabled: Scalars['Boolean'];
   /** Indicates if the repository has the Projects feature enabled. */
