@@ -15124,6 +15124,12 @@ export type ProjectV2FieldValue = {
   text?: InputMaybe<Scalars['String']>;
 };
 
+/** Ways in which to filter lists of projects. */
+export type ProjectV2Filters = {
+  /** List project v2 filtered by the state given. */
+  state?: InputMaybe<ProjectV2State>;
+};
+
 /** An item within a Project. */
 export type ProjectV2Item = Node & {
   __typename?: 'ProjectV2Item';
@@ -15673,6 +15679,13 @@ export type ProjectV2SortByFieldEdge = {
   /** The item at the end of the edge. */
   node?: Maybe<ProjectV2SortByField>;
 };
+
+/** The possible states of a project v2. */
+export type ProjectV2State =
+  /** A project v2 that has been closed */
+  | 'CLOSED'
+  /** A project v2 that is still open */
+  | 'OPEN';
 
 /** A view within a ProjectV2. */
 export type ProjectV2View = Node & {
@@ -22857,9 +22870,11 @@ export type TeamProjectV2Args = {
 export type TeamProjectsV2Args = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
+  filterBy?: InputMaybe<ProjectV2Filters>;
   first?: InputMaybe<Scalars['Int']>;
   last?: InputMaybe<Scalars['Int']>;
   orderBy?: InputMaybe<ProjectV2Order>;
+  query?: InputMaybe<Scalars['String']>;
 };
 
 
