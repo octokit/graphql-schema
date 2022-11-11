@@ -29467,6 +29467,16 @@ input ProjectV2FieldValue {
 }
 
 """
+Ways in which to filter lists of projects.
+"""
+input ProjectV2Filters {
+  """
+  List project v2 filtered by the state given.
+  """
+  state: ProjectV2State
+}
+
+"""
 An item within a Project.
 """
 type ProjectV2Item implements Node {
@@ -30550,6 +30560,21 @@ type ProjectV2SortByFieldEdge {
   The item at the end of the edge.
   """
   node: ProjectV2SortByField
+}
+
+"""
+The possible states of a project v2.
+"""
+enum ProjectV2State {
+  """
+  A project v2 that has been closed
+  """
+  CLOSED
+
+  """
+  A project v2 that is still open
+  """
+  OPEN
 }
 
 """
@@ -45616,6 +45641,11 @@ type Team implements MemberStatusable & Node & Subscribable {
     before: String
 
     """
+    Filtering options for projects returned from this connection
+    """
+    filterBy: ProjectV2Filters = {}
+
+    """
     Returns the first _n_ elements from the list.
     """
     first: Int
@@ -45629,6 +45659,11 @@ type Team implements MemberStatusable & Node & Subscribable {
     How to order the returned projects.
     """
     orderBy: ProjectV2Order = {field: NUMBER, direction: DESC}
+
+    """
+    The query to search projects by.
+    """
+    query: String = ""
   ): ProjectV2Connection!
 
   """
