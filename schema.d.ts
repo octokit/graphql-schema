@@ -19682,7 +19682,10 @@ export type Repository = Node & PackageOwner & ProjectOwner & ProjectV2Recent & 
   squashMergeCommitMessage: SquashMergeCommitMessage;
   /** How the default commit title will be generated when squash merging a pull request. */
   squashMergeCommitTitle: SquashMergeCommitTitle;
-  /** Whether a squash merge commit can use the pull request title as default. */
+  /**
+   * Whether a squash merge commit can use the pull request title as default.
+   * @deprecated `squashPrTitleUsedAsDefault` will be removed. Use `Repository.squashMergeCommitTitle` instead. Removal on 2023-04-01 UTC.
+   */
   squashPrTitleUsedAsDefault: Scalars['Boolean'];
   /** The SSH URL to clone this repository */
   sshUrl: Scalars['GitSSHRemote'];
