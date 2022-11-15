@@ -45213,9 +45213,19 @@ type Submodule {
   name: String!
 
   """
+  The name of the submodule in .gitmodules (Base64-encoded)
+  """
+  nameRaw: Base64String!
+
+  """
   The path in the superproject that this submodule is located in
   """
   path: String!
+
+  """
+  The path in the superproject that this submodule is located in (Base64-encoded)
+  """
+  pathRaw: Base64String!
 
   """
   The commit revision of the subproject repository being tracked by the submodule
@@ -47756,6 +47766,11 @@ type TreeEntry {
   name: String!
 
   """
+  Entry file name. (Base64-encoded)
+  """
+  nameRaw: Base64String!
+
+  """
   Entry file object.
   """
   object: GitObject
@@ -47769,6 +47784,11 @@ type TreeEntry {
   The full path of the file.
   """
   path: String
+
+  """
+  The full path of the file. (Base64-encoded)
+  """
+  pathRaw: Base64String
 
   """
   The Repository the tree entry belongs to
