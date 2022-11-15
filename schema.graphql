@@ -25457,6 +25457,13 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
     last: Int
 
     """
+    Filter sponsorships returned to those for the specified maintainers. That
+    is, the recipient of the sponsorship is a user or organization with one of
+    the given logins.
+    """
+    maintainerLogins: [String!]
+
+    """
     Ordering options for sponsorships returned from this connection. If left
     blank, the sponsorships will be ordered based on relevancy to the viewer.
     """
@@ -43706,6 +43713,13 @@ interface Sponsorable {
     last: Int
 
     """
+    Filter sponsorships returned to those for the specified maintainers. That
+    is, the recipient of the sponsorship is a user or organization with one of
+    the given logins.
+    """
+    maintainerLogins: [String!]
+
+    """
     Ordering options for sponsorships returned from this connection. If left
     blank, the sponsorships will be ordered based on relevancy to the viewer.
     """
@@ -52359,6 +52373,13 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectNextOwn
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Filter sponsorships returned to those for the specified maintainers. That
+    is, the recipient of the sponsorship is a user or organization with one of
+    the given logins.
+    """
+    maintainerLogins: [String!]
 
     """
     Ordering options for sponsorships returned from this connection. If left
