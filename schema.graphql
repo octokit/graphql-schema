@@ -44031,6 +44031,13 @@ type SponsorsListing implements Node {
   billingCountryOrRegion: String
 
   """
+  The email address used by GitHub to contact the sponsorable about their GitHub
+  Sponsors profile. Will only return a value when queried by the maintainer
+  themselves, or by an admin of the sponsorable organization.
+  """
+  contactEmailAddress: String
+
+  """
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
