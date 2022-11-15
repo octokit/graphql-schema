@@ -6731,6 +6731,11 @@ input CreateProjectV2Input {
   repositoryId: ID
 
   """
+  The team to link the project to. The team will be granted read permissions.
+  """
+  teamId: ID
+
+  """
   The title of the project.
   """
   title: String!
