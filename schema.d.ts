@@ -3459,6 +3459,8 @@ export type CreateProjectV2Input = {
   ownerId: Scalars['ID'];
   /** The repository to link the project to. */
   repositoryId?: InputMaybe<Scalars['ID']>;
+  /** The team to link the project to. The team will be granted read permissions. */
+  teamId?: InputMaybe<Scalars['ID']>;
   /** The title of the project. */
   title: Scalars['String'];
 };
@@ -13092,6 +13094,7 @@ export type OrganizationSponsorshipsAsSponsorArgs = {
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
   last?: InputMaybe<Scalars['Int']>;
+  maintainerLogins?: InputMaybe<Array<Scalars['String']>>;
   orderBy?: InputMaybe<SponsorshipOrder>;
 };
 
@@ -21888,6 +21891,7 @@ export type SponsorableSponsorshipsAsSponsorArgs = {
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
   last?: InputMaybe<Scalars['Int']>;
+  maintainerLogins?: InputMaybe<Array<Scalars['String']>>;
   orderBy?: InputMaybe<SponsorshipOrder>;
 };
 
@@ -22044,6 +22048,12 @@ export type SponsorsListing = Node & {
    * by an admin of the sponsorable organization.
    */
   billingCountryOrRegion?: Maybe<Scalars['String']>;
+  /**
+   * The email address used by GitHub to contact the sponsorable about their GitHub
+   * Sponsors profile. Will only return a value when queried by the maintainer
+   * themselves, or by an admin of the sponsorable organization.
+   */
+  contactEmailAddress?: Maybe<Scalars['String']>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** The HTTP path for the Sponsors dashboard for this Sponsors listing. */
@@ -22660,8 +22670,12 @@ export type Submodule = {
   gitUrl: Scalars['URI'];
   /** The name of the submodule in .gitmodules */
   name: Scalars['String'];
+  /** The name of the submodule in .gitmodules (Base64-encoded) */
+  nameRaw: Scalars['Base64String'];
   /** The path in the superproject that this submodule is located in */
   path: Scalars['String'];
+  /** The path in the superproject that this submodule is located in (Base64-encoded) */
+  pathRaw: Scalars['Base64String'];
   /** The commit revision of the subproject repository being tracked by the submodule */
   subprojectCommitOid?: Maybe<Scalars['GitObjectID']>;
 };
@@ -23810,12 +23824,16 @@ export type TreeEntry = {
   mode: Scalars['Int'];
   /** Entry file name. */
   name: Scalars['String'];
+  /** Entry file name. (Base64-encoded) */
+  nameRaw: Scalars['Base64String'];
   /** Entry file object. */
   object?: Maybe<GitObject>;
   /** Entry file Git object ID. */
   oid: Scalars['GitObjectID'];
   /** The full path of the file. */
   path?: Maybe<Scalars['String']>;
+  /** The full path of the file. (Base64-encoded) */
+  pathRaw?: Maybe<Scalars['Base64String']>;
   /** The Repository the tree entry belongs to */
   repository: Repository;
   /** Entry byte size */
@@ -26156,6 +26174,7 @@ export type UserSponsorshipsAsSponsorArgs = {
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
   last?: InputMaybe<Scalars['Int']>;
+  maintainerLogins?: InputMaybe<Array<Scalars['String']>>;
   orderBy?: InputMaybe<SponsorshipOrder>;
 };
 
