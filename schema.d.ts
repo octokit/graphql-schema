@@ -20530,7 +20530,9 @@ export type RepositoryLockReason =
   /** The repository is locked due to a move. */
   | 'MOVING'
   /** The repository is locked due to a rename. */
-  | 'RENAME';
+  | 'RENAME'
+  /** The repository is locked due to a trade controls related reason. */
+  | 'TRADE_RESTRICTION';
 
 /** An Octoshift repository migration. */
 export type RepositoryMigration = Migration & Node & {
