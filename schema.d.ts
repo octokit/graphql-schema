@@ -16258,6 +16258,8 @@ export type PullRequest = Assignable & Closable & Comment & Labelable & Lockable
   title: Scalars['String'];
   /** Identifies the pull request title rendered to HTML. */
   titleHTML: Scalars['HTML'];
+  /** Returns a count of how many comments this pull request has received. */
+  totalCommentsCount?: Maybe<Scalars['Int']>;
   /** Identifies the date and time when the object was last updated. */
   updatedAt: Scalars['DateTime'];
   /** The HTTP URL for this pull request. */
