@@ -44241,6 +44241,11 @@ type SponsorsListing implements Node {
 }
 
 """
+A record that can be featured on a GitHub Sponsors profile.
+"""
+union SponsorsListingFeatureableItem = Repository | User
+
+"""
 A record that is promoted on a GitHub Sponsors profile.
 """
 type SponsorsListingFeaturedItem implements Node {
@@ -44255,6 +44260,11 @@ type SponsorsListingFeaturedItem implements Node {
   from their GitHub profile page.
   """
   description: String
+
+  """
+  The record that is featured on the GitHub Sponsors profile.
+  """
+  featureable: SponsorsListingFeatureableItem!
   id: ID!
 
   """
