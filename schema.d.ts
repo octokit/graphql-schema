@@ -22154,6 +22154,9 @@ export type SponsorsListingTiersArgs = {
   orderBy?: InputMaybe<SponsorsTierOrder>;
 };
 
+/** A record that can be featured on a GitHub Sponsors profile. */
+export type SponsorsListingFeatureableItem = Repository | User;
+
 /** A record that is promoted on a GitHub Sponsors profile. */
 export type SponsorsListingFeaturedItem = Node & {
   __typename?: 'SponsorsListingFeaturedItem';
@@ -22165,6 +22168,8 @@ export type SponsorsListingFeaturedItem = Node & {
    * from their GitHub profile page.
    */
   description?: Maybe<Scalars['String']>;
+  /** The record that is featured on the GitHub Sponsors profile. */
+  featureable: SponsorsListingFeatureableItem;
   id: Scalars['ID'];
   /**
    * The position of this featured item on the GitHub Sponsors profile with a lower
