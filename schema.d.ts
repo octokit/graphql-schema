@@ -22107,6 +22107,11 @@ export type SponsorsListing = Node & {
   dashboardUrl: Scalars['URI'];
   /** The records featured on the GitHub Sponsors profile. */
   featuredItems: Array<SponsorsListingFeaturedItem>;
+  /**
+   * The fiscal host used for payments, if any. Will only return a value when
+   * queried by the maintainer themselves, or by an admin of the sponsorable organization.
+   */
+  fiscalHost?: Maybe<Organization>;
   /** The full description of the listing. */
   fullDescription: Scalars['String'];
   /** The full description of the listing rendered to HTML. */

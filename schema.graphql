@@ -44152,6 +44152,12 @@ type SponsorsListing implements Node {
   ): [SponsorsListingFeaturedItem!]!
 
   """
+  The fiscal host used for payments, if any. Will only return a value when
+  queried by the maintainer themselves, or by an admin of the sponsorable organization.
+  """
+  fiscalHost: Organization
+
+  """
   The full description of the listing.
   """
   fullDescription: String!
