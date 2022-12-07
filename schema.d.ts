@@ -26627,7 +26627,7 @@ export type WorkflowRunsArgs = {
 };
 
 /** A workflow run. */
-export type WorkflowRun = Node & {
+export type WorkflowRun = Node & UniformResourceLocatable & {
   __typename?: 'WorkflowRun';
   /** The check suite this workflow run belongs to. */
   checkSuite: CheckSuite;
