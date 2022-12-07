@@ -26620,12 +26620,12 @@ enum PackageType {
   """
   An npm package.
   """
-  NPM
+  NPM @deprecated(reason: "NPM will be removed from this enum as this type will be migrated to only be used by the Packages REST API. Removal on 2022-11-21 UTC.")
 
   """
   A nuget package.
   """
-  NUGET
+  NUGET @deprecated(reason: "NUGET will be removed from this enum as this type will be migrated to only be used by the Packages REST API. Removal on 2022-11-21 UTC.")
 
   """
   A python package.
@@ -53374,7 +53374,7 @@ type Workflow implements Node {
 """
 A workflow run.
 """
-type WorkflowRun implements Node {
+type WorkflowRun implements Node & UniformResourceLocatable {
   """
   The check suite this workflow run belongs to.
   """
