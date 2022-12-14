@@ -3544,6 +3544,8 @@ export type CreatePullRequestInput = {
    * in the same network, namespace `head_ref_name` with a user like this: `username:branch`.
    */
   headRefName: Scalars['String'];
+  /** The Node ID of the head repository. */
+  headRepositoryId?: InputMaybe<Scalars['ID']>;
   /** Indicates whether maintainers can modify the pull request. */
   maintainerCanModify?: InputMaybe<Scalars['Boolean']>;
   /** The Node ID of the repository. */
