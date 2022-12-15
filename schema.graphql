@@ -39457,6 +39457,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   hasProjectsEnabled: Boolean!
 
   """
+  Whether vulnerability alerts are enabled for the repository.
+  """
+  hasVulnerabilityAlertsEnabled: Boolean!
+
+  """
   Indicates if the repository has wiki feature enabled.
   """
   hasWikiEnabled: Boolean!
