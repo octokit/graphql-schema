@@ -19741,6 +19741,8 @@ export type Repository = Node & PackageOwner & ProjectOwner & ProjectV2Recent & 
   hasIssuesEnabled: Scalars['Boolean'];
   /** Indicates if the repository has the Projects feature enabled. */
   hasProjectsEnabled: Scalars['Boolean'];
+  /** Whether vulnerability alerts are enabled for the repository. */
+  hasVulnerabilityAlertsEnabled: Scalars['Boolean'];
   /** Indicates if the repository has wiki feature enabled. */
   hasWikiEnabled: Scalars['Boolean'];
   /** The repository's URL. */
