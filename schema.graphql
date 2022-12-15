@@ -26872,7 +26872,7 @@ enum PackageType {
   """
   A maven package.
   """
-  MAVEN
+  MAVEN @deprecated(reason: "MAVEN will be removed from this enum as this type will be migrated to only be used by the Packages REST API. Removal on 2023-02-10 UTC.")
 
   """
   An npm package.
@@ -26892,7 +26892,7 @@ enum PackageType {
   """
   A rubygems package.
   """
-  RUBYGEMS
+  RUBYGEMS @deprecated(reason: "RUBYGEMS will be removed from this enum as this type will be migrated to only be used by the Packages REST API. Removal on 2022-12-28 UTC.")
 }
 
 """
