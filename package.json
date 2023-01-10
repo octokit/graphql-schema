@@ -41,6 +41,17 @@
   "repository": "github:octokit/graphql-schema",
   "types": "index.d.ts",
   "sideEffects": false,
+  "release": {
+    "branches": [
+      "+([0-9]).x",
+      "main",
+      "next",
+      {
+        "name": "beta",
+        "prerelease": true
+      }
+    ]
+  },
   "codegen": {
     "overwrite": true,
     "schema": "schema.graphql",
