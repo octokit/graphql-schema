@@ -32,6 +32,6 @@ jobs:
         uses: >-
           github/codeql-action/autobuild@86f3159a697a097a813ad9bfa0002412d97690a4
         env:
-          CODEQL_ACTION_RUN_MODE: actions
+          CODEQL_ACTION_RUN_MODE: action
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
