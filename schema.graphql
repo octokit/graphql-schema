@@ -28250,19 +28250,11 @@ enum ProjectOrderField {
   """
   CREATED_AT
 
-"""
-Properties by which project connections can be ordered.
-"""
-enum ProjectOrderField {
   """
   Order projects by name
   """
   NAME
 
-"""
-Properties by which project connections can be ordered.
-"""
-enum ProjectOrderField {
   """
   Order projects by update time
   """
