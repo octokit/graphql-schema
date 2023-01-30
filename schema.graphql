@@ -11183,6 +11183,51 @@ enum EnterpriseEnabledSettingValue {
 }
 
 """
+The connection type for OrganizationInvitation.
+"""
+type EnterpriseFailedInvitationConnection {
+  """
+  A list of edges.
+  """
+  edges: [EnterpriseFailedInvitationEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [OrganizationInvitation]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+
+  """
+  Identifies the total count of unique users in the connection.
+  """
+  totalUniqueUserCount: Int!
+}
+
+"""
+A failed invitation to be a member in an enterprise organization.
+"""
+type EnterpriseFailedInvitationEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: OrganizationInvitation
+}
+
+"""
 An identity provider configured to provision identities for an enterprise.
 """
 type EnterpriseIdentityProvider implements Node {
@@ -11743,6 +11788,36 @@ type EnterpriseOwnerInfo {
   ): EnterpriseServerInstallationConnection!
 
   """
+  A list of failed invitations in the enterprise.
+  """
+  failedInvitations(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    The search string to look for.
+    """
+    query: String
+  ): EnterpriseFailedInvitationConnection!
+
+  """
   The setting value for whether the enterprise has an IP allow list enabled.
   """
   ipAllowListEnabledSetting: IpAllowListEnabledSettingValue!
@@ -12291,6 +12366,11 @@ type EnterpriseOwnerInfo {
     Returns the first _n_ elements from the list.
     """
     first: Int
+
+    """
+    Only return invitations matching this invitation source
+    """
+    invitationSource: OrganizationInvitationSource
 
     """
     Returns the last _n_ elements from the list.
@@ -26000,6 +26080,11 @@ type OrganizationInvitation implements Node {
   id: ID!
 
   """
+  The source of the invitation.
+  """
+  invitationSource: OrganizationInvitationSource!
+
+  """
   The type of invitation that was sent (e.g. email, user).
   """
   invitationType: OrganizationInvitationType!
@@ -26088,6 +26173,26 @@ enum OrganizationInvitationRole {
   The user's previous role will be reinstated.
   """
   REINSTATE
+}
+
+"""
+The possible organization invitation sources.
+"""
+enum OrganizationInvitationSource {
+  """
+  The invitation was created from the web interface or from API
+  """
+  MEMBER
+
+  """
+  The invitation was created from SCIM
+  """
+  SCIM
+
+  """
+  The invitation was sent before this feature was added
+  """
+  UNKNOWN
 }
 
 """
