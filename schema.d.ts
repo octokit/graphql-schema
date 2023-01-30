@@ -5700,6 +5700,30 @@ export type EnterpriseEnabledSettingValue =
   /** There is no policy set for organizations in the enterprise. */
   | 'NO_POLICY';
 
+/** The connection type for OrganizationInvitation. */
+export type EnterpriseFailedInvitationConnection = {
+  __typename?: 'EnterpriseFailedInvitationConnection';
+  /** A list of edges. */
+  edges?: Maybe<Array<Maybe<EnterpriseFailedInvitationEdge>>>;
+  /** A list of nodes. */
+  nodes?: Maybe<Array<Maybe<OrganizationInvitation>>>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** Identifies the total count of items in the connection. */
+  totalCount: Scalars['Int'];
+  /** Identifies the total count of unique users in the connection. */
+  totalUniqueUserCount: Scalars['Int'];
+};
+
+/** A failed invitation to be a member in an enterprise organization. */
+export type EnterpriseFailedInvitationEdge = {
+  __typename?: 'EnterpriseFailedInvitationEdge';
+  /** A cursor for use in pagination. */
+  cursor: Scalars['String'];
+  /** The item at the end of the edge. */
+  node?: Maybe<OrganizationInvitation>;
+};
+
 /** An identity provider configured to provision identities for an enterprise. */
 export type EnterpriseIdentityProvider = Node & {
   __typename?: 'EnterpriseIdentityProvider';
@@ -5875,6 +5899,8 @@ export type EnterpriseOwnerInfo = {
   domains: VerifiableDomainConnection;
   /** Enterprise Server installations owned by the enterprise. */
   enterpriseServerInstallations: EnterpriseServerInstallationConnection;
+  /** A list of failed invitations in the enterprise. */
+  failedInvitations: EnterpriseFailedInvitationConnection;
   /** The setting value for whether the enterprise has an IP allow list enabled. */
   ipAllowListEnabledSetting: IpAllowListEnabledSettingValue;
   /** The IP addresses that are allowed to access resources owned by the enterprise. */
@@ -6033,6 +6059,16 @@ export type EnterpriseOwnerInfoEnterpriseServerInstallationsArgs = {
 
 
 /** Enterprise information only visible to enterprise owners. */
+export type EnterpriseOwnerInfoFailedInvitationsArgs = {
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
+  query?: InputMaybe<Scalars['String']>;
+};
+
+
+/** Enterprise information only visible to enterprise owners. */
 export type EnterpriseOwnerInfoIpAllowListEntriesArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -6173,6 +6209,7 @@ export type EnterpriseOwnerInfoPendingMemberInvitationsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
+  invitationSource?: InputMaybe<OrganizationInvitationSource>;
   last?: InputMaybe<Scalars['Int']>;
   organizationLogins?: InputMaybe<Array<Scalars['String']>>;
   query?: InputMaybe<Scalars['String']>;
@@ -13262,6 +13299,8 @@ export type OrganizationInvitation = Node & {
   /** The email address of the user invited to the organization. */
   email?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
+  /** The source of the invitation. */
+  invitationSource: OrganizationInvitationSource;
   /** The type of invitation that was sent (e.g. email, user). */
   invitationType: OrganizationInvitationType;
   /** The user who was invited to the organization. */
@@ -13306,6 +13345,15 @@ export type OrganizationInvitationRole =
   | 'DIRECT_MEMBER'
   /** The user's previous role will be reinstated. */
   | 'REINSTATE';
+
+/** The possible organization invitation sources. */
+export type OrganizationInvitationSource =
+  /** The invitation was created from the web interface or from API */
+  | 'MEMBER'
+  /** The invitation was created from SCIM */
+  | 'SCIM'
+  /** The invitation was sent before this feature was added */
+  | 'UNKNOWN';
 
 /** The possible organization invitation types. */
 export type OrganizationInvitationType =
