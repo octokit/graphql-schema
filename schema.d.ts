@@ -533,6 +533,16 @@ export type AddedToProjectEvent = Node & {
   id: Scalars['ID'];
 };
 
+/** Represents an announcement banner. */
+export type AnnouncementBanner = {
+  /** The text of the announcement */
+  announcement?: Maybe<Scalars['String']>;
+  /** The expiration date of the announcement, if any */
+  announcementExpiresAt?: Maybe<Scalars['DateTime']>;
+  /** Whether the announcement can be dismissed by the user */
+  announcementUserDismissible?: Maybe<Scalars['Boolean']>;
+};
+
 /** A GitHub App. */
 export type App = Node & {
   __typename?: 'App';
@@ -5451,8 +5461,14 @@ export type EnablePullRequestAutoMergePayload = {
 };
 
 /** An account to manage multiple organizations with consolidated policy and billing. */
-export type Enterprise = Node & {
+export type Enterprise = AnnouncementBanner & Node & {
   __typename?: 'Enterprise';
+  /** The text of the announcement */
+  announcement?: Maybe<Scalars['String']>;
+  /** The expiration date of the announcement, if any */
+  announcementExpiresAt?: Maybe<Scalars['DateTime']>;
+  /** Whether the announcement can be dismissed by the user */
+  announcementUserDismissible?: Maybe<Scalars['Boolean']>;
   /** A URL pointing to the enterprise's public avatar. */
   avatarUrl: Scalars['URI'];
   /** Enterprise billing information visible to enterprise billing managers. */
@@ -12595,8 +12611,14 @@ export type OrgUpdateMemberRepositoryInvitationPermissionAuditEntry = AuditEntry
 };
 
 /** An account on GitHub, with one or more owners, that has repositories, members and teams. */
-export type Organization = Actor & MemberStatusable & Node & PackageOwner & ProfileOwner & ProjectOwner & ProjectV2Owner & ProjectV2Recent & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & Sponsorable & UniformResourceLocatable & {
+export type Organization = Actor & AnnouncementBanner & MemberStatusable & Node & PackageOwner & ProfileOwner & ProjectOwner & ProjectV2Owner & ProjectV2Recent & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & Sponsorable & UniformResourceLocatable & {
   __typename?: 'Organization';
+  /** The text of the announcement */
+  announcement?: Maybe<Scalars['String']>;
+  /** The expiration date of the announcement, if any */
+  announcementExpiresAt?: Maybe<Scalars['DateTime']>;
+  /** Whether the announcement can be dismissed by the user */
+  announcementUserDismissible?: Maybe<Scalars['Boolean']>;
   /** Determine if this repository owner has any items that can be pinned to their profile. */
   anyPinnableItems: Scalars['Boolean'];
   /** Audit log entries of the organization */
