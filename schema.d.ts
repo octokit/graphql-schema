@@ -15580,6 +15580,8 @@ export type ProjectV2ViewEdge = {
 export type ProjectV2ViewLayout =
   /** Board layout */
   | 'BOARD_LAYOUT'
+  /** Roadmap layout */
+  | 'ROADMAP_LAYOUT'
   /** Table layout */
   | 'TABLE_LAYOUT';
 
