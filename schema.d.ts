@@ -5527,6 +5527,8 @@ export type EnablePullRequestAutoMergeInput = {
    * value for commit headline is ignored.
    */
   commitHeadline?: InputMaybe<Scalars['String']>;
+  /** The expected head OID of the pull request. */
+  expectedHeadOid?: InputMaybe<Scalars['GitObjectID']>;
   /**
    * The merge method to use. If omitted, defaults to `MERGE`. NOTE: when merging
    * with a merge queue any input value for merge method is ignored.
