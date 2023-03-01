@@ -26846,6 +26846,8 @@ export type WorkflowRun = Node & UniformResourceLocatable & {
   databaseId?: Maybe<Scalars['Int']>;
   /** The log of deployment reviews */
   deploymentReviews: DeploymentReviewConnection;
+  /** The event that triggered the workflow run */
+  event: Scalars['String'];
   id: Scalars['ID'];
   /** The pending deployment requests of all check runs in this workflow run */
   pendingDeploymentRequests: DeploymentRequestConnection;
