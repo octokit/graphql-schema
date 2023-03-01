@@ -54598,6 +54598,11 @@ type WorkflowRun implements Node & UniformResourceLocatable {
     """
     last: Int
   ): DeploymentReviewConnection!
+
+  """
+  The event that triggered the workflow run
+  """
+  event: String!
   id: ID!
 
   """
