@@ -21533,6 +21533,62 @@ export type SmimeSignature = GitSignature & {
   wasSignedByGitHub: Scalars['Boolean'];
 };
 
+/** Social media profile associated with a user. */
+export type SocialAccount = {
+  __typename?: 'SocialAccount';
+  /** Name of the social media account as it appears on the profile. */
+  displayName: Scalars['String'];
+  /** Software or company that hosts the social media account. */
+  provider: SocialAccountProvider;
+  /** URL of the social media account. */
+  url: Scalars['URI'];
+};
+
+/** The connection type for SocialAccount. */
+export type SocialAccountConnection = {
+  __typename?: 'SocialAccountConnection';
+  /** A list of edges. */
+  edges?: Maybe<Array<Maybe<SocialAccountEdge>>>;
+  /** A list of nodes. */
+  nodes?: Maybe<Array<Maybe<SocialAccount>>>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** Identifies the total count of items in the connection. */
+  totalCount: Scalars['Int'];
+};
+
+/** An edge in a connection. */
+export type SocialAccountEdge = {
+  __typename?: 'SocialAccountEdge';
+  /** A cursor for use in pagination. */
+  cursor: Scalars['String'];
+  /** The item at the end of the edge. */
+  node?: Maybe<SocialAccount>;
+};
+
+/** Software or company that hosts social media accounts. */
+export type SocialAccountProvider =
+  /** Social media and networking website. */
+  | 'FACEBOOK'
+  /** Catch-all for social media providers that do not yet have specific handling. */
+  | 'GENERIC'
+  /** Fork of Mastodon with a greater focus on local posting. */
+  | 'HOMETOWN'
+  /** Social media website with a focus on photo and video sharing. */
+  | 'INSTAGRAM'
+  /** Professional networking website. */
+  | 'LINKEDIN'
+  /** Open-source federated microblogging service. */
+  | 'MASTODON'
+  /** Social news aggregation and discussion website. */
+  | 'REDDIT'
+  /** Live-streaming service. */
+  | 'TWITCH'
+  /** Microblogging website. */
+  | 'TWITTER'
+  /** Online video platform. */
+  | 'YOUTUBE';
+
 /** Entities that can sponsor others via GitHub Sponsors */
 export type Sponsor = Organization | User;
 
@@ -26051,6 +26107,8 @@ export type User = Actor & Node & PackageOwner & ProfileOwner & ProjectOwner & P
   resourcePath: Scalars['URI'];
   /** Replies this user has saved */
   savedReplies?: Maybe<SavedReplyConnection>;
+  /** The user's social media accounts, ordered as they appear on the user's profile. */
+  socialAccounts: SocialAccountConnection;
   /** List of users and organizations this entity is sponsoring. */
   sponsoring: SponsorConnection;
   /** List of sponsors for this user or organization. */
@@ -26408,6 +26466,15 @@ export type UserSavedRepliesArgs = {
   first?: InputMaybe<Scalars['Int']>;
   last?: InputMaybe<Scalars['Int']>;
   orderBy?: InputMaybe<SavedReplyOrder>;
+};
+
+
+/** A user is an individual's account on GitHub that owns repositories and can make new content. */
+export type UserSocialAccountsArgs = {
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
 };
 
 
