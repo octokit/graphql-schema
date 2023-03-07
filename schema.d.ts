@@ -14667,6 +14667,8 @@ export type ProjectV2 = Closable & Node & Updatable & {
   shortDescription?: Maybe<Scalars['String']>;
   /** The teams the project is linked to. */
   teams: TeamConnection;
+  /** Returns true if this project is a template. */
+  template: Scalars['Boolean'];
   /** The project's name. */
   title: Scalars['String'];
   /** Identifies the date and time when the object was last updated. */
