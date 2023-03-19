@@ -141,7 +141,7 @@ export type AddAssigneesToAssignableInput = {
 export type AddAssigneesToAssignablePayload = {
   __typename?: 'AddAssigneesToAssignablePayload';
   /** The item that was assigned. */
-  assignable?: Maybe<Assignable>;
+  assignable?: Maybe<Issue | PullRequest>;
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>;
 };
@@ -164,7 +164,7 @@ export type AddCommentPayload = {
   /** The edge from the subject's comment connection. */
   commentEdge?: Maybe<IssueCommentEdge>;
   /** The subject */
-  subject?: Maybe<Node>;
+  subject?: Maybe<AddedToProjectEvent | App | AssignedEvent | AutoMergeDisabledEvent | AutoMergeEnabledEvent | AutoRebaseEnabledEvent | AutoSquashEnabledEvent | AutomaticBaseChangeFailedEvent | AutomaticBaseChangeSucceededEvent | BaseRefChangedEvent | BaseRefDeletedEvent | BaseRefForcePushedEvent | Blob | Bot | BranchProtectionRule | BypassForcePushAllowance | BypassPullRequestAllowance | Cwe | CheckRun | CheckSuite | ClosedEvent | CodeOfConduct | CommentDeletedEvent | Commit | CommitComment | CommitCommentThread | Comparison | ConnectedEvent | ConvertToDraftEvent | ConvertedNoteToIssueEvent | ConvertedToDiscussionEvent | CrossReferencedEvent | DemilestonedEvent | DeployKey | DeployedEvent | Deployment | DeploymentEnvironmentChangedEvent | DeploymentReview | DeploymentStatus | DisconnectedEvent | Discussion | DiscussionCategory | DiscussionComment | DiscussionPoll | DiscussionPollOption | DraftIssue | Enterprise | EnterpriseAdministratorInvitation | EnterpriseIdentityProvider | EnterpriseRepositoryInfo | EnterpriseServerInstallation | EnterpriseServerUserAccount | EnterpriseServerUserAccountEmail | EnterpriseServerUserAccountsUpload | EnterpriseUserAccount | Environment | ExternalIdentity | Gist | GistComment | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IpAllowListEntry | Issue | IssueComment | Label | LabeledEvent | Language | License | LinkedBranch | LockedEvent | Mannequin | MarkedAsDuplicateEvent | MarketplaceCategory | MarketplaceListing | MembersCanDeleteReposClearAuditEntry | MembersCanDeleteReposDisableAuditEntry | MembersCanDeleteReposEnableAuditEntry | MentionedEvent | MergedEvent | MigrationSource | Milestone | MilestonedEvent | MovedColumnsInProjectEvent | OidcProvider | OauthApplicationCreateAuditEntry | OrgAddBillingManagerAuditEntry | OrgAddMemberAuditEntry | OrgBlockUserAuditEntry | OrgConfigDisableCollaboratorsOnlyAuditEntry | OrgConfigEnableCollaboratorsOnlyAuditEntry | OrgCreateAuditEntry | OrgDisableOauthAppRestrictionsAuditEntry | OrgDisableSamlAuditEntry | OrgDisableTwoFactorRequirementAuditEntry | OrgEnableOauthAppRestrictionsAuditEntry | OrgEnableSamlAuditEntry | OrgEnableTwoFactorRequirementAuditEntry | OrgInviteMemberAuditEntry | OrgInviteToBusinessAuditEntry | OrgOauthAppAccessApprovedAuditEntry | OrgOauthAppAccessDeniedAuditEntry | OrgOauthAppAccessRequestedAuditEntry | OrgRemoveBillingManagerAuditEntry | OrgRemoveMemberAuditEntry | OrgRemoveOutsideCollaboratorAuditEntry | OrgRestoreMemberAuditEntry | OrgUnblockUserAuditEntry | OrgUpdateDefaultRepositoryPermissionAuditEntry | OrgUpdateMemberAuditEntry | OrgUpdateMemberRepositoryCreationPermissionAuditEntry | OrgUpdateMemberRepositoryInvitationPermissionAuditEntry | Organization | OrganizationIdentityProvider | OrganizationInvitation | OrganizationMigration | Package | PackageFile | PackageTag | PackageVersion | PinnedDiscussion | PinnedEvent | PinnedIssue | PrivateRepositoryForkingDisableAuditEntry | PrivateRepositoryForkingEnableAuditEntry | Project | ProjectCard | ProjectColumn | ProjectV2 | ProjectV2Field | ProjectV2Item | ProjectV2ItemFieldDateValue | ProjectV2ItemFieldIterationValue | ProjectV2ItemFieldNumberValue | ProjectV2ItemFieldSingleSelectValue | ProjectV2ItemFieldTextValue | ProjectV2IterationField | ProjectV2SingleSelectField | ProjectV2View | ProjectV2Workflow | PublicKey | PullRequest | PullRequestCommit | PullRequestCommitCommentThread | PullRequestReview | PullRequestReviewComment | PullRequestReviewThread | PullRequestThread | Push | PushAllowance | Reaction | ReadyForReviewEvent | Ref | ReferencedEvent | Release | ReleaseAsset | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | RepoAccessAuditEntry | RepoAddMemberAuditEntry | RepoAddTopicAuditEntry | RepoArchivedAuditEntry | RepoChangeMergeSettingAuditEntry | RepoConfigDisableAnonymousGitAccessAuditEntry | RepoConfigDisableCollaboratorsOnlyAuditEntry | RepoConfigDisableContributorsOnlyAuditEntry | RepoConfigDisableSockpuppetDisallowedAuditEntry | RepoConfigEnableAnonymousGitAccessAuditEntry | RepoConfigEnableCollaboratorsOnlyAuditEntry | RepoConfigEnableContributorsOnlyAuditEntry | RepoConfigEnableSockpuppetDisallowedAuditEntry | RepoConfigLockAnonymousGitAccessAuditEntry | RepoConfigUnlockAnonymousGitAccessAuditEntry | RepoCreateAuditEntry | RepoDestroyAuditEntry | RepoRemoveMemberAuditEntry | RepoRemoveTopicAuditEntry | Repository | RepositoryInvitation | RepositoryMigration | RepositoryTopic | RepositoryVisibilityChangeDisableAuditEntry | RepositoryVisibilityChangeEnableAuditEntry | RepositoryVulnerabilityAlert | ReviewDismissalAllowance | ReviewDismissedEvent | ReviewRequest | ReviewRequestRemovedEvent | ReviewRequestedEvent | SavedReply | SecurityAdvisory | SponsorsActivity | SponsorsListing | SponsorsListingFeaturedItem | SponsorsTier | Sponsorship | SponsorshipNewsletter | Status | StatusCheckRollup | StatusContext | SubscribedEvent | Tag | Team | TeamAddMemberAuditEntry | TeamAddRepositoryAuditEntry | TeamChangeParentTeamAuditEntry | TeamDiscussion | TeamDiscussionComment | TeamRemoveMemberAuditEntry | TeamRemoveRepositoryAuditEntry | Topic | TransferredEvent | Tree | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | User | UserBlockedEvent | UserContentEdit | UserStatus | VerifiableDomain | Workflow | WorkflowRun>;
   /** The edge from the subject's timeline connection. */
   timelineEdge?: Maybe<IssueTimelineItemEdge>;
 };
@@ -265,7 +265,7 @@ export type AddLabelsToLabelablePayload = {
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>;
   /** The item that was labeled. */
-  labelable?: Maybe<Labelable>;
+  labelable?: Maybe<Discussion | Issue | PullRequest>;
 };
 
 /** Autogenerated input type of AddProjectCard */
@@ -468,7 +468,7 @@ export type AddReactionPayload = {
   /** The reaction groups for the subject. */
   reactionGroups?: Maybe<Array<ReactionGroup>>;
   /** The reactable subject. */
-  subject?: Maybe<Reactable>;
+  subject?: Maybe<CommitComment | Discussion | DiscussionComment | Issue | IssueComment | PullRequest | PullRequestReview | PullRequestReviewComment | Release | TeamDiscussion | TeamDiscussionComment>;
 };
 
 /** Autogenerated input type of AddStar */
@@ -485,7 +485,7 @@ export type AddStarPayload = {
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>;
   /** The starrable. */
-  starrable?: Maybe<Starrable>;
+  starrable?: Maybe<Gist | Repository | Topic>;
 };
 
 /** Autogenerated input type of AddUpvote */
@@ -502,7 +502,7 @@ export type AddUpvotePayload = {
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>;
   /** The votable subject. */
-  subject?: Maybe<Votable>;
+  subject?: Maybe<Discussion | DiscussionComment>;
 };
 
 /** Autogenerated input type of AddVerifiableDomain */
@@ -528,7 +528,7 @@ export type AddVerifiableDomainPayload = {
 export type AddedToProjectEvent = Node & {
   __typename?: 'AddedToProjectEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** Identifies the primary key from the database. */
@@ -681,9 +681,9 @@ export type AssignableAssigneesArgs = {
 export type AssignedEvent = Node & {
   __typename?: 'AssignedEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the assignable associated with the event. */
-  assignable: Assignable;
+  assignable: Issue | PullRequest;
   /** Identifies the user or mannequin that was assigned. */
   assignee?: Maybe<Assignee>;
   /** Identifies the date and time when the object was created. */
@@ -749,7 +749,7 @@ export type AuditLogOrderField =
 export type AutoMergeDisabledEvent = Node & {
   __typename?: 'AutoMergeDisabledEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** The user who disabled auto-merge for this Pull Request */
@@ -767,7 +767,7 @@ export type AutoMergeDisabledEvent = Node & {
 export type AutoMergeEnabledEvent = Node & {
   __typename?: 'AutoMergeEnabledEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** The user who enabled auto-merge for this Pull Request */
@@ -795,7 +795,7 @@ export type AutoMergeRequest = {
   /** When was this auto-merge request was enabled. */
   enabledAt?: Maybe<Scalars['DateTime']>;
   /** The actor who created the auto-merge request. */
-  enabledBy?: Maybe<Actor>;
+  enabledBy?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /**
    * The merge method of the auto-merge request. If a merge queue is required by
    * the base branch, this value will be set by the merge queue when merging.
@@ -809,7 +809,7 @@ export type AutoMergeRequest = {
 export type AutoRebaseEnabledEvent = Node & {
   __typename?: 'AutoRebaseEnabledEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** The user who enabled auto-merge (rebase) for this Pull Request */
@@ -823,7 +823,7 @@ export type AutoRebaseEnabledEvent = Node & {
 export type AutoSquashEnabledEvent = Node & {
   __typename?: 'AutoSquashEnabledEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** The user who enabled auto-merge (squash) for this Pull Request */
@@ -837,7 +837,7 @@ export type AutoSquashEnabledEvent = Node & {
 export type AutomaticBaseChangeFailedEvent = Node & {
   __typename?: 'AutomaticBaseChangeFailedEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   id: Scalars['ID'];
@@ -853,7 +853,7 @@ export type AutomaticBaseChangeFailedEvent = Node & {
 export type AutomaticBaseChangeSucceededEvent = Node & {
   __typename?: 'AutomaticBaseChangeSucceededEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   id: Scalars['ID'];
@@ -869,7 +869,7 @@ export type AutomaticBaseChangeSucceededEvent = Node & {
 export type BaseRefChangedEvent = Node & {
   __typename?: 'BaseRefChangedEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** Identifies the name of the base ref for the pull request after it was changed. */
@@ -887,7 +887,7 @@ export type BaseRefChangedEvent = Node & {
 export type BaseRefDeletedEvent = Node & {
   __typename?: 'BaseRefDeletedEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the name of the Ref associated with the `base_ref_deleted` event. */
   baseRefName?: Maybe<Scalars['String']>;
   /** Identifies the date and time when the object was created. */
@@ -901,7 +901,7 @@ export type BaseRefDeletedEvent = Node & {
 export type BaseRefForcePushedEvent = Node & {
   __typename?: 'BaseRefForcePushedEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the after commit SHA for the 'base_ref_force_pushed' event. */
   afterCommit?: Maybe<Commit>;
   /** Identifies the before commit SHA for the 'base_ref_force_pushed' event. */
@@ -1009,7 +1009,7 @@ export type BranchProtectionRule = Node & {
   /** A list of actors able to bypass PRs for this branch protection rule. */
   bypassPullRequestAllowances: BypassPullRequestAllowanceConnection;
   /** The actor who created this branch protection rule. */
-  creator?: Maybe<Actor>;
+  creator?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the primary key from the database. */
   databaseId?: Maybe<Scalars['Int']>;
   /** Will new commits pushed to matching branches dismiss pull request review approvals. */
@@ -1846,7 +1846,7 @@ export type ClearLabelsFromLabelablePayload = {
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>;
   /** The item that was unlabeled. */
-  labelable?: Maybe<Labelable>;
+  labelable?: Maybe<Discussion | Issue | PullRequest>;
 };
 
 /** Autogenerated input type of ClearProjectV2ItemFieldValue */
@@ -1977,9 +1977,9 @@ export type ClosePullRequestPayload = {
 export type ClosedEvent = Node & UniformResourceLocatable & {
   __typename?: 'ClosedEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Object that was closed. */
-  closable: Closable;
+  closable: Discussion | Issue | Milestone | Project | ProjectV2 | PullRequest;
   /** Object which triggered the creation of this event. */
   closer?: Maybe<Closer>;
   /** Identifies the date and time when the object was created. */
@@ -2024,7 +2024,7 @@ export type CollaboratorAffiliation =
 /** Represents a comment. */
 export type Comment = {
   /** The actor who authored the comment. */
-  author?: Maybe<Actor>;
+  author?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Author's association with the subject of the comment. */
   authorAssociation: CommentAuthorAssociation;
   /** The body as Markdown. */
@@ -2038,7 +2038,7 @@ export type Comment = {
   /** Check if this comment was created via an email reply. */
   createdViaEmail: Scalars['Boolean'];
   /** The actor who edited the comment. */
-  editor?: Maybe<Actor>;
+  editor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   id: Scalars['ID'];
   /** Check if this comment was edited and includes an edit with the creation data */
   includesCreatedEdit: Scalars['Boolean'];
@@ -2103,13 +2103,13 @@ export type CommentCannotUpdateReason =
 export type CommentDeletedEvent = Node & {
   __typename?: 'CommentDeletedEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** Identifies the primary key from the database. */
   databaseId?: Maybe<Scalars['Int']>;
   /** The user who authored the deleted comment. */
-  deletedCommentAuthor?: Maybe<Actor>;
+  deletedCommentAuthor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   id: Scalars['ID'];
 };
 
@@ -2198,7 +2198,7 @@ export type Commit = GitObject & Node & Subscribable & UniformResourceLocatable 
   /** The HTTP path for this commit */
   resourcePath: Scalars['URI'];
   /** Commit signing information, if present. */
-  signature?: Maybe<GitSignature>;
+  signature?: Maybe<GpgSignature | SmimeSignature | SshSignature | UnknownSignature>;
   /** Status information for this commit */
   status?: Maybe<Status>;
   /** Check and Status rollup information for this commit. */
@@ -2336,7 +2336,7 @@ export type CommitAuthor = {
 export type CommitComment = Comment & Deletable & Minimizable & Node & Reactable & RepositoryNode & Updatable & UpdatableComment & {
   __typename?: 'CommitComment';
   /** The actor who authored the comment. */
-  author?: Maybe<Actor>;
+  author?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Author's association with the subject of the comment. */
   authorAssociation: CommentAuthorAssociation;
   /** Identifies the comment body. */
@@ -2354,7 +2354,7 @@ export type CommitComment = Comment & Deletable & Minimizable & Node & Reactable
   /** Identifies the primary key from the database. */
   databaseId?: Maybe<Scalars['Int']>;
   /** The actor who edited the comment. */
-  editor?: Maybe<Actor>;
+  editor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   id: Scalars['ID'];
   /** Check if this comment was edited and includes an edit with the creation data */
   includesCreatedEdit: Scalars['Boolean'];
@@ -2588,13 +2588,13 @@ export type Comparison = Node & {
   /** The number of commits ahead of the base branch. */
   aheadBy: Scalars['Int'];
   /** The base revision of this comparison. */
-  baseTarget: GitObject;
+  baseTarget: Blob | Commit | Tag | Tree;
   /** The number of commits behind the base branch. */
   behindBy: Scalars['Int'];
   /** The commits which compose this comparison. */
   commits: ComparisonCommitConnection;
   /** The head revision of this comparison. */
-  headTarget: GitObject;
+  headTarget: Blob | Commit | Tag | Tree;
   id: Scalars['ID'];
   /** The status of this comparison. */
   status: ComparisonStatus;
@@ -2639,7 +2639,7 @@ export type ComparisonStatus =
 export type ConnectedEvent = Node & {
   __typename?: 'ConnectedEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   id: Scalars['ID'];
@@ -3021,7 +3021,7 @@ export type ConvertPullRequestToDraftPayload = {
 export type ConvertToDraftEvent = Node & UniformResourceLocatable & {
   __typename?: 'ConvertToDraftEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   id: Scalars['ID'];
@@ -3037,7 +3037,7 @@ export type ConvertToDraftEvent = Node & UniformResourceLocatable & {
 export type ConvertedNoteToIssueEvent = Node & {
   __typename?: 'ConvertedNoteToIssueEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** Identifies the primary key from the database. */
@@ -3049,7 +3049,7 @@ export type ConvertedNoteToIssueEvent = Node & {
 export type ConvertedToDiscussionEvent = Node & {
   __typename?: 'ConvertedToDiscussionEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** The discussion that the issue was converted into. */
@@ -4039,7 +4039,7 @@ export type CreatedRepositoryOrRestrictedContribution = CreatedRepositoryContrib
 export type CrossReferencedEvent = Node & UniformResourceLocatable & {
   __typename?: 'CrossReferencedEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   id: Scalars['ID'];
@@ -4294,7 +4294,7 @@ export type DeleteProjectPayload = {
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>;
   /** The repository or organization the project was removed from. */
-  owner?: Maybe<ProjectOwner>;
+  owner?: Maybe<Organization | Repository | User>;
 };
 
 /** Autogenerated input type of DeleteProjectV2Field */
@@ -4452,7 +4452,7 @@ export type DeleteVerifiableDomainPayload = {
 export type DemilestonedEvent = Node & {
   __typename?: 'DemilestonedEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   id: Scalars['ID'];
@@ -4549,7 +4549,7 @@ export type DeployKeyEdge = {
 export type DeployedEvent = Node & {
   __typename?: 'DeployedEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** Identifies the primary key from the database. */
@@ -4573,7 +4573,7 @@ export type Deployment = Node & {
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** Identifies the actor who triggered the deployment. */
-  creator: Actor;
+  creator: Bot | EnterpriseUserAccount | Mannequin | Organization | User;
   /** Identifies the primary key from the database. */
   databaseId?: Maybe<Scalars['Int']>;
   /** The deployment description. */
@@ -4638,7 +4638,7 @@ export type DeploymentEdge = {
 export type DeploymentEnvironmentChangedEvent = Node & {
   __typename?: 'DeploymentEnvironmentChangedEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** The deployment status that updated the deployment environment. */
@@ -4866,7 +4866,7 @@ export type DeploymentStatus = Node & {
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** Identifies the actor who triggered the deployment. */
-  creator: Actor;
+  creator: Bot | EnterpriseUserAccount | Mannequin | Organization | User;
   /** Identifies the deployment associated with status. */
   deployment: Deployment;
   /** Identifies the description of the deployment. */
@@ -4942,7 +4942,7 @@ export type DisablePullRequestAutoMergeInput = {
 export type DisablePullRequestAutoMergePayload = {
   __typename?: 'DisablePullRequestAutoMergePayload';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>;
   /** The pull request auto merge was disabled on. */
@@ -4953,7 +4953,7 @@ export type DisablePullRequestAutoMergePayload = {
 export type DisconnectedEvent = Node & {
   __typename?: 'DisconnectedEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   id: Scalars['ID'];
@@ -4975,9 +4975,9 @@ export type Discussion = Closable & Comment & Deletable & Labelable & Lockable &
   /** The time when a user chose this discussion's answer, if answered. */
   answerChosenAt?: Maybe<Scalars['DateTime']>;
   /** The user who chose this discussion's answer, if answered. */
-  answerChosenBy?: Maybe<Actor>;
+  answerChosenBy?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** The actor who authored the comment. */
-  author?: Maybe<Actor>;
+  author?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Author's association with the subject of the comment. */
   authorAssociation: CommentAuthorAssociation;
   /** The main text of the discussion post. */
@@ -5001,7 +5001,7 @@ export type Discussion = Closable & Comment & Deletable & Labelable & Lockable &
   /** Identifies the primary key from the database. */
   databaseId?: Maybe<Scalars['Int']>;
   /** The actor who edited the comment. */
-  editor?: Maybe<Actor>;
+  editor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   id: Scalars['ID'];
   /** Check if this comment was edited and includes an edit with the creation data */
   includesCreatedEdit: Scalars['Boolean'];
@@ -5142,7 +5142,7 @@ export type DiscussionCategoryEdge = {
 export type DiscussionComment = Comment & Deletable & Minimizable & Node & Reactable & Updatable & UpdatableComment & Votable & {
   __typename?: 'DiscussionComment';
   /** The actor who authored the comment. */
-  author?: Maybe<Actor>;
+  author?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Author's association with the subject of the comment. */
   authorAssociation: CommentAuthorAssociation;
   /** The body as Markdown. */
@@ -5162,7 +5162,7 @@ export type DiscussionComment = Comment & Deletable & Minimizable & Node & React
   /** The discussion this comment was created in */
   discussion?: Maybe<Discussion>;
   /** The actor who edited the comment. */
-  editor?: Maybe<Actor>;
+  editor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   id: Scalars['ID'];
   /** Check if this comment was edited and includes an edit with the creation data */
   includesCreatedEdit: Scalars['Boolean'];
@@ -5452,7 +5452,7 @@ export type DraftIssue = Node & {
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** The actor who created this draft issue. */
-  creator?: Maybe<Actor>;
+  creator?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   id: Scalars['ID'];
   /** List of items linked with the draft issue (currently draft issue can be linked to only one item). */
   projectV2Items: ProjectV2ItemConnection;
@@ -5550,7 +5550,7 @@ export type EnablePullRequestAutoMergeInput = {
 export type EnablePullRequestAutoMergePayload = {
   __typename?: 'EnablePullRequestAutoMergePayload';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>;
   /** The pull request auto-merge was enabled on. */
@@ -7148,7 +7148,7 @@ export type Gist = Node & Starrable & UniformResourceLocatable & {
   /** The gist name. */
   name: Scalars['String'];
   /** The gist owner. */
-  owner?: Maybe<RepositoryOwner>;
+  owner?: Maybe<Organization | User>;
   /** Identifies when the gist was last pushed to. */
   pushedAt?: Maybe<Scalars['DateTime']>;
   /** The HTML path to this resource. */
@@ -7205,7 +7205,7 @@ export type GistStargazersArgs = {
 export type GistComment = Comment & Deletable & Minimizable & Node & Updatable & UpdatableComment & {
   __typename?: 'GistComment';
   /** The actor who authored the comment. */
-  author?: Maybe<Actor>;
+  author?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Author's association with the gist. */
   authorAssociation: CommentAuthorAssociation;
   /** Identifies the comment body. */
@@ -7221,7 +7221,7 @@ export type GistComment = Comment & Deletable & Minimizable & Node & Updatable &
   /** Identifies the primary key from the database. */
   databaseId?: Maybe<Scalars['Int']>;
   /** The actor who edited the comment. */
-  editor?: Maybe<Actor>;
+  editor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** The associated gist. */
   gist: Gist;
   id: Scalars['ID'];
@@ -7573,7 +7573,7 @@ export type GrantMigratorRolePayload = {
 export type HeadRefDeletedEvent = Node & {
   __typename?: 'HeadRefDeletedEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** Identifies the Ref associated with the `head_ref_deleted` event. */
@@ -7589,7 +7589,7 @@ export type HeadRefDeletedEvent = Node & {
 export type HeadRefForcePushedEvent = Node & {
   __typename?: 'HeadRefForcePushedEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the after commit SHA for the 'head_ref_force_pushed' event. */
   afterCommit?: Maybe<Commit>;
   /** Identifies the before commit SHA for the 'head_ref_force_pushed' event. */
@@ -7607,7 +7607,7 @@ export type HeadRefForcePushedEvent = Node & {
 export type HeadRefRestoredEvent = Node & {
   __typename?: 'HeadRefRestoredEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   id: Scalars['ID'];
@@ -7619,7 +7619,7 @@ export type HeadRefRestoredEvent = Node & {
 export type Hovercard = {
   __typename?: 'Hovercard';
   /** Each of the contexts for this hovercard */
-  contexts: Array<HovercardContext>;
+  contexts: Array<GenericHovercardContext | OrganizationTeamsHovercardContext | OrganizationsHovercardContext | ReviewStatusHovercardContext | ViewerHovercardContext>;
 };
 
 /** An individual line of a hovercard */
@@ -7742,7 +7742,7 @@ export type Issue = Assignable & Closable & Comment & Labelable & Lockable & Nod
   /** A list of Users assigned to this object. */
   assignees: UserConnection;
   /** The actor who authored the comment. */
-  author?: Maybe<Actor>;
+  author?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Author's association with the subject of the comment. */
   authorAssociation: CommentAuthorAssociation;
   /** Identifies the body of the issue. */
@@ -7768,7 +7768,7 @@ export type Issue = Assignable & Closable & Comment & Labelable & Lockable & Nod
   /** Identifies the primary key from the database. */
   databaseId?: Maybe<Scalars['Int']>;
   /** The actor who edited the comment. */
-  editor?: Maybe<Actor>;
+  editor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** The hovercard information for this issue */
   hovercard: Hovercard;
   id: Scalars['ID'];
@@ -8018,7 +8018,7 @@ export type IssueClosedStateReason =
 export type IssueComment = Comment & Deletable & Minimizable & Node & Reactable & RepositoryNode & Updatable & UpdatableComment & {
   __typename?: 'IssueComment';
   /** The actor who authored the comment. */
-  author?: Maybe<Actor>;
+  author?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Author's association with the subject of the comment. */
   authorAssociation: CommentAuthorAssociation;
   /** The body as Markdown. */
@@ -8034,7 +8034,7 @@ export type IssueComment = Comment & Deletable & Minimizable & Node & Reactable 
   /** Identifies the primary key from the database. */
   databaseId?: Maybe<Scalars['Int']>;
   /** The actor who edited the comment. */
-  editor?: Maybe<Actor>;
+  editor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   id: Scalars['ID'];
   /** Check if this comment was edited and includes an edit with the creation data */
   includesCreatedEdit: Scalars['Boolean'];
@@ -8517,14 +8517,14 @@ export type LabelableLabelsArgs = {
 export type LabeledEvent = Node & {
   __typename?: 'LabeledEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   id: Scalars['ID'];
   /** Identifies the label associated with the 'labeled' event. */
   label: Label;
   /** Identifies the `Labelable` associated with the event. */
-  labelable: Labelable;
+  labelable: Discussion | Issue | PullRequest;
 };
 
 /** Represents a given language found in repositories. */
@@ -8722,11 +8722,11 @@ export type LockLockableInput = {
 export type LockLockablePayload = {
   __typename?: 'LockLockablePayload';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>;
   /** The item that was locked. */
-  lockedRecord?: Maybe<Lockable>;
+  lockedRecord?: Maybe<Discussion | Issue | PullRequest>;
 };
 
 /** The possible reasons that an issue or pull request was locked. */
@@ -8752,14 +8752,14 @@ export type Lockable = {
 export type LockedEvent = Node & {
   __typename?: 'LockedEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   id: Scalars['ID'];
   /** Reason that the conversation was locked (optional). */
   lockReason?: Maybe<LockReason>;
   /** Object that was locked. */
-  lockable: Lockable;
+  lockable: Discussion | Issue | PullRequest;
 };
 
 /** A placeholder user for attribution of imported data on GitHub. */
@@ -8886,7 +8886,7 @@ export type MarkPullRequestReadyForReviewPayload = {
 export type MarkedAsDuplicateEvent = Node & {
   __typename?: 'MarkedAsDuplicateEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** The authoritative issue or pull request which has been duplicated by another. */
   canonical?: Maybe<IssueOrPullRequest>;
   /** Identifies the date and time when the object was created. */
@@ -9243,7 +9243,7 @@ export type MembersCanDeleteReposEnableAuditEntry = AuditEntry & EnterpriseAudit
 export type MentionedEvent = Node & {
   __typename?: 'MentionedEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** Identifies the primary key from the database. */
@@ -9314,7 +9314,7 @@ export type MergePullRequestInput = {
 export type MergePullRequestPayload = {
   __typename?: 'MergePullRequestPayload';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>;
   /** The pull request that was merged. */
@@ -9334,7 +9334,7 @@ export type MergeableState =
 export type MergedEvent = Node & UniformResourceLocatable & {
   __typename?: 'MergedEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the commit associated with the `merge` event. */
   commit?: Maybe<Commit>;
   /** Identifies the date and time when the object was created. */
@@ -9423,7 +9423,7 @@ export type Milestone = Closable & Node & UniformResourceLocatable & {
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** Identifies the actor who created the milestone. */
-  creator?: Maybe<Actor>;
+  creator?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the description of the milestone. */
   description?: Maybe<Scalars['String']>;
   /** Identifies the due date of the milestone. */
@@ -9533,7 +9533,7 @@ export type MilestoneState =
 export type MilestonedEvent = Node & {
   __typename?: 'MilestonedEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   id: Scalars['ID'];
@@ -9573,7 +9573,7 @@ export type MinimizeCommentPayload = {
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>;
   /** The comment that was minimized. */
-  minimizedComment?: Maybe<Minimizable>;
+  minimizedComment?: Maybe<CommitComment | DiscussionComment | GistComment | IssueComment | PullRequestReviewComment>;
 };
 
 /** Autogenerated input type of MoveProjectCard */
@@ -9620,7 +9620,7 @@ export type MoveProjectColumnPayload = {
 export type MovedColumnsInProjectEvent = Node & {
   __typename?: 'MovedColumnsInProjectEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** Identifies the primary key from the database. */
@@ -14021,7 +14021,7 @@ export type PinnedDiscussion = Node & RepositoryNode & {
   /** Background texture pattern */
   pattern: PinnedDiscussionPattern;
   /** The actor that pinned this discussion. */
-  pinnedBy: Actor;
+  pinnedBy: Bot | EnterpriseUserAccount | Mannequin | Organization | User;
   /** Preconfigured background gradient option */
   preconfiguredGradient?: Maybe<PinnedDiscussionGradient>;
   /** The repository associated with this node. */
@@ -14084,7 +14084,7 @@ export type PinnedDiscussionPattern =
 export type PinnedEvent = Node & {
   __typename?: 'PinnedEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   id: Scalars['ID'];
@@ -14101,7 +14101,7 @@ export type PinnedIssue = Node & {
   /** The issue that was pinned. */
   issue: Issue;
   /** The actor that pinned this issue. */
-  pinnedBy: Actor;
+  pinnedBy: Bot | EnterpriseUserAccount | Mannequin | Organization | User;
   /** The repository that this issue was pinned to. */
   repository: Repository;
 };
@@ -14336,7 +14336,7 @@ export type Project = Closable & Node & Updatable & {
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** The actor who originally created the project. */
-  creator?: Maybe<Actor>;
+  creator?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the primary key from the database. */
   databaseId?: Maybe<Scalars['Int']>;
   id: Scalars['ID'];
@@ -14345,7 +14345,7 @@ export type Project = Closable & Node & Updatable & {
   /** The project's number. */
   number: Scalars['Int'];
   /** The project's owner. Currently limited to repositories, organizations, and users. */
-  owner: ProjectOwner;
+  owner: Organization | Repository | User;
   /** List of pending cards in this project */
   pendingCards: ProjectCardConnection;
   /** Project progress details. */
@@ -14396,7 +14396,7 @@ export type ProjectCard = Node & {
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** The actor who created this card */
-  creator?: Maybe<Actor>;
+  creator?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the primary key from the database. */
   databaseId?: Maybe<Scalars['Int']>;
   id: Scalars['ID'];
@@ -14641,7 +14641,7 @@ export type ProjectV2 = Closable & Node & Updatable & {
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** The actor who originally created the project. */
-  creator?: Maybe<Actor>;
+  creator?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the primary key from the database. */
   databaseId?: Maybe<Scalars['Int']>;
   /** A field of the project */
@@ -14654,7 +14654,7 @@ export type ProjectV2 = Closable & Node & Updatable & {
   /** The project's number. */
   number: Scalars['Int'];
   /** The project's owner. Currently limited to organizations and users. */
-  owner: ProjectV2Owner;
+  owner: Issue | Organization | PullRequest | User;
   /** Returns true if the project is public. */
   public: Scalars['Boolean'];
   /** The project's readme. */
@@ -14956,7 +14956,7 @@ export type ProjectV2Item = Node & {
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** The actor who created the item. */
-  creator?: Maybe<Actor>;
+  creator?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the primary key from the database. */
   databaseId?: Maybe<Scalars['Int']>;
   /** A specific field value given a field name */
@@ -15021,7 +15021,7 @@ export type ProjectV2ItemFieldDateValue = Node & ProjectV2ItemFieldValueCommon &
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** The actor who created the item. */
-  creator?: Maybe<Actor>;
+  creator?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the primary key from the database. */
   databaseId?: Maybe<Scalars['Int']>;
   /** Date value for the field */
@@ -15041,7 +15041,7 @@ export type ProjectV2ItemFieldIterationValue = Node & ProjectV2ItemFieldValueCom
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** The actor who created the item. */
-  creator?: Maybe<Actor>;
+  creator?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the primary key from the database. */
   databaseId?: Maybe<Scalars['Int']>;
   /** The duration of the iteration in days. */
@@ -15096,7 +15096,7 @@ export type ProjectV2ItemFieldNumberValue = Node & ProjectV2ItemFieldValueCommon
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** The actor who created the item. */
-  creator?: Maybe<Actor>;
+  creator?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the primary key from the database. */
   databaseId?: Maybe<Scalars['Int']>;
   /** The project field that contains this value. */
@@ -15162,7 +15162,7 @@ export type ProjectV2ItemFieldSingleSelectValue = Node & ProjectV2ItemFieldValue
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** The actor who created the item. */
-  creator?: Maybe<Actor>;
+  creator?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the primary key from the database. */
   databaseId?: Maybe<Scalars['Int']>;
   /** The project field that contains this value. */
@@ -15186,7 +15186,7 @@ export type ProjectV2ItemFieldTextValue = Node & ProjectV2ItemFieldValueCommon &
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** The actor who created the item. */
-  creator?: Maybe<Actor>;
+  creator?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the primary key from the database. */
   databaseId?: Maybe<Scalars['Int']>;
   /** The project field that contains this value. */
@@ -15226,7 +15226,7 @@ export type ProjectV2ItemFieldValueCommon = {
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** The actor who created the item. */
-  creator?: Maybe<Actor>;
+  creator?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the primary key from the database. */
   databaseId?: Maybe<Scalars['Int']>;
   /** The project field that contains this value. */
@@ -15845,7 +15845,7 @@ export type PullRequest = Assignable & Closable & Comment & Labelable & Lockable
   /** A list of Users assigned to this object. */
   assignees: UserConnection;
   /** The actor who authored the comment. */
-  author?: Maybe<Actor>;
+  author?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Author's association with the subject of the comment. */
   authorAssociation: CommentAuthorAssociation;
   /** Returns the auto-merge request object if one exists for this pull request. */
@@ -15889,7 +15889,7 @@ export type PullRequest = Assignable & Closable & Comment & Labelable & Lockable
   /** The number of deletions in this pull request. */
   deletions: Scalars['Int'];
   /** The actor who edited this pull request's body. */
-  editor?: Maybe<Actor>;
+  editor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Lists the files changed within this pull request. */
   files?: Maybe<PullRequestChangedFileConnection>;
   /** Identifies the head Ref associated with the pull request. */
@@ -15901,7 +15901,7 @@ export type PullRequest = Assignable & Closable & Comment & Labelable & Lockable
   /** The repository associated with this pull request's head Ref. */
   headRepository?: Maybe<Repository>;
   /** The owner of the repository associated with this pull request's head Ref. */
-  headRepositoryOwner?: Maybe<RepositoryOwner>;
+  headRepositoryOwner?: Maybe<Organization | User>;
   /** The hovercard information for this issue */
   hovercard: Hovercard;
   id: Scalars['ID'];
@@ -15934,7 +15934,7 @@ export type PullRequest = Assignable & Closable & Comment & Labelable & Lockable
   /** The date and time that the pull request was merged. */
   mergedAt?: Maybe<Scalars['DateTime']>;
   /** The actor who merged the pull request. */
-  mergedBy?: Maybe<Actor>;
+  mergedBy?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the milestone associated with the pull request. */
   milestone?: Maybe<Milestone>;
   /** Identifies the pull request number. */
@@ -16418,7 +16418,7 @@ export type PullRequestOrderField =
 export type PullRequestReview = Comment & Deletable & Node & Reactable & RepositoryNode & Updatable & UpdatableComment & {
   __typename?: 'PullRequestReview';
   /** The actor who authored the comment. */
-  author?: Maybe<Actor>;
+  author?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Author's association with the subject of the comment. */
   authorAssociation: CommentAuthorAssociation;
   /** Indicates whether the author of this review has push access to the repository. */
@@ -16440,7 +16440,7 @@ export type PullRequestReview = Comment & Deletable & Node & Reactable & Reposit
   /** Identifies the primary key from the database. */
   databaseId?: Maybe<Scalars['Int']>;
   /** The actor who edited the comment. */
-  editor?: Maybe<Actor>;
+  editor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   id: Scalars['ID'];
   /** Check if this comment was edited and includes an edit with the creation data */
   includesCreatedEdit: Scalars['Boolean'];
@@ -16524,7 +16524,7 @@ export type PullRequestReviewUserContentEditsArgs = {
 export type PullRequestReviewComment = Comment & Deletable & Minimizable & Node & Reactable & RepositoryNode & Updatable & UpdatableComment & {
   __typename?: 'PullRequestReviewComment';
   /** The actor who authored the comment. */
-  author?: Maybe<Actor>;
+  author?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Author's association with the subject of the comment. */
   authorAssociation: CommentAuthorAssociation;
   /** The comment body of this review comment. */
@@ -16546,7 +16546,7 @@ export type PullRequestReviewComment = Comment & Deletable & Minimizable & Node 
   /** Identifies when the comment was created in a draft state. */
   draftedAt: Scalars['DateTime'];
   /** The actor who edited the comment. */
-  editor?: Maybe<Actor>;
+  editor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   id: Scalars['ID'];
   /** Check if this comment was edited and includes an edit with the creation data */
   includesCreatedEdit: Scalars['Boolean'];
@@ -17071,7 +17071,7 @@ export type Push = Node & {
   /** The SHA before the push */
   previousSha?: Maybe<Scalars['GitObjectID']>;
   /** The actor who pushed */
-  pusher: Actor;
+  pusher: Bot | EnterpriseUserAccount | Mannequin | Organization | User;
   /** The repository that was pushed to */
   repository: Repository;
 };
@@ -17139,9 +17139,9 @@ export type Query = {
   /** Return information about the GitHub instance */
   meta: GitHubMetadata;
   /** Fetches an object given its ID. */
-  node?: Maybe<Node>;
+  node?: Maybe<AddedToProjectEvent | App | AssignedEvent | AutoMergeDisabledEvent | AutoMergeEnabledEvent | AutoRebaseEnabledEvent | AutoSquashEnabledEvent | AutomaticBaseChangeFailedEvent | AutomaticBaseChangeSucceededEvent | BaseRefChangedEvent | BaseRefDeletedEvent | BaseRefForcePushedEvent | Blob | Bot | BranchProtectionRule | BypassForcePushAllowance | BypassPullRequestAllowance | Cwe | CheckRun | CheckSuite | ClosedEvent | CodeOfConduct | CommentDeletedEvent | Commit | CommitComment | CommitCommentThread | Comparison | ConnectedEvent | ConvertToDraftEvent | ConvertedNoteToIssueEvent | ConvertedToDiscussionEvent | CrossReferencedEvent | DemilestonedEvent | DeployKey | DeployedEvent | Deployment | DeploymentEnvironmentChangedEvent | DeploymentReview | DeploymentStatus | DisconnectedEvent | Discussion | DiscussionCategory | DiscussionComment | DiscussionPoll | DiscussionPollOption | DraftIssue | Enterprise | EnterpriseAdministratorInvitation | EnterpriseIdentityProvider | EnterpriseRepositoryInfo | EnterpriseServerInstallation | EnterpriseServerUserAccount | EnterpriseServerUserAccountEmail | EnterpriseServerUserAccountsUpload | EnterpriseUserAccount | Environment | ExternalIdentity | Gist | GistComment | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IpAllowListEntry | Issue | IssueComment | Label | LabeledEvent | Language | License | LinkedBranch | LockedEvent | Mannequin | MarkedAsDuplicateEvent | MarketplaceCategory | MarketplaceListing | MembersCanDeleteReposClearAuditEntry | MembersCanDeleteReposDisableAuditEntry | MembersCanDeleteReposEnableAuditEntry | MentionedEvent | MergedEvent | MigrationSource | Milestone | MilestonedEvent | MovedColumnsInProjectEvent | OidcProvider | OauthApplicationCreateAuditEntry | OrgAddBillingManagerAuditEntry | OrgAddMemberAuditEntry | OrgBlockUserAuditEntry | OrgConfigDisableCollaboratorsOnlyAuditEntry | OrgConfigEnableCollaboratorsOnlyAuditEntry | OrgCreateAuditEntry | OrgDisableOauthAppRestrictionsAuditEntry | OrgDisableSamlAuditEntry | OrgDisableTwoFactorRequirementAuditEntry | OrgEnableOauthAppRestrictionsAuditEntry | OrgEnableSamlAuditEntry | OrgEnableTwoFactorRequirementAuditEntry | OrgInviteMemberAuditEntry | OrgInviteToBusinessAuditEntry | OrgOauthAppAccessApprovedAuditEntry | OrgOauthAppAccessDeniedAuditEntry | OrgOauthAppAccessRequestedAuditEntry | OrgRemoveBillingManagerAuditEntry | OrgRemoveMemberAuditEntry | OrgRemoveOutsideCollaboratorAuditEntry | OrgRestoreMemberAuditEntry | OrgUnblockUserAuditEntry | OrgUpdateDefaultRepositoryPermissionAuditEntry | OrgUpdateMemberAuditEntry | OrgUpdateMemberRepositoryCreationPermissionAuditEntry | OrgUpdateMemberRepositoryInvitationPermissionAuditEntry | Organization | OrganizationIdentityProvider | OrganizationInvitation | OrganizationMigration | Package | PackageFile | PackageTag | PackageVersion | PinnedDiscussion | PinnedEvent | PinnedIssue | PrivateRepositoryForkingDisableAuditEntry | PrivateRepositoryForkingEnableAuditEntry | Project | ProjectCard | ProjectColumn | ProjectV2 | ProjectV2Field | ProjectV2Item | ProjectV2ItemFieldDateValue | ProjectV2ItemFieldIterationValue | ProjectV2ItemFieldNumberValue | ProjectV2ItemFieldSingleSelectValue | ProjectV2ItemFieldTextValue | ProjectV2IterationField | ProjectV2SingleSelectField | ProjectV2View | ProjectV2Workflow | PublicKey | PullRequest | PullRequestCommit | PullRequestCommitCommentThread | PullRequestReview | PullRequestReviewComment | PullRequestReviewThread | PullRequestThread | Push | PushAllowance | Reaction | ReadyForReviewEvent | Ref | ReferencedEvent | Release | ReleaseAsset | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | RepoAccessAuditEntry | RepoAddMemberAuditEntry | RepoAddTopicAuditEntry | RepoArchivedAuditEntry | RepoChangeMergeSettingAuditEntry | RepoConfigDisableAnonymousGitAccessAuditEntry | RepoConfigDisableCollaboratorsOnlyAuditEntry | RepoConfigDisableContributorsOnlyAuditEntry | RepoConfigDisableSockpuppetDisallowedAuditEntry | RepoConfigEnableAnonymousGitAccessAuditEntry | RepoConfigEnableCollaboratorsOnlyAuditEntry | RepoConfigEnableContributorsOnlyAuditEntry | RepoConfigEnableSockpuppetDisallowedAuditEntry | RepoConfigLockAnonymousGitAccessAuditEntry | RepoConfigUnlockAnonymousGitAccessAuditEntry | RepoCreateAuditEntry | RepoDestroyAuditEntry | RepoRemoveMemberAuditEntry | RepoRemoveTopicAuditEntry | Repository | RepositoryInvitation | RepositoryMigration | RepositoryTopic | RepositoryVisibilityChangeDisableAuditEntry | RepositoryVisibilityChangeEnableAuditEntry | RepositoryVulnerabilityAlert | ReviewDismissalAllowance | ReviewDismissedEvent | ReviewRequest | ReviewRequestRemovedEvent | ReviewRequestedEvent | SavedReply | SecurityAdvisory | SponsorsActivity | SponsorsListing | SponsorsListingFeaturedItem | SponsorsTier | Sponsorship | SponsorshipNewsletter | Status | StatusCheckRollup | StatusContext | SubscribedEvent | Tag | Team | TeamAddMemberAuditEntry | TeamAddRepositoryAuditEntry | TeamChangeParentTeamAuditEntry | TeamDiscussion | TeamDiscussionComment | TeamRemoveMemberAuditEntry | TeamRemoveRepositoryAuditEntry | Topic | TransferredEvent | Tree | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | User | UserBlockedEvent | UserContentEdit | UserStatus | VerifiableDomain | Workflow | WorkflowRun>;
   /** Lookup nodes by a list of IDs. */
-  nodes: Array<Maybe<Node>>;
+  nodes: Array<Maybe<AddedToProjectEvent | App | AssignedEvent | AutoMergeDisabledEvent | AutoMergeEnabledEvent | AutoRebaseEnabledEvent | AutoSquashEnabledEvent | AutomaticBaseChangeFailedEvent | AutomaticBaseChangeSucceededEvent | BaseRefChangedEvent | BaseRefDeletedEvent | BaseRefForcePushedEvent | Blob | Bot | BranchProtectionRule | BypassForcePushAllowance | BypassPullRequestAllowance | Cwe | CheckRun | CheckSuite | ClosedEvent | CodeOfConduct | CommentDeletedEvent | Commit | CommitComment | CommitCommentThread | Comparison | ConnectedEvent | ConvertToDraftEvent | ConvertedNoteToIssueEvent | ConvertedToDiscussionEvent | CrossReferencedEvent | DemilestonedEvent | DeployKey | DeployedEvent | Deployment | DeploymentEnvironmentChangedEvent | DeploymentReview | DeploymentStatus | DisconnectedEvent | Discussion | DiscussionCategory | DiscussionComment | DiscussionPoll | DiscussionPollOption | DraftIssue | Enterprise | EnterpriseAdministratorInvitation | EnterpriseIdentityProvider | EnterpriseRepositoryInfo | EnterpriseServerInstallation | EnterpriseServerUserAccount | EnterpriseServerUserAccountEmail | EnterpriseServerUserAccountsUpload | EnterpriseUserAccount | Environment | ExternalIdentity | Gist | GistComment | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IpAllowListEntry | Issue | IssueComment | Label | LabeledEvent | Language | License | LinkedBranch | LockedEvent | Mannequin | MarkedAsDuplicateEvent | MarketplaceCategory | MarketplaceListing | MembersCanDeleteReposClearAuditEntry | MembersCanDeleteReposDisableAuditEntry | MembersCanDeleteReposEnableAuditEntry | MentionedEvent | MergedEvent | MigrationSource | Milestone | MilestonedEvent | MovedColumnsInProjectEvent | OidcProvider | OauthApplicationCreateAuditEntry | OrgAddBillingManagerAuditEntry | OrgAddMemberAuditEntry | OrgBlockUserAuditEntry | OrgConfigDisableCollaboratorsOnlyAuditEntry | OrgConfigEnableCollaboratorsOnlyAuditEntry | OrgCreateAuditEntry | OrgDisableOauthAppRestrictionsAuditEntry | OrgDisableSamlAuditEntry | OrgDisableTwoFactorRequirementAuditEntry | OrgEnableOauthAppRestrictionsAuditEntry | OrgEnableSamlAuditEntry | OrgEnableTwoFactorRequirementAuditEntry | OrgInviteMemberAuditEntry | OrgInviteToBusinessAuditEntry | OrgOauthAppAccessApprovedAuditEntry | OrgOauthAppAccessDeniedAuditEntry | OrgOauthAppAccessRequestedAuditEntry | OrgRemoveBillingManagerAuditEntry | OrgRemoveMemberAuditEntry | OrgRemoveOutsideCollaboratorAuditEntry | OrgRestoreMemberAuditEntry | OrgUnblockUserAuditEntry | OrgUpdateDefaultRepositoryPermissionAuditEntry | OrgUpdateMemberAuditEntry | OrgUpdateMemberRepositoryCreationPermissionAuditEntry | OrgUpdateMemberRepositoryInvitationPermissionAuditEntry | Organization | OrganizationIdentityProvider | OrganizationInvitation | OrganizationMigration | Package | PackageFile | PackageTag | PackageVersion | PinnedDiscussion | PinnedEvent | PinnedIssue | PrivateRepositoryForkingDisableAuditEntry | PrivateRepositoryForkingEnableAuditEntry | Project | ProjectCard | ProjectColumn | ProjectV2 | ProjectV2Field | ProjectV2Item | ProjectV2ItemFieldDateValue | ProjectV2ItemFieldIterationValue | ProjectV2ItemFieldNumberValue | ProjectV2ItemFieldSingleSelectValue | ProjectV2ItemFieldTextValue | ProjectV2IterationField | ProjectV2SingleSelectField | ProjectV2View | ProjectV2Workflow | PublicKey | PullRequest | PullRequestCommit | PullRequestCommitCommentThread | PullRequestReview | PullRequestReviewComment | PullRequestReviewThread | PullRequestThread | Push | PushAllowance | Reaction | ReadyForReviewEvent | Ref | ReferencedEvent | Release | ReleaseAsset | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | RepoAccessAuditEntry | RepoAddMemberAuditEntry | RepoAddTopicAuditEntry | RepoArchivedAuditEntry | RepoChangeMergeSettingAuditEntry | RepoConfigDisableAnonymousGitAccessAuditEntry | RepoConfigDisableCollaboratorsOnlyAuditEntry | RepoConfigDisableContributorsOnlyAuditEntry | RepoConfigDisableSockpuppetDisallowedAuditEntry | RepoConfigEnableAnonymousGitAccessAuditEntry | RepoConfigEnableCollaboratorsOnlyAuditEntry | RepoConfigEnableContributorsOnlyAuditEntry | RepoConfigEnableSockpuppetDisallowedAuditEntry | RepoConfigLockAnonymousGitAccessAuditEntry | RepoConfigUnlockAnonymousGitAccessAuditEntry | RepoCreateAuditEntry | RepoDestroyAuditEntry | RepoRemoveMemberAuditEntry | RepoRemoveTopicAuditEntry | Repository | RepositoryInvitation | RepositoryMigration | RepositoryTopic | RepositoryVisibilityChangeDisableAuditEntry | RepositoryVisibilityChangeEnableAuditEntry | RepositoryVulnerabilityAlert | ReviewDismissalAllowance | ReviewDismissedEvent | ReviewRequest | ReviewRequestRemovedEvent | ReviewRequestedEvent | SavedReply | SecurityAdvisory | SponsorsActivity | SponsorsListing | SponsorsListingFeaturedItem | SponsorsTier | Sponsorship | SponsorshipNewsletter | Status | StatusCheckRollup | StatusContext | SubscribedEvent | Tag | Team | TeamAddMemberAuditEntry | TeamAddRepositoryAuditEntry | TeamChangeParentTeamAuditEntry | TeamDiscussion | TeamDiscussionComment | TeamRemoveMemberAuditEntry | TeamRemoveRepositoryAuditEntry | Topic | TransferredEvent | Tree | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | User | UserBlockedEvent | UserContentEdit | UserStatus | VerifiableDomain | Workflow | WorkflowRun>>;
   /** Lookup a organization by login. */
   organization?: Maybe<Organization>;
   /** The client's rate limit information. */
@@ -17151,9 +17151,9 @@ export type Query = {
   /** Lookup a given repository by the owner and repository name. */
   repository?: Maybe<Repository>;
   /** Lookup a repository owner (ie. either a User or an Organization) by login. */
-  repositoryOwner?: Maybe<RepositoryOwner>;
+  repositoryOwner?: Maybe<Organization | User>;
   /** Lookup resource by a URL. */
-  resource?: Maybe<UniformResourceLocatable>;
+  resource?: Maybe<Bot | CheckRun | ClosedEvent | Commit | ConvertToDraftEvent | CrossReferencedEvent | Gist | Issue | Mannequin | MergedEvent | Milestone | Organization | PullRequest | PullRequestCommit | ReadyForReviewEvent | Release | Repository | RepositoryTopic | ReviewDismissedEvent | TeamDiscussion | TeamDiscussionComment | User | WorkflowRun>;
   /** Perform a search across resources, returning a maximum of 1,000 results. */
   search: SearchResultItemConnection;
   /** GitHub Security Advisories */
@@ -17434,7 +17434,7 @@ export type Reaction = Node & {
   databaseId?: Maybe<Scalars['Int']>;
   id: Scalars['ID'];
   /** The reactable piece of content */
-  reactable: Reactable;
+  reactable: CommitComment | Discussion | DiscussionComment | Issue | IssueComment | PullRequest | PullRequestReview | PullRequestReviewComment | Release | TeamDiscussion | TeamDiscussionComment;
   /** Identifies the user who created this reaction. */
   user?: Maybe<User>;
 };
@@ -17492,7 +17492,7 @@ export type ReactionGroup = {
   /** Reactors to the reaction subject with the emotion represented by this reaction group. */
   reactors: ReactorConnection;
   /** The subject that was reacted to. */
-  subject: Reactable;
+  subject: CommitComment | Discussion | DiscussionComment | Issue | IssueComment | PullRequest | PullRequestReview | PullRequestReviewComment | Release | TeamDiscussion | TeamDiscussionComment;
   /**
    * Users who have reacted to the reaction subject with the emotion represented by this reaction group
    * @deprecated Reactors can now be mannequins, bots, and organizations. Use the `reactors` field instead. Removal on 2021-10-01 UTC.
@@ -17564,7 +17564,7 @@ export type ReactorEdge = {
 export type ReadyForReviewEvent = Node & UniformResourceLocatable & {
   __typename?: 'ReadyForReviewEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   id: Scalars['ID'];
@@ -17595,7 +17595,7 @@ export type Ref = Node & {
   /** The repository the ref belongs to. */
   repository: Repository;
   /** The object the ref points to. Returns null when object does not exist. */
-  target?: Maybe<GitObject>;
+  target?: Maybe<Blob | Commit | Tag | Tree>;
 };
 
 
@@ -17688,7 +17688,7 @@ export type RefUpdateRule = {
 export type ReferencedEvent = Node & {
   __typename?: 'ReferencedEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the commit associated with the 'referenced' event. */
   commit?: Maybe<Commit>;
   /** Identifies the repository associated with the 'referenced' event. */
@@ -17949,7 +17949,7 @@ export type RemoveAssigneesFromAssignableInput = {
 export type RemoveAssigneesFromAssignablePayload = {
   __typename?: 'RemoveAssigneesFromAssignablePayload';
   /** The item that was unassigned. */
-  assignable?: Maybe<Assignable>;
+  assignable?: Maybe<Issue | PullRequest>;
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>;
 };
@@ -18077,7 +18077,7 @@ export type RemoveLabelsFromLabelablePayload = {
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>;
   /** The Labelable the labels were removed from. */
-  labelable?: Maybe<Labelable>;
+  labelable?: Maybe<Discussion | Issue | PullRequest>;
 };
 
 /** Autogenerated input type of RemoveOutsideCollaborator */
@@ -18119,7 +18119,7 @@ export type RemoveReactionPayload = {
   /** The reaction groups for the subject. */
   reactionGroups?: Maybe<Array<ReactionGroup>>;
   /** The reactable subject. */
-  subject?: Maybe<Reactable>;
+  subject?: Maybe<CommitComment | Discussion | DiscussionComment | Issue | IssueComment | PullRequest | PullRequestReview | PullRequestReviewComment | Release | TeamDiscussion | TeamDiscussionComment>;
 };
 
 /** Autogenerated input type of RemoveStar */
@@ -18136,7 +18136,7 @@ export type RemoveStarPayload = {
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>;
   /** The starrable. */
-  starrable?: Maybe<Starrable>;
+  starrable?: Maybe<Gist | Repository | Topic>;
 };
 
 /** Autogenerated input type of RemoveUpvote */
@@ -18153,14 +18153,14 @@ export type RemoveUpvotePayload = {
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>;
   /** The votable subject. */
-  subject?: Maybe<Votable>;
+  subject?: Maybe<Discussion | DiscussionComment>;
 };
 
 /** Represents a 'removed_from_project' event on a given issue or pull request. */
 export type RemovedFromProjectEvent = Node & {
   __typename?: 'RemovedFromProjectEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** Identifies the primary key from the database. */
@@ -18172,7 +18172,7 @@ export type RemovedFromProjectEvent = Node & {
 export type RenamedTitleEvent = Node & {
   __typename?: 'RenamedTitleEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** Identifies the current title of the issue or pull request. */
@@ -18225,9 +18225,9 @@ export type ReopenPullRequestPayload = {
 export type ReopenedEvent = Node & {
   __typename?: 'ReopenedEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Object that was reopened. */
-  closable: Closable;
+  closable: Discussion | Issue | Milestone | Project | ProjectV2 | PullRequest;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   id: Scalars['ID'];
@@ -19393,11 +19393,11 @@ export type Repository = Node & PackageOwner & ProjectOwner & ProjectV2Recent & 
   /** The repository's name with owner. */
   nameWithOwner: Scalars['String'];
   /** A Git object in the repository */
-  object?: Maybe<GitObject>;
+  object?: Maybe<Blob | Commit | Tag | Tree>;
   /** The image used to represent this repository in Open Graph data. */
   openGraphImageUrl: Scalars['URI'];
   /** The User owner of the repository. */
-  owner: RepositoryOwner;
+  owner: Organization | User;
   /** A list of packages under the owner. */
   packages: PackageConnection;
   /** The repository parent, if this is a fork. */
@@ -20122,7 +20122,7 @@ export type RepositoryInfo = {
   /** The image used to represent this repository in Open Graph data. */
   openGraphImageUrl: Scalars['URI'];
   /** The User owner of the repository. */
-  owner: RepositoryOwner;
+  owner: Organization | User;
   /** Identifies when the repository was last pushed to. */
   pushedAt?: Maybe<Scalars['DateTime']>;
   /** The HTTP path for this repository */
@@ -20204,7 +20204,7 @@ export type RepositoryInvitation = Node & {
   /** The permission granted on this repository by this invitation. */
   permission: RepositoryPermission;
   /** The Repository the user is invited to. */
-  repository?: Maybe<RepositoryInfo>;
+  repository?: Maybe<Repository>;
 };
 
 /** A list of repository invitations. */
@@ -20650,7 +20650,7 @@ export type RequestReviewsInput = {
 export type RequestReviewsPayload = {
   __typename?: 'RequestReviewsPayload';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>;
   /** The pull request that is getting requests. */
@@ -20867,7 +20867,7 @@ export type ReviewDismissalAllowanceEdge = {
 export type ReviewDismissedEvent = Node & UniformResourceLocatable & {
   __typename?: 'ReviewDismissedEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** Identifies the primary key from the database. */
@@ -20931,7 +20931,7 @@ export type ReviewRequestEdge = {
 export type ReviewRequestRemovedEvent = Node & {
   __typename?: 'ReviewRequestRemovedEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   id: Scalars['ID'];
@@ -20945,7 +20945,7 @@ export type ReviewRequestRemovedEvent = Node & {
 export type ReviewRequestedEvent = Node & {
   __typename?: 'ReviewRequestedEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   id: Scalars['ID'];
@@ -21062,7 +21062,7 @@ export type SavedReply = Node & {
   /** The title of the saved reply. */
   title: Scalars['String'];
   /** The user that saved this reply. */
-  user?: Maybe<Actor>;
+  user?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
 };
 
 /** The connection type for SavedReply. */
@@ -21819,7 +21819,7 @@ export type SponsorsActivity = Node & {
   /** The user or organization who triggered this activity and was/is sponsoring the sponsorable. */
   sponsor?: Maybe<Sponsor>;
   /** The user or organization that is being sponsored, the maintainer. */
-  sponsorable: Sponsorable;
+  sponsorable: Organization | User;
   /** The associated sponsorship tier. */
   sponsorsTier?: Maybe<SponsorsTier>;
   /** The timestamp of this event. */
@@ -22467,7 +22467,7 @@ export type SponsorsListing = Node & {
   /** The short name of the listing. */
   slug: Scalars['String'];
   /** The entity this listing represents who can be sponsored on GitHub Sponsors. */
-  sponsorable: Sponsorable;
+  sponsorable: Organization | User;
   /** The tiers for this GitHub Sponsors profile. */
   tiers?: Maybe<SponsorsTierConnection>;
   /** The HTTP URL for this Sponsors listing. */
@@ -22673,7 +22673,7 @@ export type Sponsorship = Node & {
   /** The user or organization that is sponsoring, if you have permission to view them. */
   sponsorEntity?: Maybe<Sponsor>;
   /** The entity that is being sponsored */
-  sponsorable: Sponsorable;
+  sponsorable: Organization | User;
   /** The associated sponsorship tier */
   tier?: Maybe<SponsorsTier>;
   /** Identifies the date and time when the current tier was chosen for this sponsorship. */
@@ -22725,7 +22725,7 @@ export type SponsorshipNewsletter = Node & {
   /** Indicates if the newsletter has been made available to sponsors. */
   isPublished: Scalars['Boolean'];
   /** The user or organization this newsletter is from. */
-  sponsorable: Sponsorable;
+  sponsorable: Organization | User;
   /** The subject of the newsletter, what it's about. */
   subject: Scalars['String'];
   /** Identifies the date and time when the object was last updated. */
@@ -23068,7 +23068,7 @@ export type StatusContext = Node & RequirableByPullRequest & {
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** The actor who created this status context. */
-  creator?: Maybe<Actor>;
+  creator?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** The description for this status context. */
   description?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -23218,12 +23218,12 @@ export type Subscribable = {
 export type SubscribedEvent = Node & {
   __typename?: 'SubscribedEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   id: Scalars['ID'];
   /** Object referenced by event. */
-  subscribable: Subscribable;
+  subscribable: Commit | Discussion | Issue | PullRequest | Repository | Team | TeamDiscussion;
 };
 
 /** The possible states of a subscription. */
@@ -23267,7 +23267,7 @@ export type Tag = GitObject & Node & {
   /** Details about the tag author. */
   tagger?: Maybe<GitActor>;
   /** The Git object the tag points to. */
-  target: GitObject;
+  target: Blob | Commit | Tag | Tree;
 };
 
 /** A team of users in an organization. */
@@ -23660,7 +23660,7 @@ export type TeamConnection = {
 export type TeamDiscussion = Comment & Deletable & Node & Reactable & Subscribable & UniformResourceLocatable & Updatable & UpdatableComment & {
   __typename?: 'TeamDiscussion';
   /** The actor who authored the comment. */
-  author?: Maybe<Actor>;
+  author?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Author's association with the discussion's team. */
   authorAssociation: CommentAuthorAssociation;
   /** The body as Markdown. */
@@ -23684,7 +23684,7 @@ export type TeamDiscussion = Comment & Deletable & Node & Reactable & Subscribab
   /** Identifies the primary key from the database. */
   databaseId?: Maybe<Scalars['Int']>;
   /** The actor who edited the comment. */
-  editor?: Maybe<Actor>;
+  editor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   id: Scalars['ID'];
   /** Check if this comment was edited and includes an edit with the creation data */
   includesCreatedEdit: Scalars['Boolean'];
@@ -23767,7 +23767,7 @@ export type TeamDiscussionUserContentEditsArgs = {
 export type TeamDiscussionComment = Comment & Deletable & Node & Reactable & UniformResourceLocatable & Updatable & UpdatableComment & {
   __typename?: 'TeamDiscussionComment';
   /** The actor who authored the comment. */
-  author?: Maybe<Actor>;
+  author?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Author's association with the comment's team. */
   authorAssociation: CommentAuthorAssociation;
   /** The body as Markdown. */
@@ -23787,7 +23787,7 @@ export type TeamDiscussionComment = Comment & Deletable & Node & Reactable & Uni
   /** The discussion this comment is about. */
   discussion: TeamDiscussion;
   /** The actor who edited the comment. */
-  editor?: Maybe<Actor>;
+  editor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   id: Scalars['ID'];
   /** Check if this comment was edited and includes an edit with the creation data */
   includesCreatedEdit: Scalars['Boolean'];
@@ -24303,7 +24303,7 @@ export type TransferIssuePayload = {
 export type TransferredEvent = Node & {
   __typename?: 'TransferredEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   /** The repository this came from */
@@ -24349,7 +24349,7 @@ export type TreeEntry = {
   /** Entry file name. (Base64-encoded) */
   nameRaw: Scalars['Base64String'];
   /** Entry file object. */
-  object?: Maybe<GitObject>;
+  object?: Maybe<Blob | Commit | Tag | Tree>;
   /** Entry file Git object ID. */
   oid: Scalars['GitObjectID'];
   /** The full path of the file. */
@@ -24406,9 +24406,9 @@ export type UnarchiveRepositoryPayload = {
 export type UnassignedEvent = Node & {
   __typename?: 'UnassignedEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the assignable associated with the event. */
-  assignable: Assignable;
+  assignable: Issue | PullRequest;
   /** Identifies the user or mannequin that was unassigned. */
   assignee?: Maybe<Assignee>;
   /** Identifies the date and time when the object was created. */
@@ -24489,14 +24489,14 @@ export type UnknownSignature = GitSignature & {
 export type UnlabeledEvent = Node & {
   __typename?: 'UnlabeledEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   id: Scalars['ID'];
   /** Identifies the label associated with the 'unlabeled' event. */
   label: Label;
   /** Identifies the `Labelable` associated with the event. */
-  labelable: Labelable;
+  labelable: Discussion | Issue | PullRequest;
 };
 
 /** Autogenerated input type of UnlinkProjectV2FromRepository */
@@ -24570,23 +24570,23 @@ export type UnlockLockableInput = {
 export type UnlockLockablePayload = {
   __typename?: 'UnlockLockablePayload';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>;
   /** The item that was unlocked. */
-  unlockedRecord?: Maybe<Lockable>;
+  unlockedRecord?: Maybe<Discussion | Issue | PullRequest>;
 };
 
 /** Represents an 'unlocked' event on a given issue or pull request. */
 export type UnlockedEvent = Node & {
   __typename?: 'UnlockedEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   id: Scalars['ID'];
   /** Object that was unlocked. */
-  lockable: Lockable;
+  lockable: Discussion | Issue | PullRequest;
 };
 
 /** Autogenerated input type of UnmarkDiscussionCommentAsAnswer */
@@ -24648,7 +24648,7 @@ export type UnmarkIssueAsDuplicatePayload = {
 export type UnmarkedAsDuplicateEvent = Node & {
   __typename?: 'UnmarkedAsDuplicateEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** The authoritative issue or pull request which has been duplicated by another. */
   canonical?: Maybe<IssueOrPullRequest>;
   /** Identifies the date and time when the object was created. */
@@ -24674,7 +24674,7 @@ export type UnminimizeCommentPayload = {
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>;
   /** The comment that was unminimized. */
-  unminimizedComment?: Maybe<Minimizable>;
+  unminimizedComment?: Maybe<CommitComment | DiscussionComment | GistComment | IssueComment | PullRequestReviewComment>;
 };
 
 /** Autogenerated input type of UnpinIssue */
@@ -24698,7 +24698,7 @@ export type UnpinIssuePayload = {
 export type UnpinnedEvent = Node & {
   __typename?: 'UnpinnedEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   id: Scalars['ID'];
@@ -24727,12 +24727,12 @@ export type UnresolveReviewThreadPayload = {
 export type UnsubscribedEvent = Node & {
   __typename?: 'UnsubscribedEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   id: Scalars['ID'];
   /** Object referenced by event. */
-  subscribable: Subscribable;
+  subscribable: Commit | Discussion | Issue | PullRequest | Repository | Team | TeamDiscussion;
 };
 
 /** Entities that can be updated. */
@@ -25420,7 +25420,7 @@ export type UpdateIssueInput = {
 export type UpdateIssuePayload = {
   __typename?: 'UpdateIssuePayload';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>;
   /** The issue. */
@@ -25708,7 +25708,7 @@ export type UpdatePullRequestInput = {
 export type UpdatePullRequestPayload = {
   __typename?: 'UpdatePullRequestPayload';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>;
   /** The updated pull request. */
@@ -25883,7 +25883,7 @@ export type UpdateSubscriptionPayload = {
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>;
   /** The input subscribable entity. */
-  subscribable?: Maybe<Subscribable>;
+  subscribable?: Maybe<Commit | Discussion | Issue | PullRequest | Repository | Team | TeamDiscussion>;
 };
 
 /** Autogenerated input type of UpdateTeamDiscussionComment */
@@ -26623,7 +26623,7 @@ export type UserBlockDuration =
 export type UserBlockedEvent = Node & {
   __typename?: 'UserBlockedEvent';
   /** Identifies the actor who performed the event. */
-  actor?: Maybe<Actor>;
+  actor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Number of days that the user was blocked for. */
   blockDuration: UserBlockDuration;
   /** Identifies the date and time when the object was created. */
@@ -26654,13 +26654,13 @@ export type UserContentEdit = Node & {
   /** Identifies the date and time when the object was deleted. */
   deletedAt?: Maybe<Scalars['DateTime']>;
   /** The actor who deleted this content */
-  deletedBy?: Maybe<Actor>;
+  deletedBy?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** A summary of the changes for this edit */
   diff?: Maybe<Scalars['String']>;
   /** When this content was edited */
   editedAt: Scalars['DateTime'];
   /** The actor who edited this content */
-  editor?: Maybe<Actor>;
+  editor?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   id: Scalars['ID'];
   /** Identifies the date and time when the object was last updated. */
   updatedAt: Scalars['DateTime'];
