@@ -53657,6 +53657,11 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   ): ProjectV2Connection!
 
   """
+  The user's profile pronouns
+  """
+  pronouns: String
+
+  """
   A list of public keys associated with this user.
   """
   publicKeys(
