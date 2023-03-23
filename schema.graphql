@@ -6769,7 +6769,7 @@ input CreateMigrationSourceInput {
   """
   The migration source URL, for example `https://github.com` or `https://monalisa.ghe.com`.
   """
-  url: String!
+  url: String
 }
 
 """
@@ -46799,7 +46799,7 @@ input StartRepositoryMigrationInput {
   """
   The migration source access token.
   """
-  accessToken: String!
+  accessToken: String
 
   """
   A unique identifier for the client performing the mutation.
@@ -46854,7 +46854,7 @@ input StartRepositoryMigrationInput {
   """
   The URL of the source repository.
   """
-  sourceRepositoryUrl: URI!
+  sourceRepositoryUrl: URI
 
   """
   The visibility of the imported repository.
