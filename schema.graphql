@@ -33249,11 +33249,6 @@ type PullRequestReviewComment implements Comment & Deletable & Minimizable & Nod
   originalStartLine: Int
 
   """
-  The start line number on the file to which the comment applied when it was first created
-  """
-  originalStartLine: Int
-
-  """
   Identifies when the comment body is outdated
   """
   outdated: Boolean!
