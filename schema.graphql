@@ -42171,7 +42171,7 @@ input RequestReviewsInput {
   """
   Add users to the set rather than replace.
   """
-  union: Boolean
+  union: Boolean = false
 
   """
   The Node IDs of the user to request.
