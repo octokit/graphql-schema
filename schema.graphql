@@ -9483,6 +9483,11 @@ enum DeploymentState {
   QUEUED
 
   """
+  The deployment was successful.
+  """
+  SUCCESS
+
+  """
   The deployment is waiting.
   """
   WAITING
