@@ -13504,6 +13504,7 @@ export type OrganizationTeamsArgs = {
   first?: InputMaybe<Scalars['Int']>;
   last?: InputMaybe<Scalars['Int']>;
   ldapMapped?: InputMaybe<Scalars['Boolean']>;
+  notificationSetting?: InputMaybe<TeamNotificationSetting>;
   orderBy?: InputMaybe<TeamOrder>;
   privacy?: InputMaybe<TeamPrivacy>;
   query?: InputMaybe<Scalars['String']>;
@@ -20846,11 +20847,6 @@ export type RepositoryVulnerabilityAlert = Node & RepositoryNode & {
   dismissedAt?: Maybe<Scalars['DateTime']>;
   /** The user who dismissed the alert */
   dismisser?: Maybe<User>;
-  /**
-   * The reason the alert was marked as fixed.
-   * @deprecated The `fixReason` field is being removed. You can still use `fixedAt` and `dismissReason`. Removal on 2023-04-01 UTC.
-   */
-  fixReason?: Maybe<Scalars['String']>;
   /** When was the alert fixed? */
   fixedAt?: Maybe<Scalars['DateTime']>;
   id: Scalars['ID'];
@@ -23594,6 +23590,8 @@ export type Team = MemberStatusable & Node & Subscribable & {
   newTeamResourcePath: Scalars['URI'];
   /** The HTTP URL creating a new team */
   newTeamUrl: Scalars['URI'];
+  /** The notification setting that the team has set. */
+  notificationSetting: TeamNotificationSetting;
   /** The organization that owns this team. */
   organization: Organization;
   /** The parent team of the team. */
@@ -24255,6 +24253,13 @@ export type TeamMembershipType =
   | 'CHILD_TEAM'
   /** Includes only immediate members of the team. */
   | 'IMMEDIATE';
+
+/** The possible team notification values. */
+export type TeamNotificationSetting =
+  /** No one will receive notifications. */
+  | 'NOTIFICATIONS_DISABLED'
+  /** Everyone will receive notifications when the team is @mentioned. */
+  | 'NOTIFICATIONS_ENABLED';
 
 /** Ways in which team connections can be ordered. */
 export type TeamOrder = {
