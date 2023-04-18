@@ -56937,6 +56937,11 @@ type Workflow implements Node {
   name: String!
 
   """
+  The HTTP path for this workflow
+  """
+  resourcePath: URI!
+
+  """
   The runs of the workflow.
   """
   runs(
@@ -56975,6 +56980,11 @@ type Workflow implements Node {
   Identifies the date and time when the object was last updated.
   """
   updatedAt: DateTime!
+
+  """
+  The HTTP URL for this workflow
+  """
+  url: URI!
 }
 
 """
