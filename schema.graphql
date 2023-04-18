@@ -56919,7 +56919,7 @@ interface Votable {
 """
 A workflow contains meta information about an Actions workflow file.
 """
-type Workflow implements Node {
+type Workflow implements Node & UniformResourceLocatable {
   """
   Identifies the date and time when the object was created.
   """
