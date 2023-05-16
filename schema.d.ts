@@ -1073,13 +1073,13 @@ export type BranchActorAllowanceActor = App | Team | User;
 export type BranchNamePatternParameters = {
   __typename?: 'BranchNamePatternParameters';
   /** How this rule will appear to users. */
-  name: Scalars['String'];
+  name?: Maybe<Scalars['String']>;
   /** If true, the rule will fail if the pattern matches. */
   negate: Scalars['Boolean'];
   /** The operator to use for matching. */
-  operator?: Maybe<Scalars['String']>;
+  operator: Scalars['String'];
   /** The pattern to match with. */
-  pattern?: Maybe<Scalars['String']>;
+  pattern: Scalars['String'];
 };
 
 /** Parameters to be used for the branch_name_pattern rule */
@@ -2479,13 +2479,13 @@ export type CommitAuthor = {
 export type CommitAuthorEmailPatternParameters = {
   __typename?: 'CommitAuthorEmailPatternParameters';
   /** How this rule will appear to users. */
-  name: Scalars['String'];
+  name?: Maybe<Scalars['String']>;
   /** If true, the rule will fail if the pattern matches. */
   negate: Scalars['Boolean'];
   /** The operator to use for matching. */
-  operator?: Maybe<Scalars['String']>;
+  operator: Scalars['String'];
   /** The pattern to match with. */
-  pattern?: Maybe<Scalars['String']>;
+  pattern: Scalars['String'];
 };
 
 /** Parameters to be used for the commit_author_email_pattern rule */
@@ -2722,13 +2722,13 @@ export type CommitMessage = {
 export type CommitMessagePatternParameters = {
   __typename?: 'CommitMessagePatternParameters';
   /** How this rule will appear to users. */
-  name: Scalars['String'];
+  name?: Maybe<Scalars['String']>;
   /** If true, the rule will fail if the pattern matches. */
   negate: Scalars['Boolean'];
   /** The operator to use for matching. */
-  operator?: Maybe<Scalars['String']>;
+  operator: Scalars['String'];
   /** The pattern to match with. */
-  pattern?: Maybe<Scalars['String']>;
+  pattern: Scalars['String'];
 };
 
 /** Parameters to be used for the commit_message_pattern rule */
@@ -2779,13 +2779,13 @@ export type CommittableBranch = {
 export type CommitterEmailPatternParameters = {
   __typename?: 'CommitterEmailPatternParameters';
   /** How this rule will appear to users. */
-  name: Scalars['String'];
+  name?: Maybe<Scalars['String']>;
   /** If true, the rule will fail if the pattern matches. */
   negate: Scalars['Boolean'];
   /** The operator to use for matching. */
-  operator?: Maybe<Scalars['String']>;
+  operator: Scalars['String'];
   /** The pattern to match with. */
-  pattern?: Maybe<Scalars['String']>;
+  pattern: Scalars['String'];
 };
 
 /** Parameters to be used for the committer_email_pattern rule */
@@ -5970,7 +5970,10 @@ export type Enterprise = AnnouncementBanner & Node & {
   name: Scalars['String'];
   /** A list of organizations that belong to this enterprise. */
   organizations: OrganizationConnection;
-  /** Enterprise information only visible to enterprise owners. */
+  /**
+   * Enterprise information visible to enterprise owners or enterprise owners'
+   * personal access tokens (classic) with read:enterprise or admin:enterprise scope.
+   */
   ownerInfo?: Maybe<EnterpriseOwnerInfo>;
   /** The HTTP path for this enterprise. */
   resourcePath: Scalars['URI'];
@@ -6204,7 +6207,11 @@ export type EnterpriseFailedInvitationEdge = {
   node?: Maybe<OrganizationInvitation>;
 };
 
-/** An identity provider configured to provision identities for an enterprise. */
+/**
+ * An identity provider configured to provision identities for an enterprise.
+ * Visible to enterprise owners or enterprise owners' personal access tokens
+ * (classic) with read:enterprise or admin:enterprise scope.
+ */
 export type EnterpriseIdentityProvider = Node & {
   __typename?: 'EnterpriseIdentityProvider';
   /** The digest algorithm used to sign SAML requests for the identity provider. */
@@ -6227,7 +6234,11 @@ export type EnterpriseIdentityProvider = Node & {
 };
 
 
-/** An identity provider configured to provision identities for an enterprise. */
+/**
+ * An identity provider configured to provision identities for an enterprise.
+ * Visible to enterprise owners or enterprise owners' personal access tokens
+ * (classic) with read:enterprise or admin:enterprise scope.
+ */
 export type EnterpriseIdentityProviderExternalIdentitiesArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -6356,7 +6367,10 @@ export type EnterpriseOutsideCollaboratorEdgeRepositoriesArgs = {
   orderBy?: InputMaybe<RepositoryOrder>;
 };
 
-/** Enterprise information only visible to enterprise owners. */
+/**
+ * Enterprise information visible to enterprise owners or enterprise owners'
+ * personal access tokens (classic) with read:enterprise or admin:enterprise scope.
+ */
 export type EnterpriseOwnerInfo = {
   __typename?: 'EnterpriseOwnerInfo';
   /** A list of all of the administrators for this enterprise. */
@@ -6375,7 +6389,10 @@ export type EnterpriseOwnerInfo = {
   defaultRepositoryPermissionSetting: EnterpriseDefaultRepositoryPermissionSettingValue;
   /** A list of enterprise organizations configured with the provided base repository permission. */
   defaultRepositoryPermissionSettingOrganizations: OrganizationConnection;
-  /** A list of domains owned by the enterprise. */
+  /**
+   * A list of domains owned by the enterprise. Visible to enterprise owners or
+   * enterprise owners' personal access tokens (classic) with admin:enterprise scope.
+   */
   domains: VerifiableDomainConnection;
   /** Enterprise Server installations owned by the enterprise. */
   enterpriseServerInstallations: EnterpriseServerInstallationConnection;
@@ -6383,7 +6400,11 @@ export type EnterpriseOwnerInfo = {
   failedInvitations: EnterpriseFailedInvitationConnection;
   /** The setting value for whether the enterprise has an IP allow list enabled. */
   ipAllowListEnabledSetting: IpAllowListEnabledSettingValue;
-  /** The IP addresses that are allowed to access resources owned by the enterprise. */
+  /**
+   * The IP addresses that are allowed to access resources owned by the enterprise.
+   * Visible to enterprise owners or enterprise owners' personal access tokens
+   * (classic) with admin:enterprise scope.
+   */
   ipAllowListEntries: IpAllowListEntryConnection;
   /** The setting value for whether the enterprise has IP allow list configuration for installed GitHub Apps enabled. */
   ipAllowListForInstalledAppsEnabledSetting: IpAllowListForInstalledAppsEnabledSettingValue;
@@ -6450,10 +6471,7 @@ export type EnterpriseOwnerInfo = {
   repositoryProjectsSetting: EnterpriseEnabledDisabledSettingValue;
   /** A list of enterprise organizations configured with the provided repository projects setting value. */
   repositoryProjectsSettingOrganizations: OrganizationConnection;
-  /**
-   * The SAML Identity Provider for the enterprise. When used by a GitHub App,
-   * requires an installation token with read and write access to members.
-   */
+  /** The SAML Identity Provider for the enterprise. */
   samlIdentityProvider?: Maybe<EnterpriseIdentityProvider>;
   /** A list of enterprise organizations configured with the SAML single sign-on setting value. */
   samlIdentityProviderSettingOrganizations: OrganizationConnection;
@@ -6470,7 +6488,10 @@ export type EnterpriseOwnerInfo = {
 };
 
 
-/** Enterprise information only visible to enterprise owners. */
+/**
+ * Enterprise information visible to enterprise owners or enterprise owners'
+ * personal access tokens (classic) with read:enterprise or admin:enterprise scope.
+ */
 export type EnterpriseOwnerInfoAdminsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -6484,7 +6505,10 @@ export type EnterpriseOwnerInfoAdminsArgs = {
 };
 
 
-/** Enterprise information only visible to enterprise owners. */
+/**
+ * Enterprise information visible to enterprise owners or enterprise owners'
+ * personal access tokens (classic) with read:enterprise or admin:enterprise scope.
+ */
 export type EnterpriseOwnerInfoAffiliatedUsersWithTwoFactorDisabledArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -6493,7 +6517,10 @@ export type EnterpriseOwnerInfoAffiliatedUsersWithTwoFactorDisabledArgs = {
 };
 
 
-/** Enterprise information only visible to enterprise owners. */
+/**
+ * Enterprise information visible to enterprise owners or enterprise owners'
+ * personal access tokens (classic) with read:enterprise or admin:enterprise scope.
+ */
 export type EnterpriseOwnerInfoAllowPrivateRepositoryForkingSettingOrganizationsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -6504,7 +6531,10 @@ export type EnterpriseOwnerInfoAllowPrivateRepositoryForkingSettingOrganizations
 };
 
 
-/** Enterprise information only visible to enterprise owners. */
+/**
+ * Enterprise information visible to enterprise owners or enterprise owners'
+ * personal access tokens (classic) with read:enterprise or admin:enterprise scope.
+ */
 export type EnterpriseOwnerInfoDefaultRepositoryPermissionSettingOrganizationsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -6515,7 +6545,10 @@ export type EnterpriseOwnerInfoDefaultRepositoryPermissionSettingOrganizationsAr
 };
 
 
-/** Enterprise information only visible to enterprise owners. */
+/**
+ * Enterprise information visible to enterprise owners or enterprise owners'
+ * personal access tokens (classic) with read:enterprise or admin:enterprise scope.
+ */
 export type EnterpriseOwnerInfoDomainsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -6527,7 +6560,10 @@ export type EnterpriseOwnerInfoDomainsArgs = {
 };
 
 
-/** Enterprise information only visible to enterprise owners. */
+/**
+ * Enterprise information visible to enterprise owners or enterprise owners'
+ * personal access tokens (classic) with read:enterprise or admin:enterprise scope.
+ */
 export type EnterpriseOwnerInfoEnterpriseServerInstallationsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -6538,7 +6574,10 @@ export type EnterpriseOwnerInfoEnterpriseServerInstallationsArgs = {
 };
 
 
-/** Enterprise information only visible to enterprise owners. */
+/**
+ * Enterprise information visible to enterprise owners or enterprise owners'
+ * personal access tokens (classic) with read:enterprise or admin:enterprise scope.
+ */
 export type EnterpriseOwnerInfoFailedInvitationsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -6548,7 +6587,10 @@ export type EnterpriseOwnerInfoFailedInvitationsArgs = {
 };
 
 
-/** Enterprise information only visible to enterprise owners. */
+/**
+ * Enterprise information visible to enterprise owners or enterprise owners'
+ * personal access tokens (classic) with read:enterprise or admin:enterprise scope.
+ */
 export type EnterpriseOwnerInfoIpAllowListEntriesArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -6558,7 +6600,10 @@ export type EnterpriseOwnerInfoIpAllowListEntriesArgs = {
 };
 
 
-/** Enterprise information only visible to enterprise owners. */
+/**
+ * Enterprise information visible to enterprise owners or enterprise owners'
+ * personal access tokens (classic) with read:enterprise or admin:enterprise scope.
+ */
 export type EnterpriseOwnerInfoMembersCanChangeRepositoryVisibilitySettingOrganizationsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -6569,7 +6614,10 @@ export type EnterpriseOwnerInfoMembersCanChangeRepositoryVisibilitySettingOrgani
 };
 
 
-/** Enterprise information only visible to enterprise owners. */
+/**
+ * Enterprise information visible to enterprise owners or enterprise owners'
+ * personal access tokens (classic) with read:enterprise or admin:enterprise scope.
+ */
 export type EnterpriseOwnerInfoMembersCanCreateRepositoriesSettingOrganizationsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -6580,7 +6628,10 @@ export type EnterpriseOwnerInfoMembersCanCreateRepositoriesSettingOrganizationsA
 };
 
 
-/** Enterprise information only visible to enterprise owners. */
+/**
+ * Enterprise information visible to enterprise owners or enterprise owners'
+ * personal access tokens (classic) with read:enterprise or admin:enterprise scope.
+ */
 export type EnterpriseOwnerInfoMembersCanDeleteIssuesSettingOrganizationsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -6591,7 +6642,10 @@ export type EnterpriseOwnerInfoMembersCanDeleteIssuesSettingOrganizationsArgs = 
 };
 
 
-/** Enterprise information only visible to enterprise owners. */
+/**
+ * Enterprise information visible to enterprise owners or enterprise owners'
+ * personal access tokens (classic) with read:enterprise or admin:enterprise scope.
+ */
 export type EnterpriseOwnerInfoMembersCanDeleteRepositoriesSettingOrganizationsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -6602,7 +6656,10 @@ export type EnterpriseOwnerInfoMembersCanDeleteRepositoriesSettingOrganizationsA
 };
 
 
-/** Enterprise information only visible to enterprise owners. */
+/**
+ * Enterprise information visible to enterprise owners or enterprise owners'
+ * personal access tokens (classic) with read:enterprise or admin:enterprise scope.
+ */
 export type EnterpriseOwnerInfoMembersCanInviteCollaboratorsSettingOrganizationsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -6613,7 +6670,10 @@ export type EnterpriseOwnerInfoMembersCanInviteCollaboratorsSettingOrganizations
 };
 
 
-/** Enterprise information only visible to enterprise owners. */
+/**
+ * Enterprise information visible to enterprise owners or enterprise owners'
+ * personal access tokens (classic) with read:enterprise or admin:enterprise scope.
+ */
 export type EnterpriseOwnerInfoMembersCanUpdateProtectedBranchesSettingOrganizationsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -6624,7 +6684,10 @@ export type EnterpriseOwnerInfoMembersCanUpdateProtectedBranchesSettingOrganizat
 };
 
 
-/** Enterprise information only visible to enterprise owners. */
+/**
+ * Enterprise information visible to enterprise owners or enterprise owners'
+ * personal access tokens (classic) with read:enterprise or admin:enterprise scope.
+ */
 export type EnterpriseOwnerInfoMembersCanViewDependencyInsightsSettingOrganizationsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -6635,7 +6698,10 @@ export type EnterpriseOwnerInfoMembersCanViewDependencyInsightsSettingOrganizati
 };
 
 
-/** Enterprise information only visible to enterprise owners. */
+/**
+ * Enterprise information visible to enterprise owners or enterprise owners'
+ * personal access tokens (classic) with read:enterprise or admin:enterprise scope.
+ */
 export type EnterpriseOwnerInfoOrganizationProjectsSettingOrganizationsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -6646,7 +6712,10 @@ export type EnterpriseOwnerInfoOrganizationProjectsSettingOrganizationsArgs = {
 };
 
 
-/** Enterprise information only visible to enterprise owners. */
+/**
+ * Enterprise information visible to enterprise owners or enterprise owners'
+ * personal access tokens (classic) with read:enterprise or admin:enterprise scope.
+ */
 export type EnterpriseOwnerInfoOutsideCollaboratorsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -6661,7 +6730,10 @@ export type EnterpriseOwnerInfoOutsideCollaboratorsArgs = {
 };
 
 
-/** Enterprise information only visible to enterprise owners. */
+/**
+ * Enterprise information visible to enterprise owners or enterprise owners'
+ * personal access tokens (classic) with read:enterprise or admin:enterprise scope.
+ */
 export type EnterpriseOwnerInfoPendingAdminInvitationsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -6673,7 +6745,10 @@ export type EnterpriseOwnerInfoPendingAdminInvitationsArgs = {
 };
 
 
-/** Enterprise information only visible to enterprise owners. */
+/**
+ * Enterprise information visible to enterprise owners or enterprise owners'
+ * personal access tokens (classic) with read:enterprise or admin:enterprise scope.
+ */
 export type EnterpriseOwnerInfoPendingCollaboratorInvitationsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -6684,7 +6759,10 @@ export type EnterpriseOwnerInfoPendingCollaboratorInvitationsArgs = {
 };
 
 
-/** Enterprise information only visible to enterprise owners. */
+/**
+ * Enterprise information visible to enterprise owners or enterprise owners'
+ * personal access tokens (classic) with read:enterprise or admin:enterprise scope.
+ */
 export type EnterpriseOwnerInfoPendingMemberInvitationsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -6696,7 +6774,10 @@ export type EnterpriseOwnerInfoPendingMemberInvitationsArgs = {
 };
 
 
-/** Enterprise information only visible to enterprise owners. */
+/**
+ * Enterprise information visible to enterprise owners or enterprise owners'
+ * personal access tokens (classic) with read:enterprise or admin:enterprise scope.
+ */
 export type EnterpriseOwnerInfoRepositoryProjectsSettingOrganizationsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -6707,7 +6788,10 @@ export type EnterpriseOwnerInfoRepositoryProjectsSettingOrganizationsArgs = {
 };
 
 
-/** Enterprise information only visible to enterprise owners. */
+/**
+ * Enterprise information visible to enterprise owners or enterprise owners'
+ * personal access tokens (classic) with read:enterprise or admin:enterprise scope.
+ */
 export type EnterpriseOwnerInfoSamlIdentityProviderSettingOrganizationsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -6718,7 +6802,10 @@ export type EnterpriseOwnerInfoSamlIdentityProviderSettingOrganizationsArgs = {
 };
 
 
-/** Enterprise information only visible to enterprise owners. */
+/**
+ * Enterprise information visible to enterprise owners or enterprise owners'
+ * personal access tokens (classic) with read:enterprise or admin:enterprise scope.
+ */
 export type EnterpriseOwnerInfoSupportEntitlementsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -6728,7 +6815,10 @@ export type EnterpriseOwnerInfoSupportEntitlementsArgs = {
 };
 
 
-/** Enterprise information only visible to enterprise owners. */
+/**
+ * Enterprise information visible to enterprise owners or enterprise owners'
+ * personal access tokens (classic) with read:enterprise or admin:enterprise scope.
+ */
 export type EnterpriseOwnerInfoTeamDiscussionsSettingOrganizationsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -6739,7 +6829,10 @@ export type EnterpriseOwnerInfoTeamDiscussionsSettingOrganizationsArgs = {
 };
 
 
-/** Enterprise information only visible to enterprise owners. */
+/**
+ * Enterprise information visible to enterprise owners or enterprise owners'
+ * personal access tokens (classic) with read:enterprise or admin:enterprise scope.
+ */
 export type EnterpriseOwnerInfoTwoFactorRequiredSettingOrganizationsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -7214,7 +7307,15 @@ export type EnvironmentEdge = {
   node?: Maybe<Environment>;
 };
 
-/** An external identity provisioned by SAML SSO or SCIM. */
+/**
+ * An external identity provisioned by SAML SSO or SCIM. If SAML is configured on
+ * the organization, the external identity is visible to (1) organization owners,
+ * (2) organization owners' personal access tokens (classic) with read:org or
+ * admin:org scope, (3) GitHub App with an installation token with read or write
+ * access to members. If SAML is configured on the enterprise, the external
+ * identity is visible to (1) enterprise owners, (2) enterprise owners' personal
+ * access tokens (classic) with read:enterprise or admin:enterprise scope.
+ */
 export type ExternalIdentity = Node & {
   __typename?: 'ExternalIdentity';
   /** The GUID for this identity */
@@ -8684,14 +8785,37 @@ export type IssueTemplate = {
   __typename?: 'IssueTemplate';
   /** The template purpose. */
   about?: Maybe<Scalars['String']>;
+  /** The suggested assignees. */
+  assignees: UserConnection;
   /** The suggested issue body. */
   body?: Maybe<Scalars['String']>;
   /** The template filename. */
   filename: Scalars['String'];
+  /** The suggested issue labels */
+  labels?: Maybe<LabelConnection>;
   /** The template name. */
   name: Scalars['String'];
   /** The suggested issue title. */
   title?: Maybe<Scalars['String']>;
+};
+
+
+/** A repository issue template. */
+export type IssueTemplateAssigneesArgs = {
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
+};
+
+
+/** A repository issue template. */
+export type IssueTemplateLabelsArgs = {
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
+  orderBy?: InputMaybe<LabelOrder>;
 };
 
 /** The connection type for IssueTimelineItem. */
@@ -11948,7 +12072,11 @@ export type NotificationRestrictionSettingValue =
   /** The setting is enabled for the owner. */
   | 'ENABLED';
 
-/** An OIDC identity provider configured to provision identities for an enterprise. */
+/**
+ * An OIDC identity provider configured to provision identities for an enterprise.
+ * Visible to enterprise owners or enterprise owners' personal access tokens
+ * (classic) with read:enterprise or admin:enterprise scope.
+ */
 export type OidcProvider = Node & {
   __typename?: 'OIDCProvider';
   /** The enterprise this identity provider belongs to. */
@@ -11963,7 +12091,11 @@ export type OidcProvider = Node & {
 };
 
 
-/** An OIDC identity provider configured to provision identities for an enterprise. */
+/**
+ * An OIDC identity provider configured to provision identities for an enterprise.
+ * Visible to enterprise owners or enterprise owners' personal access tokens
+ * (classic) with read:enterprise or admin:enterprise scope.
+ */
 export type OidcProviderExternalIdentitiesArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -13524,7 +13656,12 @@ export type Organization = Actor & AnnouncementBanner & MemberStatusable & Node 
   resourcePath: Scalars['URI'];
   /** A list of rulesets for this organization. */
   rulesets?: Maybe<RepositoryRulesetConnection>;
-  /** The Organization's SAML identity providers */
+  /**
+   * The Organization's SAML identity provider. Visible to (1) organization owners,
+   * (2) organization owners' personal access tokens (classic) with read:org or
+   * admin:org scope, (3) GitHub App with an installation token with read or write
+   * access to members.
+   */
   samlIdentityProvider?: Maybe<OrganizationIdentityProvider>;
   /** List of users and organizations this entity is sponsoring. */
   sponsoring: SponsorConnection;
@@ -14030,7 +14167,12 @@ export type OrganizationEnterpriseOwnerEdge = {
   organizationRole: RoleInOrganization;
 };
 
-/** An Identity Provider configured to provision SAML and SCIM identities for Organizations */
+/**
+ * An Identity Provider configured to provision SAML and SCIM identities for
+ * Organizations. Visible to (1) organization owners, (2) organization owners'
+ * personal access tokens (classic) with read:org or admin:org scope, (3) GitHub
+ * App with an installation token with read or write access to members.
+ */
 export type OrganizationIdentityProvider = Node & {
   __typename?: 'OrganizationIdentityProvider';
   /** The digest algorithm used to sign SAML requests for the Identity Provider. */
@@ -14051,7 +14193,12 @@ export type OrganizationIdentityProvider = Node & {
 };
 
 
-/** An Identity Provider configured to provision SAML and SCIM identities for Organizations */
+/**
+ * An Identity Provider configured to provision SAML and SCIM identities for
+ * Organizations. Visible to (1) organization owners, (2) organization owners'
+ * personal access tokens (classic) with read:org or admin:org scope, (3) GitHub
+ * App with an installation token with read or write access to members.
+ */
 export type OrganizationIdentityProviderExternalIdentitiesArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -15611,9 +15758,9 @@ export type ProjectV2Item = Node & {
   creator?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the primary key from the database. */
   databaseId?: Maybe<Scalars['Int']>;
-  /** A specific field value given a field name */
+  /** The field value of the first project field which matches the 'name' argument that is set on the item. */
   fieldValueByName?: Maybe<ProjectV2ItemFieldValue>;
-  /** List of field values */
+  /** The field values that are set on the item. */
   fieldValues: ProjectV2ItemFieldValueConnection;
   id: Scalars['ID'];
   /** Whether the item is archived. */
@@ -17081,15 +17228,15 @@ export type PullRequestOrderField =
 export type PullRequestParameters = {
   __typename?: 'PullRequestParameters';
   /** New, reviewable commits pushed will dismiss previous pull request review approvals. */
-  dismissStaleReviewsOnPush?: Maybe<Scalars['Boolean']>;
+  dismissStaleReviewsOnPush: Scalars['Boolean'];
   /** Require an approving review in pull requests that modify files that have a designated code owner. */
-  requireCodeOwnerReview?: Maybe<Scalars['Boolean']>;
+  requireCodeOwnerReview: Scalars['Boolean'];
   /** Whether the most recent reviewable push must be approved by someone other than the person who pushed it. */
-  requireLastPushApproval?: Maybe<Scalars['Boolean']>;
+  requireLastPushApproval: Scalars['Boolean'];
   /** The number of approving reviews that are required before a pull request can be merged. */
-  requiredApprovingReviewCount?: Maybe<Scalars['Int']>;
+  requiredApprovingReviewCount: Scalars['Int'];
   /** All conversations on code must be resolved before a pull request can be merged. */
-  requiredReviewThreadResolution?: Maybe<Scalars['Boolean']>;
+  requiredReviewThreadResolution: Scalars['Boolean'];
 };
 
 /** Parameters to be used for the pull_request rule */
@@ -17863,14 +18010,17 @@ export type Query = {
   organization?: Maybe<Organization>;
   /** The client's rate limit information. */
   rateLimit?: Maybe<RateLimit>;
-  /** Hack to workaround https://github.com/facebook/relay/issues/112 re-exposing the root query object */
+  /**
+   * Workaround for re-exposing the root query object. (Refer to
+   * https://github.com/facebook/relay/issues/112 for more information.)
+   */
   relay: Query;
   /** Lookup a given repository by the owner and repository name. */
   repository?: Maybe<Repository>;
   /** Lookup a repository owner (ie. either a User or an Organization) by login. */
   repositoryOwner?: Maybe<Organization | User>;
   /** Lookup resource by a URL. */
-  resource?: Maybe<Bot | CheckRun | ClosedEvent | Commit | ConvertToDraftEvent | CrossReferencedEvent | Gist | Issue | Mannequin | MergedEvent | Milestone | Organization | PullRequest | PullRequestCommit | ReadyForReviewEvent | Release | Repository | RepositoryTopic | ReviewDismissedEvent | TeamDiscussion | TeamDiscussionComment | User | WorkflowRun>;
+  resource?: Maybe<Bot | CheckRun | ClosedEvent | Commit | ConvertToDraftEvent | CrossReferencedEvent | Gist | Issue | Mannequin | MergedEvent | Milestone | Organization | PullRequest | PullRequestCommit | ReadyForReviewEvent | Release | Repository | RepositoryTopic | ReviewDismissedEvent | TeamDiscussion | TeamDiscussionComment | User | Workflow | WorkflowRun>;
   /** Perform a search across resources, returning a maximum of 1,000 results. */
   search: SearchResultItemConnection;
   /** GitHub Security Advisories */
@@ -18361,13 +18511,13 @@ export type RefEdge = {
 export type RefNameConditionTarget = {
   __typename?: 'RefNameConditionTarget';
   /** Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match. */
-  exclude?: Maybe<Array<Scalars['String']>>;
+  exclude: Array<Scalars['String']>;
   /**
    * Array of ref names or patterns to include. One of these patterns must match
    * for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the
    * default branch or `~ALL` to include all branches.
    */
-  include?: Maybe<Array<Scalars['String']>>;
+  include: Array<Scalars['String']>;
 };
 
 /** Parameters to be used for the ref_name condition */
@@ -21130,12 +21280,12 @@ export type RepositoryMigrationOrderField =
 export type RepositoryNameConditionTarget = {
   __typename?: 'RepositoryNameConditionTarget';
   /** Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match. */
-  exclude?: Maybe<Array<Scalars['String']>>;
+  exclude: Array<Scalars['String']>;
   /**
    * Array of repository names or patterns to include. One of these patterns must
    * match for the condition to pass. Also accepts `~ALL` to include all repositories.
    */
-  include?: Maybe<Array<Scalars['String']>>;
+  include: Array<Scalars['String']>;
   /** Target changes that match these patterns will be prevented except by those with bypass permissions. */
   protected: Scalars['Boolean'];
 };
@@ -21739,7 +21889,7 @@ export type RequirableByPullRequestIsRequiredArgs = {
 export type RequiredDeploymentsParameters = {
   __typename?: 'RequiredDeploymentsParameters';
   /** The environments that must be successfully deployed to before branches can be merged. */
-  requiredDeploymentEnvironments?: Maybe<Array<Scalars['String']>>;
+  requiredDeploymentEnvironments: Array<Scalars['String']>;
 };
 
 /** Parameters to be used for the required_deployments rule */
@@ -21773,13 +21923,13 @@ export type RequiredStatusCheckInput = {
 export type RequiredStatusChecksParameters = {
   __typename?: 'RequiredStatusChecksParameters';
   /** Status checks that are required. */
-  requiredStatusChecks?: Maybe<Array<StatusCheckConfiguration>>;
+  requiredStatusChecks: Array<StatusCheckConfiguration>;
   /**
    * Whether pull requests targeting a matching branch must be tested with the
    * latest code. This setting will not take effect unless at least one status
    * check is enabled.
    */
-  strictRequiredStatusChecksPolicy?: Maybe<Scalars['Boolean']>;
+  strictRequiredStatusChecksPolicy: Scalars['Boolean'];
 };
 
 /** Parameters to be used for the required_status_checks rule */
@@ -24120,9 +24270,9 @@ export type StatusContextArgs = {
 export type StatusCheckConfiguration = {
   __typename?: 'StatusCheckConfiguration';
   /** The status check context name that must be present on the commit. */
-  context?: Maybe<Scalars['String']>;
+  context: Scalars['String'];
   /** The optional integration ID that this status check must originate from. */
-  integrationId: Scalars['Int'];
+  integrationId?: Maybe<Scalars['Int']>;
 };
 
 /** Required status check */
@@ -24405,13 +24555,13 @@ export type Tag = GitObject & Node & {
 export type TagNamePatternParameters = {
   __typename?: 'TagNamePatternParameters';
   /** How this rule will appear to users. */
-  name: Scalars['String'];
+  name?: Maybe<Scalars['String']>;
   /** If true, the rule will fail if the pattern matches. */
   negate: Scalars['Boolean'];
   /** The operator to use for matching. */
-  operator?: Maybe<Scalars['String']>;
+  operator: Scalars['String'];
   /** The pattern to match with. */
-  pattern?: Maybe<Scalars['String']>;
+  pattern: Scalars['String'];
 };
 
 /** Parameters to be used for the tag_name_pattern rule */
@@ -26657,7 +26807,7 @@ export type UpdateOrganizationWebCommitSignoffSettingPayload = {
 export type UpdateParameters = {
   __typename?: 'UpdateParameters';
   /** Branch can pull changes from its upstream repository */
-  updateAllowsFetchAndMerge?: Maybe<Scalars['Boolean']>;
+  updateAllowsFetchAndMerge: Scalars['Boolean'];
 };
 
 /** Parameters to be used for the update rule */
@@ -27242,7 +27392,7 @@ export type User = Actor & Node & PackageOwner & ProfileOwner & ProjectOwner & P
   isDeveloperProgramMember: Scalars['Boolean'];
   /** Whether or not this user is a GitHub employee. */
   isEmployee: Scalars['Boolean'];
-  /** Whether or not this user is following the viewer. Inverse of viewer_is_following */
+  /** Whether or not this user is following the viewer. Inverse of viewerIsFollowing */
   isFollowingViewer: Scalars['Boolean'];
   /** Whether or not this user is a member of the GitHub Stars Program. */
   isGitHubStar: Scalars['Boolean'];
@@ -27367,7 +27517,7 @@ export type User = Actor & Node & PackageOwner & ProfileOwner & ProjectOwner & P
   viewerCanFollow: Scalars['Boolean'];
   /** Whether or not the viewer is able to sponsor this user/organization. */
   viewerCanSponsor: Scalars['Boolean'];
-  /** Whether or not this user is followed by the viewer. Inverse of is_following_viewer. */
+  /** Whether or not this user is followed by the viewer. Inverse of isFollowingViewer. */
   viewerIsFollowing: Scalars['Boolean'];
   /** True if the viewer is sponsoring this user/organization. */
   viewerIsSponsoring: Scalars['Boolean'];
@@ -28092,7 +28242,7 @@ export type Votable = {
 };
 
 /** A workflow contains meta information about an Actions workflow file. */
-export type Workflow = Node & {
+export type Workflow = Node & UniformResourceLocatable & {
   __typename?: 'Workflow';
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
@@ -28101,12 +28251,16 @@ export type Workflow = Node & {
   id: Scalars['ID'];
   /** The name of the workflow. */
   name: Scalars['String'];
+  /** The HTTP path for this workflow */
+  resourcePath: Scalars['URI'];
   /** The runs of the workflow. */
   runs: WorkflowRunConnection;
   /** The state of the workflow. */
   state: WorkflowState;
   /** Identifies the date and time when the object was last updated. */
   updatedAt: Scalars['DateTime'];
+  /** The HTTP URL for this workflow */
+  url: Scalars['URI'];
 };
 
 
