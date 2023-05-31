@@ -13661,6 +13661,8 @@ export type Organization = Actor & AnnouncementBanner & MemberStatusable & Node 
   requiresTwoFactorAuthentication?: Maybe<Scalars['Boolean']['output']>;
   /** The HTTP path for this organization. */
   resourcePath: Scalars['URI']['output'];
+  /** Returns a single ruleset from the current organization by ID. */
+  ruleset?: Maybe<RepositoryRuleset>;
   /** A list of rulesets for this organization. */
   rulesets?: Maybe<RepositoryRulesetConnection>;
   /**
@@ -13966,6 +13968,12 @@ export type OrganizationRepositoryMigrationsArgs = {
   orderBy?: InputMaybe<RepositoryMigrationOrder>;
   repositoryName?: InputMaybe<Scalars['String']['input']>;
   state?: InputMaybe<MigrationState>;
+};
+
+
+/** An account on GitHub, with one or more owners, that has repositories, members and teams. */
+export type OrganizationRulesetArgs = {
+  databaseId: Scalars['Int']['input'];
 };
 
 
@@ -20384,6 +20392,8 @@ export type Repository = Node & PackageOwner & ProjectOwner & ProjectV2Recent & 
   repositoryTopics: RepositoryTopicConnection;
   /** The HTTP path for this repository */
   resourcePath: Scalars['URI']['output'];
+  /** Returns a single ruleset from the current repository by ID. */
+  ruleset?: Maybe<RepositoryRuleset>;
   /** A list of rulesets for this repository. */
   rulesets?: Maybe<RepositoryRulesetConnection>;
   /** The security policy URL. */
@@ -20813,6 +20823,12 @@ export type RepositoryRepositoryTopicsArgs = {
   before?: InputMaybe<Scalars['String']['input']>;
   first?: InputMaybe<Scalars['Int']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+/** A repository contains the content for a project. */
+export type RepositoryRulesetArgs = {
+  databaseId: Scalars['Int']['input'];
 };
 
 
