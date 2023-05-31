@@ -26815,6 +26815,16 @@ type Organization implements Actor & AnnouncementBanner & MemberStatusable & Nod
   resourcePath: URI!
 
   """
+  Returns a single ruleset from the current organization by ID.
+  """
+  ruleset(
+    """
+    The ID of the ruleset to be returned.
+    """
+    databaseId: Int!
+  ): RepositoryRuleset
+
+  """
   A list of rulesets for this organization.
   """
   rulesets(
@@ -41448,6 +41458,16 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   The HTTP path for this repository
   """
   resourcePath: URI!
+
+  """
+  Returns a single ruleset from the current repository by ID.
+  """
+  ruleset(
+    """
+    The ID of the ruleset to be returned.
+    """
+    databaseId: Int!
+  ): RepositoryRuleset
 
   """
   A list of rulesets for this repository.
