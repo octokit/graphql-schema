@@ -43086,6 +43086,11 @@ type RepositoryRuleset implements Node {
   conditions: RepositoryRuleConditions!
 
   """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
   Identifies the primary key from the database.
   """
   databaseId: Int
@@ -43140,6 +43145,11 @@ type RepositoryRuleset implements Node {
   Target of the ruleset.
   """
   target: RepositoryRulesetTarget
+
+  """
+  Identifies the date and time when the object was last updated.
+  """
+  updatedAt: DateTime!
 }
 
 """
