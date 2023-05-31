@@ -17231,7 +17231,7 @@ export type PullRequestOrderField =
   /** Order pull_requests by update time */
   | 'UPDATED_AT';
 
-/** Parameters to be used for the pull_request rule */
+/** Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. */
 export type PullRequestParameters = {
   __typename?: 'PullRequestParameters';
   /** New, reviewable commits pushed will dismiss previous pull request review approvals. */
@@ -17246,7 +17246,7 @@ export type PullRequestParameters = {
   requiredReviewThreadResolution: Scalars['Boolean']['output'];
 };
 
-/** Parameters to be used for the pull_request rule */
+/** Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. */
 export type PullRequestParametersInput = {
   /** New, reviewable commits pushed will dismiss previous pull request review approvals. */
   dismissStaleReviewsOnPush: Scalars['Boolean']['input'];
@@ -21479,25 +21479,33 @@ export type RepositoryRuleType =
   | 'COMMIT_AUTHOR_EMAIL_PATTERN'
   /** Commit message pattern */
   | 'COMMIT_MESSAGE_PATTERN'
-  /** Creation */
+  /** Only allow users with bypass permission to create matching refs. */
   | 'CREATION'
-  /** Deletion */
+  /** Only allow users with bypass permissions to delete matching refs. */
   | 'DELETION'
-  /** Non fast forward */
+  /** Prevent users with push access from force pushing to branches. */
   | 'NON_FAST_FORWARD'
-  /** Pull request */
+  /** Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. */
   | 'PULL_REQUEST'
-  /** Required deployments */
+  /**
+   * Choose which environments must be successfully deployed to before branches can
+   * be merged into a branch that matches this rule.
+   */
   | 'REQUIRED_DEPLOYMENTS'
-  /** Required linear history */
+  /** Prevent merge commits from being pushed to matching branches. */
   | 'REQUIRED_LINEAR_HISTORY'
-  /** Required signatures */
+  /** Commits pushed to matching branches must have verified signatures. */
   | 'REQUIRED_SIGNATURES'
-  /** Required status checks */
+  /**
+   * Choose which status checks must pass before branches can be merged into a
+   * branch that matches this rule. When enabled, commits must first be pushed to
+   * another branch, then merged or pushed directly to a branch that matches this
+   * rule after status checks have passed.
+   */
   | 'REQUIRED_STATUS_CHECKS'
   /** Tag name pattern */
   | 'TAG_NAME_PATTERN'
-  /** Update */
+  /** Only allow users with bypass permission to update matching refs. */
   | 'UPDATE';
 
 /** A repository ruleset. */
@@ -21897,14 +21905,20 @@ export type RequirableByPullRequestIsRequiredArgs = {
   pullRequestNumber?: InputMaybe<Scalars['Int']['input']>;
 };
 
-/** Parameters to be used for the required_deployments rule */
+/**
+ * Choose which environments must be successfully deployed to before branches can
+ * be merged into a branch that matches this rule.
+ */
 export type RequiredDeploymentsParameters = {
   __typename?: 'RequiredDeploymentsParameters';
   /** The environments that must be successfully deployed to before branches can be merged. */
   requiredDeploymentEnvironments: Array<Scalars['String']['output']>;
 };
 
-/** Parameters to be used for the required_deployments rule */
+/**
+ * Choose which environments must be successfully deployed to before branches can
+ * be merged into a branch that matches this rule.
+ */
 export type RequiredDeploymentsParametersInput = {
   /** The environments that must be successfully deployed to before branches can be merged. */
   requiredDeploymentEnvironments: Array<Scalars['String']['input']>;
@@ -21931,7 +21945,12 @@ export type RequiredStatusCheckInput = {
   context: Scalars['String']['input'];
 };
 
-/** Parameters to be used for the required_status_checks rule */
+/**
+ * Choose which status checks must pass before branches can be merged into a branch
+ * that matches this rule. When enabled, commits must first be pushed to another
+ * branch, then merged or pushed directly to a branch that matches this rule after
+ * status checks have passed.
+ */
 export type RequiredStatusChecksParameters = {
   __typename?: 'RequiredStatusChecksParameters';
   /** Status checks that are required. */
@@ -21944,7 +21963,12 @@ export type RequiredStatusChecksParameters = {
   strictRequiredStatusChecksPolicy: Scalars['Boolean']['output'];
 };
 
-/** Parameters to be used for the required_status_checks rule */
+/**
+ * Choose which status checks must pass before branches can be merged into a branch
+ * that matches this rule. When enabled, commits must first be pushed to another
+ * branch, then merged or pushed directly to a branch that matches this rule after
+ * status checks have passed.
+ */
 export type RequiredStatusChecksParametersInput = {
   /** Status checks that are required. */
   requiredStatusChecks: Array<StatusCheckConfigurationInput>;
@@ -26815,14 +26839,14 @@ export type UpdateOrganizationWebCommitSignoffSettingPayload = {
   organization?: Maybe<Organization>;
 };
 
-/** Parameters to be used for the update rule */
+/** Only allow users with bypass permission to update matching refs. */
 export type UpdateParameters = {
   __typename?: 'UpdateParameters';
   /** Branch can pull changes from its upstream repository */
   updateAllowsFetchAndMerge: Scalars['Boolean']['output'];
 };
 
-/** Parameters to be used for the update rule */
+/** Only allow users with bypass permission to update matching refs. */
 export type UpdateParametersInput = {
   /** Branch can pull changes from its upstream repository */
   updateAllowsFetchAndMerge: Scalars['Boolean']['input'];
