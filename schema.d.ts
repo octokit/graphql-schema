@@ -8259,7 +8259,7 @@ export type IpAllowListForInstalledAppsEnabledSettingValue =
 export type IpAllowListOwner = App | Enterprise | Organization;
 
 /** An Issue is a place to discuss ideas, enhancements, tasks, and bugs for a project. */
-export type Issue = Assignable & Closable & Comment & Labelable & Lockable & Node & ProjectV2Owner & Reactable & RepositoryNode & Subscribable & UniformResourceLocatable & Updatable & UpdatableComment & {
+export type Issue = Assignable & Closable & Comment & Deletable & Labelable & Lockable & Node & ProjectV2Owner & Reactable & RepositoryNode & Subscribable & UniformResourceLocatable & Updatable & UpdatableComment & {
   __typename?: 'Issue';
   /** Reason that the conversation was locked. */
   activeLockReason?: Maybe<LockReason>;
@@ -8365,6 +8365,8 @@ export type Issue = Assignable & Closable & Comment & Labelable & Lockable & Nod
   userContentEdits?: Maybe<UserContentEditConnection>;
   /** Indicates if the object can be closed by the viewer. */
   viewerCanClose: Scalars['Boolean']['output'];
+  /** Check if the current viewer can delete this object. */
+  viewerCanDelete: Scalars['Boolean']['output'];
   /** Can user react to this subject */
   viewerCanReact: Scalars['Boolean']['output'];
   /** Indicates if the object can be reopened by the viewer. */
