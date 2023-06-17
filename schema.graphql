@@ -4419,7 +4419,7 @@ type Commit implements GitObject & Node & Subscribable & UniformResourceLocatabl
   ): Blame!
 
   """
-  We recommend using the `changedFielsIfAvailable` field instead of
+  We recommend using the `changedFilesIfAvailable` field instead of
   `changedFiles`, as `changedFiles` will cause your request to return an error
   if GitHub is unable to calculate the number of changed files.
   """
@@ -22517,6 +22517,16 @@ type Mutation {
   ): UpdateProjectV2Payload
 
   """
+  Update the collaborators on a team or a project
+  """
+  updateProjectV2Collaborators(
+    """
+    Parameters for UpdateProjectV2Collaborators
+    """
+    input: UpdateProjectV2CollaboratorsInput!
+  ): UpdateProjectV2CollaboratorsPayload
+
+  """
   Updates a draft issue within a Project.
   """
   updateProjectV2DraftIssue(
@@ -22801,17 +22811,17 @@ Metadata for an audit entry with action oauth_application.*
 """
 interface OauthApplicationAuditEntryData {
   """
-  The name of the OAuth Application.
+  The name of the OAuth application.
   """
   oauthApplicationName: String
 
   """
-  The HTTP path for the OAuth Application
+  The HTTP path for the OAuth application
   """
   oauthApplicationResourcePath: URI
 
   """
-  The HTTP URL for the OAuth Application
+  The HTTP URL for the OAuth application
   """
   oauthApplicationUrl: URI
 }
@@ -22856,12 +22866,12 @@ type OauthApplicationCreateAuditEntry implements AuditEntry & Node & OauthApplic
   actorUrl: URI
 
   """
-  The application URL of the OAuth Application.
+  The application URL of the OAuth application.
   """
   applicationUrl: URI
 
   """
-  The callback URL of the OAuth Application.
+  The callback URL of the OAuth application.
   """
   callbackUrl: URI
 
@@ -22872,17 +22882,17 @@ type OauthApplicationCreateAuditEntry implements AuditEntry & Node & OauthApplic
   id: ID!
 
   """
-  The name of the OAuth Application.
+  The name of the OAuth application.
   """
   oauthApplicationName: String
 
   """
-  The HTTP path for the OAuth Application
+  The HTTP path for the OAuth application
   """
   oauthApplicationResourcePath: URI
 
   """
-  The HTTP URL for the OAuth Application
+  The HTTP URL for the OAuth application
   """
   oauthApplicationUrl: URI
 
@@ -22912,12 +22922,12 @@ type OauthApplicationCreateAuditEntry implements AuditEntry & Node & OauthApplic
   organizationUrl: URI
 
   """
-  The rate limit of the OAuth Application.
+  The rate limit of the OAuth application.
   """
   rateLimit: Int
 
   """
-  The state of the OAuth Application.
+  The state of the OAuth application.
   """
   state: OauthApplicationCreateAuditEntryState
 
@@ -22943,21 +22953,21 @@ type OauthApplicationCreateAuditEntry implements AuditEntry & Node & OauthApplic
 }
 
 """
-The state of an OAuth Application when it was created.
+The state of an OAuth application when it was created.
 """
 enum OauthApplicationCreateAuditEntryState {
   """
-  The OAuth Application was active and allowed to have OAuth Accesses.
+  The OAuth application was active and allowed to have OAuth Accesses.
   """
   ACTIVE
 
   """
-  The OAuth Application was in the process of being deleted.
+  The OAuth application was in the process of being deleted.
   """
   PENDING_DELETION
 
   """
-  The OAuth Application was suspended from generating OAuth Accesses due to abuse or security concerns.
+  The OAuth application was suspended from generating OAuth Accesses due to abuse or security concerns.
   """
   SUSPENDED
 }
@@ -24507,17 +24517,17 @@ type OrgOauthAppAccessApprovedAuditEntry implements AuditEntry & Node & OauthApp
   id: ID!
 
   """
-  The name of the OAuth Application.
+  The name of the OAuth application.
   """
   oauthApplicationName: String
 
   """
-  The HTTP path for the OAuth Application
+  The HTTP path for the OAuth application
   """
   oauthApplicationResourcePath: URI
 
   """
-  The HTTP URL for the OAuth Application
+  The HTTP URL for the OAuth application
   """
   oauthApplicationUrl: URI
 
@@ -24613,17 +24623,17 @@ type OrgOauthAppAccessDeniedAuditEntry implements AuditEntry & Node & OauthAppli
   id: ID!
 
   """
-  The name of the OAuth Application.
+  The name of the OAuth application.
   """
   oauthApplicationName: String
 
   """
-  The HTTP path for the OAuth Application
+  The HTTP path for the OAuth application
   """
   oauthApplicationResourcePath: URI
 
   """
-  The HTTP URL for the OAuth Application
+  The HTTP URL for the OAuth application
   """
   oauthApplicationUrl: URI
 
@@ -24719,17 +24729,17 @@ type OrgOauthAppAccessRequestedAuditEntry implements AuditEntry & Node & OauthAp
   id: ID!
 
   """
-  The name of the OAuth Application.
+  The name of the OAuth application.
   """
   oauthApplicationName: String
 
   """
-  The HTTP path for the OAuth Application
+  The HTTP path for the OAuth application
   """
   oauthApplicationResourcePath: URI
 
   """
-  The HTTP URL for the OAuth Application
+  The HTTP URL for the OAuth application
   """
   oauthApplicationUrl: URI
 
@@ -30432,6 +30442,71 @@ type ProjectV2 implements Closable & Node & Updatable {
 }
 
 """
+Possible collaborators for a project.
+"""
+union ProjectV2Actor = Team | User
+
+"""
+The connection type for ProjectV2Actor.
+"""
+type ProjectV2ActorConnection {
+  """
+  A list of edges.
+  """
+  edges: [ProjectV2ActorEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [ProjectV2Actor]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An edge in a connection.
+"""
+type ProjectV2ActorEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: ProjectV2Actor
+}
+
+"""
+A collaborator to update on a project. Only one of the userId or teamId should be provided.
+"""
+input ProjectV2Collaborator {
+  """
+  The role to grant the collaborator
+  """
+  role: ProjectV2Roles!
+
+  """
+  The ID of the team as a collaborator.
+  """
+  teamId: ID
+
+  """
+  The ID of the user as a collaborator.
+  """
+  userId: ID
+}
+
+"""
 The connection type for ProjectV2.
 """
 type ProjectV2Connection {
@@ -31716,6 +31791,31 @@ interface ProjectV2Recent {
     """
     last: Int
   ): ProjectV2Connection!
+}
+
+"""
+The possible roles of a collaborator on a project.
+"""
+enum ProjectV2Roles {
+  """
+  The collaborator can view, edit, and maange the settings of the project
+  """
+  ADMIN
+
+  """
+  The collaborator has no direct access to the project
+  """
+  NONE
+
+  """
+  The collaborator can view the project
+  """
+  READER
+
+  """
+  The collaborator can view and edit the project
+  """
+  WRITER
 }
 
 """
@@ -54216,6 +54316,61 @@ type UpdateProjectPayload {
   The updated project.
   """
   project: Project
+}
+
+"""
+Autogenerated input type of UpdateProjectV2Collaborators
+"""
+input UpdateProjectV2CollaboratorsInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The collaborators to update.
+  """
+  collaborators: [ProjectV2Collaborator!]!
+
+  """
+  The ID of the project to update the collaborators for.
+  """
+  projectId: ID!
+}
+
+"""
+Autogenerated return type of UpdateProjectV2Collaborators
+"""
+type UpdateProjectV2CollaboratorsPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The collaborators granted a role
+  """
+  collaborators(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): ProjectV2ActorConnection
 }
 
 """
