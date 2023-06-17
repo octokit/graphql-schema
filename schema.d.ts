@@ -10776,6 +10776,8 @@ export type Mutation = {
   updateProjectColumn?: Maybe<UpdateProjectColumnPayload>;
   /** Updates an existing project (beta). */
   updateProjectV2?: Maybe<UpdateProjectV2Payload>;
+  /** Update the collaborators on a team or a project */
+  updateProjectV2Collaborators?: Maybe<UpdateProjectV2CollaboratorsPayload>;
   /** Updates a draft issue within a Project. */
   updateProjectV2DraftIssue?: Maybe<UpdateProjectV2DraftIssuePayload>;
   /**
@@ -11995,6 +11997,12 @@ export type MutationUpdateProjectV2Args = {
 
 
 /** The root query for implementing GraphQL mutations. */
+export type MutationUpdateProjectV2CollaboratorsArgs = {
+  input: UpdateProjectV2CollaboratorsInput;
+};
+
+
+/** The root query for implementing GraphQL mutations. */
 export type MutationUpdateProjectV2DraftIssueArgs = {
   input: UpdateProjectV2DraftIssueInput;
 };
@@ -12155,11 +12163,11 @@ export type OidcProviderType =
 
 /** Metadata for an audit entry with action oauth_application.* */
 export type OauthApplicationAuditEntryData = {
-  /** The name of the OAuth Application. */
+  /** The name of the OAuth application. */
   oauthApplicationName?: Maybe<Scalars['String']['output']>;
-  /** The HTTP path for the OAuth Application */
+  /** The HTTP path for the OAuth application */
   oauthApplicationResourcePath?: Maybe<Scalars['URI']['output']>;
-  /** The HTTP URL for the OAuth Application */
+  /** The HTTP URL for the OAuth application */
   oauthApplicationUrl?: Maybe<Scalars['URI']['output']>;
 };
 
@@ -12180,18 +12188,18 @@ export type OauthApplicationCreateAuditEntry = AuditEntry & Node & OauthApplicat
   actorResourcePath?: Maybe<Scalars['URI']['output']>;
   /** The HTTP URL for the actor. */
   actorUrl?: Maybe<Scalars['URI']['output']>;
-  /** The application URL of the OAuth Application. */
+  /** The application URL of the OAuth application. */
   applicationUrl?: Maybe<Scalars['URI']['output']>;
-  /** The callback URL of the OAuth Application. */
+  /** The callback URL of the OAuth application. */
   callbackUrl?: Maybe<Scalars['URI']['output']>;
   /** The time the action was initiated */
   createdAt: Scalars['PreciseDateTime']['output'];
   id: Scalars['ID']['output'];
-  /** The name of the OAuth Application. */
+  /** The name of the OAuth application. */
   oauthApplicationName?: Maybe<Scalars['String']['output']>;
-  /** The HTTP path for the OAuth Application */
+  /** The HTTP path for the OAuth application */
   oauthApplicationResourcePath?: Maybe<Scalars['URI']['output']>;
-  /** The HTTP URL for the OAuth Application */
+  /** The HTTP URL for the OAuth application */
   oauthApplicationUrl?: Maybe<Scalars['URI']['output']>;
   /** The corresponding operation type for the action */
   operationType?: Maybe<OperationType>;
@@ -12203,9 +12211,9 @@ export type OauthApplicationCreateAuditEntry = AuditEntry & Node & OauthApplicat
   organizationResourcePath?: Maybe<Scalars['URI']['output']>;
   /** The HTTP URL for the organization */
   organizationUrl?: Maybe<Scalars['URI']['output']>;
-  /** The rate limit of the OAuth Application. */
+  /** The rate limit of the OAuth application. */
   rateLimit?: Maybe<Scalars['Int']['output']>;
-  /** The state of the OAuth Application. */
+  /** The state of the OAuth application. */
   state?: Maybe<OauthApplicationCreateAuditEntryState>;
   /** The user affected by the action */
   user?: Maybe<User>;
@@ -12217,13 +12225,13 @@ export type OauthApplicationCreateAuditEntry = AuditEntry & Node & OauthApplicat
   userUrl?: Maybe<Scalars['URI']['output']>;
 };
 
-/** The state of an OAuth Application when it was created. */
+/** The state of an OAuth application when it was created. */
 export type OauthApplicationCreateAuditEntryState =
-  /** The OAuth Application was active and allowed to have OAuth Accesses. */
+  /** The OAuth application was active and allowed to have OAuth Accesses. */
   | 'ACTIVE'
-  /** The OAuth Application was in the process of being deleted. */
+  /** The OAuth application was in the process of being deleted. */
   | 'PENDING_DELETION'
-  /** The OAuth Application was suspended from generating OAuth Accesses due to abuse or security concerns. */
+  /** The OAuth application was suspended from generating OAuth Accesses due to abuse or security concerns. */
   | 'SUSPENDED';
 
 /** The corresponding operation type for the action */
@@ -12903,11 +12911,11 @@ export type OrgOauthAppAccessApprovedAuditEntry = AuditEntry & Node & OauthAppli
   /** The time the action was initiated */
   createdAt: Scalars['PreciseDateTime']['output'];
   id: Scalars['ID']['output'];
-  /** The name of the OAuth Application. */
+  /** The name of the OAuth application. */
   oauthApplicationName?: Maybe<Scalars['String']['output']>;
-  /** The HTTP path for the OAuth Application */
+  /** The HTTP path for the OAuth application */
   oauthApplicationResourcePath?: Maybe<Scalars['URI']['output']>;
-  /** The HTTP URL for the OAuth Application */
+  /** The HTTP URL for the OAuth application */
   oauthApplicationUrl?: Maybe<Scalars['URI']['output']>;
   /** The corresponding operation type for the action */
   operationType?: Maybe<OperationType>;
@@ -12949,11 +12957,11 @@ export type OrgOauthAppAccessDeniedAuditEntry = AuditEntry & Node & OauthApplica
   /** The time the action was initiated */
   createdAt: Scalars['PreciseDateTime']['output'];
   id: Scalars['ID']['output'];
-  /** The name of the OAuth Application. */
+  /** The name of the OAuth application. */
   oauthApplicationName?: Maybe<Scalars['String']['output']>;
-  /** The HTTP path for the OAuth Application */
+  /** The HTTP path for the OAuth application */
   oauthApplicationResourcePath?: Maybe<Scalars['URI']['output']>;
-  /** The HTTP URL for the OAuth Application */
+  /** The HTTP URL for the OAuth application */
   oauthApplicationUrl?: Maybe<Scalars['URI']['output']>;
   /** The corresponding operation type for the action */
   operationType?: Maybe<OperationType>;
@@ -12995,11 +13003,11 @@ export type OrgOauthAppAccessRequestedAuditEntry = AuditEntry & Node & OauthAppl
   /** The time the action was initiated */
   createdAt: Scalars['PreciseDateTime']['output'];
   id: Scalars['ID']['output'];
-  /** The name of the OAuth Application. */
+  /** The name of the OAuth application. */
   oauthApplicationName?: Maybe<Scalars['String']['output']>;
-  /** The HTTP path for the OAuth Application */
+  /** The HTTP path for the OAuth application */
   oauthApplicationResourcePath?: Maybe<Scalars['URI']['output']>;
-  /** The HTTP URL for the OAuth Application */
+  /** The HTTP URL for the OAuth application */
   oauthApplicationUrl?: Maybe<Scalars['URI']['output']>;
   /** The corresponding operation type for the action */
   operationType?: Maybe<OperationType>;
@@ -15618,6 +15626,41 @@ export type ProjectV2WorkflowsArgs = {
   orderBy?: InputMaybe<ProjectV2WorkflowOrder>;
 };
 
+/** Possible collaborators for a project. */
+export type ProjectV2Actor = Team | User;
+
+/** The connection type for ProjectV2Actor. */
+export type ProjectV2ActorConnection = {
+  __typename?: 'ProjectV2ActorConnection';
+  /** A list of edges. */
+  edges?: Maybe<Array<Maybe<ProjectV2ActorEdge>>>;
+  /** A list of nodes. */
+  nodes?: Maybe<Array<Maybe<ProjectV2Actor>>>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** Identifies the total count of items in the connection. */
+  totalCount: Scalars['Int']['output'];
+};
+
+/** An edge in a connection. */
+export type ProjectV2ActorEdge = {
+  __typename?: 'ProjectV2ActorEdge';
+  /** A cursor for use in pagination. */
+  cursor: Scalars['String']['output'];
+  /** The item at the end of the edge. */
+  node?: Maybe<ProjectV2Actor>;
+};
+
+/** A collaborator to update on a project. Only one of the userId or teamId should be provided. */
+export type ProjectV2Collaborator = {
+  /** The role to grant the collaborator */
+  role: ProjectV2Roles;
+  /** The ID of the team as a collaborator. */
+  teamId?: InputMaybe<Scalars['ID']['input']>;
+  /** The ID of the user as a collaborator. */
+  userId?: InputMaybe<Scalars['ID']['input']>;
+};
+
 /** The connection type for ProjectV2. */
 export type ProjectV2Connection = {
   __typename?: 'ProjectV2Connection';
@@ -16257,6 +16300,17 @@ export type ProjectV2RecentRecentProjectsArgs = {
   first?: InputMaybe<Scalars['Int']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
 };
+
+/** The possible roles of a collaborator on a project. */
+export type ProjectV2Roles =
+  /** The collaborator can view, edit, and maange the settings of the project */
+  | 'ADMIN'
+  /** The collaborator has no direct access to the project */
+  | 'NONE'
+  /** The collaborator can view the project */
+  | 'READER'
+  /** The collaborator can view and edit the project */
+  | 'WRITER';
 
 /** A single select field inside a project. */
 export type ProjectV2SingleSelectField = Node & ProjectV2FieldCommon & {
@@ -26997,6 +27051,34 @@ export type UpdateProjectPayload = {
   clientMutationId?: Maybe<Scalars['String']['output']>;
   /** The updated project. */
   project?: Maybe<Project>;
+};
+
+/** Autogenerated input type of UpdateProjectV2Collaborators */
+export type UpdateProjectV2CollaboratorsInput = {
+  /** A unique identifier for the client performing the mutation. */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The collaborators to update. */
+  collaborators: Array<ProjectV2Collaborator>;
+  /** The ID of the project to update the collaborators for. */
+  projectId: Scalars['ID']['input'];
+};
+
+/** Autogenerated return type of UpdateProjectV2Collaborators */
+export type UpdateProjectV2CollaboratorsPayload = {
+  __typename?: 'UpdateProjectV2CollaboratorsPayload';
+  /** A unique identifier for the client performing the mutation. */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** The collaborators granted a role */
+  collaborators?: Maybe<ProjectV2ActorConnection>;
+};
+
+
+/** Autogenerated return type of UpdateProjectV2Collaborators */
+export type UpdateProjectV2CollaboratorsPayloadCollaboratorsArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** Autogenerated input type of UpdateProjectV2DraftIssue */
