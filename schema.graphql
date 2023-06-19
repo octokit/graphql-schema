@@ -31846,7 +31846,12 @@ type ProjectV2SingleSelectField implements Node & ProjectV2FieldCommon {
   """
   Options for the single select field
   """
-  options: [ProjectV2SingleSelectFieldOption!]!
+  options(
+    """
+    Filter returned options to only those matching these names, case insensitive.
+    """
+    names: [String!]
+  ): [ProjectV2SingleSelectFieldOption!]!
 
   """
   The project that contains this field.
