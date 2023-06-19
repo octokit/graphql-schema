@@ -22697,7 +22697,9 @@ export type SecurityAdvisoryEcosystem =
   /** Ruby gems hosted at RubyGems.org */
   | 'RUBYGEMS'
   /** Rust crates */
-  | 'RUST';
+  | 'RUST'
+  /** Swift packages */
+  | 'SWIFT';
 
 /** An edge in a connection. */
 export type SecurityAdvisoryEdge = {
