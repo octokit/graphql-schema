@@ -45318,6 +45318,11 @@ enum SecurityAdvisoryEcosystem {
   Rust crates
   """
   RUST
+
+  """
+  Swift packages
+  """
+  SWIFT
 }
 
 """
