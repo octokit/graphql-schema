@@ -4817,7 +4817,9 @@ export type DependencyGraphEcosystem =
   /** Ruby gems hosted at RubyGems.org */
   | 'RUBYGEMS'
   /** Rust crates */
-  | 'RUST';
+  | 'RUST'
+  /** Swift packages */
+  | 'SWIFT';
 
 /** A repository deploy key. */
 export type DeployKey = Node & {
