@@ -9182,6 +9182,11 @@ enum DependencyGraphEcosystem {
   Rust crates
   """
   RUST
+
+  """
+  Swift packages
+  """
+  SWIFT
 }
 
 """
