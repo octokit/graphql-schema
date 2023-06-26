@@ -42265,6 +42265,26 @@ type RepositoryEdge {
 }
 
 """
+Parameters to be used for the repository_id condition
+"""
+type RepositoryIdConditionTarget {
+  """
+  One of these repo IDs must match the repo.
+  """
+  repositoryIds: [ID!]!
+}
+
+"""
+Parameters to be used for the repository_id condition
+"""
+input RepositoryIdConditionTargetInput {
+  """
+  One of these repo IDs must match the repo.
+  """
+  repositoryIds: [ID!]!
+}
+
+"""
 A subset of repository info.
 """
 interface RepositoryInfo {
@@ -43067,6 +43087,11 @@ type RepositoryRuleConditions {
   refName: RefNameConditionTarget
 
   """
+  Configuration for the repository_id condition
+  """
+  repositoryId: RepositoryIdConditionTarget
+
+  """
   Configuration for the repository_name condition
   """
   repositoryName: RepositoryNameConditionTarget
@@ -43080,6 +43105,11 @@ input RepositoryRuleConditionsInput {
   Configuration for the ref_name condition
   """
   refName: RefNameConditionTargetInput
+
+  """
+  Configuration for the repository_id condition
+  """
+  repositoryId: RepositoryIdConditionTargetInput
 
   """
   Configuration for the repository_name condition
