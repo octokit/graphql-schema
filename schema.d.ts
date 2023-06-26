@@ -21153,6 +21153,19 @@ export type RepositoryEdge = {
   node?: Maybe<Repository>;
 };
 
+/** Parameters to be used for the repository_id condition */
+export type RepositoryIdConditionTarget = {
+  __typename?: 'RepositoryIdConditionTarget';
+  /** One of these repo IDs must match the repo. */
+  repositoryIds: Array<Scalars['ID']['output']>;
+};
+
+/** Parameters to be used for the repository_id condition */
+export type RepositoryIdConditionTargetInput = {
+  /** One of these repo IDs must match the repo. */
+  repositoryIds: Array<Scalars['ID']['input']>;
+};
+
 /** A subset of repository info. */
 export type RepositoryInfo = {
   /** Identifies the date and time when the repository was archived. */
@@ -21543,6 +21556,8 @@ export type RepositoryRuleConditions = {
   __typename?: 'RepositoryRuleConditions';
   /** Configuration for the ref_name condition */
   refName?: Maybe<RefNameConditionTarget>;
+  /** Configuration for the repository_id condition */
+  repositoryId?: Maybe<RepositoryIdConditionTarget>;
   /** Configuration for the repository_name condition */
   repositoryName?: Maybe<RepositoryNameConditionTarget>;
 };
@@ -21551,6 +21566,8 @@ export type RepositoryRuleConditions = {
 export type RepositoryRuleConditionsInput = {
   /** Configuration for the ref_name condition */
   refName?: InputMaybe<RefNameConditionTargetInput>;
+  /** Configuration for the repository_id condition */
+  repositoryId?: InputMaybe<RepositoryIdConditionTargetInput>;
   /** Configuration for the repository_name condition */
   repositoryName?: InputMaybe<RepositoryNameConditionTargetInput>;
 };
