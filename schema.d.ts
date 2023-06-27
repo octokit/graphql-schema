@@ -15755,6 +15755,25 @@ export type ProjectV2Collaborator = {
   userId?: InputMaybe<Scalars['ID']['input']>;
 };
 
+/** Name of a color. */
+export type ProjectV2ColorName =
+  /** Blue */
+  | 'BLUE'
+  /** Gray */
+  | 'GRAY'
+  /** Green */
+  | 'GREEN'
+  /** Orange */
+  | 'ORANGE'
+  /** Pink */
+  | 'PINK'
+  /** Purple */
+  | 'PURPLE'
+  /** Red */
+  | 'RED'
+  /** Yellow */
+  | 'YELLOW';
+
 /** The connection type for ProjectV2. */
 export type ProjectV2Connection = {
   __typename?: 'ProjectV2Connection';
@@ -16149,12 +16168,18 @@ export type ProjectV2ItemFieldReviewerValueReviewersArgs = {
 /** The value of a single select field in a Project item. */
 export type ProjectV2ItemFieldSingleSelectValue = Node & ProjectV2ItemFieldValueCommon & {
   __typename?: 'ProjectV2ItemFieldSingleSelectValue';
+  /** The color applied to the selected single-select option. */
+  color: ProjectV2ColorName;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime']['output'];
   /** The actor who created the item. */
   creator?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /** Identifies the primary key from the database. */
   databaseId?: Maybe<Scalars['Int']['output']>;
+  /** A plain-text description of the selected single-select option, such as what the option means. */
+  description?: Maybe<Scalars['String']['output']>;
+  /** The description of the selected single-select option, including HTML tags. */
+  descriptionHTML?: Maybe<Scalars['String']['output']>;
   /** The project field that contains this value. */
   field: ProjectV2FieldConfiguration;
   id: Scalars['ID']['output'];
