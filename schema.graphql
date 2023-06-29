@@ -30724,51 +30724,6 @@ input ProjectV2Collaborator {
 }
 
 """
-Name of a color.
-"""
-enum ProjectV2ColorName {
-  """
-  Blue
-  """
-  BLUE
-
-  """
-  Gray
-  """
-  GRAY
-
-  """
-  Green
-  """
-  GREEN
-
-  """
-  Orange
-  """
-  ORANGE
-
-  """
-  Pink
-  """
-  PINK
-
-  """
-  Purple
-  """
-  PURPLE
-
-  """
-  Red
-  """
-  RED
-
-  """
-  Yellow
-  """
-  YELLOW
-}
-
-"""
 The connection type for ProjectV2.
 """
 type ProjectV2Connection {
@@ -31561,7 +31516,7 @@ type ProjectV2ItemFieldSingleSelectValue implements Node & ProjectV2ItemFieldVal
   """
   The color applied to the selected single-select option.
   """
-  color: ProjectV2ColorName!
+  color: ProjectV2SingleSelectFieldOptionColor!
 
   """
   Identifies the date and time when the object was created.
@@ -32145,6 +32100,21 @@ type ProjectV2SingleSelectField implements Node & ProjectV2FieldCommon {
 Single select field option for a configuration for a project.
 """
 type ProjectV2SingleSelectFieldOption {
+  """
+  The option's display color.
+  """
+  color: ProjectV2SingleSelectFieldOptionColor!
+
+  """
+  The option's plain-text description.
+  """
+  description: String!
+
+  """
+  The option's description, possibly containing HTML.
+  """
+  descriptionHTML: String!
+
   """
   The option's ID.
   """
