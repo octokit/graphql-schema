@@ -46712,6 +46712,11 @@ type SponsorsActivity implements Node {
   What action this activity indicates took place.
   """
   action: SponsorsActivityAction!
+
+  """
+  The sponsor's current privacy level.
+  """
+  currentPrivacyLevel: SponsorshipPrivacy
   id: ID!
 
   """
