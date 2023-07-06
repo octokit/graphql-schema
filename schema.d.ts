@@ -4040,7 +4040,7 @@ export type CreateTeamDiscussionCommentInput = {
   /**
    * The content of the comment. This field is required.
    *
-   * **Upcoming Change on 2024-04-01 UTC**
+   * **Upcoming Change on 2024-07-01 UTC**
    * **Description:** `body` will be removed. Follow the guide at
    * https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to
    * find a suitable replacement.
@@ -4052,7 +4052,7 @@ export type CreateTeamDiscussionCommentInput = {
   /**
    * The ID of the discussion to which the comment belongs. This field is required.
    *
-   * **Upcoming Change on 2024-04-01 UTC**
+   * **Upcoming Change on 2024-07-01 UTC**
    * **Description:** `discussionId` will be removed. Follow the guide at
    * https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to
    * find a suitable replacement.
@@ -4068,7 +4068,7 @@ export type CreateTeamDiscussionCommentPayload = {
   clientMutationId?: Maybe<Scalars['String']['output']>;
   /**
    * The new comment.
-   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.
+   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.
    */
   teamDiscussionComment?: Maybe<TeamDiscussionComment>;
 };
@@ -4078,7 +4078,7 @@ export type CreateTeamDiscussionInput = {
   /**
    * The content of the discussion. This field is required.
    *
-   * **Upcoming Change on 2024-04-01 UTC**
+   * **Upcoming Change on 2024-07-01 UTC**
    * **Description:** `body` will be removed. Follow the guide at
    * https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to
    * find a suitable replacement.
@@ -4092,7 +4092,7 @@ export type CreateTeamDiscussionInput = {
    * organization admins. If false or not specified, allows any organization member
    * to view this discussion.
    *
-   * **Upcoming Change on 2024-04-01 UTC**
+   * **Upcoming Change on 2024-07-01 UTC**
    * **Description:** `private` will be removed. Follow the guide at
    * https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to
    * find a suitable replacement.
@@ -4102,7 +4102,7 @@ export type CreateTeamDiscussionInput = {
   /**
    * The ID of the team to which the discussion belongs. This field is required.
    *
-   * **Upcoming Change on 2024-04-01 UTC**
+   * **Upcoming Change on 2024-07-01 UTC**
    * **Description:** `teamId` will be removed. Follow the guide at
    * https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to
    * find a suitable replacement.
@@ -4112,7 +4112,7 @@ export type CreateTeamDiscussionInput = {
   /**
    * The title of the discussion. This field is required.
    *
-   * **Upcoming Change on 2024-04-01 UTC**
+   * **Upcoming Change on 2024-07-01 UTC**
    * **Description:** `title` will be removed. Follow the guide at
    * https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to
    * find a suitable replacement.
@@ -4128,7 +4128,7 @@ export type CreateTeamDiscussionPayload = {
   clientMutationId?: Maybe<Scalars['String']['output']>;
   /**
    * The new discussion.
-   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.
+   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.
    */
   teamDiscussion?: Maybe<TeamDiscussion>;
 };
@@ -25327,7 +25327,7 @@ export type TeamDiscussion = Comment & Deletable & Node & Reactable & Subscribab
   author?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /**
    * Author's association with the discussion's team.
-   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.
+   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.
    */
   authorAssociation: CommentAuthorAssociation;
   /** The body as Markdown. */
@@ -25338,22 +25338,22 @@ export type TeamDiscussion = Comment & Deletable & Node & Reactable & Subscribab
   bodyText: Scalars['String']['output'];
   /**
    * Identifies the discussion body hash.
-   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.
+   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.
    */
   bodyVersion: Scalars['String']['output'];
   /**
    * A list of comments on this discussion.
-   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.
+   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.
    */
   comments: TeamDiscussionCommentConnection;
   /**
    * The HTTP path for discussion comments
-   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.
+   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.
    */
   commentsResourcePath: Scalars['URI']['output'];
   /**
    * The HTTP URL for discussion comments
-   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.
+   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.
    */
   commentsUrl: Scalars['URI']['output'];
   /** Identifies the date and time when the object was created. */
@@ -25369,19 +25369,19 @@ export type TeamDiscussion = Comment & Deletable & Node & Reactable & Subscribab
   includesCreatedEdit: Scalars['Boolean']['output'];
   /**
    * Whether or not the discussion is pinned.
-   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.
+   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.
    */
   isPinned: Scalars['Boolean']['output'];
   /**
    * Whether or not the discussion is only visible to team members and org admins.
-   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.
+   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.
    */
   isPrivate: Scalars['Boolean']['output'];
   /** The moment the editor made the last edit */
   lastEditedAt?: Maybe<Scalars['DateTime']['output']>;
   /**
    * Identifies the discussion within its team.
-   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.
+   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.
    */
   number: Scalars['Int']['output'];
   /** Identifies when the comment was published at. */
@@ -25392,24 +25392,24 @@ export type TeamDiscussion = Comment & Deletable & Node & Reactable & Subscribab
   reactions: ReactionConnection;
   /**
    * The HTTP path for this discussion
-   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.
+   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.
    */
   resourcePath: Scalars['URI']['output'];
   /**
    * The team that defines the context of this discussion.
-   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.
+   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.
    */
   team: Team;
   /**
    * The title of the discussion
-   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.
+   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.
    */
   title: Scalars['String']['output'];
   /** Identifies the date and time when the object was last updated. */
   updatedAt: Scalars['DateTime']['output'];
   /**
    * The HTTP URL for this discussion
-   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.
+   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.
    */
   url: Scalars['URI']['output'];
   /** A list of edits to this content. */
@@ -25418,7 +25418,7 @@ export type TeamDiscussion = Comment & Deletable & Node & Reactable & Subscribab
   viewerCanDelete: Scalars['Boolean']['output'];
   /**
    * Whether or not the current viewer can pin this discussion.
-   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.
+   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.
    */
   viewerCanPin: Scalars['Boolean']['output'];
   /** Can user react to this subject */
@@ -25473,7 +25473,7 @@ export type TeamDiscussionComment = Comment & Deletable & Node & Reactable & Uni
   author?: Maybe<Bot | EnterpriseUserAccount | Mannequin | Organization | User>;
   /**
    * Author's association with the comment's team.
-   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.
+   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.
    */
   authorAssociation: CommentAuthorAssociation;
   /** The body as Markdown. */
@@ -25484,7 +25484,7 @@ export type TeamDiscussionComment = Comment & Deletable & Node & Reactable & Uni
   bodyText: Scalars['String']['output'];
   /**
    * The current version of the body content.
-   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.
+   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.
    */
   bodyVersion: Scalars['String']['output'];
   /** Identifies the date and time when the object was created. */
@@ -25495,7 +25495,7 @@ export type TeamDiscussionComment = Comment & Deletable & Node & Reactable & Uni
   databaseId?: Maybe<Scalars['Int']['output']>;
   /**
    * The discussion this comment is about.
-   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.
+   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.
    */
   discussion: TeamDiscussion;
   /** The actor who edited the comment. */
@@ -25507,7 +25507,7 @@ export type TeamDiscussionComment = Comment & Deletable & Node & Reactable & Uni
   lastEditedAt?: Maybe<Scalars['DateTime']['output']>;
   /**
    * Identifies the comment number.
-   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.
+   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.
    */
   number: Scalars['Int']['output'];
   /** Identifies when the comment was published at. */
@@ -25518,14 +25518,14 @@ export type TeamDiscussionComment = Comment & Deletable & Node & Reactable & Uni
   reactions: ReactionConnection;
   /**
    * The HTTP path for this comment
-   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.
+   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.
    */
   resourcePath: Scalars['URI']['output'];
   /** Identifies the date and time when the object was last updated. */
   updatedAt: Scalars['DateTime']['output'];
   /**
    * The HTTP URL for this comment
-   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.
+   * @deprecated The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.
    */
   url: Scalars['URI']['output'];
   /** A list of edits to this content. */
