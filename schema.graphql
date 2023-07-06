@@ -7757,7 +7757,7 @@ input CreateTeamDiscussionCommentInput {
   """
   The content of the comment. This field is required.
 
-  **Upcoming Change on 2024-04-01 UTC**
+  **Upcoming Change on 2024-07-01 UTC**
   **Description:** `body` will be removed. Follow the guide at
   https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to
   find a suitable replacement.
@@ -7773,7 +7773,7 @@ input CreateTeamDiscussionCommentInput {
   """
   The ID of the discussion to which the comment belongs. This field is required.
 
-  **Upcoming Change on 2024-04-01 UTC**
+  **Upcoming Change on 2024-07-01 UTC**
   **Description:** `discussionId` will be removed. Follow the guide at
   https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to
   find a suitable replacement.
@@ -7794,7 +7794,7 @@ type CreateTeamDiscussionCommentPayload {
   """
   The new comment.
   """
-  teamDiscussionComment: TeamDiscussionComment @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.")
+  teamDiscussionComment: TeamDiscussionComment @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.")
 }
 
 """
@@ -7804,7 +7804,7 @@ input CreateTeamDiscussionInput {
   """
   The content of the discussion. This field is required.
 
-  **Upcoming Change on 2024-04-01 UTC**
+  **Upcoming Change on 2024-07-01 UTC**
   **Description:** `body` will be removed. Follow the guide at
   https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to
   find a suitable replacement.
@@ -7822,7 +7822,7 @@ input CreateTeamDiscussionInput {
   organization admins. If false or not specified, allows any organization member
   to view this discussion.
 
-  **Upcoming Change on 2024-04-01 UTC**
+  **Upcoming Change on 2024-07-01 UTC**
   **Description:** `private` will be removed. Follow the guide at
   https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to
   find a suitable replacement.
@@ -7833,7 +7833,7 @@ input CreateTeamDiscussionInput {
   """
   The ID of the team to which the discussion belongs. This field is required.
 
-  **Upcoming Change on 2024-04-01 UTC**
+  **Upcoming Change on 2024-07-01 UTC**
   **Description:** `teamId` will be removed. Follow the guide at
   https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to
   find a suitable replacement.
@@ -7844,7 +7844,7 @@ input CreateTeamDiscussionInput {
   """
   The title of the discussion. This field is required.
 
-  **Upcoming Change on 2024-04-01 UTC**
+  **Upcoming Change on 2024-07-01 UTC**
   **Description:** `title` will be removed. Follow the guide at
   https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to
   find a suitable replacement.
@@ -7865,7 +7865,7 @@ type CreateTeamDiscussionPayload {
   """
   The new discussion.
   """
-  teamDiscussion: TeamDiscussion @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.")
+  teamDiscussion: TeamDiscussion @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.")
 }
 
 """
@@ -50815,7 +50815,7 @@ type TeamDiscussion implements Comment & Deletable & Node & Reactable & Subscrib
   """
   Author's association with the discussion's team.
   """
-  authorAssociation: CommentAuthorAssociation! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.")
+  authorAssociation: CommentAuthorAssociation! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.")
 
   """
   The body as Markdown.
@@ -50835,7 +50835,7 @@ type TeamDiscussion implements Comment & Deletable & Node & Reactable & Subscrib
   """
   Identifies the discussion body hash.
   """
-  bodyVersion: String! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.")
+  bodyVersion: String! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.")
 
   """
   A list of comments on this discussion.
@@ -50870,17 +50870,17 @@ type TeamDiscussion implements Comment & Deletable & Node & Reactable & Subscrib
     Order for connection
     """
     orderBy: TeamDiscussionCommentOrder
-  ): TeamDiscussionCommentConnection! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.")
+  ): TeamDiscussionCommentConnection! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.")
 
   """
   The HTTP path for discussion comments
   """
-  commentsResourcePath: URI! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.")
+  commentsResourcePath: URI! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.")
 
   """
   The HTTP URL for discussion comments
   """
-  commentsUrl: URI! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.")
+  commentsUrl: URI! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.")
 
   """
   Identifies the date and time when the object was created.
@@ -50911,12 +50911,12 @@ type TeamDiscussion implements Comment & Deletable & Node & Reactable & Subscrib
   """
   Whether or not the discussion is pinned.
   """
-  isPinned: Boolean! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.")
+  isPinned: Boolean! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.")
 
   """
   Whether or not the discussion is only visible to team members and org admins.
   """
-  isPrivate: Boolean! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.")
+  isPrivate: Boolean! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.")
 
   """
   The moment the editor made the last edit
@@ -50926,7 +50926,7 @@ type TeamDiscussion implements Comment & Deletable & Node & Reactable & Subscrib
   """
   Identifies the discussion within its team.
   """
-  number: Int! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.")
+  number: Int! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.")
 
   """
   Identifies when the comment was published at.
@@ -50976,17 +50976,17 @@ type TeamDiscussion implements Comment & Deletable & Node & Reactable & Subscrib
   """
   The HTTP path for this discussion
   """
-  resourcePath: URI! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.")
+  resourcePath: URI! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.")
 
   """
   The team that defines the context of this discussion.
   """
-  team: Team! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.")
+  team: Team! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.")
 
   """
   The title of the discussion
   """
-  title: String! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.")
+  title: String! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.")
 
   """
   Identifies the date and time when the object was last updated.
@@ -50996,7 +50996,7 @@ type TeamDiscussion implements Comment & Deletable & Node & Reactable & Subscrib
   """
   The HTTP URL for this discussion
   """
-  url: URI! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.")
+  url: URI! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.")
 
   """
   A list of edits to this content.
@@ -51031,7 +51031,7 @@ type TeamDiscussion implements Comment & Deletable & Node & Reactable & Subscrib
   """
   Whether or not the current viewer can pin this discussion.
   """
-  viewerCanPin: Boolean! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.")
+  viewerCanPin: Boolean! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.")
 
   """
   Can user react to this subject
@@ -51076,7 +51076,7 @@ type TeamDiscussionComment implements Comment & Deletable & Node & Reactable & U
   """
   Author's association with the comment's team.
   """
-  authorAssociation: CommentAuthorAssociation! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.")
+  authorAssociation: CommentAuthorAssociation! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.")
 
   """
   The body as Markdown.
@@ -51096,7 +51096,7 @@ type TeamDiscussionComment implements Comment & Deletable & Node & Reactable & U
   """
   The current version of the body content.
   """
-  bodyVersion: String! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.")
+  bodyVersion: String! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.")
 
   """
   Identifies the date and time when the object was created.
@@ -51116,7 +51116,7 @@ type TeamDiscussionComment implements Comment & Deletable & Node & Reactable & U
   """
   The discussion this comment is about.
   """
-  discussion: TeamDiscussion! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.")
+  discussion: TeamDiscussion! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.")
 
   """
   The actor who edited the comment.
@@ -51137,7 +51137,7 @@ type TeamDiscussionComment implements Comment & Deletable & Node & Reactable & U
   """
   Identifies the comment number.
   """
-  number: Int! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.")
+  number: Int! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.")
 
   """
   Identifies when the comment was published at.
@@ -51187,7 +51187,7 @@ type TeamDiscussionComment implements Comment & Deletable & Node & Reactable & U
   """
   The HTTP path for this comment
   """
-  resourcePath: URI! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.")
+  resourcePath: URI! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.")
 
   """
   Identifies the date and time when the object was last updated.
@@ -51197,7 +51197,7 @@ type TeamDiscussionComment implements Comment & Deletable & Node & Reactable & U
   """
   The HTTP URL for this comment
   """
-  url: URI! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-04-01 UTC.")
+  url: URI! @deprecated(reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC.")
 
   """
   A list of edits to this content.
