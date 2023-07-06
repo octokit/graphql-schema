@@ -53,7 +53,7 @@ const { repository } = await graphql<{ repository: Repository }>(
     headers: {
       authorization: `token secret123`,
     },
-  }
+  },
 );
 ```
 
