@@ -26948,6 +26948,11 @@ type Organization implements Actor & AnnouncementBanner & MemberStatusable & Nod
     first: Int
 
     """
+    If non-null, filters repositories according to whether they are archived and not maintained
+    """
+    isArchived: Boolean
+
+    """
     If non-null, filters repositories according to whether they are forks of another repository
     """
     isFork: Boolean
@@ -43239,6 +43244,11 @@ interface RepositoryOwner {
     first: Int
 
     """
+    If non-null, filters repositories according to whether they are archived and not maintained
+    """
+    isArchived: Boolean
+
+    """
     If non-null, filters repositories according to whether they are forks of another repository
     """
     isFork: Boolean
@@ -56421,6 +56431,11 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
     Returns the first _n_ elements from the list.
     """
     first: Int
+
+    """
+    If non-null, filters repositories according to whether they are archived and not maintained
+    """
+    isArchived: Boolean
 
     """
     If non-null, filters repositories according to whether they are forks of another repository
