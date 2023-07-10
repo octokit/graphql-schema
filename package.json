@@ -31,7 +31,7 @@
   "devDependencies": {
     "@graphql-codegen/cli": "^4.0.0",
     "@graphql-codegen/typescript": "^4.0.0",
-    "@octokit/graphql": "^6.0.0",
+    "@octokit/graphql": "^7.0.0",
     "dotenv": "^16.0.0",
     "execa": "^5.1.1",
     "prettier": "^3.0.0",
