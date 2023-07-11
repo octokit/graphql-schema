@@ -22196,7 +22196,7 @@ export type RequestableCheckStatusState =
   | 'WAITING';
 
 /** Types that can be requested reviewers. */
-export type RequestedReviewer = Mannequin | Team | User;
+export type RequestedReviewer = Bot | Mannequin | Team | User;
 
 /** The connection type for RequestedReviewer. */
 export type RequestedReviewerConnection = {
