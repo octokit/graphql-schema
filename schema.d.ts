@@ -14217,6 +14217,7 @@ export type OrganizationSponsorsActivitiesArgs = {
   before?: InputMaybe<Scalars['String']['input']>;
   first?: InputMaybe<Scalars['Int']['input']>;
   includeAsSponsor?: InputMaybe<Scalars['Boolean']['input']>;
+  includePrivate?: InputMaybe<Scalars['Boolean']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<SponsorsActivityOrder>;
   period?: InputMaybe<SponsorsActivityPeriod>;
@@ -23342,6 +23343,7 @@ export type SponsorableSponsorsActivitiesArgs = {
   before?: InputMaybe<Scalars['String']['input']>;
   first?: InputMaybe<Scalars['Int']['input']>;
   includeAsSponsor?: InputMaybe<Scalars['Boolean']['input']>;
+  includePrivate?: InputMaybe<Scalars['Boolean']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<SponsorsActivityOrder>;
   period?: InputMaybe<SponsorsActivityPeriod>;
@@ -28345,6 +28347,7 @@ export type UserSponsorsActivitiesArgs = {
   before?: InputMaybe<Scalars['String']['input']>;
   first?: InputMaybe<Scalars['Int']['input']>;
   includeAsSponsor?: InputMaybe<Scalars['Boolean']['input']>;
+  includePrivate?: InputMaybe<Scalars['Boolean']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<SponsorsActivityOrder>;
   period?: InputMaybe<SponsorsActivityPeriod>;
