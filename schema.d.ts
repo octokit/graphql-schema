@@ -8324,7 +8324,7 @@ export type IpAllowListForInstalledAppsEnabledSettingValue =
 export type IpAllowListOwner = App | Enterprise | Organization;
 
 /** An Issue is a place to discuss ideas, enhancements, tasks, and bugs for a project. */
-export type Issue = Assignable & Closable & Comment & Deletable & Labelable & Lockable & Node & ProjectV2Owner & Reactable & RepositoryNode & Subscribable & UniformResourceLocatable & Updatable & UpdatableComment & {
+export type Issue = Assignable & Closable & Comment & Deletable & Labelable & Lockable & Node & ProjectV2Owner & Reactable & RepositoryNode & Subscribable & SubscribableThread & UniformResourceLocatable & Updatable & UpdatableComment & {
   __typename?: 'Issue';
   /** Reason that the conversation was locked. */
   activeLockReason?: Maybe<LockReason>;
@@ -8446,6 +8446,10 @@ export type Issue = Assignable & Closable & Comment & Deletable & Labelable & Lo
   viewerDidAuthor: Scalars['Boolean']['output'];
   /** Identifies if the viewer is watching, not watching, or ignoring the subscribable entity. */
   viewerSubscription?: Maybe<SubscriptionState>;
+  /** Identifies the viewer's thread subscription form action. */
+  viewerThreadSubscriptionFormAction?: Maybe<ThreadSubscriptionFormAction>;
+  /** Identifies the viewer's thread subscription status. */
+  viewerThreadSubscriptionStatus?: Maybe<ThreadSubscriptionState>;
 };
 
 
@@ -24870,6 +24874,15 @@ export type Subscribable = {
   viewerSubscription?: Maybe<SubscriptionState>;
 };
 
+/** Entities that can be subscribed to for web and email notifications. */
+export type SubscribableThread = {
+  id: Scalars['ID']['output'];
+  /** Identifies the viewer's thread subscription form action. */
+  viewerThreadSubscriptionFormAction?: Maybe<ThreadSubscriptionFormAction>;
+  /** Identifies the viewer's thread subscription status. */
+  viewerThreadSubscriptionStatus?: Maybe<ThreadSubscriptionState>;
+};
+
 /** Represents a 'subscribed' event on a given `Subscribable`. */
 export type SubscribedEvent = Node & {
   __typename?: 'SubscribedEvent';
@@ -25927,6 +25940,36 @@ export type TextMatchHighlight = {
   /** The text matched. */
   text: Scalars['String']['output'];
 };
+
+/** The possible states of a thread subscription form action */
+export type ThreadSubscriptionFormAction =
+  /** The User cannot subscribe or unsubscribe to the thread */
+  | 'NONE'
+  /** The User can subscribe to the thread */
+  | 'SUBSCRIBE'
+  /** The User can unsubscribe to the thread */
+  | 'UNSUBSCRIBE';
+
+/** The possible states of a subscription. */
+export type ThreadSubscriptionState =
+  /** The subscription status is currently disabled. */
+  | 'DISABLED'
+  /** The User is never notified because they are ignoring the list */
+  | 'IGNORING_LIST'
+  /** The User is never notified because they are ignoring the thread */
+  | 'IGNORING_THREAD'
+  /** The User is not recieving notifications from this thread */
+  | 'NONE'
+  /** The User is notified becuase they are watching the list */
+  | 'SUBSCRIBED_TO_LIST'
+  /** The User is notified because they are subscribed to the thread */
+  | 'SUBSCRIBED_TO_THREAD'
+  /** The User is notified because they chose custom settings for this thread. */
+  | 'SUBSCRIBED_TO_THREAD_EVENTS'
+  /** The User is notified because they chose custom settings for this thread. */
+  | 'SUBSCRIBED_TO_THREAD_TYPE'
+  /** The subscription status is currently unavailable. */
+  | 'UNAVAILABLE';
 
 /** A topic aggregates entities that are related to a subject. */
 export type Topic = Node & Starrable & {
