@@ -40721,7 +40721,7 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     last: Int
 
     """
-    Filters users with query on user name and login
+    Filters users with query on user name and login.
     """
     query: String
   ): UserConnection!
