@@ -15561,6 +15561,11 @@ type GitHubMetadata {
   gitIpAddresses: [String!]
 
   """
+  IP addresses that GitHub Enterprise Importer uses for outbound connections
+  """
+  githubEnterpriseImporterIpAddresses: [String!]
+
+  """
   IP addresses that service hooks are sent from
   """
   hookIpAddresses: [String!]
