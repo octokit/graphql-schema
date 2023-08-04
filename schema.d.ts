@@ -8002,6 +8002,8 @@ export type GitHubMetadata = {
   gitHubServicesSha: Scalars['GitObjectID']['output'];
   /** IP addresses that users connect to for git operations */
   gitIpAddresses?: Maybe<Array<Scalars['String']['output']>>;
+  /** IP addresses that GitHub Enterprise Importer uses for outbound connections */
+  githubEnterpriseImporterIpAddresses?: Maybe<Array<Scalars['String']['output']>>;
   /** IP addresses that service hooks are sent from */
   hookIpAddresses?: Maybe<Array<Scalars['String']['output']>>;
   /** IP addresses that the importer connects from */
