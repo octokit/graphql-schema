@@ -15561,6 +15561,11 @@ type GitHubMetadata {
   gitIpAddresses: [String!]
 
   """
+  IP addresses that GitHub Enterprise Importer uses for outbound connections
+  """
+  githubEnterpriseImporterIpAddresses: [String!]
+
+  """
   IP addresses that service hooks are sent from
   """
   hookIpAddresses: [String!]
@@ -49257,7 +49262,8 @@ input StartRepositoryMigrationInput {
   clientMutationId: String
 
   """
-  Whether to continue the migration on error. Defaults to `false`.
+  Whether to continue the migration on error. Defaults to `false`. We strongly
+  recommend setting this to `true` for the smoothest migration experience.
   """
   continueOnError: Boolean
 
