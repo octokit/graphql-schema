@@ -33999,6 +33999,21 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
 }
 
 """
+The possible methods for updating a pull request's head branch with the base branch.
+"""
+enum PullRequestBranchUpdateMethod {
+  """
+  Update branch via merge
+  """
+  MERGE
+
+  """
+  Update branch via rebase
+  """
+  REBASE
+}
+
+"""
 A file changed in a pull request.
 """
 type PullRequestChangedFile {
@@ -55133,6 +55148,11 @@ input UpdatePullRequestBranchInput {
   The Node ID of the pull request.
   """
   pullRequestId: ID!
+
+  """
+  The update branch method to use. If omitted, defaults to 'MERGE'
+  """
+  updateMethod: PullRequestBranchUpdateMethod
 }
 
 """
