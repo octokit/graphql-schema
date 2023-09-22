@@ -5420,6 +5420,8 @@ export type Discussion = Closable & Comment & Deletable & Labelable & Lockable &
   id: Scalars['ID']['output'];
   /** Check if this comment was edited and includes an edit with the creation data */
   includesCreatedEdit: Scalars['Boolean']['output'];
+  /** Only return answered/unanswered discussions */
+  isAnswered?: Maybe<Scalars['Boolean']['output']>;
   /** A list of labels associated with the object. */
   labels?: Maybe<LabelConnection>;
   /** The moment the editor made the last edit */
@@ -20935,6 +20937,7 @@ export type RepositoryDiscussionCategoryArgs = {
 /** A repository contains the content for a project. */
 export type RepositoryDiscussionsArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
+  answered?: InputMaybe<Scalars['Boolean']['input']>;
   before?: InputMaybe<Scalars['String']['input']>;
   categoryId?: InputMaybe<Scalars['ID']['input']>;
   first?: InputMaybe<Scalars['Int']['input']>;
