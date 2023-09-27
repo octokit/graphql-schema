@@ -3654,6 +3654,8 @@ export type CreateLinkedBranchPayload = {
   __typename?: 'CreateLinkedBranchPayload';
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** The issue that was linked to. */
+  issue?: Maybe<Issue>;
   /** The new branch issue reference. */
   linkedBranch?: Maybe<LinkedBranch>;
 };
