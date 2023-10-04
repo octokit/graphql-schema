@@ -24074,7 +24074,7 @@ export type SponsorsCountryOrRegionCode =
   | 'TN'
   /** Tonga */
   | 'TO'
-  /** Turkey */
+  /** Türkiye */
   | 'TR'
   /** Trinidad and Tobago */
   | 'TT'
