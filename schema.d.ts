@@ -21897,6 +21897,8 @@ export type RepositoryRuleInput = {
 
 /** The rule types supported in rulesets */
 export type RepositoryRuleType =
+  /** Authorization */
+  | 'AUTHORIZATION'
   /** Branch name pattern */
   | 'BRANCH_NAME_PATTERN'
   /** Committer email pattern */
@@ -21909,6 +21911,16 @@ export type RepositoryRuleType =
   | 'CREATION'
   /** Only allow users with bypass permissions to delete matching refs. */
   | 'DELETION'
+  /** File path pattern */
+  | 'FILE_PATH_PATTERN'
+  /** Branch is read-only. Users cannot push to the branch. */
+  | 'LOCK_BRANCH'
+  /** Max ref updates */
+  | 'MAX_REF_UPDATES'
+  /** Merges must be performed via a merge queue. */
+  | 'MERGE_QUEUE'
+  /** Merge queue locked ref */
+  | 'MERGE_QUEUE_LOCKED_REF'
   /** Prevent users with push access from force pushing to refs. */
   | 'NON_FAST_FORWARD'
   /** Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. */
@@ -21917,6 +21929,11 @@ export type RepositoryRuleType =
   | 'REQUIRED_DEPLOYMENTS'
   /** Prevent merge commits from being pushed to matching refs. */
   | 'REQUIRED_LINEAR_HISTORY'
+  /**
+   * When enabled, all conversations on code must be resolved before a pull request
+   * can be merged into a branch that matches this rule.
+   */
+  | 'REQUIRED_REVIEW_THREAD_RESOLUTION'
   /** Commits pushed to matching refs must have verified signatures. */
   | 'REQUIRED_SIGNATURES'
   /**
@@ -21926,10 +21943,23 @@ export type RepositoryRuleType =
    * after status checks have passed.
    */
   | 'REQUIRED_STATUS_CHECKS'
+  /**
+   * Require all commits be made to a non-target branch and submitted via a pull
+   * request and required workflow checks to pass before they can be merged.
+   */
+  | 'REQUIRED_WORKFLOW_STATUS_CHECKS'
+  /** Commits pushed to matching refs must have verified signatures. */
+  | 'RULESET_REQUIRED_SIGNATURES'
+  /** Secret scanning */
+  | 'SECRET_SCANNING'
+  /** Tag */
+  | 'TAG'
   /** Tag name pattern */
   | 'TAG_NAME_PATTERN'
   /** Only allow users with bypass permission to update matching refs. */
-  | 'UPDATE';
+  | 'UPDATE'
+  /** Workflow files cannot be modified. */
+  | 'WORKFLOW_UPDATES';
 
 /** A repository ruleset. */
 export type RepositoryRuleset = Node & {
