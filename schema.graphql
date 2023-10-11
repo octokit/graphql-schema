@@ -43885,6 +43885,11 @@ enum RepositoryRuleType {
   UPDATE
 
   """
+  Require all changes made to a targeted branch to pass the specified workflows before they can be merged.
+  """
+  WORKFLOWS
+
+  """
   Workflow files cannot be modified.
   """
   WORKFLOW_UPDATES
@@ -45447,7 +45452,7 @@ enum RuleEnforcement {
 """
 Types which can be parameters for `RepositoryRule` objects.
 """
-union RuleParameters = BranchNamePatternParameters | CommitAuthorEmailPatternParameters | CommitMessagePatternParameters | CommitterEmailPatternParameters | PullRequestParameters | RequiredDeploymentsParameters | RequiredStatusChecksParameters | TagNamePatternParameters | UpdateParameters
+union RuleParameters = BranchNamePatternParameters | CommitAuthorEmailPatternParameters | CommitMessagePatternParameters | CommitterEmailPatternParameters | PullRequestParameters | RequiredDeploymentsParameters | RequiredStatusChecksParameters | TagNamePatternParameters | UpdateParameters | WorkflowsParameters
 
 """
 Specifies the parameters for a `RepositoryRule` object. Only one of the fields should be specified.
@@ -45497,6 +45502,11 @@ input RuleParametersInput {
   Parameters used for the `update` rule type
   """
   update: UpdateParametersInput
+
+  """
+  Parameters used for the `workflows` rule type
+  """
+  workflows: WorkflowsParametersInput
 }
 
 """
@@ -58253,6 +58263,56 @@ type Workflow implements Node & UniformResourceLocatable {
 }
 
 """
+A workflow that must run for this rule to pass
+"""
+type WorkflowFileReference {
+  """
+  The path to the workflow file
+  """
+  path: String!
+
+  """
+  The ref (branch or tag) of the workflow file to use
+  """
+  ref: String
+
+  """
+  The ID of the repository where the workflow is defined
+  """
+  repositoryId: Int!
+
+  """
+  The commit SHA of the workflow file to use
+  """
+  sha: String
+}
+
+"""
+A workflow that must run for this rule to pass
+"""
+input WorkflowFileReferenceInput {
+  """
+  The path to the workflow file
+  """
+  path: String!
+
+  """
+  The ref (branch or tag) of the workflow file to use
+  """
+  ref: String
+
+  """
+  The ID of the repository where the workflow is defined
+  """
+  repositoryId: Int!
+
+  """
+  The commit SHA of the workflow file to use
+  """
+  sha: String
+}
+
+"""
 A workflow run.
 """
 type WorkflowRun implements Node & UniformResourceLocatable {
@@ -58498,6 +58558,26 @@ enum WorkflowState {
   The workflow was disabled manually.
   """
   DISABLED_MANUALLY
+}
+
+"""
+Require all changes made to a targeted branch to pass the specified workflows before they can be merged.
+"""
+type WorkflowsParameters {
+  """
+  Workflows that must pass for this rule to pass.
+  """
+  workflows: [WorkflowFileReference!]!
+}
+
+"""
+Require all changes made to a targeted branch to pass the specified workflows before they can be merged.
+"""
+input WorkflowsParametersInput {
+  """
+  Workflows that must pass for this rule to pass.
+  """
+  workflows: [WorkflowFileReferenceInput!]!
 }
 
 """
