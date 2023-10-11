@@ -23357,6 +23357,8 @@ export type SocialAccountProvider =
   | 'LINKEDIN'
   /** Open-source federated microblogging service. */
   | 'MASTODON'
+  /** JavaScript package registry. */
+  | 'NPM'
   /** Social news aggregation and discussion website. */
   | 'REDDIT'
   /** Live-streaming service. */
