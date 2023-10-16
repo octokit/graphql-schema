@@ -21633,7 +21633,9 @@ export type RepositoryLockReason =
   /** The repository is locked due to a rename. */
   | 'RENAME'
   /** The repository is locked due to a trade controls related reason. */
-  | 'TRADE_RESTRICTION';
+  | 'TRADE_RESTRICTION'
+  /** The repository is locked due to an ownership transfer. */
+  | 'TRANSFERRING_OWNERSHIP';
 
 /** A GitHub Enterprise Importer (GEI) repository migration. */
 export type RepositoryMigration = Migration & Node & {
