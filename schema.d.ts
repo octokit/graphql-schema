@@ -15053,6 +15053,8 @@ export type PermissionSource = {
   organization: Organization;
   /** The level of access this source has granted to the user. */
   permission: DefaultRepositoryPermissionField;
+  /** The name of the role this source has granted to the user. */
+  roleName?: Maybe<Scalars['String']['output']>;
   /** The source of this permission. */
   source: PermissionGranter;
 };
