@@ -43801,11 +43801,6 @@ enum RepositoryRuleType {
   DELETION
 
   """
-  File path pattern
-  """
-  FILE_PATH_PATTERN
-
-  """
   Branch is read-only. Users cannot push to the branch.
   """
   LOCK_BRANCH
