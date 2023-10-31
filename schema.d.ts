@@ -21918,8 +21918,6 @@ export type RepositoryRuleType =
   | 'CREATION'
   /** Only allow users with bypass permissions to delete matching refs. */
   | 'DELETION'
-  /** File path pattern */
-  | 'FILE_PATH_PATTERN'
   /** Branch is read-only. Users cannot push to the branch. */
   | 'LOCK_BRANCH'
   /** Max ref updates */
