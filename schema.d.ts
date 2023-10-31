@@ -21369,7 +21369,10 @@ export type RepositoryConnection = {
   pageInfo: PageInfo;
   /** Identifies the total count of items in the connection. */
   totalCount: Scalars['Int']['output'];
-  /** The total size in kilobytes of all repositories in the connection. */
+  /**
+   * The total size in kilobytes of all repositories in the connection. Value will
+   * never be larger than max 32-bit signed integer.
+   */
   totalDiskUsage: Scalars['Int']['output'];
 };
 
