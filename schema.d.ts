@@ -21930,7 +21930,7 @@ export type RepositoryRuleType =
   | 'NON_FAST_FORWARD'
   /** Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. */
   | 'PULL_REQUEST'
-  /** Choose which environments must be successfully deployed to before refs can be merged into a branch that matches this rule. */
+  /** Choose which environments must be successfully deployed to before refs can be pushed into a ref that matches this rule. */
   | 'REQUIRED_DEPLOYMENTS'
   /** Prevent merge commits from being pushed to matching refs. */
   | 'REQUIRED_LINEAR_HISTORY'
@@ -21942,10 +21942,8 @@ export type RepositoryRuleType =
   /** Commits pushed to matching refs must have verified signatures. */
   | 'REQUIRED_SIGNATURES'
   /**
-   * Choose which status checks must pass before branches can be merged into a
-   * branch that matches this rule. When enabled, commits must first be pushed to
-   * another branch, then merged or pushed directly to a ref that matches this rule
-   * after status checks have passed.
+   * Choose which status checks must pass before the ref is updated. When enabled,
+   * commits must first be pushed to another ref where the checks pass.
    */
   | 'REQUIRED_STATUS_CHECKS'
   /**
@@ -22397,14 +22395,14 @@ export type RequirableByPullRequestIsRequiredArgs = {
   pullRequestNumber?: InputMaybe<Scalars['Int']['input']>;
 };
 
-/** Choose which environments must be successfully deployed to before refs can be merged into a branch that matches this rule. */
+/** Choose which environments must be successfully deployed to before refs can be pushed into a ref that matches this rule. */
 export type RequiredDeploymentsParameters = {
   __typename?: 'RequiredDeploymentsParameters';
   /** The environments that must be successfully deployed to before branches can be merged. */
   requiredDeploymentEnvironments: Array<Scalars['String']['output']>;
 };
 
-/** Choose which environments must be successfully deployed to before refs can be merged into a branch that matches this rule. */
+/** Choose which environments must be successfully deployed to before refs can be pushed into a ref that matches this rule. */
 export type RequiredDeploymentsParametersInput = {
   /** The environments that must be successfully deployed to before branches can be merged. */
   requiredDeploymentEnvironments: Array<Scalars['String']['input']>;
@@ -22432,10 +22430,8 @@ export type RequiredStatusCheckInput = {
 };
 
 /**
- * Choose which status checks must pass before branches can be merged into a branch
- * that matches this rule. When enabled, commits must first be pushed to another
- * branch, then merged or pushed directly to a ref that matches this rule after
- * status checks have passed.
+ * Choose which status checks must pass before the ref is updated. When enabled,
+ * commits must first be pushed to another ref where the checks pass.
  */
 export type RequiredStatusChecksParameters = {
   __typename?: 'RequiredStatusChecksParameters';
@@ -22450,10 +22446,8 @@ export type RequiredStatusChecksParameters = {
 };
 
 /**
- * Choose which status checks must pass before branches can be merged into a branch
- * that matches this rule. When enabled, commits must first be pushed to another
- * branch, then merged or pushed directly to a ref that matches this rule after
- * status checks have passed.
+ * Choose which status checks must pass before the ref is updated. When enabled,
+ * commits must first be pushed to another ref where the checks pass.
  */
 export type RequiredStatusChecksParametersInput = {
   /** Status checks that are required. */
