@@ -34623,7 +34623,7 @@ input PullRequestParametersInput {
 """
 A review object for a given pull request.
 """
-type PullRequestReview implements Comment & Deletable & Node & Reactable & RepositoryNode & Updatable & UpdatableComment {
+type PullRequestReview implements Comment & Deletable & Minimizable & Node & Reactable & RepositoryNode & Updatable & UpdatableComment {
   """
   The actor who authored the comment.
   """
@@ -34711,9 +34711,21 @@ type PullRequestReview implements Comment & Deletable & Node & Reactable & Repos
   includesCreatedEdit: Boolean!
 
   """
+  Returns whether or not a comment has been minimized.
+  """
+  isMinimized: Boolean!
+
+  """
   The moment the editor made the last edit
   """
   lastEditedAt: DateTime
+
+  """
+  Returns why the comment was minimized. One of `abuse`, `off-topic`,
+  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
+  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
+  """
+  minimizedReason: String
 
   """
   A list of teams that this review was made on behalf of.
@@ -34849,6 +34861,11 @@ type PullRequestReview implements Comment & Deletable & Node & Reactable & Repos
   Check if the current viewer can delete this object.
   """
   viewerCanDelete: Boolean!
+
+  """
+  Check if the current viewer can minimize this object.
+  """
+  viewerCanMinimize: Boolean!
 
   """
   Can user react to this subject
