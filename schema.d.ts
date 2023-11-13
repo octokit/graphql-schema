@@ -24478,6 +24478,8 @@ export type Sponsorship = Node & {
    * @deprecated `Sponsorship.maintainer` will be removed. Use `Sponsorship.sponsorable` instead. Removal on 2020-04-01 UTC.
    */
   maintainer: User;
+  /** The platform that was most recently used to pay for the sponsorship. */
+  paymentSource?: Maybe<SponsorshipPaymentSource>;
   /** The privacy level for this sponsorship. */
   privacyLevel: SponsorshipPrivacy;
   /**
@@ -24594,6 +24596,13 @@ export type SponsorshipOrder = {
 export type SponsorshipOrderField =
   /** Order sponsorship by creation time. */
   | 'CREATED_AT';
+
+/** How payment was made for funding a GitHub Sponsors sponsorship. */
+export type SponsorshipPaymentSource =
+  /** Payment was made through GitHub. */
+  | 'GITHUB'
+  /** Payment was made through Patreon. */
+  | 'PATREON';
 
 /** The privacy of a sponsorship */
 export type SponsorshipPrivacy =
