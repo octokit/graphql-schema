@@ -23627,6 +23627,8 @@ export type SponsorsActivity = Node & {
   /** The sponsor's current privacy level. */
   currentPrivacyLevel?: Maybe<SponsorshipPrivacy>;
   id: Scalars['ID']['output'];
+  /** The platform that was used to pay for the sponsorship. */
+  paymentSource?: Maybe<SponsorshipPaymentSource>;
   /** The tier that the sponsorship used to use, for tier change events. */
   previousSponsorsTier?: Maybe<SponsorsTier>;
   /** The user or organization who triggered this activity and was/is sponsoring the sponsorable. */
