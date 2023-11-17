@@ -33044,18 +33044,18 @@ type ProjectV2Workflow implements Node {
   databaseId: Int
 
   """
-  The workflows' enabled state.
+  Whether the workflow is enabled.
   """
   enabled: Boolean!
   id: ID!
 
   """
-  The workflows' name.
+  The name of the workflow.
   """
   name: String!
 
   """
-  The workflows' number.
+  The number of the workflow.
   """
   number: Int!
 
@@ -33130,22 +33130,22 @@ Properties by which project workflows can be ordered.
 """
 enum ProjectV2WorkflowsOrderField {
   """
-  The workflows' date and time of creation
+  The date and time of the workflow creation
   """
   CREATED_AT
 
   """
-  The workflows' name
+  The name of the workflow
   """
   NAME
 
   """
-  The workflows' number
+  The number of the workflow
   """
   NUMBER
 
   """
-  The workflows' date and time of update
+  The date and time of the workflow update
   """
   UPDATED_AT
 }
