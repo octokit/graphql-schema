@@ -7,7 +7,7 @@ export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> =
 export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: { input: string; output: string; }
+  ID: { input: string | number; output: string; }
   String: { input: string; output: string; }
   Boolean: { input: boolean; output: boolean; }
   Int: { input: number; output: number; }
@@ -10656,7 +10656,14 @@ export type Mutation = {
   createCommitOnBranch?: Maybe<CreateCommitOnBranchPayload>;
   /** Create a discussion. */
   createDiscussion?: Maybe<CreateDiscussionPayload>;
-  /** Creates an organization as part of an enterprise account. */
+  /**
+   * Creates an organization as part of an enterprise account. A personal access
+   * token used to create an organization is implicitly permitted to update the
+   * organization it created, if the organization is part of an enterprise that has
+   * SAML enabled or uses Enterprise Managed Users. If the organization is not part
+   * of such an enterprise, and instead has SAML enabled for it individually, the
+   * token will then require SAML authorization to continue working against that organization.
+   */
   createEnterpriseOrganization?: Maybe<CreateEnterpriseOrganizationPayload>;
   /** Creates an environment or simply returns it if already exists. */
   createEnvironment?: Maybe<CreateEnvironmentPayload>;
