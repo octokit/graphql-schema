@@ -1066,6 +1066,10 @@ type AddedToMergeQueueEvent implements Node {
   The user who added this Pull Request to the merge queue
   """
   enqueuer: User
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -1097,6 +1101,10 @@ type AddedToProjectEvent implements Node {
   Identifies the primary key from the database.
   """
   databaseId: Int
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 }
 
@@ -1138,6 +1146,10 @@ type App implements Node {
   The description of the app.
   """
   description: String
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -1394,6 +1406,10 @@ type AssignedEvent implements Node {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -1525,6 +1541,10 @@ type AutoMergeDisabledEvent implements Node {
   The user who disabled auto-merge for this Pull Request
   """
   disabler: User
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -1561,6 +1581,10 @@ type AutoMergeEnabledEvent implements Node {
   The user who enabled auto-merge for this Pull Request
   """
   enabler: User
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -1630,6 +1654,10 @@ type AutoRebaseEnabledEvent implements Node {
   The user who enabled auto-merge (rebase) for this Pull Request
   """
   enabler: User
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -1656,6 +1684,10 @@ type AutoSquashEnabledEvent implements Node {
   The user who enabled auto-merge (squash) for this Pull Request
   """
   enabler: User
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -1677,6 +1709,10 @@ type AutomaticBaseChangeFailedEvent implements Node {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -1708,6 +1744,10 @@ type AutomaticBaseChangeSucceededEvent implements Node {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -1754,6 +1794,10 @@ type BaseRefChangedEvent implements Node {
   Identifies the primary key from the database.
   """
   databaseId: Int
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -1785,6 +1829,10 @@ type BaseRefDeletedEvent implements Node {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -1816,6 +1864,10 @@ type BaseRefForcePushedEvent implements Node {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -1896,6 +1948,10 @@ type Blob implements GitObject & Node {
   The HTTP URL for this Git object
   """
   commitUrl: URI!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -1947,6 +2003,10 @@ type Bot implements Actor & Node & UniformResourceLocatable {
   Identifies the primary key from the database.
   """
   databaseId: Int
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -2133,6 +2193,10 @@ type BranchProtectionRule implements Node {
   Will new commits pushed to matching branches dismiss pull request review approvals.
   """
   dismissesStaleReviews: Boolean!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -2456,6 +2520,10 @@ type BypassForcePushAllowance implements Node {
   Identifies the branch protection rule associated with the allowed user, team, or app.
   """
   branchProtectionRule: BranchProtectionRule
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 }
 
@@ -2512,6 +2580,10 @@ type BypassPullRequestAllowance implements Node {
   Identifies the branch protection rule associated with the allowed user, team, or app.
   """
   branchProtectionRule: BranchProtectionRule
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 }
 
@@ -2583,6 +2655,10 @@ type CWE implements Node {
   A detailed description of this CWE
   """
   description: String!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -3072,6 +3148,10 @@ type CheckRun implements Node & RequirableByPullRequest & UniformResourceLocatab
   A reference for the check run on the integrator's system.
   """
   externalId: String
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -3613,6 +3693,10 @@ type CheckSuite implements Node {
   Identifies the primary key from the database.
   """
   databaseId: Int
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -4110,6 +4194,10 @@ type ClosedEvent implements Node & UniformResourceLocatable {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -4141,6 +4229,10 @@ type CodeOfConduct implements Node {
   The body of the Code of Conduct
   """
   body: String
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -4227,6 +4319,10 @@ interface Comment {
   The actor who edited the comment.
   """
   editor: Actor
+
+  """
+  The Node ID of the Comment object
+  """
   id: ID!
 
   """
@@ -4388,6 +4484,10 @@ type CommentDeletedEvent implements Node {
   The user who authored the deleted comment.
   """
   deletedCommentAuthor: Actor
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 }
 
@@ -4676,6 +4776,10 @@ type Commit implements GitObject & Node & Subscribable & UniformResourceLocatabl
     """
     until: GitTimestamp
   ): CommitHistoryConnection!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -4955,6 +5059,10 @@ type CommitComment implements Comment & Deletable & Minimizable & Node & Reactab
   The actor who edited the comment.
   """
   editor: Actor
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -5183,6 +5291,10 @@ type CommitCommentThread implements Node & RepositoryNode {
   The commit the comments were made on.
   """
   commit: Commit
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -5549,6 +5661,10 @@ type Comparison implements Node {
   The head revision of this comparison.
   """
   headTarget: GitObject!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -5625,6 +5741,10 @@ type ConnectedEvent implements Node {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -6349,6 +6469,10 @@ type ConvertToDraftEvent implements Node & UniformResourceLocatable {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -6385,6 +6509,10 @@ type ConvertedNoteToIssueEvent implements Node {
   Identifies the primary key from the database.
   """
   databaseId: Int
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 }
 
@@ -6406,6 +6534,10 @@ type ConvertedToDiscussionEvent implements Node {
   The discussion that the issue was converted into.
   """
   discussion: Discussion
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 }
 
@@ -8391,6 +8523,10 @@ type CrossReferencedEvent implements Node & UniformResourceLocatable {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -9202,6 +9338,10 @@ type DemilestonedEvent implements Node {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -9323,6 +9463,10 @@ type DeployKey implements Node {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of the DeployKey object
+  """
   id: ID!
 
   """
@@ -9409,6 +9553,10 @@ type DeployedEvent implements Node {
   The deployment associated with the 'deployed' event.
   """
   deployment: Deployment!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -9460,6 +9608,10 @@ type Deployment implements Node {
   The latest environment to which this deployment was made.
   """
   environment: String
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -9591,6 +9743,10 @@ type DeploymentEnvironmentChangedEvent implements Node {
   The deployment status that updated the deployment environment.
   """
   deploymentStatus: DeploymentStatus!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -9857,6 +10013,10 @@ type DeploymentReview implements Node {
     """
     last: Int
   ): EnvironmentConnection!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -10058,6 +10218,10 @@ type DeploymentStatus implements Node {
   Identifies the environment URL of the deployment.
   """
   environmentUrl: URI
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -10254,6 +10418,10 @@ type DisconnectedEvent implements Node {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -10380,6 +10548,10 @@ type Discussion implements Closable & Comment & Deletable & Labelable & Lockable
   The actor who edited the comment.
   """
   editor: Actor
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -10621,6 +10793,10 @@ type DiscussionCategory implements Node & RepositoryNode {
   This category's emoji rendered as HTML.
   """
   emojiHTML: HTML!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -10767,6 +10943,10 @@ type DiscussionComment implements Comment & Deletable & Minimizable & Node & Rea
   The actor who edited the comment.
   """
   editor: Actor
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -11085,6 +11265,10 @@ type DiscussionPoll implements Node {
   The discussion that this poll belongs to.
   """
   discussion: Discussion
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -11142,6 +11326,9 @@ type DiscussionPoll implements Node {
 An option for a discussion poll.
 """
 type DiscussionPollOption implements Node {
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -11428,6 +11615,10 @@ type DraftIssue implements Node {
   The actor who created this draft issue.
   """
   creator: Actor
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -11704,6 +11895,10 @@ type Enterprise implements AnnouncementBanner & Node {
   The description of the enterprise as HTML.
   """
   descriptionHTML: HTML!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -11907,6 +12102,10 @@ type EnterpriseAdministratorInvitation implements Node {
   The enterprise the invitation is for.
   """
   enterprise: Enterprise!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -12320,6 +12519,10 @@ type EnterpriseIdentityProvider implements Node {
     """
     userName: String
   ): ExternalIdentityConnection!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -13722,6 +13925,9 @@ type EnterprisePendingMemberInvitationEdge {
 A subset of repository information queryable from an enterprise.
 """
 type EnterpriseRepositoryInfo implements Node {
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -13798,6 +14004,10 @@ type EnterpriseServerInstallation implements Node {
   The host name of the Enterprise Server installation.
   """
   hostName: String!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -14034,6 +14244,10 @@ type EnterpriseServerUserAccount implements Node {
   The Enterprise Server installation on which this user account exists.
   """
   enterpriseServerInstallation: EnterpriseServerInstallation!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -14120,6 +14334,10 @@ type EnterpriseServerUserAccountEmail implements Node {
   The email address.
   """
   email: String!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -14251,6 +14469,10 @@ type EnterpriseServerUserAccountsUpload implements Node {
   The Enterprise Server installation for which this upload was generated.
   """
   enterpriseServerInstallation: EnterpriseServerInstallation!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -14417,6 +14639,10 @@ type EnterpriseUserAccount implements Actor & Node {
     """
     role: EnterpriseUserAccountMembershipRole
   ): EnterpriseServerInstallationMembershipConnection!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -14534,6 +14760,10 @@ type Environment implements Node {
   Identifies the primary key from the database.
   """
   databaseId: Int
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -14646,6 +14876,10 @@ type ExternalIdentity implements Node {
   The GUID for this identity
   """
   guid: String!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -15255,6 +15489,10 @@ type Gist implements Node & Starrable & UniformResourceLocatable {
     """
     orderBy: GistOrder
   ): GistConnection!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -15391,6 +15629,10 @@ type GistComment implements Comment & Deletable & Minimizable & Node & Updatable
   The associated gist.
   """
   gist: Gist!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -15799,6 +16041,10 @@ interface GitObject {
   The HTTP URL for this Git object
   """
   commitUrl: URI!
+
+  """
+  The Node ID of the GitObject object
+  """
   id: ID!
 
   """
@@ -16127,6 +16373,10 @@ type HeadRefDeletedEvent implements Node {
   Identifies the name of the Ref associated with the `head_ref_deleted` event.
   """
   headRefName: String!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -16158,6 +16408,10 @@ type HeadRefForcePushedEvent implements Node {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -16184,6 +16438,10 @@ type HeadRefRestoredEvent implements Node {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -16310,6 +16568,10 @@ type IpAllowListEntry implements Node {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -16566,6 +16828,10 @@ type Issue implements Assignable & Closable & Comment & Deletable & Labelable & 
     """
     includeNotificationContexts: Boolean = true
   ): Hovercard!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -17152,6 +17418,10 @@ type IssueComment implements Comment & Deletable & Minimizable & Node & Reactabl
   Identifies the primary key from the database as a BigInt.
   """
   fullDatabaseId: BigInt
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -17983,6 +18253,10 @@ type Label implements Node {
   A brief description of this label.
   """
   description: String
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -18229,6 +18503,10 @@ type LabeledEvent implements Node {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -18250,6 +18528,10 @@ type Language implements Node {
   The color defined for the current language.
   """
   color: String
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -18354,6 +18636,10 @@ type License implements Node {
   Whether the license should be displayed in license pickers
   """
   hidden: Boolean!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -18536,6 +18822,9 @@ type LinkRepositoryToProjectPayload {
 A branch linked to an issue.
 """
 type LinkedBranch implements Node {
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -18677,6 +18966,10 @@ type LockedEvent implements Node {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -18723,6 +19016,10 @@ type Mannequin implements Actor & Node & UniformResourceLocatable {
   The mannequin's email on the source instance.
   """
   email: String
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -18964,6 +19261,10 @@ type MarkedAsDuplicateEvent implements Node {
   The issue or pull request which has been marked as a duplicate of another.
   """
   duplicate: IssueOrPullRequest
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -18985,6 +19286,10 @@ type MarketplaceCategory implements Node {
   The technical description of how apps listed in this category work with GitHub.
   """
   howItWorks: String
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -19091,6 +19396,10 @@ type MarketplaceListing implements Node {
   The listing's technical description rendered to HTML.
   """
   howItWorksHTML: HTML!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -19359,6 +19668,10 @@ type MemberFeatureRequestNotification implements Node {
   Represents member feature request body containing organization name and the number of feature requests
   """
   body: String!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -19465,6 +19778,10 @@ type MembersCanDeleteReposClearAuditEntry implements AuditEntry & EnterpriseAudi
   The HTTP URL for this enterprise.
   """
   enterpriseUrl: URI
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -19571,6 +19888,10 @@ type MembersCanDeleteReposDisableAuditEntry implements AuditEntry & EnterpriseAu
   The HTTP URL for this enterprise.
   """
   enterpriseUrl: URI
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -19677,6 +19998,10 @@ type MembersCanDeleteReposEnableAuditEntry implements AuditEntry & EnterpriseAud
   The HTTP URL for this enterprise.
   """
   enterpriseUrl: URI
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -19743,6 +20068,10 @@ type MentionedEvent implements Node {
   Identifies the primary key from the database.
   """
   databaseId: Int
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 }
 
@@ -19924,6 +20253,10 @@ type MergeQueue implements Node {
     """
     last: Int
   ): MergeQueueEntryConnection
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -20016,6 +20349,10 @@ type MergeQueueEntry implements Node {
   The head commit for this entry
   """
   headCommit: Commit
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -20172,6 +20509,10 @@ type MergedEvent implements Node & UniformResourceLocatable {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -20223,6 +20564,10 @@ interface Migration {
   The reason the migration failed.
   """
   failureReason: String
+
+  """
+  The Node ID of the Migration object
+  """
   id: ID!
 
   """
@@ -20261,6 +20606,9 @@ interface Migration {
 A GitHub Enterprise Importer (GEI) migration source.
 """
 type MigrationSource implements Node {
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -20372,6 +20720,10 @@ type Milestone implements Closable & Node & UniformResourceLocatable {
   Identifies the due date of the milestone.
   """
   dueOn: DateTime
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -20633,6 +20985,10 @@ type MilestonedEvent implements Node {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -20796,6 +21152,10 @@ type MovedColumnsInProjectEvent implements Node {
   Identifies the primary key from the database.
   """
   databaseId: Int
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 }
 
@@ -23123,6 +23483,10 @@ type OIDCProvider implements Node {
     """
     userName: String
   ): ExternalIdentityConnection!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -23219,6 +23583,10 @@ type OauthApplicationCreateAuditEntry implements AuditEntry & Node & OauthApplic
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -23410,6 +23778,10 @@ type OrgAddBillingManagerAuditEntry implements AuditEntry & Node & OrganizationA
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -23506,6 +23878,10 @@ type OrgAddMemberAuditEntry implements AuditEntry & Node & OrganizationAuditEntr
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -23637,6 +24013,10 @@ type OrgBlockUserAuditEntry implements AuditEntry & Node & OrganizationAuditEntr
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -23728,6 +24108,10 @@ type OrgConfigDisableCollaboratorsOnlyAuditEntry implements AuditEntry & Node & 
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -23819,6 +24203,10 @@ type OrgConfigEnableCollaboratorsOnlyAuditEntry implements AuditEntry & Node & O
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -23915,6 +24303,10 @@ type OrgCreateAuditEntry implements AuditEntry & Node & OrganizationAuditEntryDa
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -24036,6 +24428,10 @@ type OrgDisableOauthAppRestrictionsAuditEntry implements AuditEntry & Node & Org
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -24132,6 +24528,10 @@ type OrgDisableSamlAuditEntry implements AuditEntry & Node & OrganizationAuditEn
   The SAML provider's digest algorithm URL.
   """
   digestMethodUrl: URI
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -24238,6 +24638,10 @@ type OrgDisableTwoFactorRequirementAuditEntry implements AuditEntry & Node & Org
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -24329,6 +24733,10 @@ type OrgEnableOauthAppRestrictionsAuditEntry implements AuditEntry & Node & Orga
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -24425,6 +24833,10 @@ type OrgEnableSamlAuditEntry implements AuditEntry & Node & OrganizationAuditEnt
   The SAML provider's digest algorithm URL.
   """
   digestMethodUrl: URI
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -24531,6 +24943,10 @@ type OrgEnableTwoFactorRequirementAuditEntry implements AuditEntry & Node & Orga
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -24652,6 +25068,10 @@ type OrgInviteMemberAuditEntry implements AuditEntry & Node & OrganizationAuditE
   The email address of the organization invitation.
   """
   email: String
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -24763,6 +25183,10 @@ type OrgInviteToBusinessAuditEntry implements AuditEntry & EnterpriseAuditEntryD
   The HTTP URL for this enterprise.
   """
   enterpriseUrl: URI
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -24854,6 +25278,10 @@ type OrgOauthAppAccessApprovedAuditEntry implements AuditEntry & Node & OauthApp
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -24960,6 +25388,10 @@ type OrgOauthAppAccessBlockedAuditEntry implements AuditEntry & Node & OauthAppl
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -25066,6 +25498,10 @@ type OrgOauthAppAccessDeniedAuditEntry implements AuditEntry & Node & OauthAppli
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -25172,6 +25608,10 @@ type OrgOauthAppAccessRequestedAuditEntry implements AuditEntry & Node & OauthAp
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -25278,6 +25718,10 @@ type OrgOauthAppAccessUnblockedAuditEntry implements AuditEntry & Node & OauthAp
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -25384,6 +25828,10 @@ type OrgRemoveBillingManagerAuditEntry implements AuditEntry & Node & Organizati
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -25500,6 +25948,10 @@ type OrgRemoveMemberAuditEntry implements AuditEntry & Node & OrganizationAuditE
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -25672,6 +26124,10 @@ type OrgRemoveOutsideCollaboratorAuditEntry implements AuditEntry & Node & Organ
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -25811,6 +26267,10 @@ type OrgRestoreMemberAuditEntry implements AuditEntry & Node & OrganizationAudit
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -26037,6 +26497,10 @@ type OrgUnblockUserAuditEntry implements AuditEntry & Node & OrganizationAuditEn
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -26128,6 +26592,10 @@ type OrgUpdateDefaultRepositoryPermissionAuditEntry implements AuditEntry & Node
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -26254,6 +26722,10 @@ type OrgUpdateMemberAuditEntry implements AuditEntry & Node & OrganizationAuditE
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -26375,6 +26847,10 @@ type OrgUpdateMemberRepositoryCreationPermissionAuditEntry implements AuditEntry
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -26521,6 +26997,10 @@ type OrgUpdateMemberRepositoryInvitationPermissionAuditEntry implements AuditEnt
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -26762,6 +27242,10 @@ type Organization implements Actor & AnnouncementBanner & MemberStatusable & Nod
   True if this user/organization has a GitHub Sponsors listing.
   """
   hasSponsorsListing: Boolean!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -28155,6 +28639,10 @@ type OrganizationIdentityProvider implements Node {
     """
     userName: String
   ): ExternalIdentityConnection!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -28196,6 +28684,10 @@ type OrganizationInvitation implements Node {
   The email address of the user invited to the organization.
   """
   email: String
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -28437,6 +28929,10 @@ type OrganizationMigration implements Node {
   The reason the organization migration failed.
   """
   failureReason: String
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -28669,6 +29165,9 @@ type OrganizationsHovercardContext implements HovercardContext {
 Information for an uploaded package.
 """
 type Package implements Node {
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -28781,6 +29280,9 @@ type PackageEdge {
 A file in a package version.
 """
 type PackageFile implements Node {
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -28918,6 +29420,9 @@ enum PackageOrderField {
 Represents an owner of a package.
 """
 interface PackageOwner {
+  """
+  The Node ID of the PackageOwner object
+  """
   id: ID!
 
   """
@@ -28980,6 +29485,9 @@ type PackageStatistics {
 A version tag contains the mapping between a tag name and a version.
 """
 type PackageTag implements Node {
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -29066,6 +29574,10 @@ type PackageVersion implements Node {
     """
     orderBy: PackageFileOrder = {field: CREATED_AT, direction: ASC}
   ): PackageFileConnection!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -29417,6 +29929,10 @@ type PinnedDiscussion implements Node & RepositoryNode {
   Color stops of the chosen gradient
   """
   gradientStopColors: [String!]!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -29563,6 +30079,10 @@ type PinnedEvent implements Node {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -29584,6 +30104,10 @@ type PinnedIssue implements Node {
   Identifies the primary key from the database as a BigInt.
   """
   fullDatabaseId: BigInt
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -29705,6 +30229,10 @@ type PrivateRepositoryForkingDisableAuditEntry implements AuditEntry & Enterpris
   The HTTP URL for this enterprise.
   """
   enterpriseUrl: URI
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -29831,6 +30359,10 @@ type PrivateRepositoryForkingEnableAuditEntry implements AuditEntry & Enterprise
   The HTTP URL for this enterprise.
   """
   enterpriseUrl: URI
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -29955,6 +30487,10 @@ interface ProfileOwner {
   The public profile email.
   """
   email: String
+
+  """
+  The Node ID of the ProfileOwner object
+  """
   id: ID!
 
   """
@@ -30117,6 +30653,10 @@ type Project implements Closable & Node & Updatable {
   Identifies the primary key from the database.
   """
   databaseId: Int
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -30236,6 +30776,10 @@ type ProjectCard implements Node {
   Identifies the primary key from the database.
   """
   databaseId: Int
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -30397,6 +30941,10 @@ type ProjectColumn implements Node {
   Identifies the primary key from the database.
   """
   databaseId: Int
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -30569,6 +31117,9 @@ enum ProjectOrderField {
 Represents an owner of a Project.
 """
 interface ProjectOwner {
+  """
+  The Node ID of the ProjectOwner object
+  """
   id: ID!
 
   """
@@ -30785,6 +31336,10 @@ type ProjectV2 implements Closable & Node & Updatable {
     """
     orderBy: ProjectV2FieldOrder = {field: POSITION, direction: ASC}
   ): ProjectV2FieldConfigurationConnection!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -31171,6 +31726,10 @@ type ProjectV2Field implements Node & ProjectV2FieldCommon {
   Identifies the primary key from the database.
   """
   databaseId: Int
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -31207,6 +31766,10 @@ interface ProjectV2FieldCommon {
   Identifies the primary key from the database.
   """
   databaseId: Int
+
+  """
+  The Node ID of the ProjectV2FieldCommon object
+  """
   id: ID!
 
   """
@@ -31523,6 +32086,10 @@ type ProjectV2Item implements Node {
     """
     orderBy: ProjectV2ItemFieldValueOrder = {field: POSITION, direction: ASC}
   ): ProjectV2ItemFieldValueConnection!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -31619,6 +32186,10 @@ type ProjectV2ItemFieldDateValue implements Node & ProjectV2ItemFieldValueCommon
   The project field that contains this value.
   """
   field: ProjectV2FieldConfiguration!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -31660,6 +32231,10 @@ type ProjectV2ItemFieldIterationValue implements Node & ProjectV2ItemFieldValueC
   The project field that contains this value.
   """
   field: ProjectV2FieldConfiguration!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -31766,6 +32341,10 @@ type ProjectV2ItemFieldNumberValue implements Node & ProjectV2ItemFieldValueComm
   The project field that contains this value.
   """
   field: ProjectV2FieldConfiguration!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -31912,6 +32491,10 @@ type ProjectV2ItemFieldSingleSelectValue implements Node & ProjectV2ItemFieldVal
   The project field that contains this value.
   """
   field: ProjectV2FieldConfiguration!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -31963,6 +32546,10 @@ type ProjectV2ItemFieldTextValue implements Node & ProjectV2ItemFieldValueCommon
   The project field that contains this value.
   """
   field: ProjectV2FieldConfiguration!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -32044,6 +32631,10 @@ interface ProjectV2ItemFieldValueCommon {
   The project field that contains this value.
   """
   field: ProjectV2FieldConfiguration!
+
+  """
+  The Node ID of the ProjectV2ItemFieldValueCommon object
+  """
   id: ID!
 
   """
@@ -32195,6 +32786,10 @@ type ProjectV2IterationField implements Node & ProjectV2FieldCommon {
   Identifies the primary key from the database.
   """
   databaseId: Int
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -32312,6 +32907,9 @@ enum ProjectV2OrderField {
 Represents an owner of a project (beta).
 """
 interface ProjectV2Owner {
+  """
+  The Node ID of the ProjectV2Owner object
+  """
   id: ID!
 
   """
@@ -32433,6 +33031,10 @@ type ProjectV2SingleSelectField implements Node & ProjectV2FieldCommon {
   Identifies the primary key from the database.
   """
   databaseId: Int
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -32794,6 +33396,10 @@ type ProjectV2View implements Node {
     """
     orderBy: ProjectV2FieldOrder = {field: POSITION, direction: ASC}
   ): ProjectV2FieldConfigurationConnection
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -33075,6 +33681,10 @@ type ProjectV2Workflow implements Node {
   Whether the workflow is enabled.
   """
   enabled: Boolean!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -33197,6 +33807,10 @@ type PublicKey implements Node {
   The fingerprint for this PublicKey.
   """
   fingerprint: String!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -33575,6 +34189,10 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     """
     includeNotificationContexts: Boolean = true
   ): Hovercard!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -34365,6 +34983,10 @@ type PullRequestCommit implements Node & UniformResourceLocatable {
   The Git commit object
   """
   commit: Commit!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -34416,6 +35038,10 @@ type PullRequestCommitCommentThread implements Node & RepositoryNode {
   The commit the comments were made on.
   """
   commit: Commit!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -34752,6 +35378,10 @@ type PullRequestReview implements Comment & Deletable & Minimizable & Node & Rea
   The actor who edited the comment.
   """
   editor: Actor
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -35000,6 +35630,10 @@ type PullRequestReviewComment implements Comment & Deletable & Minimizable & Nod
   The actor who edited the comment.
   """
   editor: Actor
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -35463,6 +36097,10 @@ type PullRequestReviewThread implements Node {
   The side of the diff on which this thread was placed.
   """
   diffSide: DiffSide!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -35699,6 +36337,10 @@ type PullRequestThread implements Node {
   The side of the diff on which this thread was placed.
   """
   diffSide: DiffSide!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -36191,6 +36833,9 @@ enum PullRequestUpdateState {
 A Git push.
 """
 type Push implements Node {
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -36232,6 +36877,10 @@ type PushAllowance implements Node {
   Identifies the branch protection rule associated with the allowed user, team, or app.
   """
   branchProtectionRule: BranchProtectionRule
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 }
 
@@ -36845,6 +37494,10 @@ interface Reactable {
   Identifies the primary key from the database.
   """
   databaseId: Int
+
+  """
+  The Node ID of the Reactable object
+  """
   id: ID!
 
   """
@@ -36952,6 +37605,10 @@ type Reaction implements Node {
   Identifies the primary key from the database.
   """
   databaseId: Int
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -37218,6 +37875,10 @@ type ReadyForReviewEvent implements Node & UniformResourceLocatable {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -37304,6 +37965,10 @@ type Ref implements Node {
     """
     headRef: String!
   ): Comparison
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -37524,6 +38189,10 @@ type ReferencedEvent implements Node {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -37675,6 +38344,10 @@ type Release implements Node & Reactable & UniformResourceLocatable {
   The description of this release rendered to HTML.
   """
   descriptionHTML: HTML
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -37871,6 +38544,10 @@ type ReleaseAsset implements Node {
   Identifies the URL where you can download the release asset via the browser.
   """
   downloadUrl: URI!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -38452,6 +39129,10 @@ type RemovedFromMergeQueueEvent implements Node {
   The user who removed this Pull Request from the merge queue
   """
   enqueuer: User
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -38488,6 +39169,10 @@ type RemovedFromProjectEvent implements Node {
   Identifies the primary key from the database.
   """
   databaseId: Int
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 }
 
@@ -38509,6 +39194,10 @@ type RenamedTitleEvent implements Node {
   Identifies the current title of the issue or pull request.
   """
   currentTitle: String!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -38635,6 +39324,10 @@ type ReopenedEvent implements Node {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -38686,6 +39379,10 @@ type RepoAccessAuditEntry implements AuditEntry & Node & OrganizationAuditEntryD
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -38822,6 +39519,10 @@ type RepoAddMemberAuditEntry implements AuditEntry & Node & OrganizationAuditEnt
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -38958,6 +39659,10 @@ type RepoAddTopicAuditEntry implements AuditEntry & Node & OrganizationAuditEntr
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -39079,6 +39784,10 @@ type RepoArchivedAuditEntry implements AuditEntry & Node & OrganizationAuditEntr
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -39215,6 +39924,10 @@ type RepoChangeMergeSettingAuditEntry implements AuditEntry & Node & Organizatio
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -39356,6 +40069,10 @@ type RepoConfigDisableAnonymousGitAccessAuditEntry implements AuditEntry & Node 
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -39467,6 +40184,10 @@ type RepoConfigDisableCollaboratorsOnlyAuditEntry implements AuditEntry & Node &
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -39578,6 +40299,10 @@ type RepoConfigDisableContributorsOnlyAuditEntry implements AuditEntry & Node & 
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -39689,6 +40414,10 @@ type RepoConfigDisableSockpuppetDisallowedAuditEntry implements AuditEntry & Nod
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -39800,6 +40529,10 @@ type RepoConfigEnableAnonymousGitAccessAuditEntry implements AuditEntry & Node &
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -39911,6 +40644,10 @@ type RepoConfigEnableCollaboratorsOnlyAuditEntry implements AuditEntry & Node & 
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -40022,6 +40759,10 @@ type RepoConfigEnableContributorsOnlyAuditEntry implements AuditEntry & Node & O
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -40133,6 +40874,10 @@ type RepoConfigEnableSockpuppetDisallowedAuditEntry implements AuditEntry & Node
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -40244,6 +40989,10 @@ type RepoConfigLockAnonymousGitAccessAuditEntry implements AuditEntry & Node & O
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -40355,6 +41104,10 @@ type RepoConfigUnlockAnonymousGitAccessAuditEntry implements AuditEntry & Node &
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -40476,6 +41229,10 @@ type RepoCreateAuditEntry implements AuditEntry & Node & OrganizationAuditEntryD
   The name of the root repository for this network.
   """
   forkSourceName: String
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -40612,6 +41369,10 @@ type RepoDestroyAuditEntry implements AuditEntry & Node & OrganizationAuditEntry
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -40748,6 +41509,10 @@ type RepoRemoveMemberAuditEntry implements AuditEntry & Node & OrganizationAudit
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -40884,6 +41649,10 @@ type RepoRemoveTopicAuditEntry implements AuditEntry & Node & OrganizationAuditE
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -41495,6 +42264,10 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   The repository's URL.
   """
   homepageUrl: URI
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -43222,6 +43995,10 @@ type RepositoryInvitation implements Node {
   The email address that received the invitation.
   """
   email: String
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -43373,6 +44150,10 @@ type RepositoryMigration implements Migration & Node {
   The reason the migration failed.
   """
   failureReason: String
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -43597,6 +44378,10 @@ interface RepositoryOwner {
     """
     size: Int
   ): URI!
+
+  """
+  The Node ID of the RepositoryOwner object
+  """
   id: ID!
 
   """
@@ -43749,6 +44534,9 @@ enum RepositoryPrivacy {
 A repository rule.
 """
 type RepositoryRule implements Node {
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -44053,6 +44841,10 @@ type RepositoryRuleset implements Node {
   The enforcement level of this ruleset
   """
   enforcement: RuleEnforcement!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -44119,6 +44911,10 @@ type RepositoryRulesetBypassActor implements Node {
   The mode for the bypass actor
   """
   bypassMode: RepositoryRulesetBypassActorBypassMode
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -44282,6 +45078,9 @@ enum RepositoryRulesetTarget {
 A repository-topic connects a repository to a topic.
 """
 type RepositoryTopic implements Node & UniformResourceLocatable {
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -44418,6 +45217,10 @@ type RepositoryVisibilityChangeDisableAuditEntry implements AuditEntry & Enterpr
   The HTTP URL for this enterprise.
   """
   enterpriseUrl: URI
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -44524,6 +45327,10 @@ type RepositoryVisibilityChangeEnableAuditEntry implements AuditEntry & Enterpri
   The HTTP URL for this enterprise.
   """
   enterpriseUrl: URI
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -44620,6 +45427,10 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   When was the alert fixed?
   """
   fixedAt: DateTime
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -45171,6 +45982,10 @@ type ReviewDismissalAllowance implements Node {
   Identifies the branch protection rule associated with the allowed user, team, or app.
   """
   branchProtectionRule: BranchProtectionRule
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 }
 
@@ -45247,6 +46062,10 @@ type ReviewDismissedEvent implements Node & UniformResourceLocatable {
   Identifies the optional message associated with the event, rendered to HTML.
   """
   dismissalMessageHTML: String
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -45293,6 +46112,10 @@ type ReviewRequest implements Node {
   Identifies the primary key from the database.
   """
   databaseId: Int
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -45359,6 +46182,10 @@ type ReviewRequestRemovedEvent implements Node {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -45385,6 +46212,10 @@ type ReviewRequestedEvent implements Node {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -45688,6 +46519,10 @@ type SavedReply implements Node {
   Identifies the primary key from the database.
   """
   databaseId: Int
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -45931,6 +46766,10 @@ type SecurityAdvisory implements Node {
   The GitHub Security Advisory ID
   """
   ghsaId: String!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -47228,6 +48067,10 @@ type SponsorsActivity implements Node {
   The sponsor's current privacy level.
   """
   currentPrivacyLevel: SponsorshipPrivacy
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -48742,6 +49585,10 @@ type SponsorsListing implements Node {
   The full description of the listing rendered to HTML.
   """
   fullDescriptionHTML: HTML!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -48856,6 +49703,10 @@ type SponsorsListingFeaturedItem implements Node {
   The record that is featured on the GitHub Sponsors profile.
   """
   featureable: SponsorsListingFeatureableItem!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -48920,6 +49771,10 @@ type SponsorsTier implements Node {
   The tier description rendered to HTML
   """
   descriptionHTML: HTML!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -49104,6 +49959,10 @@ type Sponsorship implements Node {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -49234,6 +50093,10 @@ type SponsorshipNewsletter implements Node {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -49528,6 +50391,9 @@ type StargazerEdge {
 Things that can be starred.
 """
 interface Starrable {
+  """
+  The Node ID of the Starrable object
+  """
   id: ID!
 
   """
@@ -49795,6 +50661,10 @@ type Status implements Node {
   The individual status contexts for this commit.
   """
   contexts: [StatusContext!]!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -49866,6 +50736,10 @@ type StatusCheckRollup implements Node {
     """
     last: Int
   ): StatusCheckRollupContextConnection!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -49977,6 +50851,10 @@ type StatusContext implements Node & RequirableByPullRequest {
   The description for this status context.
   """
   description: String
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -50219,6 +51097,9 @@ type SubmoduleEdge {
 Entities that can be subscribed to for web and email notifications.
 """
 interface Subscribable {
+  """
+  The Node ID of the Subscribable object
+  """
   id: ID!
 
   """
@@ -50236,6 +51117,9 @@ interface Subscribable {
 Entities that can be subscribed to for web and email notifications.
 """
 interface SubscribableThread {
+  """
+  The Node ID of the SubscribableThread object
+  """
   id: ID!
 
   """
@@ -50262,6 +51146,10 @@ type SubscribedEvent implements Node {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -50328,6 +51216,10 @@ type Tag implements GitObject & Node {
   The HTTP URL for this Git object
   """
   commitUrl: URI!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -50574,6 +51466,10 @@ type Team implements MemberStatusable & Node & Subscribable {
   The HTTP URL for editing this team
   """
   editTeamUrl: URI!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -50905,6 +51801,10 @@ type TeamAddMemberAuditEntry implements AuditEntry & Node & OrganizationAuditEnt
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -51021,6 +51921,10 @@ type TeamAddRepositoryAuditEntry implements AuditEntry & Node & OrganizationAudi
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -51182,6 +52086,10 @@ type TeamChangeParentTeamAuditEntry implements AuditEntry & Node & OrganizationA
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -51418,6 +52326,10 @@ type TeamDiscussion implements Comment & Deletable & Node & Reactable & Subscrib
   The actor who edited the comment.
   """
   editor: Actor
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -51639,6 +52551,10 @@ type TeamDiscussionComment implements Comment & Deletable & Node & Reactable & U
   The actor who edited the comment.
   """
   editor: Actor
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -52126,6 +53042,10 @@ type TeamRemoveMemberAuditEntry implements AuditEntry & Node & OrganizationAudit
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -52242,6 +53162,10 @@ type TeamRemoveRepositoryAuditEntry implements AuditEntry & Node & OrganizationA
   The time the action was initiated
   """
   createdAt: PreciseDateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -52555,6 +53479,9 @@ enum ThreadSubscriptionState {
 A topic aggregates entities that are related to a subject.
 """
 type Topic implements Node & Starrable {
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -52826,6 +53753,10 @@ type TransferredEvent implements Node {
   The repository this came from
   """
   fromRepository: Repository
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -52857,6 +53788,10 @@ type Tree implements GitObject & Node {
   A list of tree entries.
   """
   entries: [TreeEntry!]
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -53043,6 +53978,10 @@ type UnassignedEvent implements Node {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -53180,6 +54119,10 @@ type UnlabeledEvent implements Node {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -53351,6 +54294,10 @@ type UnlockedEvent implements Node {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -53512,6 +54459,10 @@ type UnmarkedAsDuplicateEvent implements Node {
   The issue or pull request which has been marked as a duplicate of another.
   """
   duplicate: IssueOrPullRequest
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -53593,6 +54544,10 @@ type UnpinnedEvent implements Node {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -53674,6 +54629,10 @@ type UnsubscribedEvent implements Node {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -56562,6 +57521,10 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
     """
     primarySubjectId: ID
   ): Hovercard!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -57908,6 +58871,10 @@ type UserBlockedEvent implements Node {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -57974,6 +58941,10 @@ type UserContentEdit implements Node {
   The actor who edited this content
   """
   editor: Actor
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -58080,6 +59051,10 @@ type UserStatus implements Node {
   If set, the status will not be shown after this date.
   """
   expiresAt: DateTime
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -58206,6 +59181,10 @@ type VerifiableDomain implements Node {
   Whether a TXT record for verification with the expected verification token was found.
   """
   hasFoundVerificationToken: Boolean!
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -58407,6 +59386,10 @@ type Workflow implements Node & UniformResourceLocatable {
   Identifies the primary key from the database.
   """
   databaseId: Int
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -58568,6 +59551,10 @@ type WorkflowRun implements Node & UniformResourceLocatable {
   The workflow file
   """
   file: WorkflowRunFile
+
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
@@ -58665,6 +59652,9 @@ type WorkflowRunEdge {
 An executed workflow file for a workflow run.
 """
 type WorkflowRunFile implements Node & UniformResourceLocatable {
+  """
+  The Node ID of this object
+  """
   id: ID!
 
   """
