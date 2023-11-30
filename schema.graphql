@@ -23302,7 +23302,7 @@ type Mutation {
   ): UpdateProjectColumnPayload
 
   """
-  Updates an existing project (beta).
+  Updates an existing project.
   """
   updateProjectV2(
     """
@@ -33019,7 +33019,7 @@ enum ProjectV2OrderField {
 }
 
 """
-Represents an owner of a project (beta).
+Represents an owner of a project.
 """
 interface ProjectV2Owner {
   """
