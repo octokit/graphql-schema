@@ -1172,7 +1172,7 @@ export type BranchProtectionRule = Node & {
   dismissesStaleReviews: Scalars['Boolean']['output'];
   /** The Node ID of this object */
   id: Scalars['ID']['output'];
-  /** Can admins overwrite branch protection. */
+  /** Can admins override branch protection. */
   isAdminEnforced: Scalars['Boolean']['output'];
   /**
    * Whether users can pull changes from upstream when the branch is locked. Set to
@@ -3423,7 +3423,7 @@ export type CreateBranchProtectionRuleInput = {
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
   /** Will new commits pushed to matching branches dismiss pull request review approvals. */
   dismissesStaleReviews?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Can admins overwrite branch protection. */
+  /** Can admins override branch protection. */
   isAdminEnforced?: InputMaybe<Scalars['Boolean']['input']>;
   /**
    * Whether users can pull changes from upstream when the branch is locked. Set to
@@ -19263,7 +19263,7 @@ export type RefOrderField =
   /** Order refs by underlying commit date if the ref prefix is refs/tags/ */
   | 'TAG_COMMIT_DATE';
 
-/** A ref update rules for a viewer. */
+/** Branch protection rules that are enforced on the viewer. */
 export type RefUpdateRule = {
   __typename?: 'RefUpdateRule';
   /** Can this branch be deleted. */
@@ -27129,7 +27129,7 @@ export type UpdateBranchProtectionRuleInput = {
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
   /** Will new commits pushed to matching branches dismiss pull request review approvals. */
   dismissesStaleReviews?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Can admins overwrite branch protection. */
+  /** Can admins override branch protection. */
   isAdminEnforced?: InputMaybe<Scalars['Boolean']['input']>;
   /**
    * Whether users can pull changes from upstream when the branch is locked. Set to
