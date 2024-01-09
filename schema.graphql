@@ -28843,7 +28843,12 @@ type OrganizationInvitation implements Node {
   """
   The user who created the invitation.
   """
-  inviter: User!
+  inviter: User! @deprecated(reason: "`inviter` will be removed. `inviter` will be replaced by `inviterActor`. Removal on 2024-07-01 UTC.")
+
+  """
+  The user who created the invitation.
+  """
+  inviterActor: User
 
   """
   The organization the invite is for
