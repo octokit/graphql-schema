@@ -27109,6 +27109,8 @@ export type UnpinIssuePayload = {
   __typename?: 'UnpinIssuePayload';
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** The id of the pinned issue that was unpinned */
+  id?: Maybe<Scalars['ID']['output']>;
   /** The issue that was unpinned */
   issue?: Maybe<Issue>;
 };
