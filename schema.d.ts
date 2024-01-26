@@ -6184,6 +6184,8 @@ export type Enterprise = AnnouncementBanner & Node & {
   announcementUserDismissible?: Maybe<Scalars['Boolean']['output']>;
   /** A URL pointing to the enterprise's public avatar. */
   avatarUrl: Scalars['URI']['output'];
+  /** The enterprise's billing email. */
+  billingEmail?: Maybe<Scalars['String']['output']>;
   /** Enterprise billing information visible to enterprise billing managers. */
   billingInfo?: Maybe<EnterpriseBillingInfo>;
   /** Identifies the date and time when the object was created. */
