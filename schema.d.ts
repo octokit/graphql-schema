@@ -17310,6 +17310,23 @@ export type ProjectV2WorkflowsOrderField =
   /** The date and time of the workflow update */
   | 'UPDATED_AT';
 
+/** A property that must match */
+export type PropertyTargetDefinition = {
+  __typename?: 'PropertyTargetDefinition';
+  /** The name of the property */
+  name: Scalars['String']['output'];
+  /** The values to match for */
+  propertyValues: Array<Scalars['String']['output']>;
+};
+
+/** A property that must match */
+export type PropertyTargetDefinitionInput = {
+  /** The name of the property */
+  name: Scalars['String']['input'];
+  /** The values to match for */
+  propertyValues: Array<Scalars['String']['input']>;
+};
+
 /** A user's public key. */
 export type PublicKey = Node & {
   __typename?: 'PublicKey';
@@ -22260,6 +22277,23 @@ export type RepositoryPrivacy =
   /** Public */
   | 'PUBLIC';
 
+/** Parameters to be used for the repository_property condition */
+export type RepositoryPropertyConditionTarget = {
+  __typename?: 'RepositoryPropertyConditionTarget';
+  /** Array of repository properties that must not match. */
+  exclude: Array<PropertyTargetDefinition>;
+  /** Array of repository properties that must match */
+  include: Array<PropertyTargetDefinition>;
+};
+
+/** Parameters to be used for the repository_property condition */
+export type RepositoryPropertyConditionTargetInput = {
+  /** Array of repository properties that must not match. */
+  exclude: Array<PropertyTargetDefinitionInput>;
+  /** Array of repository properties that must match */
+  include: Array<PropertyTargetDefinitionInput>;
+};
+
 /** A repository rule. */
 export type RepositoryRule = Node & {
   __typename?: 'RepositoryRule';
@@ -22282,6 +22316,8 @@ export type RepositoryRuleConditions = {
   repositoryId?: Maybe<RepositoryIdConditionTarget>;
   /** Configuration for the repository_name condition */
   repositoryName?: Maybe<RepositoryNameConditionTarget>;
+  /** Configuration for the repository_property condition */
+  repositoryProperty?: Maybe<RepositoryPropertyConditionTarget>;
 };
 
 /** Specifies the conditions required for a ruleset to evaluate */
@@ -22292,6 +22328,8 @@ export type RepositoryRuleConditionsInput = {
   repositoryId?: InputMaybe<RepositoryIdConditionTargetInput>;
   /** Configuration for the repository_name condition */
   repositoryName?: InputMaybe<RepositoryNameConditionTargetInput>;
+  /** Configuration for the repository_property condition */
+  repositoryProperty?: InputMaybe<RepositoryPropertyConditionTargetInput>;
 };
 
 /** The connection type for RepositoryRule. */
