@@ -17452,6 +17452,8 @@ export type PullRequest = Assignable & Closable & Comment & Labelable & Lockable
   isCrossRepository: Scalars['Boolean']['output'];
   /** Identifies if the pull request is a draft. */
   isDraft: Scalars['Boolean']['output'];
+  /** Indicates whether the pull request is in a merge queue */
+  isInMergeQueue: Scalars['Boolean']['output'];
   /** Is this pull request read by the viewer */
   isReadByViewer?: Maybe<Scalars['Boolean']['output']>;
   /** A list of labels associated with the object. */
@@ -17468,6 +17470,8 @@ export type PullRequest = Assignable & Closable & Comment & Labelable & Lockable
   maintainerCanModify: Scalars['Boolean']['output'];
   /** The commit that was created when this pull request was merged. */
   mergeCommit?: Maybe<Commit>;
+  /** The merge queue for the pull request's base branch */
+  mergeQueue?: Maybe<MergeQueue>;
   /** The merge queue entry of the pull request in the base branch's merge queue */
   mergeQueueEntry?: Maybe<MergeQueueEntry>;
   /** Whether or not the pull request can be merged based on the existence of merge conflicts. */
