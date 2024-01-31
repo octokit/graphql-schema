@@ -34430,6 +34430,11 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   isInMergeQueue: Boolean!
 
   """
+  Indicates whether the pull request's base ref has a merge queue enabled.
+  """
+  isMergeQueueEnabled: Boolean!
+
+  """
   Is this pull request read by the viewer
   """
   isReadByViewer: Boolean

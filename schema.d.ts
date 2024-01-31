@@ -7,7 +7,7 @@ export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> =
 export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: { input: string; output: string; }
+  ID: { input: string | number; output: string; }
   String: { input: string; output: string; }
   Boolean: { input: boolean; output: boolean; }
   Int: { input: number; output: number; }
@@ -17471,6 +17471,8 @@ export type PullRequest = Assignable & Closable & Comment & Labelable & Lockable
   isDraft: Scalars['Boolean']['output'];
   /** Indicates whether the pull request is in a merge queue */
   isInMergeQueue: Scalars['Boolean']['output'];
+  /** Indicates whether the pull request's base ref has a merge queue enabled. */
+  isMergeQueueEnabled: Scalars['Boolean']['output'];
   /** Is this pull request read by the viewer */
   isReadByViewer?: Maybe<Scalars['Boolean']['output']>;
   /** A list of labels associated with the object. */
