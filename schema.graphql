@@ -34545,6 +34545,11 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   mergeCommit: Commit
 
   """
+  The merge queue for the pull request's base branch
+  """
+  mergeQueue: MergeQueue
+
+  """
   The merge queue entry of the pull request in the base branch's merge queue
   """
   mergeQueueEntry: MergeQueueEntry
