@@ -7942,6 +7942,8 @@ export type FundingPlatform =
   | 'OTECHIE'
   /** Patreon funding platform. */
   | 'PATREON'
+  /** Polar funding platform. */
+  | 'POLAR'
   /** Tidelift funding platform. */
   | 'TIDELIFT';
 
