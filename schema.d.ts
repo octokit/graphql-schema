@@ -10419,7 +10419,7 @@ export type Migration = {
   state: MigrationState;
   /**
    * The number of warnings encountered for this migration. To review the warnings,
-   * check the [Migration Log](https://docs.github.com/en/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer).
+   * check the [Migration Log](https://docs.github.com/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer).
    */
   warningsCount: Scalars['Int']['output'];
 };
@@ -22127,7 +22127,7 @@ export type RepositoryMigration = Migration & Node & {
   state: MigrationState;
   /**
    * The number of warnings encountered for this migration. To review the warnings,
-   * check the [Migration Log](https://docs.github.com/en/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer).
+   * check the [Migration Log](https://docs.github.com/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer).
    */
   warningsCount: Scalars['Int']['output'];
 };
