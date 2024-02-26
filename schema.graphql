@@ -18939,7 +18939,7 @@ type LinkedBranch implements Node {
 }
 
 """
-The connection type for LinkedBranch.
+A list of branches linked to an issue.
 """
 type LinkedBranchConnection {
   """
@@ -19149,7 +19149,7 @@ type Mannequin implements Actor & Node & UniformResourceLocatable {
 }
 
 """
-The connection type for Mannequin.
+A list of mannequins.
 """
 type MannequinConnection {
   """
@@ -29056,7 +29056,7 @@ enum OrganizationInvitationType {
 }
 
 """
-The connection type for User.
+A list of users who belong to the organization.
 """
 type OrganizationMemberConnection {
   """
@@ -44535,7 +44535,7 @@ type RepositoryMigration implements Migration & Node {
 }
 
 """
-The connection type for RepositoryMigration.
+A list of migrations.
 """
 type RepositoryMigrationConnection {
   """
@@ -48106,7 +48106,7 @@ enum SponsorAndLifetimeValueOrderField {
 }
 
 """
-The connection type for Sponsor.
+A list of users and organizations sponsoring someone via GitHub Sponsors.
 """
 type SponsorConnection {
   """
@@ -50585,7 +50585,7 @@ type Sponsorship implements Node {
 }
 
 """
-The connection type for Sponsorship.
+A list of sponsorships either from the subject or received by the subject.
 """
 type SponsorshipConnection {
   """
@@ -59635,7 +59635,7 @@ type UserBlockedEvent implements Node {
 }
 
 """
-The connection type for User.
+A list of users.
 """
 type UserConnection {
   """
