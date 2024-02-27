@@ -16490,6 +16490,8 @@ export type ProjectV2Item = Node & {
   fieldValueByName?: Maybe<ProjectV2ItemFieldValue>;
   /** The field values that are set on the item. */
   fieldValues: ProjectV2ItemFieldValueConnection;
+  /** Identifies the primary key from the database as a BigInt. */
+  fullDatabaseId?: Maybe<Scalars['BigInt']['output']>;
   /** The Node ID of the ProjectV2Item object */
   id: Scalars['ID']['output'];
   /** Whether the item is archived. */
