@@ -22482,8 +22482,6 @@ export type RepositoryRuleType =
    * request and required workflow checks to pass before they can be merged.
    */
   | 'REQUIRED_WORKFLOW_STATUS_CHECKS'
-  /** Commits pushed to matching refs must have verified signatures. */
-  | 'RULESET_REQUIRED_SIGNATURES'
   /** Secret scanning */
   | 'SECRET_SCANNING'
   /** Tag */
