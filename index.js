@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs/promises';
+import { readFileSync } from 'node:fs';
 import validate from './lib/validate.js';
 
 export { validate };
