@@ -1,4 +1,4 @@
-import GraphqlSchema, { PullRequestState, validate, schema } from "..";
+import { PullRequestState, validate, schema } from "../index.js";
 
 export default async function () {
   const query = `
@@ -8,13 +8,6 @@ export default async function () {
       }
     }
   `;
-
-  /* Testing default import */
-  GraphqlSchema.validate(query);
-
-  // Obtains schemas properly
-  GraphqlSchema.schema.json;
-  GraphqlSchema.schema.idl;
 
   /* Testing named imports */
   validate(query);

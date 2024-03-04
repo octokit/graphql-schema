@@ -1,7 +1,7 @@
-const assert = require("assert");
+import { strict } from "assert";
 
-const main = require("../");
+import { validate, schema } from "../index.js";
 
-assert.strict.equal(typeof main.validate, "function");
-assert.strict.equal(typeof main.schema.json, "object");
-assert.strict.equal(typeof main.schema.idl, "string");
+strict.equal(typeof validate, "function");
+strict.equal(typeof schema.json, "object");
+strict.equal(typeof schema.idl, "string");

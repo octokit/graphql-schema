@@ -1,6 +1,6 @@
-const assert = require("assert");
+import { strict, match } from "assert";
 
-const validate = require("../").validate;
+import { validate } from "../index.js";
 
 const goodQuery = validate(`
 {
@@ -17,12 +17,8 @@ const badQuery = validate(`
 }
 `);
 
-assert.strict.equal(
-  goodQuery[0],
-  undefined,
-  "goodQuery validation returns no errors",
-);
-assert.match(
+strict.equal(goodQuery[0], undefined, "goodQuery validation returns no errors");
+match(
   badQuery[0].message,
   /Cannot query field "foo" on type "User"/,
   "badQuery validation returns GraphQLError error",
