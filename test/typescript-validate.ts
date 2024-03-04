@@ -1,4 +1,4 @@
-import GraphqlSchema, { PullRequestState, validate, schema } from "..";
+import GraphqlSchema, { PullRequestState, validate, schema } from "../index.js";
 
 export default async function () {
   const query = `

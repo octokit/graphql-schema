@@ -1,16 +1,17 @@
 #!/usr/bin/env node
 
-const writeFileSync = require("fs").writeFileSync;
-
-require("dotenv").config();
+import { writeFileSync } from "node:fs";
+import dotenv from "dotenv";
+dotenv.config();
 
 if (!process.env.GITHUB_TOKEN) {
   console.log("GITHUB_TOKEN not set");
   process.exit(1);
 }
 
-const execa = require("execa");
-const request = require("@octokit/request").request.defaults({
+import execa from "execa";
+import { request as octokitRequest } from "@octokit/request";
+const request = octokitRequest.defaults({
   headers: {
     authorization: `bearer ${process.env.GITHUB_TOKEN}`,
   },
