@@ -9,7 +9,7 @@ if (!process.env.GITHUB_TOKEN) {
   process.exit(1);
 }
 
-import execa from "execa";
+import { execa } from "execa";
 import { request as octokitRequest } from "@octokit/request";
 const request = octokitRequest.defaults({
   headers: {
