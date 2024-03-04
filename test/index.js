@@ -1,2 +1,2 @@
-import "./smoke.js"
-import "./validate.js"
+import "./smoke.js";
+import "./validate.js";
