@@ -42489,6 +42489,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     last: Int
 
     """
+    The names of the environments to be returned.
+    """
+    names: [String!] = []
+
+    """
     Ordering options for the environments
     """
     orderBy: Environments = {field: NAME, direction: ASC}
@@ -45190,11 +45195,6 @@ enum RepositoryRuleType {
   request and required workflow checks to pass before they can be merged.
   """
   REQUIRED_WORKFLOW_STATUS_CHECKS
-
-  """
-  Commits pushed to matching refs must have verified signatures.
-  """
-  RULESET_REQUIRED_SIGNATURES
 
   """
   Secret scanning
