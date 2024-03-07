@@ -21450,6 +21450,7 @@ export type RepositoryEnvironmentsArgs = {
   before?: InputMaybe<Scalars['String']['input']>;
   first?: InputMaybe<Scalars['Int']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
+  names?: InputMaybe<Array<Scalars['String']['input']>>;
   orderBy?: InputMaybe<Environments>;
 };
 
