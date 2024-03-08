@@ -7938,8 +7938,6 @@ export type FundingPlatform =
   | 'LIBERAPAY'
   /** Open Collective funding platform. */
   | 'OPEN_COLLECTIVE'
-  /** Otechie funding platform. */
-  | 'OTECHIE'
   /** Patreon funding platform. */
   | 'PATREON'
   /** Polar funding platform. */
