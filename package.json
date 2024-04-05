@@ -12,6 +12,7 @@
     "lint:fix": "prettier --write '{bin,lib,test}/**/*.{js,ts}' *.md package.json",
     "test": "node test",
     "validate:ts": "tsc --noEmit --noImplicitAny test/typescript-validate.ts",
+    "postvalidate:ts": "attw --pack . --ignore-rules cjs-resolves-to-esm",
     "posttest": "npm run -s lint",
     "download": "node bin/download.js",
     "generate-typescript": "graphql-codegen",
