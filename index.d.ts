@@ -14,4 +14,4 @@ type Validate = (query: ReadonlyArray<string> | Readonly<string>) => ReadonlyArr
 export const schema: Schema
 export const validate: Validate
 
-export type * from './schema'
+export type * from './schema.d.ts'
