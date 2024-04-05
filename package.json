@@ -30,6 +30,7 @@
     "graphql-tag": "^2.10.3"
   },
   "devDependencies": {
+    "@arethetypeswrong/cli": "^0.15.2",
     "@graphql-codegen/cli": "^5.0.0",
     "@graphql-codegen/typescript": "^4.0.0",
     "@octokit/graphql": "^8.0.1",
