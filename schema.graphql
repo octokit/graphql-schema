@@ -34046,11 +34046,6 @@ type PropertyTargetDefinition {
   The values to match for
   """
   propertyValues: [String!]!
-
-  """
-  The source of the property. Choose 'custom' or 'system'. Defaults to 'custom' if not specified
-  """
-  source: String
 }
 
 """
@@ -34066,11 +34061,6 @@ input PropertyTargetDefinitionInput {
   The values to match for
   """
   propertyValues: [String!]!
-
-  """
-  The source of the property. Choose 'custom' or 'system'. Defaults to 'custom' if not specified
-  """
-  source: String
 }
 
 """
