@@ -17589,6 +17589,8 @@ export type PullRequest = Assignable & Closable & Comment & Labelable & Lockable
   reviews?: Maybe<PullRequestReviewConnection>;
   /** Identifies the state of the pull request. */
   state: PullRequestState;
+  /** Check and Status rollup information for the PR's head ref. */
+  statusCheckRollup?: Maybe<StatusCheckRollup>;
   /** A list of reviewer suggestions based on commit history and past review comments. */
   suggestedReviewers: Array<Maybe<SuggestedReviewer>>;
   /**
