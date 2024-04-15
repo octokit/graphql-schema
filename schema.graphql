@@ -51352,7 +51352,7 @@ input StartRepositoryMigrationInput {
   """
   The URL of the source repository.
   """
-  sourceRepositoryUrl: URI
+  sourceRepositoryUrl: URI!
 
   """
   The visibility of the imported repository.
