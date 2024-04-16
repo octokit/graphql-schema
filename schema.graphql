@@ -1114,6 +1114,21 @@ type AddedToProjectEvent implements Node {
   The Node ID of the AddedToProjectEvent object
   """
   id: ID!
+
+  """
+  Project referenced by event.
+  """
+  project: Project
+
+  """
+  Project card referenced by this project event.
+  """
+  projectCard: ProjectCard
+
+  """
+  Column name referenced by this project event.
+  """
+  projectColumnName: String!
 }
 
 """
@@ -6522,6 +6537,21 @@ type ConvertedNoteToIssueEvent implements Node {
   The Node ID of the ConvertedNoteToIssueEvent object
   """
   id: ID!
+
+  """
+  Project referenced by event.
+  """
+  project: Project
+
+  """
+  Project card referenced by this project event.
+  """
+  projectCard: ProjectCard
+
+  """
+  Column name referenced by this project event.
+  """
+  projectColumnName: String!
 }
 
 """
@@ -21449,6 +21479,26 @@ type MovedColumnsInProjectEvent implements Node {
   The Node ID of the MovedColumnsInProjectEvent object
   """
   id: ID!
+
+  """
+  Column name the issue or pull request was moved from.
+  """
+  previousProjectColumnName: String!
+
+  """
+  Project referenced by event.
+  """
+  project: Project
+
+  """
+  Project card referenced by this project event.
+  """
+  projectCard: ProjectCard
+
+  """
+  Column name the issue or pull request was moved to.
+  """
+  projectColumnName: String!
 }
 
 """
@@ -39724,6 +39774,16 @@ type RemovedFromProjectEvent implements Node {
   The Node ID of the RemovedFromProjectEvent object
   """
   id: ID!
+
+  """
+  Project referenced by event.
+  """
+  project: Project
+
+  """
+  Column name referenced by this project event.
+  """
+  projectColumnName: String!
 }
 
 """
