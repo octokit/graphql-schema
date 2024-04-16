@@ -20719,6 +20719,51 @@ enum MergeQueueMergingStrategy {
 }
 
 """
+Detailed status information about a pull request merge.
+"""
+enum MergeStateStatus {
+  """
+  The head ref is out of date.
+  """
+  BEHIND
+
+  """
+  The merge is blocked.
+  """
+  BLOCKED
+
+  """
+  Mergeable and passing commit status.
+  """
+  CLEAN
+
+  """
+  The merge commit cannot be cleanly created.
+  """
+  DIRTY
+
+  """
+  The merge is blocked due to the pull request being a draft.
+  """
+  DRAFT @deprecated(reason: "DRAFT state will be removed from this enum and `isDraft` should be used instead Use PullRequest.isDraft instead. Removal on 2021-01-01 UTC.")
+
+  """
+  Mergeable with passing commit status and pre-receive hooks.
+  """
+  HAS_HOOKS
+
+  """
+  The state cannot currently be determined.
+  """
+  UNKNOWN
+
+  """
+  Mergeable with non-passing commit status.
+  """
+  UNSTABLE
+}
+
+"""
 Whether or not a PullRequest can be merged.
 """
 enum MergeableState {
@@ -34417,6 +34462,11 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   bodyText: String!
 
   """
+  Whether or not the pull request is rebaseable.
+  """
+  canBeRebased: Boolean!
+
+  """
   The number of changed files in this pull request.
   """
   changedFiles: Int!
@@ -34770,6 +34820,11 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   The merge queue entry of the pull request in the base branch's merge queue
   """
   mergeQueueEntry: MergeQueueEntry
+
+  """
+  Detailed information about the current pull request merge state status.
+  """
+  mergeStateStatus: MergeStateStatus!
 
   """
   Whether or not the pull request can be merged based on the existence of merge conflicts.
