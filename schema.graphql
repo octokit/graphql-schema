@@ -9628,6 +9628,81 @@ type DependabotUpdateError {
 }
 
 """
+A dependency manifest entry
+"""
+type DependencyGraphDependency {
+  """
+  Does the dependency itself have dependencies?
+  """
+  hasDependencies: Boolean!
+
+  """
+  The original name of the package, as it appears in the manifest.
+  """
+  packageLabel: String! @deprecated(reason: "`packageLabel` will be removed. Use normalized `packageName` field instead. Removal on 2022-10-01 UTC.")
+
+  """
+  The dependency package manager
+  """
+  packageManager: String
+
+  """
+  The name of the package in the canonical form used by the package manager.
+  """
+  packageName: String!
+
+  """
+  The repository containing the package
+  """
+  repository: Repository
+
+  """
+  The dependency version requirements
+  """
+  requirements: String!
+}
+
+"""
+The connection type for DependencyGraphDependency.
+"""
+type DependencyGraphDependencyConnection {
+  """
+  A list of edges.
+  """
+  edges: [DependencyGraphDependencyEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [DependencyGraphDependency]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An edge in a connection.
+"""
+type DependencyGraphDependencyEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: DependencyGraphDependency
+}
+
+"""
 The possible ecosystems of a dependency graph package.
 """
 enum DependencyGraphEcosystem {
@@ -9685,6 +9760,111 @@ enum DependencyGraphEcosystem {
   Swift packages
   """
   SWIFT
+}
+
+"""
+Dependency manifest for a repository
+"""
+type DependencyGraphManifest implements Node {
+  """
+  Path to view the manifest file blob
+  """
+  blobPath: String!
+
+  """
+  A list of manifest dependencies
+  """
+  dependencies(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): DependencyGraphDependencyConnection
+
+  """
+  The number of dependencies listed in the manifest
+  """
+  dependenciesCount: Int
+
+  """
+  Is the manifest too big to parse?
+  """
+  exceedsMaxSize: Boolean!
+
+  """
+  Fully qualified manifest filename
+  """
+  filename: String!
+
+  """
+  The Node ID of the DependencyGraphManifest object
+  """
+  id: ID!
+
+  """
+  Were we able to parse the manifest?
+  """
+  parseable: Boolean!
+
+  """
+  The repository containing the manifest
+  """
+  repository: Repository!
+}
+
+"""
+The connection type for DependencyGraphManifest.
+"""
+type DependencyGraphManifestConnection {
+  """
+  A list of edges.
+  """
+  edges: [DependencyGraphManifestEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [DependencyGraphManifest]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An edge in a connection.
+"""
+type DependencyGraphManifestEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: DependencyGraphManifest
 }
 
 """
@@ -42655,6 +42835,46 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   Whether or not branches are automatically deleted when merged in this repository.
   """
   deleteBranchOnMerge: Boolean!
+
+  """
+  A list of dependency manifests contained in the repository
+  """
+  dependencyGraphManifests(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Cursor to paginate dependencies
+    """
+    dependenciesAfter: String
+
+    """
+    Number of dependencies to fetch
+    """
+    dependenciesFirst: Int
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Flag to scope to only manifests with dependencies
+    """
+    withDependencies: Boolean
+  ): DependencyGraphManifestConnection
 
   """
   A list of deploy keys that are on this repository.
