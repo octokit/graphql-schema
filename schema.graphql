@@ -15744,6 +15744,50 @@ input FileDeletion {
 }
 
 """
+Prevent commits that include files with specified file extensions from being
+pushed to the commit graph. NOTE: This rule is in beta and subject to change
+"""
+type FileExtensionRestrictionParameters {
+  """
+  The file extensions that are restricted from being pushed to the commit graph.
+  """
+  restrictedFileExtensions: [String!]!
+}
+
+"""
+Prevent commits that include files with specified file extensions from being
+pushed to the commit graph. NOTE: This rule is in beta and subject to change
+"""
+input FileExtensionRestrictionParametersInput {
+  """
+  The file extensions that are restricted from being pushed to the commit graph.
+  """
+  restrictedFileExtensions: [String!]!
+}
+
+"""
+Prevent commits that include changes in specified file paths from being pushed
+to the commit graph. NOTE: This rule is in beta and subject to change
+"""
+type FilePathRestrictionParameters {
+  """
+  The file paths that are restricted from being pushed to the commit graph.
+  """
+  restrictedFilePaths: [String!]!
+}
+
+"""
+Prevent commits that include changes in specified file paths from being pushed
+to the commit graph. NOTE: This rule is in beta and subject to change
+"""
+input FilePathRestrictionParametersInput {
+  """
+  The file paths that are restricted from being pushed to the commit graph.
+  """
+  restrictedFilePaths: [String!]!
+}
+
+"""
 The possible viewed states of a file .
 """
 enum FileViewedState {
@@ -20310,6 +20354,50 @@ type MarketplaceListingEdge {
   The item at the end of the edge.
   """
   node: MarketplaceListing
+}
+
+"""
+Prevent commits that include file paths that exceed a specified character limit
+from being pushed to the commit graph. NOTE: This rule is in beta and subject to change
+"""
+type MaxFilePathLengthParameters {
+  """
+  The maximum amount of characters allowed in file paths
+  """
+  maxFilePathLength: Int!
+}
+
+"""
+Prevent commits that include file paths that exceed a specified character limit
+from being pushed to the commit graph. NOTE: This rule is in beta and subject to change
+"""
+input MaxFilePathLengthParametersInput {
+  """
+  The maximum amount of characters allowed in file paths
+  """
+  maxFilePathLength: Int!
+}
+
+"""
+Prevent commits that exceed a specified file size limit from being pushed to the
+commit. NOTE: This rule is in beta and subject to change
+"""
+type MaxFileSizeParameters {
+  """
+  The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).
+  """
+  maxFileSize: Int!
+}
+
+"""
+Prevent commits that exceed a specified file size limit from being pushed to the
+commit. NOTE: This rule is in beta and subject to change
+"""
+input MaxFileSizeParametersInput {
+  """
+  The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).
+  """
+  maxFileSize: Int!
 }
 
 """
@@ -45978,9 +46066,34 @@ enum RepositoryRuleType {
   DELETION
 
   """
+  Prevent commits that include files with specified file extensions from being
+  pushed to the commit graph. NOTE: Thie rule is in beta and subject to change
+  """
+  FILE_EXTENSION_RESTRICTION
+
+  """
+  Prevent commits that include changes in specified file paths from being pushed
+  to the commit graph. NOTE: Thie rule is in beta and subject to change
+  """
+  FILE_PATH_RESTRICTION
+
+  """
   Branch is read-only. Users cannot push to the branch.
   """
   LOCK_BRANCH
+
+  """
+  Prevent commits that include file paths that exceed a specified character
+  limit from being pushed to the commit graph. NOTE: Thie rule is in beta and
+  subject to change
+  """
+  MAX_FILE_PATH_LENGTH
+
+  """
+  Prevent commits that exceed a specified file size limit from being pushed to
+  the commit. NOTE: Thie rule is in beta and subject to change
+  """
+  MAX_FILE_SIZE
 
   """
   Max ref updates
@@ -46338,13 +46451,18 @@ type RepositoryRulesetEdge {
 }
 
 """
-The targets supported for rulesets
+The targets supported for rulesets. NOTE: The push target is in beta and subject to change.
 """
 enum RepositoryRulesetTarget {
   """
   Branch
   """
   BRANCH
+
+  """
+  Push
+  """
+  PUSH
 
   """
   Tag
@@ -47667,7 +47785,7 @@ enum RuleEnforcement {
 """
 Types which can be parameters for `RepositoryRule` objects.
 """
-union RuleParameters = BranchNamePatternParameters | CommitAuthorEmailPatternParameters | CommitMessagePatternParameters | CommitterEmailPatternParameters | PullRequestParameters | RequiredDeploymentsParameters | RequiredStatusChecksParameters | TagNamePatternParameters | UpdateParameters | WorkflowsParameters
+union RuleParameters = BranchNamePatternParameters | CommitAuthorEmailPatternParameters | CommitMessagePatternParameters | CommitterEmailPatternParameters | FileExtensionRestrictionParameters | FilePathRestrictionParameters | MaxFilePathLengthParameters | MaxFileSizeParameters | PullRequestParameters | RequiredDeploymentsParameters | RequiredStatusChecksParameters | TagNamePatternParameters | UpdateParameters | WorkflowsParameters
 
 """
 Specifies the parameters for a `RepositoryRule` object. Only one of the fields should be specified.
@@ -47692,6 +47810,26 @@ input RuleParametersInput {
   Parameters used for the `committer_email_pattern` rule type
   """
   committerEmailPattern: CommitterEmailPatternParametersInput
+
+  """
+  Parameters used for the `file_extension_restriction` rule type
+  """
+  fileExtensionRestriction: FileExtensionRestrictionParametersInput
+
+  """
+  Parameters used for the `file_path_restriction` rule type
+  """
+  filePathRestriction: FilePathRestrictionParametersInput
+
+  """
+  Parameters used for the `max_file_path_length` rule type
+  """
+  maxFilePathLength: MaxFilePathLengthParametersInput
+
+  """
+  Parameters used for the `max_file_size` rule type
+  """
+  maxFileSize: MaxFileSizeParametersInput
 
   """
   Parameters used for the `pull_request` rule type
