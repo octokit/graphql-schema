@@ -8086,6 +8086,44 @@ export type FileDeletion = {
   path: Scalars['String']['input'];
 };
 
+/**
+ * Prevent commits that include files with specified file extensions from being
+ * pushed to the commit graph. NOTE: This rule is in beta and subject to change
+ */
+export type FileExtensionRestrictionParameters = {
+  __typename?: 'FileExtensionRestrictionParameters';
+  /** The file extensions that are restricted from being pushed to the commit graph. */
+  restrictedFileExtensions: Array<Scalars['String']['output']>;
+};
+
+/**
+ * Prevent commits that include files with specified file extensions from being
+ * pushed to the commit graph. NOTE: This rule is in beta and subject to change
+ */
+export type FileExtensionRestrictionParametersInput = {
+  /** The file extensions that are restricted from being pushed to the commit graph. */
+  restrictedFileExtensions: Array<Scalars['String']['input']>;
+};
+
+/**
+ * Prevent commits that include changes in specified file paths from being pushed
+ * to the commit graph. NOTE: This rule is in beta and subject to change
+ */
+export type FilePathRestrictionParameters = {
+  __typename?: 'FilePathRestrictionParameters';
+  /** The file paths that are restricted from being pushed to the commit graph. */
+  restrictedFilePaths: Array<Scalars['String']['output']>;
+};
+
+/**
+ * Prevent commits that include changes in specified file paths from being pushed
+ * to the commit graph. NOTE: This rule is in beta and subject to change
+ */
+export type FilePathRestrictionParametersInput = {
+  /** The file paths that are restricted from being pushed to the commit graph. */
+  restrictedFilePaths: Array<Scalars['String']['input']>;
+};
+
 /** The possible viewed states of a file . */
 export type FileViewedState =
   /** The file has new changes since last viewed. */
@@ -10275,6 +10313,44 @@ export type MarketplaceListingEdge = {
   cursor: Scalars['String']['output'];
   /** The item at the end of the edge. */
   node?: Maybe<MarketplaceListing>;
+};
+
+/**
+ * Prevent commits that include file paths that exceed a specified character limit
+ * from being pushed to the commit graph. NOTE: This rule is in beta and subject to change
+ */
+export type MaxFilePathLengthParameters = {
+  __typename?: 'MaxFilePathLengthParameters';
+  /** The maximum amount of characters allowed in file paths */
+  maxFilePathLength: Scalars['Int']['output'];
+};
+
+/**
+ * Prevent commits that include file paths that exceed a specified character limit
+ * from being pushed to the commit graph. NOTE: This rule is in beta and subject to change
+ */
+export type MaxFilePathLengthParametersInput = {
+  /** The maximum amount of characters allowed in file paths */
+  maxFilePathLength: Scalars['Int']['input'];
+};
+
+/**
+ * Prevent commits that exceed a specified file size limit from being pushed to the
+ * commit. NOTE: This rule is in beta and subject to change
+ */
+export type MaxFileSizeParameters = {
+  __typename?: 'MaxFileSizeParameters';
+  /** The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS). */
+  maxFileSize: Scalars['Int']['output'];
+};
+
+/**
+ * Prevent commits that exceed a specified file size limit from being pushed to the
+ * commit. NOTE: This rule is in beta and subject to change
+ */
+export type MaxFileSizeParametersInput = {
+  /** The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS). */
+  maxFileSize: Scalars['Int']['input'];
 };
 
 /** Represents a member feature request notification */
@@ -22910,8 +22986,29 @@ export type RepositoryRuleType =
   | 'CREATION'
   /** Only allow users with bypass permissions to delete matching refs. */
   | 'DELETION'
+  /**
+   * Prevent commits that include files with specified file extensions from being
+   * pushed to the commit graph. NOTE: Thie rule is in beta and subject to change
+   */
+  | 'FILE_EXTENSION_RESTRICTION'
+  /**
+   * Prevent commits that include changes in specified file paths from being pushed
+   * to the commit graph. NOTE: Thie rule is in beta and subject to change
+   */
+  | 'FILE_PATH_RESTRICTION'
   /** Branch is read-only. Users cannot push to the branch. */
   | 'LOCK_BRANCH'
+  /**
+   * Prevent commits that include file paths that exceed a specified character
+   * limit from being pushed to the commit graph. NOTE: Thie rule is in beta and
+   * subject to change
+   */
+  | 'MAX_FILE_PATH_LENGTH'
+  /**
+   * Prevent commits that exceed a specified file size limit from being pushed to
+   * the commit. NOTE: Thie rule is in beta and subject to change
+   */
+  | 'MAX_FILE_SIZE'
   /** Max ref updates */
   | 'MAX_REF_UPDATES'
   /** Merges must be performed via a merge queue. */
@@ -23087,10 +23184,12 @@ export type RepositoryRulesetEdge = {
   node?: Maybe<RepositoryRuleset>;
 };
 
-/** The targets supported for rulesets */
+/** The targets supported for rulesets. NOTE: The push target is in beta and subject to change. */
 export type RepositoryRulesetTarget =
   /** Branch */
   | 'BRANCH'
+  /** Push */
+  | 'PUSH'
   /** Tag */
   | 'TAG';
 
@@ -23770,7 +23869,7 @@ export type RuleEnforcement =
   | 'EVALUATE';
 
 /** Types which can be parameters for `RepositoryRule` objects. */
-export type RuleParameters = BranchNamePatternParameters | CommitAuthorEmailPatternParameters | CommitMessagePatternParameters | CommitterEmailPatternParameters | PullRequestParameters | RequiredDeploymentsParameters | RequiredStatusChecksParameters | TagNamePatternParameters | UpdateParameters | WorkflowsParameters;
+export type RuleParameters = BranchNamePatternParameters | CommitAuthorEmailPatternParameters | CommitMessagePatternParameters | CommitterEmailPatternParameters | FileExtensionRestrictionParameters | FilePathRestrictionParameters | MaxFilePathLengthParameters | MaxFileSizeParameters | PullRequestParameters | RequiredDeploymentsParameters | RequiredStatusChecksParameters | TagNamePatternParameters | UpdateParameters | WorkflowsParameters;
 
 /** Specifies the parameters for a `RepositoryRule` object. Only one of the fields should be specified. */
 export type RuleParametersInput = {
@@ -23782,6 +23881,14 @@ export type RuleParametersInput = {
   commitMessagePattern?: InputMaybe<CommitMessagePatternParametersInput>;
   /** Parameters used for the `committer_email_pattern` rule type */
   committerEmailPattern?: InputMaybe<CommitterEmailPatternParametersInput>;
+  /** Parameters used for the `file_extension_restriction` rule type */
+  fileExtensionRestriction?: InputMaybe<FileExtensionRestrictionParametersInput>;
+  /** Parameters used for the `file_path_restriction` rule type */
+  filePathRestriction?: InputMaybe<FilePathRestrictionParametersInput>;
+  /** Parameters used for the `max_file_path_length` rule type */
+  maxFilePathLength?: InputMaybe<MaxFilePathLengthParametersInput>;
+  /** Parameters used for the `max_file_size` rule type */
+  maxFileSize?: InputMaybe<MaxFileSizeParametersInput>;
   /** Parameters used for the `pull_request` rule type */
   pullRequest?: InputMaybe<PullRequestParametersInput>;
   /** Parameters used for the `required_deployments` rule type */
