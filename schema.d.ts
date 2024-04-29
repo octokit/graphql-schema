@@ -23106,6 +23106,8 @@ export type RepositoryRulesetBypassActor = Node & {
   actor?: Maybe<BypassActor>;
   /** The mode for the bypass actor */
   bypassMode?: Maybe<RepositoryRulesetBypassActorBypassMode>;
+  /** This actor represents the ability for a deploy key to bypass */
+  deployKey: Scalars['Boolean']['output'];
   /** The Node ID of the RepositoryRulesetBypassActor object */
   id: Scalars['ID']['output'];
   /** This actor represents the ability for an organization owner to bypass */
@@ -23149,13 +23151,16 @@ export type RepositoryRulesetBypassActorEdge = {
 
 /**
  * Specifies the attributes for a new or updated ruleset bypass actor. Only one of
- * `actor_id`, `repository_role_database_id`, or `organization_admin` should be specified.
+ * `actor_id`, `repository_role_database_id`, `organization_admin`, or `deploy_key`
+ * should be specified.
  */
 export type RepositoryRulesetBypassActorInput = {
   /** For Team and Integration bypasses, the Team or Integration ID */
   actorId?: InputMaybe<Scalars['ID']['input']>;
   /** The bypass mode for this actor. */
   bypassMode: RepositoryRulesetBypassActorBypassMode;
+  /** For deploy key bypasses, true. Can only use ALWAYS as the bypass mode */
+  deployKey?: InputMaybe<Scalars['Boolean']['input']>;
   /** For organization owner bypasses, true */
   organizationAdmin?: InputMaybe<Scalars['Boolean']['input']>;
   /** For role bypasses, the role database ID */
