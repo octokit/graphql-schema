@@ -10492,6 +10492,11 @@ The possible protection rule types.
 """
 enum DeploymentProtectionRuleType {
   """
+  Branch policy
+  """
+  BRANCH_POLICY
+
+  """
   Required reviewers
   """
   REQUIRED_REVIEWERS
