@@ -12,6 +12,7 @@
     "lint:fix": "prettier --write '{bin,lib,test}/**/*.{js,ts}' *.md package.json",
     "test": "node test",
     "validate:ts": "tsc --noEmit --noImplicitAny test/typescript-validate.ts",
+    "postvalidate:ts": "attw --pack . --ignore-rules cjs-resolves-to-esm",
     "posttest": "npm run -s lint",
     "download": "node bin/download.js",
     "generate-typescript": "graphql-codegen",
@@ -30,6 +31,7 @@
     "graphql-tag": "^2.10.3"
   },
   "devDependencies": {
+    "@arethetypeswrong/cli": "^0.15.2",
     "@graphql-codegen/cli": "^5.0.0",
     "@graphql-codegen/typescript": "^4.0.0",
     "@octokit/graphql": "^8.0.1",
