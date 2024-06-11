@@ -4865,12 +4865,14 @@ type Commit implements GitObject & Node & Subscribable & UniformResourceLocatabl
     path: String
 
     """
-    Allows specifying a beginning time or date for fetching commits.
+    Allows specifying a beginning time or date for fetching commits. Unexpected
+    results may be returned for dates not between 1970-01-01 and 2099-12-13 (inclusive).
     """
     since: GitTimestamp
 
     """
-    Allows specifying an ending time or date for fetching commits.
+    Allows specifying an ending time or date for fetching commits. Unexpected
+    results may be returned for dates not between 1970-01-01 and 2099-12-13 (inclusive).
     """
     until: GitTimestamp
   ): CommitHistoryConnection!
