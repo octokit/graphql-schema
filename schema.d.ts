@@ -6568,6 +6568,10 @@ export type Enterprise = AnnouncementBanner & Node & {
    * personal access tokens (classic) with read:enterprise or admin:enterprise scope.
    */
   ownerInfo?: Maybe<EnterpriseOwnerInfo>;
+  /** The raw content of the enterprise README. */
+  readme?: Maybe<Scalars['String']['output']>;
+  /** The content of the enterprise README as HTML. */
+  readmeHTML: Scalars['HTML']['output'];
   /** The HTTP path for this enterprise. */
   resourcePath: Scalars['URI']['output'];
   /** The URL-friendly identifier for the enterprise. */
