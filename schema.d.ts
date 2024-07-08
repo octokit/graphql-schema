@@ -9379,6 +9379,7 @@ export type IssueProjectsV2Args = {
   before?: InputMaybe<Scalars['String']['input']>;
   first?: InputMaybe<Scalars['Int']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
+  minPermissionLevel?: InputMaybe<ProjectV2PermissionLevel>;
   orderBy?: InputMaybe<ProjectV2Order>;
   query?: InputMaybe<Scalars['String']['input']>;
 };
@@ -15364,6 +15365,7 @@ export type OrganizationProjectsV2Args = {
   before?: InputMaybe<Scalars['String']['input']>;
   first?: InputMaybe<Scalars['Int']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
+  minPermissionLevel?: InputMaybe<ProjectV2PermissionLevel>;
   orderBy?: InputMaybe<ProjectV2Order>;
   query?: InputMaybe<Scalars['String']['input']>;
 };
@@ -17856,9 +17858,19 @@ export type ProjectV2OwnerProjectsV2Args = {
   before?: InputMaybe<Scalars['String']['input']>;
   first?: InputMaybe<Scalars['Int']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
+  minPermissionLevel?: InputMaybe<ProjectV2PermissionLevel>;
   orderBy?: InputMaybe<ProjectV2Order>;
   query?: InputMaybe<Scalars['String']['input']>;
 };
+
+/** The possible roles of a collaborator on a project. */
+export type ProjectV2PermissionLevel =
+  /** The collaborator can view, edit, and maange the settings of the project */
+  | 'ADMIN'
+  /** The collaborator can view the project */
+  | 'READ'
+  /** The collaborator can view and edit the project */
+  | 'WRITE';
 
 /** Recent projects for the owner. */
 export type ProjectV2Recent = {
@@ -18784,6 +18796,7 @@ export type PullRequestProjectsV2Args = {
   before?: InputMaybe<Scalars['String']['input']>;
   first?: InputMaybe<Scalars['Int']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
+  minPermissionLevel?: InputMaybe<ProjectV2PermissionLevel>;
   orderBy?: InputMaybe<ProjectV2Order>;
   query?: InputMaybe<Scalars['String']['input']>;
 };
@@ -22717,6 +22730,7 @@ export type RepositoryProjectsV2Args = {
   before?: InputMaybe<Scalars['String']['input']>;
   first?: InputMaybe<Scalars['Int']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
+  minPermissionLevel?: InputMaybe<ProjectV2PermissionLevel>;
   orderBy?: InputMaybe<ProjectV2Order>;
   query?: InputMaybe<Scalars['String']['input']>;
 };
@@ -27073,6 +27087,7 @@ export type TeamProjectsV2Args = {
   filterBy?: InputMaybe<ProjectV2Filters>;
   first?: InputMaybe<Scalars['Int']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
+  minPermissionLevel?: InputMaybe<ProjectV2PermissionLevel>;
   orderBy?: InputMaybe<ProjectV2Order>;
   query?: InputMaybe<Scalars['String']['input']>;
 };
@@ -30445,6 +30460,7 @@ export type UserProjectsV2Args = {
   before?: InputMaybe<Scalars['String']['input']>;
   first?: InputMaybe<Scalars['Int']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
+  minPermissionLevel?: InputMaybe<ProjectV2PermissionLevel>;
   orderBy?: InputMaybe<ProjectV2Order>;
   query?: InputMaybe<Scalars['String']['input']>;
 };
