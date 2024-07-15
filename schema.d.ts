@@ -9188,6 +9188,8 @@ export type Issue = Assignable & Closable & Comment & Deletable & Labelable & Lo
   closed: Scalars['Boolean']['output'];
   /** Identifies the date and time when the object was closed. */
   closedAt?: Maybe<Scalars['DateTime']['output']>;
+  /** List of open pull requests referenced from this issue */
+  closedByPullRequestsReferences?: Maybe<PullRequestConnection>;
   /** A list of comments associated with the Issue. */
   comments: IssueCommentConnection;
   /** Identifies the date and time when the object was created. */
@@ -9300,6 +9302,18 @@ export type IssueAssigneesArgs = {
   before?: InputMaybe<Scalars['String']['input']>;
   first?: InputMaybe<Scalars['Int']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+/** An Issue is a place to discuss ideas, enhancements, tasks, and bugs for a project. */
+export type IssueClosedByPullRequestsReferencesArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  includeClosedPrs?: InputMaybe<Scalars['Boolean']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  orderByState?: InputMaybe<Scalars['Boolean']['input']>;
+  userLinkedOnly?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 
