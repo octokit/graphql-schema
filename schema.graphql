@@ -16231,8 +16231,7 @@ input FileDeletion {
 }
 
 """
-Prevent commits that include files with specified file extensions from being
-pushed to the commit graph. NOTE: This rule is in beta and subject to change
+Prevent commits that include files with specified file extensions from being pushed to the commit graph.
 """
 type FileExtensionRestrictionParameters {
   """
@@ -16242,8 +16241,7 @@ type FileExtensionRestrictionParameters {
 }
 
 """
-Prevent commits that include files with specified file extensions from being
-pushed to the commit graph. NOTE: This rule is in beta and subject to change
+Prevent commits that include files with specified file extensions from being pushed to the commit graph.
 """
 input FileExtensionRestrictionParametersInput {
   """
@@ -16253,8 +16251,7 @@ input FileExtensionRestrictionParametersInput {
 }
 
 """
-Prevent commits that include changes in specified file paths from being pushed
-to the commit graph. NOTE: This rule is in beta and subject to change
+Prevent commits that include changes in specified file paths from being pushed to the commit graph.
 """
 type FilePathRestrictionParameters {
   """
@@ -16264,8 +16261,7 @@ type FilePathRestrictionParameters {
 }
 
 """
-Prevent commits that include changes in specified file paths from being pushed
-to the commit graph. NOTE: This rule is in beta and subject to change
+Prevent commits that include changes in specified file paths from being pushed to the commit graph.
 """
 input FilePathRestrictionParametersInput {
   """
@@ -20944,8 +20940,7 @@ type MarketplaceListingEdge {
 }
 
 """
-Prevent commits that include file paths that exceed a specified character limit
-from being pushed to the commit graph. NOTE: This rule is in beta and subject to change
+Prevent commits that include file paths that exceed a specified character limit from being pushed to the commit graph.
 """
 type MaxFilePathLengthParameters {
   """
@@ -20955,8 +20950,7 @@ type MaxFilePathLengthParameters {
 }
 
 """
-Prevent commits that include file paths that exceed a specified character limit
-from being pushed to the commit graph. NOTE: This rule is in beta and subject to change
+Prevent commits that include file paths that exceed a specified character limit from being pushed to the commit graph.
 """
 input MaxFilePathLengthParametersInput {
   """
@@ -20966,8 +20960,7 @@ input MaxFilePathLengthParametersInput {
 }
 
 """
-Prevent commits that exceed a specified file size limit from being pushed to the
-commit. NOTE: This rule is in beta and subject to change
+Prevent commits that exceed a specified file size limit from being pushed to the commit.
 """
 type MaxFileSizeParameters {
   """
@@ -20977,8 +20970,7 @@ type MaxFileSizeParameters {
 }
 
 """
-Prevent commits that exceed a specified file size limit from being pushed to the
-commit. NOTE: This rule is in beta and subject to change
+Prevent commits that exceed a specified file size limit from being pushed to the commit.
 """
 input MaxFileSizeParametersInput {
   """
@@ -47362,14 +47354,12 @@ enum RepositoryRuleType {
   DELETION
 
   """
-  Prevent commits that include files with specified file extensions from being
-  pushed to the commit graph. NOTE: This rule is in beta and subject to change
+  Prevent commits that include files with specified file extensions from being pushed to the commit graph.
   """
   FILE_EXTENSION_RESTRICTION
 
   """
-  Prevent commits that include changes in specified file paths from being pushed
-  to the commit graph. NOTE: This rule is in beta and subject to change
+  Prevent commits that include changes in specified file paths from being pushed to the commit graph.
   """
   FILE_PATH_RESTRICTION
 
@@ -47379,15 +47369,12 @@ enum RepositoryRuleType {
   LOCK_BRANCH
 
   """
-  Prevent commits that include file paths that exceed a specified character
-  limit from being pushed to the commit graph. NOTE: This rule is in beta and
-  subject to change
+  Prevent commits that include file paths that exceed a specified character limit from being pushed to the commit graph.
   """
   MAX_FILE_PATH_LENGTH
 
   """
-  Prevent commits that exceed a specified file size limit from being pushed to
-  the commit. NOTE: This rule is in beta and subject to change
+  Prevent commits that exceed a specified file size limit from being pushed to the commit.
   """
   MAX_FILE_SIZE
 
@@ -47758,7 +47745,7 @@ type RepositoryRulesetEdge {
 }
 
 """
-The targets supported for rulesets. NOTE: The push target is in beta and subject to change.
+The targets supported for rulesets.
 """
 enum RepositoryRulesetTarget {
   """
