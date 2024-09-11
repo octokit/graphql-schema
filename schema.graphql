@@ -1196,6 +1196,11 @@ A GitHub App.
 """
 type App implements Node {
   """
+  The client ID of the app.
+  """
+  clientId: String
+
+  """
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
