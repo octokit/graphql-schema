@@ -49793,6 +49793,16 @@ Properties by which security advisory connections can be ordered.
 """
 enum SecurityAdvisoryOrderField {
   """
+  Order advisories by EPSS percentage
+  """
+  EPSS_PERCENTAGE
+
+  """
+  Order advisories by EPSS percentile
+  """
+  EPSS_PERCENTILE
+
+  """
   Order advisories by publication time
   """
   PUBLISHED_AT
