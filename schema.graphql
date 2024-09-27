@@ -29760,6 +29760,11 @@ type Organization implements Actor & AnnouncementBanner & MemberStatusable & Nod
     The ID of the ruleset to be returned.
     """
     databaseId: Int!
+
+    """
+    Include rulesets configured at higher levels that apply to this organization.
+    """
+    includeParents: Boolean = true
   ): RepositoryRuleset
 
   """
