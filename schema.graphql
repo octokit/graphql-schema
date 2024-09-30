@@ -47622,6 +47622,11 @@ type RepositoryRulesetBypassActor implements Node {
   deployKey: Boolean!
 
   """
+  This actor represents the ability for an enterprise owner to bypass
+  """
+  enterpriseOwner: Boolean!
+
+  """
   The Node ID of the RepositoryRulesetBypassActor object
   """
   id: ID!
@@ -47722,6 +47727,11 @@ input RepositoryRulesetBypassActorInput {
   For deploy key bypasses, true. Can only use ALWAYS as the bypass mode
   """
   deployKey: Boolean
+
+  """
+  For enterprise owner bypasses, true
+  """
+  enterpriseOwner: Boolean
 
   """
   For organization owner bypasses, true
