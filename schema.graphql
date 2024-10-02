@@ -39264,7 +39264,7 @@ type PushAllowanceEdge {
 """
 The query root of GitHub's GraphQL interface.
 """
-type Query {
+type Query implements Node {
   """
   Look up a code of conduct by its key
   """
@@ -39349,6 +39349,11 @@ type Query {
     """
     invitationToken: String!
   ): EnterpriseMemberInvitation
+
+  """
+  ID of the object.
+  """
+  id: ID!
 
   """
   Look up an open source license by its key
