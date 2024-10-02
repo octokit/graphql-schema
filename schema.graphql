@@ -49224,7 +49224,7 @@ input RuleParametersInput {
 """
 Types which can have `RepositoryRule` objects.
 """
-union RuleSource = Organization | Repository
+union RuleSource = Enterprise | Organization | Repository
 
 """
 The possible digest algorithms used to sign SAML requests for an identity provider.
