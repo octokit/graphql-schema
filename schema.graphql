@@ -12802,6 +12802,10 @@ type Enterprise implements AnnouncementBanner & Node {
     """
     Only return members with this two-factor authentication status. Does not
     include members who only have an account on a GitHub Enterprise Server instance.
+
+    **Upcoming Change on 2025-04-01 UTC**
+    **Description:** `hasTwoFactorEnabled` will be removed. Use `two_factor_method_security` instead.
+    **Reason:** `has_two_factor_enabled` will be removed.
     """
     hasTwoFactorEnabled: Boolean = null
 
@@ -12829,6 +12833,12 @@ type Enterprise implements AnnouncementBanner & Node {
     The role of the user in the enterprise organization or server.
     """
     role: EnterpriseUserAccountMembershipRole
+
+    """
+    Only return members with this type of two-factor authentication method. Does
+    not include members who only have an account on a GitHub Enterprise Server instance.
+    """
+    twoFactorMethodSecurity: TwoFactorCredentialSecurityType = null
   ): EnterpriseMemberConnection!
 
   """
@@ -13841,6 +13851,10 @@ type EnterpriseOwnerInfo {
 
     """
     Only return administrators with this two-factor authentication status.
+
+    **Upcoming Change on 2025-04-01 UTC**
+    **Description:** `hasTwoFactorEnabled` will be removed. Use `two_factor_method_security` instead.
+    **Reason:** `has_two_factor_enabled` will be removed.
     """
     hasTwoFactorEnabled: Boolean = null
 
@@ -13868,6 +13882,11 @@ type EnterpriseOwnerInfo {
     The role to filter by.
     """
     role: EnterpriseAdministratorRole
+
+    """
+    Only return outside collaborators with this type of two-factor authentication method.
+    """
+    twoFactorMethodSecurity: TwoFactorCredentialSecurityType = null
   ): EnterpriseAdministratorConnection!
 
   """
@@ -14515,6 +14534,10 @@ type EnterpriseOwnerInfo {
 
     """
     Only return outside collaborators with this two-factor authentication status.
+
+    **Upcoming Change on 2025-04-01 UTC**
+    **Description:** `hasTwoFactorEnabled` will be removed. Use `two_factor_method_security` instead.
+    **Reason:** `has_two_factor_enabled` will be removed.
     """
     hasTwoFactorEnabled: Boolean = null
 
@@ -14542,6 +14565,11 @@ type EnterpriseOwnerInfo {
     The search string to look for.
     """
     query: String
+
+    """
+    Only return outside collaborators with this type of two-factor authentication method.
+    """
+    twoFactorMethodSecurity: TwoFactorCredentialSecurityType = null
 
     """
     Only return outside collaborators on repositories with this visibility.
@@ -56848,6 +56876,26 @@ type TreeEntry {
   Entry file type.
   """
   type: String!
+}
+
+"""
+Filters by whether or not 2FA is enabled and if the method configured is considered secure or insecure.
+"""
+enum TwoFactorCredentialSecurityType {
+  """
+  No method of two-factor authentication.
+  """
+  DISABLED
+
+  """
+  Has an insecure method of two-factor authentication. GitHub currently defines this as SMS two-factor authentication.
+  """
+  INSECURE
+
+  """
+  Has only secure methods of two-factor authentication.
+  """
+  SECURE
 }
 
 """
