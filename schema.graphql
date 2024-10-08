@@ -24803,7 +24803,7 @@ type Mutation {
   ): UpdateEnterpriseTeamDiscussionsSettingPayload
 
   """
-  Sets the two-factor authentication methods that users of an enterprise may NOT use.
+  Sets the two-factor authentication methods that users of an enterprise may not use.
   """
   updateEnterpriseTwoFactorAuthenticationDisallowedMethodsSetting(
     """
