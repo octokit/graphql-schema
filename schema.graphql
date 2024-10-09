@@ -1196,6 +1196,11 @@ A GitHub App.
 """
 type App implements Node {
   """
+  The client ID of the app.
+  """
+  clientId: String
+
+  """
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
@@ -11579,6 +11584,11 @@ type Discussion implements Closable & Comment & Deletable & Labelable & Lockable
   viewerCanDelete: Boolean!
 
   """
+  Indicates if the viewer can edit labels for this object.
+  """
+  viewerCanLabel: Boolean!
+
+  """
   Can user react to this subject
   """
   viewerCanReact: Boolean!
@@ -12792,6 +12802,10 @@ type Enterprise implements AnnouncementBanner & Node {
     """
     Only return members with this two-factor authentication status. Does not
     include members who only have an account on a GitHub Enterprise Server instance.
+
+    **Upcoming Change on 2025-04-01 UTC**
+    **Description:** `hasTwoFactorEnabled` will be removed. Use `two_factor_method_security` instead.
+    **Reason:** `has_two_factor_enabled` will be removed.
     """
     hasTwoFactorEnabled: Boolean = null
 
@@ -12819,6 +12833,12 @@ type Enterprise implements AnnouncementBanner & Node {
     The role of the user in the enterprise organization or server.
     """
     role: EnterpriseUserAccountMembershipRole
+
+    """
+    Only return members with this type of two-factor authentication method. Does
+    not include members who only have an account on a GitHub Enterprise Server instance.
+    """
+    twoFactorMethodSecurity: TwoFactorCredentialSecurityType = null
   ): EnterpriseMemberConnection!
 
   """
@@ -13236,6 +13256,21 @@ enum EnterpriseDefaultRepositoryPermissionSettingValue {
   Organization members will be able to clone, pull, and push all organization repositories.
   """
   WRITE
+}
+
+"""
+The possible values for an enabled/no policy enterprise setting.
+"""
+enum EnterpriseDisallowedMethodsSettingValue {
+  """
+  The setting prevents insecure 2FA methods from being used by members of the enterprise.
+  """
+  INSECURE
+
+  """
+  There is no policy set for preventing insecure 2FA methods from being used by members of the enterprise.
+  """
+  NO_POLICY
 }
 
 """
@@ -13831,6 +13866,10 @@ type EnterpriseOwnerInfo {
 
     """
     Only return administrators with this two-factor authentication status.
+
+    **Upcoming Change on 2025-04-01 UTC**
+    **Description:** `hasTwoFactorEnabled` will be removed. Use `two_factor_method_security` instead.
+    **Reason:** `has_two_factor_enabled` will be removed.
     """
     hasTwoFactorEnabled: Boolean = null
 
@@ -13858,6 +13897,11 @@ type EnterpriseOwnerInfo {
     The role to filter by.
     """
     role: EnterpriseAdministratorRole
+
+    """
+    Only return outside collaborators with this type of two-factor authentication method.
+    """
+    twoFactorMethodSecurity: TwoFactorCredentialSecurityType = null
   ): EnterpriseAdministratorConnection!
 
   """
@@ -14505,6 +14549,10 @@ type EnterpriseOwnerInfo {
 
     """
     Only return outside collaborators with this two-factor authentication status.
+
+    **Upcoming Change on 2025-04-01 UTC**
+    **Description:** `hasTwoFactorEnabled` will be removed. Use `two_factor_method_security` instead.
+    **Reason:** `has_two_factor_enabled` will be removed.
     """
     hasTwoFactorEnabled: Boolean = null
 
@@ -14532,6 +14580,11 @@ type EnterpriseOwnerInfo {
     The search string to look for.
     """
     query: String
+
+    """
+    Only return outside collaborators with this type of two-factor authentication method.
+    """
+    twoFactorMethodSecurity: TwoFactorCredentialSecurityType = null
 
     """
     Only return outside collaborators on repositories with this visibility.
@@ -14838,6 +14891,11 @@ type EnterpriseOwnerInfo {
     """
     value: Boolean!
   ): OrganizationConnection!
+
+  """
+  The setting value for what methods of two-factor authentication the enterprise prevents its users from having.
+  """
+  twoFactorDisallowedMethodsSetting: EnterpriseDisallowedMethodsSettingValue!
 
   """
   The setting value for whether the enterprise requires two-factor authentication for its organizations and users.
@@ -16226,8 +16284,7 @@ input FileDeletion {
 }
 
 """
-Prevent commits that include files with specified file extensions from being
-pushed to the commit graph. NOTE: This rule is in beta and subject to change
+Prevent commits that include files with specified file extensions from being pushed to the commit graph.
 """
 type FileExtensionRestrictionParameters {
   """
@@ -16237,8 +16294,7 @@ type FileExtensionRestrictionParameters {
 }
 
 """
-Prevent commits that include files with specified file extensions from being
-pushed to the commit graph. NOTE: This rule is in beta and subject to change
+Prevent commits that include files with specified file extensions from being pushed to the commit graph.
 """
 input FileExtensionRestrictionParametersInput {
   """
@@ -16248,8 +16304,7 @@ input FileExtensionRestrictionParametersInput {
 }
 
 """
-Prevent commits that include changes in specified file paths from being pushed
-to the commit graph. NOTE: This rule is in beta and subject to change
+Prevent commits that include changes in specified file paths from being pushed to the commit graph.
 """
 type FilePathRestrictionParameters {
   """
@@ -16259,8 +16314,7 @@ type FilePathRestrictionParameters {
 }
 
 """
-Prevent commits that include changes in specified file paths from being pushed
-to the commit graph. NOTE: This rule is in beta and subject to change
+Prevent commits that include changes in specified file paths from being pushed to the commit graph.
 """
 input FilePathRestrictionParametersInput {
   """
@@ -16472,6 +16526,11 @@ enum FundingPlatform {
   Polar funding platform.
   """
   POLAR
+
+  """
+  thanks.dev funding platform.
+  """
+  THANKS_DEV
 
   """
   Tidelift funding platform.
@@ -17948,6 +18007,46 @@ type Issue implements Assignable & Closable & Comment & Deletable & Labelable & 
   closedAt: DateTime
 
   """
+  List of open pull requests referenced from this issue
+  """
+  closedByPullRequestsReferences(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Include closed PRs in results
+    """
+    includeClosedPrs: Boolean = false
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Return results ordered by state
+    """
+    orderByState: Boolean = false
+
+    """
+    Return only manually linked PRs
+    """
+    userLinkedOnly: Boolean = false
+  ): PullRequestConnection
+
+  """
   A list of comments associated with the Issue.
   """
   comments(
@@ -18491,6 +18590,11 @@ type Issue implements Assignable & Closable & Comment & Deletable & Labelable & 
   Check if the current viewer can delete this object.
   """
   viewerCanDelete: Boolean!
+
+  """
+  Indicates if the viewer can edit labels for this object.
+  """
+  viewerCanLabel: Boolean!
 
   """
   Can user react to this subject
@@ -19676,6 +19780,11 @@ interface Labelable {
     """
     orderBy: LabelOrder = {field: CREATED_AT, direction: ASC}
   ): LabelConnection
+
+  """
+  Indicates if the viewer can edit labels for this object.
+  """
+  viewerCanLabel: Boolean!
 }
 
 """
@@ -20884,8 +20993,7 @@ type MarketplaceListingEdge {
 }
 
 """
-Prevent commits that include file paths that exceed a specified character limit
-from being pushed to the commit graph. NOTE: This rule is in beta and subject to change
+Prevent commits that include file paths that exceed a specified character limit from being pushed to the commit graph.
 """
 type MaxFilePathLengthParameters {
   """
@@ -20895,8 +21003,7 @@ type MaxFilePathLengthParameters {
 }
 
 """
-Prevent commits that include file paths that exceed a specified character limit
-from being pushed to the commit graph. NOTE: This rule is in beta and subject to change
+Prevent commits that include file paths that exceed a specified character limit from being pushed to the commit graph.
 """
 input MaxFilePathLengthParametersInput {
   """
@@ -20906,8 +21013,7 @@ input MaxFilePathLengthParametersInput {
 }
 
 """
-Prevent commits that exceed a specified file size limit from being pushed to the
-commit. NOTE: This rule is in beta and subject to change
+Prevent commits that exceed a specified file size limit from being pushed to the commit.
 """
 type MaxFileSizeParameters {
   """
@@ -20917,8 +21023,7 @@ type MaxFileSizeParameters {
 }
 
 """
-Prevent commits that exceed a specified file size limit from being pushed to the
-commit. NOTE: This rule is in beta and subject to change
+Prevent commits that exceed a specified file size limit from being pushed to the commit.
 """
 input MaxFileSizeParametersInput {
   """
@@ -21724,6 +21829,44 @@ enum MergeQueueEntryState {
 }
 
 """
+When set to ALLGREEN, the merge commit created by merge queue for each PR in the
+group must pass all required checks to merge. When set to HEADGREEN, only the
+commit at the head of the merge group, i.e. the commit containing changes from
+all of the PRs in the group, must pass its required checks to merge.
+"""
+enum MergeQueueGroupingStrategy {
+  """
+  The merge commit created by merge queue for each PR in the group must pass all required checks to merge
+  """
+  ALLGREEN
+
+  """
+  Only the commit at the head of the merge group must pass its required checks to merge.
+  """
+  HEADGREEN
+}
+
+"""
+Method to use when merging changes from queued pull requests.
+"""
+enum MergeQueueMergeMethod {
+  """
+  Merge commit
+  """
+  MERGE
+
+  """
+  Rebase and merge
+  """
+  REBASE
+
+  """
+  Squash and merge
+  """
+  SQUASH
+}
+
+"""
 The possible merging strategies for a merge queue.
 """
 enum MergeQueueMergingStrategy {
@@ -21736,6 +21879,100 @@ enum MergeQueueMergingStrategy {
   Failing Entires are allowed to merge if they are with a passing entry.
   """
   HEADGREEN
+}
+
+"""
+Merges must be performed via a merge queue.
+"""
+type MergeQueueParameters {
+  """
+  Maximum time for a required status check to report a conclusion. After this
+  much time has elapsed, checks that have not reported a conclusion will be
+  assumed to have failed
+  """
+  checkResponseTimeoutMinutes: Int!
+
+  """
+  When set to ALLGREEN, the merge commit created by merge queue for each PR in
+  the group must pass all required checks to merge. When set to HEADGREEN, only
+  the commit at the head of the merge group, i.e. the commit containing changes
+  from all of the PRs in the group, must pass its required checks to merge.
+  """
+  groupingStrategy: MergeQueueGroupingStrategy!
+
+  """
+  Limit the number of queued pull requests requesting checks and workflow runs at the same time.
+  """
+  maxEntriesToBuild: Int!
+
+  """
+  The maximum number of PRs that will be merged together in a group.
+  """
+  maxEntriesToMerge: Int!
+
+  """
+  Method to use when merging changes from queued pull requests.
+  """
+  mergeMethod: MergeQueueMergeMethod!
+
+  """
+  The minimum number of PRs that will be merged together in a group.
+  """
+  minEntriesToMerge: Int!
+
+  """
+  The time merge queue should wait after the first PR is added to the queue for
+  the minimum group size to be met. After this time has elapsed, the minimum
+  group size will be ignored and a smaller group will be merged.
+  """
+  minEntriesToMergeWaitMinutes: Int!
+}
+
+"""
+Merges must be performed via a merge queue.
+"""
+input MergeQueueParametersInput {
+  """
+  Maximum time for a required status check to report a conclusion. After this
+  much time has elapsed, checks that have not reported a conclusion will be
+  assumed to have failed
+  """
+  checkResponseTimeoutMinutes: Int!
+
+  """
+  When set to ALLGREEN, the merge commit created by merge queue for each PR in
+  the group must pass all required checks to merge. When set to HEADGREEN, only
+  the commit at the head of the merge group, i.e. the commit containing changes
+  from all of the PRs in the group, must pass its required checks to merge.
+  """
+  groupingStrategy: MergeQueueGroupingStrategy!
+
+  """
+  Limit the number of queued pull requests requesting checks and workflow runs at the same time.
+  """
+  maxEntriesToBuild: Int!
+
+  """
+  The maximum number of PRs that will be merged together in a group.
+  """
+  maxEntriesToMerge: Int!
+
+  """
+  Method to use when merging changes from queued pull requests.
+  """
+  mergeMethod: MergeQueueMergeMethod!
+
+  """
+  The minimum number of PRs that will be merged together in a group.
+  """
+  minEntriesToMerge: Int!
+
+  """
+  The time merge queue should wait after the first PR is added to the queue for
+  the minimum group size to be met. After this time has elapsed, the minimum
+  group size will be ignored and a smaller group will be merged.
+  """
+  minEntriesToMergeWaitMinutes: Int!
 }
 
 """
@@ -24564,6 +24801,16 @@ type Mutation {
     """
     input: UpdateEnterpriseTeamDiscussionsSettingInput!
   ): UpdateEnterpriseTeamDiscussionsSettingPayload
+
+  """
+  Sets the two-factor authentication methods that users of an enterprise may not use.
+  """
+  updateEnterpriseTwoFactorAuthenticationDisallowedMethodsSetting(
+    """
+    Parameters for UpdateEnterpriseTwoFactorAuthenticationDisallowedMethodsSetting
+    """
+    input: UpdateEnterpriseTwoFactorAuthenticationDisallowedMethodsSettingInput!
+  ): UpdateEnterpriseTwoFactorAuthenticationDisallowedMethodsSettingPayload
 
   """
   Sets whether two factor authentication is required for all users in an enterprise.
@@ -29571,6 +29818,11 @@ type Organization implements Actor & AnnouncementBanner & MemberStatusable & Nod
     The ID of the ruleset to be returned.
     """
     databaseId: Int!
+
+    """
+    Include rulesets configured at higher levels that apply to this organization.
+    """
+    includeParents: Boolean = true
   ): RepositoryRuleset
 
   """
@@ -29601,6 +29853,11 @@ type Organization implements Actor & AnnouncementBanner & MemberStatusable & Nod
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Return rulesets that apply to the specified target
+    """
+    targets: [RepositoryRulesetTarget!] = null
   ): RepositoryRulesetConnection
 
   """
@@ -33103,7 +33360,7 @@ type ProjectV2 implements Closable & Node & Updatable {
   """
   Identifies the primary key from the database.
   """
-  databaseId: Int
+  databaseId: Int @deprecated(reason: "`databaseId` will be removed because it does not support 64-bit signed integer identifiers. Use `fullDatabaseId` instead. Removal on 2025-04-01 UTC.")
 
   """
   A field of the project
@@ -33144,6 +33401,11 @@ type ProjectV2 implements Closable & Node & Updatable {
     """
     orderBy: ProjectV2FieldOrder = {field: POSITION, direction: ASC}
   ): ProjectV2FieldConfigurationConnection!
+
+  """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
 
   """
   The Node ID of the ProjectV2 object
@@ -33883,7 +34145,7 @@ type ProjectV2Item implements Node {
   """
   Identifies the primary key from the database.
   """
-  databaseId: Int
+  databaseId: Int @deprecated(reason: "`databaseId` will be removed because it does not support 64-bit signed integer identifiers. Use `fullDatabaseId` instead. Removal on 2025-04-01 UTC.")
 
   """
   The field value of the first project field which matches the 'name' argument that is set on the item.
@@ -35198,7 +35460,12 @@ type ProjectV2StatusUpdate implements Node {
   """
   Identifies the primary key from the database.
   """
-  databaseId: Int
+  databaseId: Int @deprecated(reason: "`databaseId` will be removed because it does not support 64-bit signed integer identifiers. Use `fullDatabaseId` instead. Removal on 2025-04-01 UTC.")
+
+  """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
 
   """
   The Node ID of the ProjectV2StatusUpdate object
@@ -35323,7 +35590,7 @@ type ProjectV2View implements Node {
   """
   Identifies the primary key from the database.
   """
-  databaseId: Int
+  databaseId: Int @deprecated(reason: "`databaseId` will be removed because it does not support 64-bit signed integer identifiers. Use `fullDatabaseId` instead. Removal on 2025-04-01 UTC.")
 
   """
   The view's visible fields.
@@ -35359,6 +35626,11 @@ type ProjectV2View implements Node {
   The project view's filter.
   """
   filter: String
+
+  """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
 
   """
   The view's group-by field.
@@ -35698,12 +35970,17 @@ type ProjectV2Workflow implements Node {
   """
   Identifies the primary key from the database.
   """
-  databaseId: Int
+  databaseId: Int @deprecated(reason: "`databaseId` will be removed because it does not support 64-bit signed integer identifiers. Use `fullDatabaseId` instead. Removal on 2025-04-01 UTC.")
 
   """
   Whether the workflow is enabled.
   """
   enabled: Boolean!
+
+  """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
 
   """
   The Node ID of the ProjectV2Workflow object
@@ -36084,7 +36361,7 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   closedAt: DateTime
 
   """
-  List of issues that were may be closed by this pull request
+  List of issues that may be closed by this pull request
   """
   closingIssuesReferences(
     """
@@ -36915,6 +37192,11 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   Whether or not the viewer can enable auto-merge
   """
   viewerCanEnableAutoMerge: Boolean!
+
+  """
+  Indicates if the viewer can edit labels for this object.
+  """
+  viewerCanLabel: Boolean!
 
   """
   Indicates whether the viewer can bypass branch protections and merge the pull request immediately
@@ -39045,7 +39327,7 @@ type PushAllowanceEdge {
 """
 The query root of GitHub's GraphQL interface.
 """
-type Query {
+type Query implements Node {
   """
   Look up a code of conduct by its key
   """
@@ -39130,6 +39412,11 @@ type Query {
     """
     invitationToken: String!
   ): EnterpriseMemberInvitation
+
+  """
+  ID of the object.
+  """
+  id: ID!
 
   """
   Look up an open source license by its key
@@ -45464,6 +45751,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Return rulesets that apply to the specified target
+    """
+    targets: [RepositoryRulesetTarget!] = null
   ): RepositoryRulesetConnection
 
   """
@@ -47165,14 +47457,12 @@ enum RepositoryRuleType {
   DELETION
 
   """
-  Prevent commits that include files with specified file extensions from being
-  pushed to the commit graph. NOTE: Thie rule is in beta and subject to change
+  Prevent commits that include files with specified file extensions from being pushed to the commit graph.
   """
   FILE_EXTENSION_RESTRICTION
 
   """
-  Prevent commits that include changes in specified file paths from being pushed
-  to the commit graph. NOTE: Thie rule is in beta and subject to change
+  Prevent commits that include changes in specified file paths from being pushed to the commit graph.
   """
   FILE_PATH_RESTRICTION
 
@@ -47182,15 +47472,12 @@ enum RepositoryRuleType {
   LOCK_BRANCH
 
   """
-  Prevent commits that include file paths that exceed a specified character
-  limit from being pushed to the commit graph. NOTE: Thie rule is in beta and
-  subject to change
+  Prevent commits that include file paths that exceed a specified character limit from being pushed to the commit graph.
   """
   MAX_FILE_PATH_LENGTH
 
   """
-  Prevent commits that exceed a specified file size limit from being pushed to
-  the commit. NOTE: Thie rule is in beta and subject to change
+  Prevent commits that exceed a specified file size limit from being pushed to the commit.
   """
   MAX_FILE_SIZE
 
@@ -47408,6 +47695,11 @@ type RepositoryRulesetBypassActor implements Node {
   deployKey: Boolean!
 
   """
+  This actor represents the ability for an enterprise owner to bypass
+  """
+  enterpriseOwner: Boolean!
+
+  """
   The Node ID of the RepositoryRulesetBypassActor object
   """
   id: ID!
@@ -47510,6 +47802,11 @@ input RepositoryRulesetBypassActorInput {
   deployKey: Boolean
 
   """
+  For enterprise owner bypasses, true
+  """
+  enterpriseOwner: Boolean
+
+  """
   For organization owner bypasses, true
   """
   organizationAdmin: Boolean
@@ -47561,7 +47858,7 @@ type RepositoryRulesetEdge {
 }
 
 """
-The targets supported for rulesets. NOTE: The push target is in beta and subject to change.
+The targets supported for rulesets.
 """
 enum RepositoryRulesetTarget {
   """
@@ -48268,6 +48565,11 @@ commits must first be pushed to another ref where the checks pass.
 """
 type RequiredStatusChecksParameters {
   """
+  Allow repositories and branches to be created if a check would otherwise prohibit it.
+  """
+  doNotEnforceOnCreate: Boolean!
+
+  """
   Status checks that are required.
   """
   requiredStatusChecks: [StatusCheckConfiguration!]!
@@ -48285,6 +48587,11 @@ Choose which status checks must pass before the ref is updated. When enabled,
 commits must first be pushed to another ref where the checks pass.
 """
 input RequiredStatusChecksParametersInput {
+  """
+  Allow repositories and branches to be created if a check would otherwise prohibit it.
+  """
+  doNotEnforceOnCreate: Boolean
+
   """
   Status checks that are required.
   """
@@ -48895,7 +49202,7 @@ enum RuleEnforcement {
 """
 Types which can be parameters for `RepositoryRule` objects.
 """
-union RuleParameters = BranchNamePatternParameters | CodeScanningParameters | CommitAuthorEmailPatternParameters | CommitMessagePatternParameters | CommitterEmailPatternParameters | FileExtensionRestrictionParameters | FilePathRestrictionParameters | MaxFilePathLengthParameters | MaxFileSizeParameters | PullRequestParameters | RequiredDeploymentsParameters | RequiredStatusChecksParameters | TagNamePatternParameters | UpdateParameters | WorkflowsParameters
+union RuleParameters = BranchNamePatternParameters | CodeScanningParameters | CommitAuthorEmailPatternParameters | CommitMessagePatternParameters | CommitterEmailPatternParameters | FileExtensionRestrictionParameters | FilePathRestrictionParameters | MaxFilePathLengthParameters | MaxFileSizeParameters | MergeQueueParameters | PullRequestParameters | RequiredDeploymentsParameters | RequiredStatusChecksParameters | TagNamePatternParameters | UpdateParameters | WorkflowsParameters
 
 """
 Specifies the parameters for a `RepositoryRule` object. Only one of the fields should be specified.
@@ -48947,6 +49254,11 @@ input RuleParametersInput {
   maxFileSize: MaxFileSizeParametersInput
 
   """
+  Parameters used for the `merge_queue` rule type
+  """
+  mergeQueue: MergeQueueParametersInput
+
+  """
   Parameters used for the `pull_request` rule type
   """
   pullRequest: PullRequestParametersInput
@@ -48980,7 +49292,7 @@ input RuleParametersInput {
 """
 Types which can have `RepositoryRule` objects.
 """
-union RuleSource = Organization | Repository
+union RuleSource = Enterprise | Organization | Repository
 
 """
 The possible digest algorithms used to sign SAML requests for an identity provider.
@@ -49256,7 +49568,7 @@ type SecurityAdvisory implements Node {
   """
   The CVSS associated with this advisory
   """
-  cvss: CVSS!
+  cvss: CVSS! @deprecated(reason: "`cvss` will be removed. New `cvss_severities` field will now contain both `cvss_v3` and `cvss_v4` properties. Removal on 2025-10-01 UTC.")
 
   """
   CWEs associated with this Advisory
@@ -49588,6 +49900,16 @@ input SecurityAdvisoryOrder {
 Properties by which security advisory connections can be ordered.
 """
 enum SecurityAdvisoryOrderField {
+  """
+  Order advisories by EPSS percentage
+  """
+  EPSS_PERCENTAGE
+
+  """
+  Order advisories by EPSS percentile
+  """
+  EPSS_PERCENTILE
+
   """
   Order advisories by publication time
   """
@@ -56597,6 +56919,26 @@ type TreeEntry {
 }
 
 """
+Filters by whether or not 2FA is enabled and if the method configured is considered secure or insecure.
+"""
+enum TwoFactorCredentialSecurityType {
+  """
+  No method of two-factor authentication.
+  """
+  DISABLED
+
+  """
+  Has an insecure method of two-factor authentication. GitHub currently defines this as SMS two-factor authentication.
+  """
+  INSECURE
+
+  """
+  Has only secure methods of two-factor authentication.
+  """
+  SECURE
+}
+
+"""
 An RFC 3986, RFC 3987, and RFC 6570 (level 4) compliant URI string.
 """
 scalar URI
@@ -58410,6 +58752,46 @@ type UpdateEnterpriseTeamDiscussionsSettingPayload {
 
   """
   A message confirming the result of updating the team discussions setting.
+  """
+  message: String
+}
+
+"""
+Autogenerated input type of UpdateEnterpriseTwoFactorAuthenticationDisallowedMethodsSetting
+"""
+input UpdateEnterpriseTwoFactorAuthenticationDisallowedMethodsSettingInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The ID of the enterprise on which to set the two-factor authentication disallowed methods setting.
+  """
+  enterpriseId: ID!
+
+  """
+  The value for the two-factor authentication disallowed methods setting on the enterprise.
+  """
+  settingValue: EnterpriseDisallowedMethodsSettingValue!
+}
+
+"""
+Autogenerated return type of UpdateEnterpriseTwoFactorAuthenticationDisallowedMethodsSetting.
+"""
+type UpdateEnterpriseTwoFactorAuthenticationDisallowedMethodsSettingPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The enterprise with the updated two-factor authentication disallowed methods setting.
+  """
+  enterprise: Enterprise
+
+  """
+  A message confirming the result of updating the two-factor authentication disallowed methods setting.
   """
   message: String
 }
@@ -63031,6 +63413,11 @@ Require all changes made to a targeted branch to pass the specified workflows be
 """
 type WorkflowsParameters {
   """
+  Allow repositories and branches to be created if a check would otherwise prohibit it.
+  """
+  doNotEnforceOnCreate: Boolean!
+
+  """
   Workflows that must pass for this rule to pass.
   """
   workflows: [WorkflowFileReference!]!
@@ -63040,6 +63427,11 @@ type WorkflowsParameters {
 Require all changes made to a targeted branch to pass the specified workflows before they can be merged.
 """
 input WorkflowsParametersInput {
+  """
+  Allow repositories and branches to be created if a check would otherwise prohibit it.
+  """
+  doNotEnforceOnCreate: Boolean
+
   """
   Workflows that must pass for this rule to pass.
   """
