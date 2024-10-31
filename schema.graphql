@@ -50408,6 +50408,11 @@ Software or company that hosts social media accounts.
 """
 enum SocialAccountProvider {
   """
+  Decentralized microblogging social platform.
+  """
+  BLUESKY
+
+  """
   Social media and networking website.
   """
   FACEBOOK
