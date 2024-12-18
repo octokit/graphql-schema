@@ -4334,6 +4334,11 @@ input CloseIssueInput {
   clientMutationId: String
 
   """
+  ID of the issue that this is a duplicate of.
+  """
+  duplicateIssueId: ID
+
+  """
   ID of the issue to be closed.
   """
   issueId: ID!
@@ -14965,6 +14970,46 @@ type EnterpriseOwnerInfo {
   """
   The setting value for whether repository projects are enabled in this enterprise.
   """
+  repositoryDeployKeySetting: EnterpriseEnabledDisabledSettingValue!
+
+  """
+  A list of enterprise organizations configured with the provided deploy keys setting value.
+  """
+  repositoryDeployKeySettingOrganizations(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for organizations with this setting.
+    """
+    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+
+    """
+    The setting value to find organizations for.
+    """
+    value: Boolean!
+  ): OrganizationConnection!
+
+  """
+  The setting value for whether repository projects are enabled in this enterprise.
+  """
   repositoryProjectsSetting: EnterpriseEnabledDisabledSettingValue!
 
   """
@@ -15003,7 +15048,12 @@ type EnterpriseOwnerInfo {
   ): OrganizationConnection!
 
   """
-  The SAML Identity Provider for the enterprise.
+  The setting value for what methods of two-factor authentication the enterprise prevents its users from having.
+  """
+  twoFactorDisallowedMethodsSetting: EnterpriseDisallowedMethodsSettingValue!
+
+  """
+  The setting value for whether the enterprise requires two-factor authentication for its organizations and users.
   """
   samlIdentityProvider: EnterpriseIdentityProvider
 
@@ -18639,7 +18689,42 @@ type Issue implements Assignable & Closable & Comment & Deletable & Labelable & 
   """
   Identifies the reason for the issue state.
   """
-  stateReason: IssueStateReason
+  stateReason(
+    """
+    Whether or not to return state reason for duplicates
+    """
+    enableDuplicate: Boolean = false
+  ): IssueStateReason
+
+  """
+  A list of sub-issues associated with the Issue.
+  """
+  subIssues(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): IssueConnection!
+
+  """
+  Summary of the state of an issue's sub-issues
+  """
+  subIssuesSummary: SubIssuesSummary!
 
   """
   A list of sub-issues associated with the Issue.
@@ -19405,7 +19490,8 @@ enum IssueStateReason {
   COMPLETED
 
   """
-  An issue that has been closed as a duplicate
+  An issue that has been closed as a duplicate. To retrieve this value, set
+  `(enableDuplicate: true)` when querying the stateReason field.
   """
   DUPLICATE
 
