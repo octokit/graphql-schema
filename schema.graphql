@@ -19569,7 +19569,7 @@ type IssueTimelineItemEdge {
 """
 An item in an issue timeline
 """
-union IssueTimelineItems = AddedToProjectEvent | AssignedEvent | ClosedEvent | CommentDeletedEvent | ConnectedEvent | ConvertedNoteToIssueEvent | ConvertedToDiscussionEvent | CrossReferencedEvent | DemilestonedEvent | DisconnectedEvent | IssueComment | LabeledEvent | LockedEvent | MarkedAsDuplicateEvent | MentionedEvent | MilestonedEvent | MovedColumnsInProjectEvent | PinnedEvent | ReferencedEvent | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | UserBlockedEvent
+union IssueTimelineItems = AddedToProjectEvent | AssignedEvent | ClosedEvent | CommentDeletedEvent | ConnectedEvent | ConvertedNoteToIssueEvent | ConvertedToDiscussionEvent | CrossReferencedEvent | DemilestonedEvent | DisconnectedEvent | IssueComment | LabeledEvent | LockedEvent | MarkedAsDuplicateEvent | MentionedEvent | MilestonedEvent | MovedColumnsInProjectEvent | ParentIssueAddedEvent | ParentIssueRemovedEvent | PinnedEvent | ReferencedEvent | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | SubIssueAddedEvent | SubIssueRemovedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | UserBlockedEvent
 
 """
 The connection type for IssueTimelineItems.
@@ -19716,6 +19716,16 @@ enum IssueTimelineItemsItemType {
   MOVED_COLUMNS_IN_PROJECT_EVENT
 
   """
+  Represents a 'parent_issue_added' event on a given issue.
+  """
+  PARENT_ISSUE_ADDED_EVENT
+
+  """
+  Represents a 'parent_issue_removed' event on a given issue.
+  """
+  PARENT_ISSUE_REMOVED_EVENT
+
+  """
   Represents a 'pinned' event on a given issue or pull request.
   """
   PINNED_EVENT
@@ -19744,6 +19754,16 @@ enum IssueTimelineItemsItemType {
   Represents a 'subscribed' event on a given `Subscribable`.
   """
   SUBSCRIBED_EVENT
+
+  """
+  Represents a 'sub_issue_added' event on a given issue.
+  """
+  SUB_ISSUE_ADDED_EVENT
+
+  """
+  Represents a 'sub_issue_removed' event on a given issue.
+  """
+  SUB_ISSUE_REMOVED_EVENT
 
   """
   Represents a 'transferred' event on a given issue or pull request.
@@ -31913,6 +31933,56 @@ type PageInfo {
 }
 
 """
+Represents a 'parent_issue_added' event on a given issue.
+"""
+type ParentIssueAddedEvent implements Node {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The Node ID of the ParentIssueAddedEvent object
+  """
+  id: ID!
+
+  """
+  The parent issue added.
+  """
+  parent: Issue
+}
+
+"""
+Represents a 'parent_issue_removed' event on a given issue.
+"""
+type ParentIssueRemovedEvent implements Node {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The Node ID of the ParentIssueRemovedEvent object
+  """
+  id: ID!
+
+  """
+  The parent issue removed.
+  """
+  parent: Issue
+}
+
+"""
 The possible types of patch statuses.
 """
 enum PatchStatus {
@@ -38054,6 +38124,31 @@ type PullRequestParameters {
   """
   All conversations on code must be resolved before a pull request can be merged.
   """
+  allowedMergeMethods: [String!]
+
+  """
+  New, reviewable commits pushed will dismiss previous pull request review approvals.
+  """
+  dismissStaleReviewsOnPush: Boolean!
+
+  """
+  Require an approving review in pull requests that modify files that have a designated code owner.
+  """
+  requireCodeOwnerReview: Boolean!
+
+  """
+  Whether the most recent reviewable push must be approved by someone other than the person who pushed it.
+  """
+  requireLastPushApproval: Boolean!
+
+  """
+  The number of approving reviews that are required before a pull request can be merged.
+  """
+  requiredApprovingReviewCount: Int!
+
+  """
+  All conversations on code must be resolved before a pull request can be merged.
+  """
   requiredReviewThreadResolution: Boolean!
 }
 
@@ -38061,6 +38156,12 @@ type PullRequestParameters {
 Require all commits be made to a non-target branch and submitted via a pull request before they can be merged.
 """
 input PullRequestParametersInput {
+  """
+  When merging pull requests, you can allow any combination of merge commits,
+  squashing, or rebasing. At least one option must be enabled.
+  """
+  allowedMergeMethods: [String!]
+
   """
   When merging pull requests, you can allow any combination of merge commits,
   squashing, or rebasing. At least one option must be enabled.
@@ -39294,7 +39395,7 @@ type PullRequestTimelineItemEdge {
 """
 An item in a pull request timeline
 """
-union PullRequestTimelineItems = AddedToMergeQueueEvent | AddedToProjectEvent | AssignedEvent | AutoMergeDisabledEvent | AutoMergeEnabledEvent | AutoRebaseEnabledEvent | AutoSquashEnabledEvent | AutomaticBaseChangeFailedEvent | AutomaticBaseChangeSucceededEvent | BaseRefChangedEvent | BaseRefDeletedEvent | BaseRefForcePushedEvent | ClosedEvent | CommentDeletedEvent | ConnectedEvent | ConvertToDraftEvent | ConvertedNoteToIssueEvent | ConvertedToDiscussionEvent | CrossReferencedEvent | DemilestonedEvent | DeployedEvent | DeploymentEnvironmentChangedEvent | DisconnectedEvent | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IssueComment | LabeledEvent | LockedEvent | MarkedAsDuplicateEvent | MentionedEvent | MergedEvent | MilestonedEvent | MovedColumnsInProjectEvent | PinnedEvent | PullRequestCommit | PullRequestCommitCommentThread | PullRequestReview | PullRequestReviewThread | PullRequestRevisionMarker | ReadyForReviewEvent | ReferencedEvent | RemovedFromMergeQueueEvent | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | ReviewDismissedEvent | ReviewRequestRemovedEvent | ReviewRequestedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | UserBlockedEvent
+union PullRequestTimelineItems = AddedToMergeQueueEvent | AddedToProjectEvent | AssignedEvent | AutoMergeDisabledEvent | AutoMergeEnabledEvent | AutoRebaseEnabledEvent | AutoSquashEnabledEvent | AutomaticBaseChangeFailedEvent | AutomaticBaseChangeSucceededEvent | BaseRefChangedEvent | BaseRefDeletedEvent | BaseRefForcePushedEvent | ClosedEvent | CommentDeletedEvent | ConnectedEvent | ConvertToDraftEvent | ConvertedNoteToIssueEvent | ConvertedToDiscussionEvent | CrossReferencedEvent | DemilestonedEvent | DeployedEvent | DeploymentEnvironmentChangedEvent | DisconnectedEvent | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IssueComment | LabeledEvent | LockedEvent | MarkedAsDuplicateEvent | MentionedEvent | MergedEvent | MilestonedEvent | MovedColumnsInProjectEvent | ParentIssueAddedEvent | ParentIssueRemovedEvent | PinnedEvent | PullRequestCommit | PullRequestCommitCommentThread | PullRequestReview | PullRequestReviewThread | PullRequestRevisionMarker | ReadyForReviewEvent | ReferencedEvent | RemovedFromMergeQueueEvent | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | ReviewDismissedEvent | ReviewRequestRemovedEvent | ReviewRequestedEvent | SubIssueAddedEvent | SubIssueRemovedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | UserBlockedEvent
 
 """
 The connection type for PullRequestTimelineItems.
@@ -39526,6 +39627,16 @@ enum PullRequestTimelineItemsItemType {
   MOVED_COLUMNS_IN_PROJECT_EVENT
 
   """
+  Represents a 'parent_issue_added' event on a given issue.
+  """
+  PARENT_ISSUE_ADDED_EVENT
+
+  """
+  Represents a 'parent_issue_removed' event on a given issue.
+  """
+  PARENT_ISSUE_REMOVED_EVENT
+
+  """
   Represents a 'pinned' event on a given issue or pull request.
   """
   PINNED_EVENT
@@ -39604,6 +39715,16 @@ enum PullRequestTimelineItemsItemType {
   Represents a 'subscribed' event on a given `Subscribable`.
   """
   SUBSCRIBED_EVENT
+
+  """
+  Represents a 'sub_issue_added' event on a given issue.
+  """
+  SUB_ISSUE_ADDED_EVENT
+
+  """
+  Represents a 'sub_issue_removed' event on a given issue.
+  """
+  SUB_ISSUE_REMOVED_EVENT
 
   """
   Represents a 'transferred' event on a given issue or pull request.
@@ -54508,6 +54629,56 @@ type StripeConnectAccount {
   The URL to access this Stripe Connect account on Stripe's website.
   """
   stripeDashboardUrl: URI!
+}
+
+"""
+Represents a 'sub_issue_added' event on a given issue.
+"""
+type SubIssueAddedEvent implements Node {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The Node ID of the SubIssueAddedEvent object
+  """
+  id: ID!
+
+  """
+  The sub-issue added.
+  """
+  subIssue: Issue
+}
+
+"""
+Represents a 'sub_issue_removed' event on a given issue.
+"""
+type SubIssueRemovedEvent implements Node {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The Node ID of the SubIssueRemovedEvent object
+  """
+  id: ID!
+
+  """
+  The sub-issue removed.
+  """
+  subIssue: Issue
 }
 
 """
