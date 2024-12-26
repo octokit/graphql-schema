@@ -9,7 +9,7 @@
 ### Validation
 
 ```js
-const { validate } = require("@octokit/graphql-schema");
+import { validate } from "@octokit/graphql-schema";
 const errors = validate(`
 {
   viewer {
@@ -24,7 +24,7 @@ const errors = validate(`
 You can also load the current Schema directly as JSON or [IDL](https://en.wikipedia.org/wiki/Interface_description_language).
 
 ```js
-const { schema } = require("@octokit/graphql-schema");
+import { schema } from "@octokit/graphql-schema";
 schema.json; // JSON version
 schema.idl; // IDL version
 ```
