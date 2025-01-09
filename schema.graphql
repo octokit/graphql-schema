@@ -10209,6 +10209,11 @@ type DependencyGraphDependency {
   packageName: String!
 
   """
+  Public preview: The relationship of the dependency. Can be direct, transitive, or unknown
+  """
+  relationship: String!
+
+  """
   The repository containing the package
   """
   repository: Repository
