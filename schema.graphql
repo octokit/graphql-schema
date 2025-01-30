@@ -1282,31 +1282,6 @@ type AnnouncementBanner {
 }
 
 """
-An announcement banner for an enterprise or organization.
-"""
-type AnnouncementBanner {
-  """
-  The date the announcement was created
-  """
-  createdAt: DateTime!
-
-  """
-  The expiration date of the announcement, if any
-  """
-  expiresAt: DateTime
-
-  """
-  Whether the announcement can be dismissed by the user
-  """
-  isUserDismissible: Boolean!
-
-  """
-  The text of the announcement
-  """
-  message: String
-}
-
-"""
 Represents an announcement banner.
 """
 interface AnnouncementBannerI {
@@ -15014,6 +14989,46 @@ type EnterpriseOwnerInfo {
 
   """
   The setting value for whether deploy keys are enabled for repositories in organizations in this enterprise.
+  """
+  repositoryDeployKeySetting: EnterpriseEnabledDisabledSettingValue!
+
+  """
+  A list of enterprise organizations configured with the provided deploy keys setting value.
+  """
+  repositoryDeployKeySettingOrganizations(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for organizations with this setting.
+    """
+    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+
+    """
+    The setting value to find organizations for.
+    """
+    value: Boolean!
+  ): OrganizationConnection!
+
+  """
+  The setting value for whether repository projects are enabled in this enterprise.
   """
   repositoryDeployKeySetting: EnterpriseEnabledDisabledSettingValue!
 
