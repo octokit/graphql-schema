@@ -34519,6 +34519,11 @@ enum ProjectV2FieldType {
   NUMBER
 
   """
+  Parent issue
+  """
+  PARENT_ISSUE
+
+  """
   Repository
   """
   REPOSITORY
@@ -34532,6 +34537,11 @@ enum ProjectV2FieldType {
   Single Select
   """
   SINGLE_SELECT
+
+  """
+  Sub-issues progress
+  """
+  SUB_ISSUES_PROGRESS
 
   """
   Text
