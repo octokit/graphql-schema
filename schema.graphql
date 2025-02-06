@@ -15153,46 +15153,6 @@ type EnterpriseOwnerInfo {
   ): OrganizationConnection!
 
   """
-  The setting value for whether repository projects are enabled in this enterprise.
-  """
-  repositoryDeployKeySetting: EnterpriseEnabledDisabledSettingValue!
-
-  """
-  A list of enterprise organizations configured with the provided deploy keys setting value.
-  """
-  repositoryDeployKeySettingOrganizations(
-    """
-    Returns the elements in the list that come after the specified cursor.
-    """
-    after: String
-
-    """
-    Returns the elements in the list that come before the specified cursor.
-    """
-    before: String
-
-    """
-    Returns the first _n_ elements from the list.
-    """
-    first: Int
-
-    """
-    Returns the last _n_ elements from the list.
-    """
-    last: Int
-
-    """
-    Ordering options for organizations with this setting.
-    """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
-
-    """
-    The setting value to find organizations for.
-    """
-    value: Boolean!
-  ): OrganizationConnection!
-
-  """
   The setting value for what methods of two-factor authentication the enterprise prevents its users from having.
   """
   twoFactorDisallowedMethodsSetting: EnterpriseDisallowedMethodsSettingValue!
@@ -21359,7 +21319,7 @@ input MaxFilePathLengthParametersInput {
 }
 
 """
-Prevent commits that exceed a specified file size limit from being pushed to the commit.
+Prevent commits that exceed a specified file size limit from being pushed to the commit graph.
 """
 type MaxFileSizeParameters {
   """
@@ -21369,7 +21329,7 @@ type MaxFileSizeParameters {
 }
 
 """
-Prevent commits that exceed a specified file size limit from being pushed to the commit.
+Prevent commits that exceed a specified file size limit from being pushed to the commit graph.
 """
 input MaxFileSizeParametersInput {
   """
@@ -48010,7 +47970,7 @@ enum RepositoryRuleType {
   MAX_FILE_PATH_LENGTH
 
   """
-  Prevent commits that exceed a specified file size limit from being pushed to the commit.
+  Prevent commits that exceed a specified file size limit from being pushed to the commit graph.
   """
   MAX_FILE_SIZE
 
