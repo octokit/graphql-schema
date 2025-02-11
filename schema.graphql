@@ -15153,6 +15153,46 @@ type EnterpriseOwnerInfo {
   ): OrganizationConnection!
 
   """
+  The setting value for whether repository projects are enabled in this enterprise.
+  """
+  repositoryDeployKeySetting: EnterpriseEnabledDisabledSettingValue!
+
+  """
+  A list of enterprise organizations configured with the provided deploy keys setting value.
+  """
+  repositoryDeployKeySettingOrganizations(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for organizations with this setting.
+    """
+    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+
+    """
+    The setting value to find organizations for.
+    """
+    value: Boolean!
+  ): OrganizationConnection!
+
+  """
   The setting value for what methods of two-factor authentication the enterprise prevents its users from having.
   """
   twoFactorDisallowedMethodsSetting: EnterpriseDisallowedMethodsSettingValue!
@@ -18611,7 +18651,7 @@ type Issue implements Assignable & Closable & Comment & Deletable & Labelable & 
     orderBy: ProjectV2Order = {field: NUMBER, direction: DESC}
 
     """
-    A project to search for under the the owner.
+    A project to search for under the owner.
     """
     query: String
   ): ProjectV2Connection!
@@ -29907,7 +29947,7 @@ type Organization implements Actor & AnnouncementBannerI & MemberStatusable & No
     orderBy: ProjectV2Order = {field: NUMBER, direction: DESC}
 
     """
-    A project to search for under the the owner.
+    A project to search for under the owner.
     """
     query: String
   ): ProjectV2Connection!
@@ -35473,7 +35513,7 @@ interface ProjectV2Owner {
     orderBy: ProjectV2Order = {field: NUMBER, direction: DESC}
 
     """
-    A project to search for under the the owner.
+    A project to search for under the owner.
     """
     query: String
   ): ProjectV2Connection!
@@ -37279,7 +37319,7 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     orderBy: ProjectV2Order = {field: NUMBER, direction: DESC}
 
     """
-    A project to search for under the the owner.
+    A project to search for under the owner.
     """
     query: String
   ): ProjectV2Connection!
@@ -62107,7 +62147,7 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
     orderBy: ProjectV2Order = {field: NUMBER, direction: DESC}
 
     """
-    A project to search for under the the owner.
+    A project to search for under the owner.
     """
     query: String
   ): ProjectV2Connection!
