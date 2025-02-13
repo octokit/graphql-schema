@@ -7937,6 +7937,11 @@ input CreateProjectV2FieldInput {
   dataType: ProjectV2CustomFieldType!
 
   """
+  Configuration for an iteration field.
+  """
+  iterationConfiguration: ProjectV2IterationFieldConfigurationInput
+
+  """
   The name of the field.
   """
   name: String!
@@ -15035,12 +15040,12 @@ type EnterpriseOwnerInfo {
   """
   The setting value for whether repository projects are enabled in this enterprise.
   """
-  repositoryDeployKeySetting: EnterpriseEnabledDisabledSettingValue!
+  repositoryProjectsSetting: EnterpriseEnabledDisabledSettingValue!
 
   """
-  A list of enterprise organizations configured with the provided deploy keys setting value.
+  A list of enterprise organizations configured with the provided repository projects setting value.
   """
-  repositoryDeployKeySettingOrganizations(
+  repositoryProjectsSettingOrganizations(
     """
     Returns the elements in the list that come after the specified cursor.
     """
@@ -15073,14 +15078,14 @@ type EnterpriseOwnerInfo {
   ): OrganizationConnection!
 
   """
-  The setting value for whether repository projects are enabled in this enterprise.
+  The SAML Identity Provider for the enterprise.
   """
-  repositoryDeployKeySetting: EnterpriseEnabledDisabledSettingValue!
+  samlIdentityProvider: EnterpriseIdentityProvider
 
   """
-  A list of enterprise organizations configured with the provided deploy keys setting value.
+  A list of enterprise organizations configured with the SAML single sign-on setting value.
   """
-  repositoryDeployKeySettingOrganizations(
+  samlIdentityProviderSettingOrganizations(
     """
     Returns the elements in the list that come after the specified cursor.
     """
@@ -15109,18 +15114,13 @@ type EnterpriseOwnerInfo {
     """
     The setting value to find organizations for.
     """
-    value: Boolean!
+    value: IdentityProviderConfigurationState!
   ): OrganizationConnection!
 
   """
-  The setting value for whether repository projects are enabled in this enterprise.
+  A list of members with a support entitlement.
   """
-  repositoryDeployKeySetting: EnterpriseEnabledDisabledSettingValue!
-
-  """
-  A list of enterprise organizations configured with the provided deploy keys setting value.
-  """
-  repositoryDeployKeySettingOrganizations(
+  supportEntitlements(
     """
     Returns the elements in the list that come after the specified cursor.
     """
@@ -15142,18 +15142,13 @@ type EnterpriseOwnerInfo {
     last: Int
 
     """
-    Ordering options for organizations with this setting.
+    Ordering options for support entitlement users returned from the connection.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
-
-    """
-    The setting value to find organizations for.
-    """
-    value: Boolean!
-  ): OrganizationConnection!
+    orderBy: EnterpriseMemberOrder = {field: LOGIN, direction: ASC}
+  ): EnterpriseMemberConnection!
 
   """
-  The setting value for whether repository projects are enabled in this enterprise.
+  The setting value for whether team discussions are enabled for organizations in this enterprise.
   """
   repositoryDeployKeySetting: EnterpriseEnabledDisabledSettingValue!
 
@@ -34219,6 +34214,11 @@ enum ProjectV2CustomFieldType {
   DATE
 
   """
+  Iteration
+  """
+  ITERATION
+
+  """
   Number
   """
   NUMBER
@@ -35320,6 +35320,26 @@ enum ProjectV2ItemType {
 }
 
 """
+Represents an iteration
+"""
+input ProjectV2Iteration {
+  """
+  The duration of the iteration, in days.
+  """
+  duration: Int!
+
+  """
+  The start date for the iteration.
+  """
+  startDate: Date!
+
+  """
+  The title for the iteration.
+  """
+  title: String!
+}
+
+"""
 An iteration field inside a project.
 """
 type ProjectV2IterationField implements Node & ProjectV2FieldCommon {
@@ -35387,6 +35407,26 @@ type ProjectV2IterationFieldConfiguration {
   The iteration's start day of the week
   """
   startDay: Int!
+}
+
+"""
+Represents an iteration field configuration.
+"""
+input ProjectV2IterationFieldConfigurationInput {
+  """
+  The duration of each iteration, in days.
+  """
+  duration: Int!
+
+  """
+  Zero or more iterations for the field.
+  """
+  iterations: [ProjectV2Iteration!]!
+
+  """
+  The start date for the first iteration.
+  """
+  startDate: Date!
 }
 
 """
@@ -60249,6 +60289,11 @@ input UpdateProjectV2FieldInput {
   The ID of the field to update.
   """
   fieldId: ID!
+
+  """
+  Configuration for an iteration field.
+  """
+  iterationConfiguration: ProjectV2IterationFieldConfigurationInput
 
   """
   The name to update.
