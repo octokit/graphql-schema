@@ -15150,12 +15150,12 @@ type EnterpriseOwnerInfo {
   """
   The setting value for whether team discussions are enabled for organizations in this enterprise.
   """
-  repositoryDeployKeySetting: EnterpriseEnabledDisabledSettingValue!
+  teamDiscussionsSetting: EnterpriseEnabledDisabledSettingValue!
 
   """
-  A list of enterprise organizations configured with the provided deploy keys setting value.
+  A list of enterprise organizations configured with the provided team discussions setting value.
   """
-  repositoryDeployKeySettingOrganizations(
+  teamDiscussionsSettingOrganizations(
     """
     Returns the elements in the list that come after the specified cursor.
     """
