@@ -1243,7 +1243,7 @@ type AddedToProjectEvent implements Node {
   """
   Project referenced by event.
   """
-  project: Project
+  project: Project @deprecated(reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC.")
 
   """
   Project card referenced by this project event.
@@ -6848,7 +6848,7 @@ type ConvertedNoteToIssueEvent implements Node {
   """
   Project referenced by event.
   """
-  project: Project
+  project: Project @deprecated(reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC.")
 
   """
   Project card referenced by this project event.
@@ -18569,7 +18569,7 @@ type Issue implements Assignable & Closable & Comment & Deletable & Labelable & 
     Returns the last _n_ elements from the list.
     """
     last: Int
-  ): ProjectCardConnection!
+  ): ProjectCardConnection! @deprecated(reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC.")
 
   """
   List of project items associated with this issue.
@@ -23056,7 +23056,7 @@ type MovedColumnsInProjectEvent implements Node {
   """
   Project referenced by event.
   """
-  project: Project
+  project: Project @deprecated(reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC.")
 
   """
   Project card referenced by this project event.
@@ -30661,7 +30661,7 @@ type Organization implements Actor & AnnouncementBannerI & MemberStatusable & No
   """
   Can the current viewer create new projects on this owner.
   """
-  viewerCanCreateProjects: Boolean!
+  viewerCanCreateProjects: Boolean! @deprecated(reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC.")
 
   """
   Viewer can create repositories on this organization
@@ -33291,12 +33291,12 @@ enum ProjectCardArchivedState {
   """
   A project card that is archived
   """
-  ARCHIVED
+  ARCHIVED @deprecated(reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC.")
 
   """
   A project card that is not archived
   """
-  NOT_ARCHIVED
+  NOT_ARCHIVED @deprecated(reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC.")
 }
 
 """
@@ -33621,7 +33621,7 @@ interface ProjectOwner {
   """
   The Node ID of the ProjectOwner object
   """
-  id: ID!
+  id: ID! @deprecated(reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC.")
 
   """
   Find project by number.
@@ -33676,17 +33676,17 @@ interface ProjectOwner {
   """
   The HTTP path listing owners projects
   """
-  projectsResourcePath: URI!
+  projectsResourcePath: URI! @deprecated(reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC.")
 
   """
   The HTTP URL listing owners projects
   """
-  projectsUrl: URI!
+  projectsUrl: URI! @deprecated(reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC.")
 
   """
   Can the current viewer create new projects on this owner.
   """
-  viewerCanCreateProjects: Boolean!
+  viewerCanCreateProjects: Boolean! @deprecated(reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC.")
 }
 
 """
@@ -37282,7 +37282,7 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     Returns the last _n_ elements from the list.
     """
     last: Int
-  ): ProjectCardConnection!
+  ): ProjectCardConnection! @deprecated(reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC.")
 
   """
   List of project items associated with this pull request.
@@ -42235,7 +42235,7 @@ type RemovedFromProjectEvent implements Node {
   """
   Project referenced by event.
   """
-  project: Project
+  project: Project @deprecated(reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC.")
 
   """
   Column name referenced by this project event.
@@ -46465,7 +46465,7 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   """
   Can the current viewer create new projects on this owner.
   """
-  viewerCanCreateProjects: Boolean!
+  viewerCanCreateProjects: Boolean! @deprecated(reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC.")
 
   """
   Check if the viewer is able to change their subscription status for the repository.
@@ -62993,7 +62993,7 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   """
   Can the current viewer create new projects on this owner.
   """
-  viewerCanCreateProjects: Boolean!
+  viewerCanCreateProjects: Boolean! @deprecated(reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC.")
 
   """
   Whether or not the viewer is able to follow the user.
