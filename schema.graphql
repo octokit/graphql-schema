@@ -48780,6 +48780,11 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   dependabotUpdate: DependabotUpdate
 
   """
+  The relationship of an alert's dependency.
+  """
+  dependencyRelationship: RepositoryVulnerabilityAlertDependencyRelationship
+
+  """
   The scope of an alert's dependency
   """
   dependencyScope: RepositoryVulnerabilityAlertDependencyScope
@@ -48878,6 +48883,26 @@ type RepositoryVulnerabilityAlertConnection {
   Identifies the total count of items in the connection.
   """
   totalCount: Int!
+}
+
+"""
+The possible relationships of an alert's dependency.
+"""
+enum RepositoryVulnerabilityAlertDependencyRelationship {
+  """
+  A direct dependency of your project
+  """
+  DIRECT
+
+  """
+  A transitive dependency of your project
+  """
+  TRANSITIVE
+
+  """
+  The relationship is unknown
+  """
+  UNKNOWN
 }
 
 """
