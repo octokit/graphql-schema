@@ -50194,6 +50194,11 @@ enum SearchType {
   ISSUE
 
   """
+  Returns results matching issues in repositories.
+  """
+  ISSUE_ADVANCED @deprecated(reason: "Search for issues and pull requests will be overridden by advanced search on September 4, 2025. Removal on 2025-09-04 UTC.")
+
+  """
   Returns results matching repositories.
   """
   REPOSITORY
