@@ -22607,6 +22607,11 @@ type Milestone implements Closable & Node & UniformResourceLocatable {
   description: String
 
   """
+  The HTML rendered description of the milestone using GitHub Flavored Markdown.
+  """
+  descriptionHTML: String
+
+  """
   Identifies the due date of the milestone.
   """
   dueOn: DateTime
