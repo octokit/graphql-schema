@@ -20679,6 +20679,11 @@ enum LabelOrderField {
   CREATED_AT
 
   """
+  Order labels by issue count
+  """
+  ISSUE_COUNT
+
+  """
   Order labels by name 
   """
   NAME
