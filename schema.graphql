@@ -6370,7 +6370,8 @@ input ContributionOrder {
 }
 
 """
-A contributions collection aggregates contributions such as opened issues and commits created by a user.
+A collection of contributions made by a user, including opened issues, commits, and pull requests.
+Contributions in private and internal repositories are only included with the optional read:user scope.
 """
 type ContributionsCollection {
   """
