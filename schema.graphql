@@ -4549,7 +4549,7 @@ type ClosedEvent implements Node & UniformResourceLocatable {
   """
   The reason the issue state was changed to closed.
   """
-  stateReason: IssueStateReason
+  stateReason: IssueStateReason @deprecated(reason: "The state reason for duplicate issue is now returned by default. Removal on 2025-10-01 UTC.")
 
   """
   The HTTP URL for this closed event.
@@ -18946,7 +18946,7 @@ type Issue implements Assignable & Closable & Comment & Deletable & Labelable & 
     Whether or not to return state reason for duplicates
     """
     enableDuplicate: Boolean = false
-  ): IssueStateReason
+  ): IssueStateReason @deprecated(reason: "The state reason for duplicate issue is now returned by default. Removal on 2025-10-01 UTC.")
 
   """
   A list of sub-issues associated with the Issue.
@@ -19747,8 +19747,7 @@ enum IssueStateReason {
   COMPLETED
 
   """
-  An issue that has been closed as a duplicate. To retrieve this value, set
-  `(enableDuplicate: true)` when querying the stateReason field.
+  An issue that has been closed as a duplicate.
   """
   DUPLICATE
 
