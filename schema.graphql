@@ -20126,6 +20126,11 @@ enum IssueTimelineItemsItemType {
   ASSIGNED_EVENT
 
   """
+  Represents a 'blocked_by_added' event on a given issue.
+  """
+  BLOCKED_BY_ADDED_EVENT
+
+  """
   Represents a 'closed' event on any `Closable`.
   """
   CLOSED_EVENT
@@ -40390,6 +40395,11 @@ enum PullRequestTimelineItemsItemType {
   Represents a 'base_ref_force_pushed' event on a given pull request.
   """
   BASE_REF_FORCE_PUSHED_EVENT
+
+  """
+  Represents a 'blocked_by_added' event on a given issue.
+  """
+  BLOCKED_BY_ADDED_EVENT
 
   """
   Represents a 'closed' event on any `Closable`.
