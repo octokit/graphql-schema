@@ -54208,6 +54208,11 @@ enum SponsorsCountryOrRegionCode {
   SX
 
   """
+  Syria
+  """
+  SY
+
+  """
   Swaziland
   """
   SZ
