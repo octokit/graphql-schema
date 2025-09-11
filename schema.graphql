@@ -49589,6 +49589,11 @@ enum RepositoryRulesetBypassActorBypassMode {
   ALWAYS
 
   """
+  The actor is exempt from rules without generating a pass / fail result
+  """
+  EXEMPT
+
+  """
   The actor can only bypass rules via a pull request
   """
   PULL_REQUEST
