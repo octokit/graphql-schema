@@ -11828,7 +11828,7 @@ type Discussion implements Closable & Comment & Deletable & Labelable & Lockable
   answerChosenBy: Actor
 
   """
-  The actor who authored the comment.
+  The actor who authored the discussion.
   """
   author: Actor
 
