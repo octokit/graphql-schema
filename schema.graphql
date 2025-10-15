@@ -19949,6 +19949,16 @@ type IssueDependenciesSummary {
   Count of issues this issue is blocking
   """
   blocking: Int!
+
+  """
+  Total count of issues this issue is blocked by (open and closed)
+  """
+  totalBlockedBy: Int!
+
+  """
+  Total count of issues this issue is blocking (open and closed)
+  """
+  totalBlocking: Int!
 }
 
 """
