@@ -61967,7 +61967,9 @@ input UpdateProjectV2FieldInput {
   fieldId: ID!
 
   """
-  Configuration for an iteration field.
+  Configuration for a field of type ITERATION. Empty input is ignored, provided
+  values overwrite the existing configuration, and existing configuration should
+  be fetched for partial updates.
   """
   iterationConfiguration: ProjectV2IterationFieldConfigurationInput
 
@@ -61977,9 +61979,9 @@ input UpdateProjectV2FieldInput {
   name: String
 
   """
-  Options for a field of type SINGLE_SELECT. If empty, no changes will be made
-  to the options. If values are present, they will overwrite the existing
-  options for the field.
+  Options for a field of type SINGLE_SELECT. Empty input is ignored, provided
+  values overwrite existing options, and existing options should be fetched for
+  partial updates.
   """
   singleSelectOptions: [ProjectV2SingleSelectFieldOptionInput!]
 }
