@@ -50501,6 +50501,11 @@ enum RepositoryVulnerabilityAlertDependencyRelationship {
   DIRECT
 
   """
+  The relationship could not be determined
+  """
+  INCONCLUSIVE
+
+  """
   A transitive dependency of your project
   """
   TRANSITIVE
