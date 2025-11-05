@@ -8056,6 +8056,11 @@ input CreateIssueInput {
   projectIds: [ID!]
 
   """
+  An array of Node IDs for Projects V2 associated with this issue.
+  """
+  projectV2Ids: [ID!]
+
+  """
   The Node ID of the repository.
   """
   repositoryId: ID!
