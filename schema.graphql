@@ -338,7 +338,7 @@ input AddAssigneesToAssignableInput {
   assignableId: ID!
 
   """
-  The id of users to add as assignees.
+  The ids of actors (users or bots) to add as assignees.
   """
   assigneeIds: [ID!]!
 
