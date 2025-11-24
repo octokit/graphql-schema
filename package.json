@@ -5,7 +5,7 @@
     "access": "public",
     "provenance": true
   },
-  "description": "GitHubâs GraphQL Schema with validation. Automatically updated.",
+  "description": "GitHub's GraphQL Schema with validation. Automatically updated.",
   "type": "module",
   "scripts": {
     "lint": "prettier --check '{bin,lib,test}/**/*.{js,ts}' *.md package.json",
@@ -71,6 +71,11 @@
     }
   },
   "main": "index.js",
+  "files": [
+    "lib",
+    "index.*",
+    "schema.*"
+  ],
   "exports": {
     ".": {
       "types": "./index.d.ts",
