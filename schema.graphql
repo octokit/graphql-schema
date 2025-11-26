@@ -20460,6 +20460,21 @@ enum IssueTimelineItemsItemType {
   ISSUE_COMMENT
 
   """
+  Represents a 'issue_field_added' event on a given issue.
+  """
+  ISSUE_FIELD_ADDED_EVENT
+
+  """
+  Represents a 'issue_field_changed' event on a given issue.
+  """
+  ISSUE_FIELD_CHANGED_EVENT
+
+  """
+  Represents a 'issue_field_removed' event on a given issue.
+  """
+  ISSUE_FIELD_REMOVED_EVENT
+
+  """
   Represents a 'issue_type_added' event on a given issue.
   """
   ISSUE_TYPE_ADDED_EVENT
@@ -40972,6 +40987,21 @@ enum PullRequestTimelineItemsItemType {
   Represents a comment on an Issue.
   """
   ISSUE_COMMENT
+
+  """
+  Represents a 'issue_field_added' event on a given issue.
+  """
+  ISSUE_FIELD_ADDED_EVENT
+
+  """
+  Represents a 'issue_field_changed' event on a given issue.
+  """
+  ISSUE_FIELD_CHANGED_EVENT
+
+  """
+  Represents a 'issue_field_removed' event on a given issue.
+  """
+  ISSUE_FIELD_REMOVED_EVENT
 
   """
   Represents a 'issue_type_added' event on a given issue.
