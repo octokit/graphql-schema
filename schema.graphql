@@ -43200,7 +43200,7 @@ input RemoveAssigneesFromAssignableInput {
   assignableId: ID!
 
   """
-  The id of users to remove as assignees.
+  The ids of actors to remove as assignees.
   """
   assigneeIds: [ID!]!
 
