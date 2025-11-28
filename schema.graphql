@@ -41323,6 +41323,8 @@ type PushAllowanceEdge {
 The query root of GitHub's GraphQL interface.
 """
 type Query implements Node {
+  _entities(representations: [_Any!]!): [_Entity]!
+
   """
   Look up a code of conduct by its key
   """
@@ -66283,3 +66285,7 @@ input WorkflowsParametersInput {
 A valid x509 certificate string
 """
 scalar X509Certificate
+
+scalar _Any
+
+union _Entity = Issue
