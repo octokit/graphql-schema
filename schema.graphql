@@ -20505,6 +20505,16 @@ enum IssueTimelineItemsItemType {
   ISSUE_COMMENT
 
   """
+  Represents a 'issue_comment_pinned' event on a given issue.
+  """
+  ISSUE_COMMENT_PINNED_EVENT
+
+  """
+  Represents a 'issue_comment_unpinned' event on a given issue.
+  """
+  ISSUE_COMMENT_UNPINNED_EVENT
+
+  """
   Represents a 'issue_field_added' event on a given issue.
   """
   ISSUE_FIELD_ADDED_EVENT
@@ -41103,6 +41113,16 @@ enum PullRequestTimelineItemsItemType {
   Represents a comment on an Issue.
   """
   ISSUE_COMMENT
+
+  """
+  Represents a 'issue_comment_pinned' event on a given issue.
+  """
+  ISSUE_COMMENT_PINNED_EVENT
+
+  """
+  Represents a 'issue_comment_unpinned' event on a given issue.
+  """
+  ISSUE_COMMENT_UNPINNED_EVENT
 
   """
   Represents a 'issue_field_added' event on a given issue.
