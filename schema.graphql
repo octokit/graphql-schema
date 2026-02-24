@@ -8683,6 +8683,11 @@ input CreateRepositoryCustomPropertyInput {
   regex: String
 
   """
+  Whether this repository custom property requires explicit values.
+  """
+  requireExplicitValues: Boolean
+
+  """
   Whether the custom property is required.
   """
   required: Boolean
@@ -48714,6 +48719,11 @@ type RepositoryCustomProperty implements Node {
   regex: String
 
   """
+  Whether this repository custom property requires explicit values.
+  """
+  requireExplicitValues: Boolean
+
+  """
   Whether the custom property is required.
   """
   required: Boolean
@@ -62614,6 +62624,11 @@ input UpdateRepositoryCustomPropertyInput {
   The global relay id of the source of the custom property.
   """
   repositoryCustomPropertyId: ID!
+
+  """
+  Whether this repository custom property requires explicit values.
+  """
+  requireExplicitValues: Boolean
 
   """
   Whether the updated custom property is required.
