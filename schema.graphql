@@ -19403,6 +19403,11 @@ type Issue implements Assignable & Closable & Comment & Deletable & Labelable & 
   ): UserConnection!
 
   """
+  The pinned comment for this issue.
+  """
+  pinnedIssueComment: PinnedIssueComment
+
+  """
   List of project cards associated with this issue.
   """
   projectCards(
@@ -19910,7 +19915,7 @@ enum IssueClosedStateReason {
 """
 Represents a comment on an Issue.
 """
-type IssueComment implements Comment & Deletable & Minimizable & Node & Reactable & RepositoryNode & Updatable & UpdatableComment {
+type IssueComment implements Comment & Deletable & Minimizable & Node & Pinnable & Reactable & RepositoryNode & Updatable & UpdatableComment {
   """
   The actor who authored the comment.
   """
@@ -19977,6 +19982,11 @@ type IssueComment implements Comment & Deletable & Minimizable & Node & Reactabl
   isMinimized: Boolean!
 
   """
+  Indicates whether or not this entity is currently pinned.
+  """
+  isPinned: Boolean
+
+  """
   Identifies the issue associated with the comment.
   """
   issue: Issue!
@@ -19992,6 +20002,16 @@ type IssueComment implements Comment & Deletable & Minimizable & Node & Reactabl
   formatting of these values differs from the inputs to the `MinimizeComment` mutation.
   """
   minimizedReason: String
+
+  """
+  Identifies the date and time when this entity was pinned.
+  """
+  pinnedAt: DateTime
+
+  """
+  The user who pinned this entity.
+  """
+  pinnedBy: User
 
   """
   Identifies when the comment was published at.
@@ -20100,6 +20120,11 @@ type IssueComment implements Comment & Deletable & Minimizable & Node & Reactabl
   viewerCanMinimize: Boolean!
 
   """
+  Check if the current viewer can pin this entity.
+  """
+  viewerCanPin: Boolean!
+
+  """
   Can user react to this subject
   """
   viewerCanReact: Boolean!
@@ -20108,6 +20133,11 @@ type IssueComment implements Comment & Deletable & Minimizable & Node & Reactabl
   Check if the current viewer can unminimize this object.
   """
   viewerCanUnminimize: Boolean!
+
+  """
+  Check if the current viewer can unpin this entity.
+  """
+  viewerCanUnpin: Boolean!
 
   """
   Check if the current viewer can update this object.
@@ -20188,6 +20218,56 @@ enum IssueCommentOrderField {
   Order issue comments by update time
   """
   UPDATED_AT
+}
+
+"""
+Represents a 'issue_comment_pinned' event on a given issue.
+"""
+type IssueCommentPinnedEvent implements Node {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The Node ID of the IssueCommentPinnedEvent object
+  """
+  id: ID!
+
+  """
+  Identifies the issue comment associated with the 'issue_comment_pinned' event.
+  """
+  issueComment: IssueComment
+}
+
+"""
+Represents a 'issue_comment_unpinned' event on a given issue.
+"""
+type IssueCommentUnpinnedEvent implements Node {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The Node ID of the IssueCommentUnpinnedEvent object
+  """
+  id: ID!
+
+  """
+  Identifies the issue comment associated with the 'issue_comment_unpinned' event.
+  """
+  issueComment: IssueComment
 }
 
 """
@@ -21173,7 +21253,7 @@ type IssueTimelineItemEdge {
 """
 An item in an issue timeline
 """
-union IssueTimelineItems = AddedToProjectEvent | AddedToProjectV2Event | AssignedEvent | BlockedByAddedEvent | BlockedByRemovedEvent | BlockingAddedEvent | BlockingRemovedEvent | ClosedEvent | CommentDeletedEvent | ConnectedEvent | ConvertedFromDraftEvent | ConvertedNoteToIssueEvent | ConvertedToDiscussionEvent | CrossReferencedEvent | DemilestonedEvent | DisconnectedEvent | IssueComment | IssueTypeAddedEvent | IssueTypeChangedEvent | IssueTypeRemovedEvent | LabeledEvent | LockedEvent | MarkedAsDuplicateEvent | MentionedEvent | MilestonedEvent | MovedColumnsInProjectEvent | ParentIssueAddedEvent | ParentIssueRemovedEvent | PinnedEvent | ProjectV2ItemStatusChangedEvent | ReferencedEvent | RemovedFromProjectEvent | RemovedFromProjectV2Event | RenamedTitleEvent | ReopenedEvent | SubIssueAddedEvent | SubIssueRemovedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | UserBlockedEvent
+union IssueTimelineItems = AddedToProjectEvent | AddedToProjectV2Event | AssignedEvent | BlockedByAddedEvent | BlockedByRemovedEvent | BlockingAddedEvent | BlockingRemovedEvent | ClosedEvent | CommentDeletedEvent | ConnectedEvent | ConvertedFromDraftEvent | ConvertedNoteToIssueEvent | ConvertedToDiscussionEvent | CrossReferencedEvent | DemilestonedEvent | DisconnectedEvent | IssueComment | IssueCommentPinnedEvent | IssueCommentUnpinnedEvent | IssueTypeAddedEvent | IssueTypeChangedEvent | IssueTypeRemovedEvent | LabeledEvent | LockedEvent | MarkedAsDuplicateEvent | MentionedEvent | MilestonedEvent | MovedColumnsInProjectEvent | ParentIssueAddedEvent | ParentIssueRemovedEvent | PinnedEvent | ProjectV2ItemStatusChangedEvent | ReferencedEvent | RemovedFromProjectEvent | RemovedFromProjectV2Event | RenamedTitleEvent | ReopenedEvent | SubIssueAddedEvent | SubIssueRemovedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | UserBlockedEvent
 
 """
 The connection type for IssueTimelineItems.
@@ -26427,6 +26507,16 @@ type Mutation {
   ): PinIssuePayload
 
   """
+  Pins an Issue Comment.
+  """
+  pinIssueComment(
+    """
+    Parameters for PinIssueComment
+    """
+    input: PinIssueCommentInput!
+  ): PinIssueCommentPayload
+
+  """
   Promote a repository custom property to the enterprise level.
   """
   promoteRepositoryCustomProperty(
@@ -26996,6 +27086,16 @@ type Mutation {
     """
     input: UnpinIssueInput!
   ): UnpinIssuePayload
+
+  """
+  Unpins an Issue Comment.
+  """
+  unpinIssueComment(
+    """
+    Parameters for UnpinIssueComment
+    """
+    input: UnpinIssueCommentInput!
+  ): UnpinIssueCommentPayload
 
   """
   Marks a review thread as unresolved.
@@ -34372,6 +34472,36 @@ type PinEnvironmentPayload {
 }
 
 """
+Autogenerated input type of PinIssueComment
+"""
+input PinIssueCommentInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The ID of the Issue Comment to pin. Comment pinning is not supported on Pull Requests.
+  """
+  issueCommentId: ID!
+}
+
+"""
+Autogenerated return type of PinIssueComment.
+"""
+type PinIssueCommentPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The Issue Comment that was pinned
+  """
+  issueComment: IssueComment
+}
+
+"""
 Autogenerated input type of PinIssue
 """
 input PinIssueInput {
@@ -34399,6 +34529,36 @@ type PinIssuePayload {
   The issue that was pinned
   """
   issue: Issue
+}
+
+"""
+Entities that can be pinned.
+"""
+interface Pinnable {
+  """
+  Indicates whether or not this entity is currently pinned.
+  """
+  isPinned: Boolean
+
+  """
+  Identifies the date and time when this entity was pinned.
+  """
+  pinnedAt: DateTime
+
+  """
+  The user who pinned this entity.
+  """
+  pinnedBy: User
+
+  """
+  Check if the current viewer can pin this entity.
+  """
+  viewerCanPin: Boolean!
+
+  """
+  Check if the current viewer can unpin this entity.
+  """
+  viewerCanUnpin: Boolean!
 }
 
 """
@@ -34809,6 +34969,46 @@ type PinnedIssue implements Node {
   The repository that this issue was pinned to.
   """
   repository: Repository!
+}
+
+"""
+A comment pinned to an Issue.
+"""
+type PinnedIssueComment implements Node {
+  """
+  Identifies the primary key from the database.
+  """
+  databaseId: Int
+
+  """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
+
+  """
+  The Node ID of the PinnedIssueComment object
+  """
+  id: ID!
+
+  """
+  The issue that this comment belongs to.
+  """
+  issue: Issue!
+
+  """
+  The comment that was pinned.
+  """
+  issueComment: IssueComment!
+
+  """
+  Identifies when the comment was pinned.
+  """
+  pinnedAt: DateTime!
+
+  """
+  The actor that pinned this comment.
+  """
+  pinnedBy: Actor!
 }
 
 """
@@ -41838,7 +42038,7 @@ type PullRequestTimelineItemEdge {
 """
 An item in a pull request timeline
 """
-union PullRequestTimelineItems = AddedToMergeQueueEvent | AddedToProjectEvent | AddedToProjectV2Event | AssignedEvent | AutoMergeDisabledEvent | AutoMergeEnabledEvent | AutoRebaseEnabledEvent | AutoSquashEnabledEvent | AutomaticBaseChangeFailedEvent | AutomaticBaseChangeSucceededEvent | BaseRefChangedEvent | BaseRefDeletedEvent | BaseRefForcePushedEvent | BlockedByAddedEvent | BlockedByRemovedEvent | BlockingAddedEvent | BlockingRemovedEvent | ClosedEvent | CommentDeletedEvent | ConnectedEvent | ConvertToDraftEvent | ConvertedFromDraftEvent | ConvertedNoteToIssueEvent | ConvertedToDiscussionEvent | CrossReferencedEvent | DemilestonedEvent | DeployedEvent | DeploymentEnvironmentChangedEvent | DisconnectedEvent | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IssueComment | IssueTypeAddedEvent | IssueTypeChangedEvent | IssueTypeRemovedEvent | LabeledEvent | LockedEvent | MarkedAsDuplicateEvent | MentionedEvent | MergedEvent | MilestonedEvent | MovedColumnsInProjectEvent | ParentIssueAddedEvent | ParentIssueRemovedEvent | PinnedEvent | ProjectV2ItemStatusChangedEvent | PullRequestCommit | PullRequestCommitCommentThread | PullRequestReview | PullRequestReviewThread | PullRequestRevisionMarker | ReadyForReviewEvent | ReferencedEvent | RemovedFromMergeQueueEvent | RemovedFromProjectEvent | RemovedFromProjectV2Event | RenamedTitleEvent | ReopenedEvent | ReviewDismissedEvent | ReviewRequestRemovedEvent | ReviewRequestedEvent | SubIssueAddedEvent | SubIssueRemovedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | UserBlockedEvent
+union PullRequestTimelineItems = AddedToMergeQueueEvent | AddedToProjectEvent | AddedToProjectV2Event | AssignedEvent | AutoMergeDisabledEvent | AutoMergeEnabledEvent | AutoRebaseEnabledEvent | AutoSquashEnabledEvent | AutomaticBaseChangeFailedEvent | AutomaticBaseChangeSucceededEvent | BaseRefChangedEvent | BaseRefDeletedEvent | BaseRefForcePushedEvent | BlockedByAddedEvent | BlockedByRemovedEvent | BlockingAddedEvent | BlockingRemovedEvent | ClosedEvent | CommentDeletedEvent | ConnectedEvent | ConvertToDraftEvent | ConvertedFromDraftEvent | ConvertedNoteToIssueEvent | ConvertedToDiscussionEvent | CrossReferencedEvent | DemilestonedEvent | DeployedEvent | DeploymentEnvironmentChangedEvent | DisconnectedEvent | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IssueComment | IssueCommentPinnedEvent | IssueCommentUnpinnedEvent | IssueTypeAddedEvent | IssueTypeChangedEvent | IssueTypeRemovedEvent | LabeledEvent | LockedEvent | MarkedAsDuplicateEvent | MentionedEvent | MergedEvent | MilestonedEvent | MovedColumnsInProjectEvent | ParentIssueAddedEvent | ParentIssueRemovedEvent | PinnedEvent | ProjectV2ItemStatusChangedEvent | PullRequestCommit | PullRequestCommitCommentThread | PullRequestReview | PullRequestReviewThread | PullRequestRevisionMarker | ReadyForReviewEvent | ReferencedEvent | RemovedFromMergeQueueEvent | RemovedFromProjectEvent | RemovedFromProjectV2Event | RenamedTitleEvent | ReopenedEvent | ReviewDismissedEvent | ReviewRequestRemovedEvent | ReviewRequestedEvent | SubIssueAddedEvent | SubIssueRemovedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | UserBlockedEvent
 
 """
 The connection type for PullRequestTimelineItems.
@@ -60963,6 +61163,36 @@ type UnminimizeCommentPayload {
 }
 
 """
+Autogenerated input type of UnpinIssueComment
+"""
+input UnpinIssueCommentInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The ID of the Issue Comment to unpin. Comment pinning is not supported on Pull Requests.
+  """
+  issueCommentId: ID!
+}
+
+"""
+Autogenerated return type of UnpinIssueComment.
+"""
+type UnpinIssueCommentPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The Issue Comment that was unpinned
+  """
+  issueComment: IssueComment
+}
+
+"""
 Autogenerated input type of UnpinIssue
 """
 input UnpinIssueInput {
@@ -67186,4 +67416,4 @@ scalar X509Certificate
 
 scalar _Any
 
-union _Entity = AddedToMergeQueueEvent | AddedToProjectEvent | AddedToProjectV2Event | App | AssignedEvent | AutoMergeDisabledEvent | AutoMergeEnabledEvent | AutoRebaseEnabledEvent | AutoSquashEnabledEvent | AutomaticBaseChangeFailedEvent | AutomaticBaseChangeSucceededEvent | BaseRefChangedEvent | BaseRefDeletedEvent | BaseRefForcePushedEvent | Blob | BlockedByAddedEvent | BlockedByRemovedEvent | BlockingAddedEvent | BlockingRemovedEvent | Bot | BranchProtectionRule | BypassForcePushAllowance | BypassPullRequestAllowance | CWE | CheckRun | CheckSuite | ClosedEvent | CodeOfConduct | CommentDeletedEvent | Commit | CommitComment | CommitCommentThread | Comparison | ConnectedEvent | ConvertToDraftEvent | ConvertedFromDraftEvent | ConvertedNoteToIssueEvent | ConvertedToDiscussionEvent | CrossReferencedEvent | DemilestonedEvent | DependencyGraphManifest | DeployKey | DeployedEvent | Deployment | DeploymentEnvironmentChangedEvent | DeploymentReview | DeploymentStatus | DisconnectedEvent | Discussion | DiscussionCategory | DiscussionComment | DiscussionPoll | DiscussionPollOption | DraftIssue | Enterprise | EnterpriseAdministratorInvitation | EnterpriseIdentityProvider | EnterpriseMemberInvitation | EnterpriseRepositoryInfo | EnterpriseServerInstallation | EnterpriseServerUserAccount | EnterpriseServerUserAccountEmail | EnterpriseServerUserAccountsUpload | EnterpriseUserAccount | Environment | ExternalIdentity | Gist | GistComment | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IpAllowListEntry | Issue | IssueComment | IssueFieldDate | IssueFieldDateValue | IssueFieldNumber | IssueFieldNumberValue | IssueFieldSingleSelect | IssueFieldSingleSelectOption | IssueFieldSingleSelectValue | IssueFieldText | IssueFieldTextValue | IssueType | IssueTypeAddedEvent | IssueTypeChangedEvent | IssueTypeRemovedEvent | Label | LabeledEvent | Language | License | LinkedBranch | LockedEvent | Mannequin | MarkedAsDuplicateEvent | MarketplaceCategory | MarketplaceListing | MemberFeatureRequestNotification | MembersCanDeleteReposClearAuditEntry | MembersCanDeleteReposDisableAuditEntry | MembersCanDeleteReposEnableAuditEntry | MentionedEvent | MergeQueue | MergeQueueEntry | MergedEvent | MigrationSource | Milestone | MilestonedEvent | MovedColumnsInProjectEvent | OIDCProvider | OauthApplicationCreateAuditEntry | OrgAddBillingManagerAuditEntry | OrgAddMemberAuditEntry | OrgBlockUserAuditEntry | OrgConfigDisableCollaboratorsOnlyAuditEntry | OrgConfigEnableCollaboratorsOnlyAuditEntry | OrgCreateAuditEntry | OrgDisableOauthAppRestrictionsAuditEntry | OrgDisableSamlAuditEntry | OrgDisableTwoFactorRequirementAuditEntry | OrgEnableOauthAppRestrictionsAuditEntry | OrgEnableSamlAuditEntry | OrgEnableTwoFactorRequirementAuditEntry | OrgInviteMemberAuditEntry | OrgInviteToBusinessAuditEntry | OrgOauthAppAccessApprovedAuditEntry | OrgOauthAppAccessBlockedAuditEntry | OrgOauthAppAccessDeniedAuditEntry | OrgOauthAppAccessRequestedAuditEntry | OrgOauthAppAccessUnblockedAuditEntry | OrgRemoveBillingManagerAuditEntry | OrgRemoveMemberAuditEntry | OrgRemoveOutsideCollaboratorAuditEntry | OrgRestoreMemberAuditEntry | OrgUnblockUserAuditEntry | OrgUpdateDefaultRepositoryPermissionAuditEntry | OrgUpdateMemberAuditEntry | OrgUpdateMemberRepositoryCreationPermissionAuditEntry | OrgUpdateMemberRepositoryInvitationPermissionAuditEntry | Organization | OrganizationIdentityProvider | OrganizationInvitation | Package | PackageFile | PackageTag | PackageVersion | ParentIssueAddedEvent | ParentIssueRemovedEvent | PinnedDiscussion | PinnedEnvironment | PinnedEvent | PinnedIssue | PrivateRepositoryForkingDisableAuditEntry | PrivateRepositoryForkingEnableAuditEntry | Project | ProjectCard | ProjectColumn | ProjectV2 | ProjectV2Field | ProjectV2Item | ProjectV2ItemFieldDateValue | ProjectV2ItemFieldIterationValue | ProjectV2ItemFieldNumberValue | ProjectV2ItemFieldSingleSelectValue | ProjectV2ItemFieldTextValue | ProjectV2ItemStatusChangedEvent | ProjectV2IterationField | ProjectV2SingleSelectField | ProjectV2StatusUpdate | ProjectV2View | ProjectV2Workflow | PublicKey | PullRequest | PullRequestCommit | PullRequestCommitCommentThread | PullRequestReview | PullRequestReviewComment | PullRequestReviewThread | PullRequestThread | Push | PushAllowance | Query | Reaction | ReadyForReviewEvent | Ref | ReferencedEvent | Release | ReleaseAsset | RemovedFromMergeQueueEvent | RemovedFromProjectEvent | RemovedFromProjectV2Event | RenamedTitleEvent | ReopenedEvent | RepoAccessAuditEntry | RepoAddMemberAuditEntry | RepoAddTopicAuditEntry | RepoArchivedAuditEntry | RepoChangeMergeSettingAuditEntry | RepoConfigDisableAnonymousGitAccessAuditEntry | RepoConfigDisableCollaboratorsOnlyAuditEntry | RepoConfigDisableContributorsOnlyAuditEntry | RepoConfigDisableSockpuppetDisallowedAuditEntry | RepoConfigEnableAnonymousGitAccessAuditEntry | RepoConfigEnableCollaboratorsOnlyAuditEntry | RepoConfigEnableContributorsOnlyAuditEntry | RepoConfigEnableSockpuppetDisallowedAuditEntry | RepoConfigLockAnonymousGitAccessAuditEntry | RepoConfigUnlockAnonymousGitAccessAuditEntry | RepoCreateAuditEntry | RepoDestroyAuditEntry | RepoRemoveMemberAuditEntry | RepoRemoveTopicAuditEntry | Repository | RepositoryCustomProperty | RepositoryInvitation | RepositoryMigration | RepositoryRule | RepositoryRuleset | RepositoryRulesetBypassActor | RepositoryTopic | RepositoryVisibilityChangeDisableAuditEntry | RepositoryVisibilityChangeEnableAuditEntry | RepositoryVulnerabilityAlert | ReviewDismissalAllowance | ReviewDismissedEvent | ReviewRequest | ReviewRequestRemovedEvent | ReviewRequestedEvent | SavedReply | SecurityAdvisory | SponsorsActivity | SponsorsListing | SponsorsListingFeaturedItem | SponsorsTier | Sponsorship | SponsorshipNewsletter | Status | StatusCheckRollup | StatusContext | SubIssueAddedEvent | SubIssueRemovedEvent | SubscribedEvent | Team | TeamAddMemberAuditEntry | TeamAddRepositoryAuditEntry | TeamChangeParentTeamAuditEntry | TeamRemoveMemberAuditEntry | TeamRemoveRepositoryAuditEntry | Topic | TransferredEvent | Tree | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | User | UserBlockedEvent | UserContentEdit | UserList | UserNamespaceRepository | UserStatus | VerifiableDomain | Workflow | WorkflowRun | WorkflowRunFile
+union _Entity = AddedToMergeQueueEvent | AddedToProjectEvent | AddedToProjectV2Event | App | AssignedEvent | AutoMergeDisabledEvent | AutoMergeEnabledEvent | AutoRebaseEnabledEvent | AutoSquashEnabledEvent | AutomaticBaseChangeFailedEvent | AutomaticBaseChangeSucceededEvent | BaseRefChangedEvent | BaseRefDeletedEvent | BaseRefForcePushedEvent | Blob | BlockedByAddedEvent | BlockedByRemovedEvent | BlockingAddedEvent | BlockingRemovedEvent | Bot | BranchProtectionRule | BypassForcePushAllowance | BypassPullRequestAllowance | CWE | CheckRun | CheckSuite | ClosedEvent | CodeOfConduct | CommentDeletedEvent | Commit | CommitComment | CommitCommentThread | Comparison | ConnectedEvent | ConvertToDraftEvent | ConvertedFromDraftEvent | ConvertedNoteToIssueEvent | ConvertedToDiscussionEvent | CrossReferencedEvent | DemilestonedEvent | DependencyGraphManifest | DeployKey | DeployedEvent | Deployment | DeploymentEnvironmentChangedEvent | DeploymentReview | DeploymentStatus | DisconnectedEvent | Discussion | DiscussionCategory | DiscussionComment | DiscussionPoll | DiscussionPollOption | DraftIssue | Enterprise | EnterpriseAdministratorInvitation | EnterpriseIdentityProvider | EnterpriseMemberInvitation | EnterpriseRepositoryInfo | EnterpriseServerInstallation | EnterpriseServerUserAccount | EnterpriseServerUserAccountEmail | EnterpriseServerUserAccountsUpload | EnterpriseUserAccount | Environment | ExternalIdentity | Gist | GistComment | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IpAllowListEntry | Issue | IssueComment | IssueCommentPinnedEvent | IssueCommentUnpinnedEvent | IssueFieldDate | IssueFieldDateValue | IssueFieldNumber | IssueFieldNumberValue | IssueFieldSingleSelect | IssueFieldSingleSelectOption | IssueFieldSingleSelectValue | IssueFieldText | IssueFieldTextValue | IssueType | IssueTypeAddedEvent | IssueTypeChangedEvent | IssueTypeRemovedEvent | Label | LabeledEvent | Language | License | LinkedBranch | LockedEvent | Mannequin | MarkedAsDuplicateEvent | MarketplaceCategory | MarketplaceListing | MemberFeatureRequestNotification | MembersCanDeleteReposClearAuditEntry | MembersCanDeleteReposDisableAuditEntry | MembersCanDeleteReposEnableAuditEntry | MentionedEvent | MergeQueue | MergeQueueEntry | MergedEvent | MigrationSource | Milestone | MilestonedEvent | MovedColumnsInProjectEvent | OIDCProvider | OauthApplicationCreateAuditEntry | OrgAddBillingManagerAuditEntry | OrgAddMemberAuditEntry | OrgBlockUserAuditEntry | OrgConfigDisableCollaboratorsOnlyAuditEntry | OrgConfigEnableCollaboratorsOnlyAuditEntry | OrgCreateAuditEntry | OrgDisableOauthAppRestrictionsAuditEntry | OrgDisableSamlAuditEntry | OrgDisableTwoFactorRequirementAuditEntry | OrgEnableOauthAppRestrictionsAuditEntry | OrgEnableSamlAuditEntry | OrgEnableTwoFactorRequirementAuditEntry | OrgInviteMemberAuditEntry | OrgInviteToBusinessAuditEntry | OrgOauthAppAccessApprovedAuditEntry | OrgOauthAppAccessBlockedAuditEntry | OrgOauthAppAccessDeniedAuditEntry | OrgOauthAppAccessRequestedAuditEntry | OrgOauthAppAccessUnblockedAuditEntry | OrgRemoveBillingManagerAuditEntry | OrgRemoveMemberAuditEntry | OrgRemoveOutsideCollaboratorAuditEntry | OrgRestoreMemberAuditEntry | OrgUnblockUserAuditEntry | OrgUpdateDefaultRepositoryPermissionAuditEntry | OrgUpdateMemberAuditEntry | OrgUpdateMemberRepositoryCreationPermissionAuditEntry | OrgUpdateMemberRepositoryInvitationPermissionAuditEntry | Organization | OrganizationIdentityProvider | OrganizationInvitation | Package | PackageFile | PackageTag | PackageVersion | ParentIssueAddedEvent | ParentIssueRemovedEvent | PinnedDiscussion | PinnedEnvironment | PinnedEvent | PinnedIssue | PinnedIssueComment | PrivateRepositoryForkingDisableAuditEntry | PrivateRepositoryForkingEnableAuditEntry | Project | ProjectCard | ProjectColumn | ProjectV2 | ProjectV2Field | ProjectV2Item | ProjectV2ItemFieldDateValue | ProjectV2ItemFieldIterationValue | ProjectV2ItemFieldNumberValue | ProjectV2ItemFieldSingleSelectValue | ProjectV2ItemFieldTextValue | ProjectV2ItemStatusChangedEvent | ProjectV2IterationField | ProjectV2SingleSelectField | ProjectV2StatusUpdate | ProjectV2View | ProjectV2Workflow | PublicKey | PullRequest | PullRequestCommit | PullRequestCommitCommentThread | PullRequestReview | PullRequestReviewComment | PullRequestReviewThread | PullRequestThread | Push | PushAllowance | Query | Reaction | ReadyForReviewEvent | Ref | ReferencedEvent | Release | ReleaseAsset | RemovedFromMergeQueueEvent | RemovedFromProjectEvent | RemovedFromProjectV2Event | RenamedTitleEvent | ReopenedEvent | RepoAccessAuditEntry | RepoAddMemberAuditEntry | RepoAddTopicAuditEntry | RepoArchivedAuditEntry | RepoChangeMergeSettingAuditEntry | RepoConfigDisableAnonymousGitAccessAuditEntry | RepoConfigDisableCollaboratorsOnlyAuditEntry | RepoConfigDisableContributorsOnlyAuditEntry | RepoConfigDisableSockpuppetDisallowedAuditEntry | RepoConfigEnableAnonymousGitAccessAuditEntry | RepoConfigEnableCollaboratorsOnlyAuditEntry | RepoConfigEnableContributorsOnlyAuditEntry | RepoConfigEnableSockpuppetDisallowedAuditEntry | RepoConfigLockAnonymousGitAccessAuditEntry | RepoConfigUnlockAnonymousGitAccessAuditEntry | RepoCreateAuditEntry | RepoDestroyAuditEntry | RepoRemoveMemberAuditEntry | RepoRemoveTopicAuditEntry | Repository | RepositoryCustomProperty | RepositoryInvitation | RepositoryMigration | RepositoryRule | RepositoryRuleset | RepositoryRulesetBypassActor | RepositoryTopic | RepositoryVisibilityChangeDisableAuditEntry | RepositoryVisibilityChangeEnableAuditEntry | RepositoryVulnerabilityAlert | ReviewDismissalAllowance | ReviewDismissedEvent | ReviewRequest | ReviewRequestRemovedEvent | ReviewRequestedEvent | SavedReply | SecurityAdvisory | SponsorsActivity | SponsorsListing | SponsorsListingFeaturedItem | SponsorsTier | Sponsorship | SponsorshipNewsletter | Status | StatusCheckRollup | StatusContext | SubIssueAddedEvent | SubIssueRemovedEvent | SubscribedEvent | Team | TeamAddMemberAuditEntry | TeamAddRepositoryAuditEntry | TeamChangeParentTeamAuditEntry | TeamRemoveMemberAuditEntry | TeamRemoveRepositoryAuditEntry | Topic | TransferredEvent | Tree | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | User | UserBlockedEvent | UserContentEdit | UserList | UserNamespaceRepository | UserStatus | VerifiableDomain | Workflow | WorkflowRun | WorkflowRunFile
