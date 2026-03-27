@@ -21081,6 +21081,26 @@ enum IssueOrderField {
 }
 
 """
+Type of issue search performed
+"""
+enum IssueSearchType {
+  """
+  Hybrid search combining lexical and semantic approaches
+  """
+  HYBRID
+
+  """
+  Lexical (keyword-based) search
+  """
+  LEXICAL
+
+  """
+  Semantic (meaning-based) search using embeddings
+  """
+  SEMANTIC
+}
+
+"""
 The possible states of an issue.
 """
 enum IssueState {
@@ -22273,6 +22293,46 @@ enum LanguageOrderField {
   Order languages by the size of all files containing the language
   """
   SIZE
+}
+
+"""
+Reason why a semantic or hybrid issue search fell back to lexical search
+"""
+enum LexicalFallbackReason {
+  """
+  Query targets non-issue types (e.g., pull requests)
+  """
+  NON_ISSUE_TARGET
+
+  """
+  Scoped query resolved to zero accessible repositories
+  """
+  NO_ACCESSIBLE_REPOS
+
+  """
+  Query has only qualifiers and no free text terms
+  """
+  NO_TEXT_TERMS
+
+  """
+  Query uses an in: qualifier targeting non-semantic fields
+  """
+  ONLY_NON_SEMANTIC_FIELDS_REQUESTED
+
+  """
+  Query contains OR operators (nested boolean qualifiers)
+  """
+  OR_BOOLEAN_NOT_SUPPORTED
+
+  """
+  Query contains quoted text requiring exact matches
+  """
+  QUOTED_TEXT
+
+  """
+  Embedding generation failed or timed out
+  """
+  SERVER_ERROR
 }
 
 """
@@ -53489,6 +53549,16 @@ type SearchResultItemConnection {
   issueCount: Int!
 
   """
+  The type of search that was performed for issues (lexical, semantic, or hybrid)
+  """
+  issueSearchType: IssueSearchType
+
+  """
+  When a semantic or hybrid search falls back to lexical, the reasons why the fallback occurred.
+  """
+  lexicalFallbackReason: [LexicalFallbackReason!]
+
+  """
   A list of nodes.
   """
   nodes: [SearchResultItem]
@@ -53557,6 +53627,16 @@ enum SearchType {
   Returns results matching issues in repositories.
   """
   ISSUE_ADVANCED
+
+  """
+  Returns results matching issues using hybrid (lexical + semantic) search.
+  """
+  ISSUE_HYBRID
+
+  """
+  Returns results matching issues using semantic search.
+  """
+  ISSUE_SEMANTIC
 
   """
   Returns results matching repositories.
