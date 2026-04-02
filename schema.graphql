@@ -49737,6 +49737,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     before: String
 
     """
+    Filter by the classification of the alert's associated security advisory
+    """
+    classifications: [SecurityAdvisoryClassification!]
+
+    """
     Filter by the scope of the alert's dependency
     """
     dependencyScopes: [RepositoryVulnerabilityAlertDependencyScope!]
