@@ -38516,6 +38516,12 @@ input ProjectV2SingleSelectFieldOptionInput {
   description: String!
 
   """
+  The ID of an existing single select option. Include this to preserve the
+  option's identity during updates, preventing item field values from being cleared.
+  """
+  id: String
+
+  """
   The name of the option
   """
   name: String!
