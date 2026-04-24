@@ -51735,6 +51735,11 @@ type RepositoryRulesetBypassActor implements Node {
   enterpriseOwner: Boolean!
 
   """
+  This actor represents the ability for an enterprise role to bypass
+  """
+  enterpriseRole: Boolean!
+
+  """
   The Node ID of the RepositoryRulesetBypassActor object
   """
   id: ID!
@@ -51845,6 +51850,11 @@ input RepositoryRulesetBypassActorInput {
   For enterprise owner bypasses, true
   """
   enterpriseOwner: Boolean
+
+  """
+  For enterprise role bypasses, true. NOTE: This bypass actor is in beta.
+  """
+  enterpriseRole: Boolean
 
   """
   For organization owner bypasses, true
