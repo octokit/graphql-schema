@@ -54275,6 +54275,11 @@ enum SecurityAdvisorySeverity {
   Moderate.
   """
   MODERATE
+
+  """
+  Unknown.
+  """
+  UNKNOWN
 }
 
 """
