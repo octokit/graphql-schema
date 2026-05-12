@@ -51829,8 +51829,8 @@ type RepositoryRulesetBypassActorEdge {
 
 """
 Specifies the attributes for a new or updated ruleset bypass actor. Only one of
-`actor_id`, `repository_role_database_id`, `organization_admin`, or `deploy_key`
-should be specified.
+`actor_id`, `repository_role_database_id`, `organization_admin`,
+`enterprise_owner`, or `deploy_key` should be specified.
 """
 input RepositoryRulesetBypassActorInput {
   """
