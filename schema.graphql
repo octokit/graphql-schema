@@ -37133,6 +37133,16 @@ enum ProjectV2FieldType {
   ASSIGNEES
 
   """
+  Closed
+  """
+  CLOSED
+
+  """
+  Created
+  """
+  CREATED
+
+  """
   Date
   """
   DATE
@@ -37211,6 +37221,11 @@ enum ProjectV2FieldType {
   Tracks
   """
   TRACKS
+
+  """
+  Updated
+  """
+  UPDATED
 }
 
 """
