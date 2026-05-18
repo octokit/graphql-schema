@@ -20631,6 +20631,11 @@ enum IssueFieldDataType {
   DATE
 
   """
+  Multi Select
+  """
+  MULTI_SELECT
+
+  """
   Number
   """
   NUMBER
