@@ -14226,9 +14226,9 @@ type EnterpriseBillingInfo {
   allLicensableUsersCount: Int!
 
   """
-  The number of data packs used by all organizations owned by the enterprise.
+  The number of data packs used by all organizations owned by the enterprise. Data packs are deprecated, always returns 0.
   """
-  assetPacks: Int!
+  assetPacks: Int! @deprecated(reason: "LFS data packs have been removed. Always returns 0.")
 
   """
   The bandwidth quota in GB for all organizations owned by the enterprise.
