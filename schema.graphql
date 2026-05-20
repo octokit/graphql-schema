@@ -48702,6 +48702,36 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   ): Issue
 
   """
+  A list of the repository's issue fields, inherited from the organization
+  """
+  issueFields(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for issue fields returned from the connection.
+    """
+    orderBy: IssueFieldOrder = {field: CREATED_AT, direction: ASC}
+  ): IssueFieldsConnection
+
+  """
   Returns a single issue-like object from the current repository by number.
   """
   issueOrPullRequest(
