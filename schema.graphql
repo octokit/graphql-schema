@@ -48491,6 +48491,11 @@ enum ReportedContentClassifiers {
   DUPLICATE
 
   """
+  A low quality piece of content
+  """
+  LOW_QUALITY
+
+  """
   An irrelevant piece of content
   """
   OFF_TOPIC
