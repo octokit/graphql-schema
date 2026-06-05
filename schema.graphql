@@ -68151,6 +68151,11 @@ type WorkflowRun implements Node & UniformResourceLocatable {
   ): DeploymentReviewConnection!
 
   """
+  The human-readable title of the workflow run.
+  """
+  displayTitle: String
+
+  """
   The event that triggered the workflow run
   """
   event: String!
@@ -68194,6 +68199,11 @@ type WorkflowRun implements Node & UniformResourceLocatable {
   The HTTP path for this workflow run
   """
   resourcePath: URI!
+
+  """
+  The attempt number of this workflow run.
+  """
+  runAttempt: Int!
 
   """
   A number that uniquely identifies this workflow run in its parent workflow.
