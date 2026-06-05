@@ -615,7 +615,7 @@ input AddLabelsToLabelableInput {
   """
   The ids of the labels to add.
   """
-  labelIds: [ID!] @deprecated(reason: "Prefer `labels` when available, which accepts an optional rationale and suggest flag per label.")
+  labelIds: [ID!]
 
   """
   The id of the labelable object to add labels to.
@@ -63783,7 +63783,7 @@ input UpdateIssueInput {
   """
   The ID of the Issue Type for this issue.
   """
-  issueTypeId: ID @deprecated(reason: "Prefer `issueType` when available, which accepts an optional rationale.")
+  issueTypeId: ID
 
   """
   An array of Node IDs of labels for this issue.
