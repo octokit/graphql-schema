@@ -615,7 +615,7 @@ input AddLabelsToLabelableInput {
   """
   The ids of the labels to add.
   """
-  labelIds: [ID!]!
+  labelIds: [ID!] @deprecated(reason: "Prefer `labels` when available, which accepts an optional rationale and suggest flag per label.")
 
   """
   The id of the labelable object to add labels to.
@@ -55100,7 +55100,7 @@ input SetIssueFieldValueInput {
   clientMutationId: String
 
   """
-  The issue fields to set on the issue
+  The issue fields to set on the issue.
   """
   issueFields: [IssueFieldCreateOrUpdateInput!]!
 
@@ -63719,7 +63719,9 @@ input UpdateIssueFieldValueInput {
   clientMutationId: String
 
   """
-  The field value to update.
+  The field value to update. May include an optional `rationale` or be flagged
+  with `suggest: true` to be stored as a pending suggestion instead of being
+  applied directly.
   """
   issueField: IssueFieldCreateOrUpdateInput!
 
@@ -63781,12 +63783,12 @@ input UpdateIssueInput {
   """
   The ID of the Issue Type for this issue.
   """
-  issueTypeId: ID
+  issueTypeId: ID @deprecated(reason: "Prefer `issueType` when available, which accepts an optional rationale.")
 
   """
   An array of Node IDs of labels for this issue.
   """
-  labelIds: [ID!]
+  labelIds: [ID!] @deprecated(reason: "Prefer `labels` when available, which accepts an optional rationale and suggest flag per label.")
 
   """
   The Node ID of the milestone for this issue.
