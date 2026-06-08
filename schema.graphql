@@ -55441,6 +55441,11 @@ enum SocialAccountProvider {
   REDDIT
 
   """
+  Microblogging social platform.
+  """
+  THREADS
+
+  """
   Live-streaming service.
   """
   TWITCH
