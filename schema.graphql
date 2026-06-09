@@ -20829,6 +20829,21 @@ type IssueContributionsByRepository {
 }
 
 """
+The policy controlling who can create issues in a repository.
+"""
+enum IssueCreationPolicy {
+  """
+  Anyone can create issues.
+  """
+  ALL
+
+  """
+  Only collaborators can create issues.
+  """
+  COLLABORATORS_ONLY
+}
+
+"""
 Summary of the state of an issue's dependencies
 """
 type IssueDependenciesSummary {
@@ -49259,6 +49274,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   ): Issue
 
   """
+  The policy controlling who can create issues in this repository.
+  """
+  issueCreationPolicy: IssueCreationPolicy
+
+  """
   A list of the repository's issue fields, inherited from the organization
   """
   issueFields(
@@ -50361,6 +50381,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   viewerCanAdminister: Boolean!
 
   """
+  Indicates whether the current user can create issues in this repository.
+  """
+  viewerCanCreateIssues: Boolean!
+
+  """
   Can the current viewer create new projects on this owner.
   """
   viewerCanCreateProjects: Boolean! @deprecated(reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC.")
@@ -51118,6 +51143,11 @@ interface RepositoryInfo {
   Identifies if the repository is a template that can be used to generate new repositories.
   """
   isTemplate: Boolean!
+
+  """
+  The policy controlling who can create issues in this repository.
+  """
+  issueCreationPolicy: IssueCreationPolicy
 
   """
   The license associated with the repository
