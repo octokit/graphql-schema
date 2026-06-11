@@ -58944,6 +58944,11 @@ type StatusContext implements Node & RequirableByPullRequest {
   The URL for this status context.
   """
   targetUrl: URI
+
+  """
+  Identifies the date and time when the object was last updated.
+  """
+  updatedAt: DateTime!
 }
 
 """
