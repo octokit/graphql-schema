@@ -39,7 +39,7 @@
     "execa": "^9.0.0",
     "prettier": "^3.0.0",
     "semantic-release": "^24.0.0",
-    "typescript": "^5.0.0"
+    "typescript": "^6.0.0"
   },
   "repository": "github:octokit/graphql-schema",
   "types": "index.d.ts",
