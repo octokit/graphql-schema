@@ -52346,6 +52346,11 @@ enum RepositoryRuleType {
   FILE_PATH_RESTRICTION
 
   """
+  Enforce any added or changed dependencies to comply with the organization's license policy.
+  """
+  LICENSE_COMPLIANCE_SCANNING
+
+  """
   Branch is read-only. Users cannot push to the branch.
   """
   LOCK_BRANCH
