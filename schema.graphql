@@ -65203,6 +65203,11 @@ input UpdateRepositoryInput {
   homepageUrl: URI
 
   """
+  The policy controlling who can create issues in this repository.
+  """
+  issueCreationPolicy: IssueCreationPolicy
+
+  """
   The new name of the repository.
   """
   name: String
