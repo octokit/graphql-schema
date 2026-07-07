@@ -13402,6 +13402,36 @@ type DismissRepositoryVulnerabilityAlertPayload {
 }
 
 """
+Specify people, teams, or apps allowed to dismiss pull request reviews.
+"""
+type DismissalRestriction {
+  """
+  Specify people, teams, or apps allowed to dismiss pull request reviews.
+  """
+  allowedActors: [ID!]
+
+  """
+  Whether to restrict review dismissal to specific actors.
+  """
+  enabled: Boolean!
+}
+
+"""
+Specify people, teams, or apps allowed to dismiss pull request reviews.
+"""
+input DismissalRestrictionInput {
+  """
+  Specify people, teams, or apps allowed to dismiss pull request reviews.
+  """
+  allowedActors: [ID!]
+
+  """
+  Whether to restrict review dismissal to specific actors.
+  """
+  enabled: Boolean!
+}
+
+"""
 A draft issue within a project.
 """
 type DraftIssue implements Node {
@@ -41768,6 +41798,11 @@ type PullRequestParameters {
   dismissStaleReviewsOnPush: Boolean!
 
   """
+  Specify people, teams, or apps allowed to dismiss pull request reviews.
+  """
+  dismissalRestriction: DismissalRestriction
+
+  """
   Require an approving review in pull requests that modify files that have a designated code owner.
   """
   requireCodeOwnerReview: Boolean!
@@ -41809,6 +41844,11 @@ input PullRequestParametersInput {
   New, reviewable commits pushed will dismiss previous pull request review approvals.
   """
   dismissStaleReviewsOnPush: Boolean!
+
+  """
+  Specify people, teams, or apps allowed to dismiss pull request reviews.
+  """
+  dismissalRestriction: DismissalRestrictionInput
 
   """
   Require an approving review in pull requests that modify files that have a designated code owner.
