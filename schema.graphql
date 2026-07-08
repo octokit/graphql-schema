@@ -343,9 +343,9 @@ input AddAssigneesToAssignableInput {
   assignableId: ID!
 
   """
-  The ids of actors (users or bots) to add as assignees.
+  The ids of actors (users or bots) to add as assignees. Mutually exclusive with `assignees`.
   """
-  assigneeIds: [ID!]!
+  assigneeIds: [ID!]
 
   """
   A unique identifier for the client performing the mutation.
