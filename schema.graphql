@@ -65168,6 +65168,11 @@ input UpdateIssueInput {
   labels: [LabelUpdateInput!]
 
   """
+  An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
+  """
+  labels: [LabelUpdateInput!]
+
+  """
   The Node ID of the milestone for this issue.
   """
   milestoneId: ID
