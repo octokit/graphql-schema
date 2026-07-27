@@ -7522,6 +7522,11 @@ type CopilotEndpoints {
   api: String!
 
   """
+  Copilot experimentation (edge TAS) endpoint
+  """
+  exp: String
+
+  """
   Copilot origin tracker endpoint
   """
   originTracker: String!
@@ -40945,6 +40950,11 @@ enum ProofOfPresenceRequirement {
   Members must complete a fresh re-authentication against the enterprise identity provider.
   """
   REAUTH
+
+  """
+  Members must satisfy a phishing-resistant security key re-authentication (Microsoft Entra only).
+  """
+  SECURITY_KEY
 }
 
 """
@@ -65133,6 +65143,11 @@ input UpdateIssueInput {
   An array of Node IDs of labels for this issue.
   """
   labelIds: [ID!] @deprecated(reason: "Prefer `labels` when available, which accepts an optional rationale and suggest flag per label.")
+
+  """
+  An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
+  """
+  labels: [LabelUpdateInput!]
 
   """
   An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
