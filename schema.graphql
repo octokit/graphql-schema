@@ -26782,8 +26782,8 @@ type Mutation {
 
   """
   This mutation clears the value of a field for an item in a Project. Currently
-  only text, number, date, assignees, labels, single-select, iteration and
-  milestone fields are supported.
+  only text, number, date, assignees, labels, single-select, multi-select,
+  iteration and milestone fields are supported.
   """
   clearProjectV2ItemFieldValue(
     """
@@ -65143,6 +65143,11 @@ input UpdateIssueInput {
   An array of Node IDs of labels for this issue.
   """
   labelIds: [ID!] @deprecated(reason: "Prefer `labels` when available, which accepts an optional rationale and suggest flag per label.")
+
+  """
+  An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
+  """
+  labels: [LabelUpdateInput!]
 
   """
   An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
