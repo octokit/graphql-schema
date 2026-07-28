@@ -19902,9 +19902,10 @@ type Issue implements Assignable & Closable & Comment & Deletable & Labelable & 
   editor: Actor
 
   """
-  A list of rationales associated with this issue's timeline events.
+  A list of rationales associated with this issue's timeline events. Always
+  returns an empty list; use the `intent` field on individual timeline events instead.
   """
-  eventRationales: [IssueEventRationale!]!
+  eventRationales: [IssueEventRationale!]! @deprecated(reason: "Use the `intent` field on individual timeline events instead. This field is being removed and now always returns an empty list.")
 
   """
   Identifies the primary key from the database as a BigInt.
@@ -21148,7 +21149,9 @@ enum IssueEventConfidenceLevel {
 }
 
 """
-Rationale text associated with an issue timeline event.
+Rationale text associated with an issue timeline event. Deprecated: the fields
+that return this type are being removed and now return null/empty. Use the
+`intent` field on individual timeline events instead.
 """
 type IssueEventRationale {
   """
@@ -21173,7 +21176,9 @@ type IssueEventRationale {
 }
 
 """
-An issue timeline event that may have an associated rationale.
+An issue timeline event that may have an associated rationale. Deprecated: this
+union is only reachable via the deprecated `IssueEventRationale` type, which is
+being removed. Use the `intent` field on individual timeline events instead.
 """
 union IssueEventWithRationale = ClosedEvent | IssueFieldAddedEvent | IssueFieldChangedEvent | IssueFieldRemovedEvent | IssueTypeAddedEvent | IssueTypeChangedEvent | IssueTypeRemovedEvent | LabeledEvent | UnlabeledEvent
 
@@ -21217,9 +21222,9 @@ type IssueFieldAddedEvent implements Node {
   options: [IssueFieldTimelineOption!]
 
   """
-  The rationale associated with this event.
+  The rationale associated with this event. Always returns null; use `intent` instead.
   """
-  rationale: IssueEventRationale
+  rationale: IssueEventRationale @deprecated(reason: "Use `intent` instead. This field is being removed and now always returns null.")
 
   """
   The value of the added field.
@@ -21287,9 +21292,9 @@ type IssueFieldChangedEvent implements Node {
   previousValue: String
 
   """
-  The rationale associated with this event.
+  The rationale associated with this event. Always returns null; use `intent` instead.
   """
-  rationale: IssueEventRationale
+  rationale: IssueEventRationale @deprecated(reason: "Use `intent` instead. This field is being removed and now always returns null.")
 }
 
 """
@@ -21667,9 +21672,9 @@ type IssueFieldRemovedEvent implements Node {
   options: [IssueFieldTimelineOption!]
 
   """
-  The rationale associated with this event.
+  The rationale associated with this event. Always returns null; use `intent` instead.
   """
-  rationale: IssueEventRationale
+  rationale: IssueEventRationale @deprecated(reason: "Use `intent` instead. This field is being removed and now always returns null.")
 }
 
 """
@@ -22833,9 +22838,9 @@ type IssueTypeAddedEvent implements Node {
   issueType: IssueType
 
   """
-  The rationale associated with this event.
+  The rationale associated with this event. Always returns null; use `intent` instead.
   """
-  rationale: IssueEventRationale
+  rationale: IssueEventRationale @deprecated(reason: "Use `intent` instead. This field is being removed and now always returns null.")
 }
 
 """
@@ -22873,9 +22878,9 @@ type IssueTypeChangedEvent implements Node {
   prevIssueType: IssueType
 
   """
-  The rationale associated with this event.
+  The rationale associated with this event. Always returns null; use `intent` instead.
   """
-  rationale: IssueEventRationale
+  rationale: IssueEventRationale @deprecated(reason: "Use `intent` instead. This field is being removed and now always returns null.")
 }
 
 """
@@ -23023,9 +23028,9 @@ type IssueTypeRemovedEvent implements Node {
   issueType: IssueType
 
   """
-  The rationale associated with this event.
+  The rationale associated with this event. Always returns null; use `intent` instead.
   """
-  rationale: IssueEventRationale
+  rationale: IssueEventRationale @deprecated(reason: "Use `intent` instead. This field is being removed and now always returns null.")
 }
 
 """
@@ -23435,9 +23440,9 @@ type LabeledEvent implements Node {
   labelable: Labelable!
 
   """
-  The rationale associated with this event.
+  The rationale associated with this event. Always returns null; use `intent` instead.
   """
-  rationale: IssueEventRationale
+  rationale: IssueEventRationale @deprecated(reason: "Use `intent` instead. This field is being removed and now always returns null.")
 }
 
 """
@@ -63079,9 +63084,9 @@ type UnlabeledEvent implements Node {
   labelable: Labelable!
 
   """
-  The rationale associated with this event.
+  The rationale associated with this event. Always returns null; use `intent` instead.
   """
-  rationale: IssueEventRationale
+  rationale: IssueEventRationale @deprecated(reason: "Use `intent` instead. This field is being removed and now always returns null.")
 }
 
 """
@@ -65147,6 +65152,11 @@ input UpdateIssueInput {
   An array of Node IDs of labels for this issue.
   """
   labelIds: [ID!] @deprecated(reason: "Prefer `labels` when available, which accepts an optional rationale and suggest flag per label.")
+
+  """
+  An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
+  """
+  labels: [LabelUpdateInput!]
 
   """
   An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
