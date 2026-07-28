@@ -44688,7 +44688,9 @@ type Query implements Node {
   ): EnterpriseAdministratorInvitation
 
   """
-  Look up a pending enterprise administrator invitation by invitation token.
+  Look up a pending enterprise administrator invitation by invitation token. If
+  the invitation was sent to an email address, the viewer must have verified
+  that email address, or otherwise be an administrator of the enterprise.
   """
   enterpriseAdministratorInvitationByToken(
     """
@@ -44713,7 +44715,9 @@ type Query implements Node {
   ): EnterpriseMemberInvitation
 
   """
-  Look up a pending enterprise unaffiliated member invitation by invitation token.
+  Look up a pending enterprise unaffiliated member invitation by invitation
+  token. If the invitation was sent to an email address, the viewer must have
+  verified that email address, or otherwise be an administrator of the enterprise.
   """
   enterpriseMemberInvitationByToken(
     """
@@ -65143,6 +65147,11 @@ input UpdateIssueInput {
   An array of Node IDs of labels for this issue.
   """
   labelIds: [ID!] @deprecated(reason: "Prefer `labels` when available, which accepts an optional rationale and suggest flag per label.")
+
+  """
+  An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
+  """
+  labels: [LabelUpdateInput!]
 
   """
   An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
