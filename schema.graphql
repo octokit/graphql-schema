@@ -25907,6 +25907,11 @@ enum MigrationSourceType {
   A GitHub Migration API source.
   """
   GITHUB_ARCHIVE
+
+  """
+  A GitLab migration source.
+  """
+  GITLAB
 }
 
 """
@@ -65302,6 +65307,11 @@ input UpdateIssueInput {
   An array of Node IDs of labels for this issue.
   """
   labelIds: [ID!] @deprecated(reason: "Prefer `labels` when available, which accepts an optional rationale and suggest flag per label.")
+
+  """
+  An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
+  """
+  labels: [LabelUpdateInput!]
 
   """
   An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
