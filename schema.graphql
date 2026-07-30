@@ -8913,6 +8913,11 @@ input CreateProjectV2ViewInput {
   clientMutationId: String
 
   """
+  The configuration for the view.
+  """
+  configuration: ProjectV2ViewConfigurationInput
+
+  """
   The layout of the view.
   """
   layout: ProjectV2ViewLayout!
@@ -40502,6 +40507,11 @@ A view within a ProjectV2.
 """
 type ProjectV2View implements Node {
   """
+  The view's configuration.
+  """
+  configuration: ProjectV2ViewConfiguration!
+
+  """
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
@@ -40780,6 +40790,46 @@ type ProjectV2View implements Node {
     """
     orderBy: ProjectV2FieldOrder = {field: POSITION, direction: ASC}
   ): ProjectV2FieldConnection @deprecated(reason: "The `ProjectV2View#visibleFields` API is deprecated in favour of the more capable `ProjectV2View#fields` API. Check out the `ProjectV2View#fields` API as an example for the more capable alternative. Removal on 2023-01-01 UTC.")
+}
+
+"""
+Configuration for a ProjectV2 view.
+"""
+type ProjectV2ViewConfiguration {
+  """
+  The fields visible in the view, in configured order.
+  """
+  visibleFields(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): ProjectV2FieldConfigurationConnection!
+}
+
+"""
+Configuration for a ProjectV2 view.
+"""
+input ProjectV2ViewConfigurationInput {
+  """
+  The ordered IDs of the fields visible in the view.
+  """
+  visibleFieldIds: [ID!]
 }
 
 """
@@ -67134,6 +67184,11 @@ input UpdateIssueInput {
   labels: [LabelUpdateInput!]
 
   """
+  An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
+  """
+  labels: [LabelUpdateInput!]
+
+  """
   The Node ID of the milestone for this issue.
   """
   milestoneId: ID
@@ -67980,6 +68035,11 @@ input UpdateProjectV2ViewInput {
   A unique identifier for the client performing the mutation.
   """
   clientMutationId: String
+
+  """
+  The new configuration for the view.
+  """
+  configuration: ProjectV2ViewConfigurationInput
 
   """
   The new filter for the view.
