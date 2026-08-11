@@ -22078,6 +22078,56 @@ type IssueFieldValueEdge {
 }
 
 """
+A filter for matching an issue field value. Exactly one value argument should be provided.
+"""
+input IssueFieldValueFilter {
+  """
+  Matches a date issue field value (YYYY-MM-DD).
+  """
+  dateValue: String
+
+  """
+  The ID of the issue field to filter by. Exactly one of `fieldId` or `fieldName` must be provided.
+  """
+  fieldId: ID
+
+  """
+  The name of the issue field to filter by. Exactly one of `fieldId` or `fieldName` must be provided.
+  """
+  fieldName: String
+
+  """
+  Matches issues containing all of the multi-select issue field option IDs.
+  """
+  multiSelectOptionIds: [ID!]
+
+  """
+  Matches issues containing all of the multi-select issue field option names.
+  """
+  multiSelectOptionValues: [String!]
+
+  """
+  Matches a numeric issue field value.
+  """
+  numberValue: Float
+
+  """
+  Matches a single-select issue field option by ID.
+  """
+  singleSelectOptionId: ID
+
+  """
+  Matches a single-select issue field option by name.
+  """
+  singleSelectOptionValue: String
+
+  """
+  Matches a text issue field value.
+  """
+  textValue: String
+}
+
+"""
 The visibility of an issue field.
 """
 enum IssueFieldVisibility {
@@ -22151,6 +22201,11 @@ input IssueFilters {
   List issues created by given name.
   """
   createdBy: String
+
+  """
+  List issues where each supplied issue field value filter matches.
+  """
+  issueFieldValues: [IssueFieldValueFilter!]
 
   """
   List issues where the list of label names exist on the issue.
@@ -33518,6 +33573,31 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   ): PinnableItemConnection!
 
   """
+  An ordered list of issue fields pinned to issues when no type is selected.
+  """
+  pinnedIssueFields(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): IssueFieldsConnection
+
+  """
   A list of repositories and gists this profile owner has pinned to their profile
   """
   pinnedItems(
@@ -38440,6 +38520,16 @@ type ProjectV2Field implements Node & ProjectV2FieldCommon {
   id: ID!
 
   """
+  Returns true if this field is associated with an organization issue field
+  """
+  isIssueField: Boolean!
+
+  """
+  The organization issue field associated with this project field, if any
+  """
+  issueField: IssueFields
+
+  """
   The project field's name.
   """
   name: String!
@@ -38478,6 +38568,11 @@ interface ProjectV2FieldCommon {
   The Node ID of the ProjectV2FieldCommon object
   """
   id: ID!
+
+  """
+  Returns true if this field is associated with an organization issue field
+  """
+  isIssueField: Boolean!
 
   """
   The project field's name.
@@ -39690,6 +39785,11 @@ type ProjectV2IterationField implements Node & ProjectV2FieldCommon {
   id: ID!
 
   """
+  Returns true if this field is associated with an organization issue field
+  """
+  isIssueField: Boolean!
+
+  """
   The project field's name.
   """
   name: String!
@@ -39803,6 +39903,16 @@ type ProjectV2MultiSelectField implements Node & ProjectV2FieldCommon {
   The Node ID of the ProjectV2MultiSelectField object
   """
   id: ID!
+
+  """
+  Returns true if this field is associated with an organization issue field
+  """
+  isIssueField: Boolean!
+
+  """
+  The organization issue field associated with this project field, if any
+  """
+  issueField: IssueFields
 
   """
   Options for the multi select field
@@ -40089,6 +40199,16 @@ type ProjectV2SingleSelectField implements Node & ProjectV2FieldCommon {
   The Node ID of the ProjectV2SingleSelectField object
   """
   id: ID!
+
+  """
+  Returns true if this field is associated with an organization issue field
+  """
+  isIssueField: Boolean!
+
+  """
+  The organization issue field associated with this project field, if any
+  """
+  issueField: IssueFields
 
   """
   The project field's name.
@@ -65307,6 +65427,11 @@ input UpdateIssueInput {
   An array of Node IDs of labels for this issue.
   """
   labelIds: [ID!] @deprecated(reason: "Prefer `labels` when available, which accepts an optional rationale and suggest flag per label.")
+
+  """
+  An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
+  """
+  labels: [LabelUpdateInput!]
 
   """
   An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
