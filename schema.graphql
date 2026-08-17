@@ -19941,6 +19941,11 @@ type Issue implements Assignable & Closable & Comment & Deletable & Labelable & 
     before: String
 
     """
+    Exclude manually linked PRs
+    """
+    excludeUserLinked: Boolean = false
+
+    """
     Returns the first _n_ elements from the list.
     """
     first: Int
@@ -41632,6 +41637,11 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     Returns the elements in the list that come before the specified cursor.
     """
     before: String
+
+    """
+    Exclude manually linked Issues
+    """
+    excludeUserLinked: Boolean = false
 
     """
     Returns the first _n_ elements from the list.
@@ -65512,6 +65522,11 @@ input UpdateIssueInput {
   An array of Node IDs of labels for this issue.
   """
   labelIds: [ID!] @deprecated(reason: "Prefer `labels` when available, which accepts an optional rationale and suggest flag per label.")
+
+  """
+  An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
+  """
+  labels: [LabelUpdateInput!]
 
   """
   An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
