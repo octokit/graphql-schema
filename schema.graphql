@@ -22073,6 +22073,51 @@ type IssueFieldTimelineOption {
 }
 
 """
+Updates an issue field using its user-facing name.
+"""
+input IssueFieldUpdateInput {
+  """
+  The name of the issue field.
+  """
+  fieldName: String!
+
+  """
+  The operation to perform.
+  """
+  operation: IssueFieldUpdateOperation!
+
+  """
+  The value or comma-separated option names for the operation.
+  """
+  value: String
+}
+
+"""
+The operation to perform on an issue field value.
+"""
+enum IssueFieldUpdateOperation {
+  """
+  Sets a scalar field or adds options to a multi-select field.
+  """
+  ADD
+
+  """
+  Clears the field value.
+  """
+  CLEAR
+
+  """
+  Removes options from a multi-select field.
+  """
+  REMOVE
+
+  """
+  Replaces the field value.
+  """
+  SET
+}
+
+"""
 Issue field values
 """
 union IssueFieldValue = IssueFieldDateValue | IssueFieldMultiSelectValue | IssueFieldNumberValue | IssueFieldSingleSelectValue | IssueFieldTextValue
@@ -65509,6 +65554,11 @@ input UpdateIssueInput {
   id: ID!
 
   """
+  Issue field updates resolved by field and option names.
+  """
+  issueFieldUpdates: [IssueFieldUpdateInput!]
+
+  """
   The Issue Type to set on this issue, with optional rationale. Mutually exclusive with `issueTypeId`.
   """
   issueType: IssueTypeUpdateInput
@@ -65522,6 +65572,11 @@ input UpdateIssueInput {
   An array of Node IDs of labels for this issue.
   """
   labelIds: [ID!] @deprecated(reason: "Prefer `labels` when available, which accepts an optional rationale and suggest flag per label.")
+
+  """
+  An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
+  """
+  labels: [LabelUpdateInput!]
 
   """
   An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
