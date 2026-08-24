@@ -44122,6 +44122,26 @@ type PullRequestReviewThreadEdge {
 }
 
 """
+The possible reasons a pull request review thread was resolved.
+"""
+enum PullRequestReviewThreadResolutionReason {
+  """
+  The review comment was addressed.
+  """
+  ADDRESSED
+
+  """
+  The review comment is invalid.
+  """
+  INVALID
+
+  """
+  The review comment will not be addressed.
+  """
+  WONT_FIX
+}
+
+"""
 The possible subject types of a pull request review comment.
 """
 enum PullRequestReviewThreadSubjectType {
@@ -55260,6 +55280,11 @@ input ResolveReviewThreadInput {
   clientMutationId: String
 
   """
+  The reason a Copilot code review thread was resolved.
+  """
+  resolutionReason: PullRequestReviewThreadResolutionReason
+
+  """
   The ID of the thread to resolve
   """
   threadId: ID!
@@ -65572,6 +65597,11 @@ input UpdateIssueInput {
   An array of Node IDs of labels for this issue.
   """
   labelIds: [ID!] @deprecated(reason: "Prefer `labels` when available, which accepts an optional rationale and suggest flag per label.")
+
+  """
+  An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
+  """
+  labels: [LabelUpdateInput!]
 
   """
   An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
