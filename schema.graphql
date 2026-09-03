@@ -54237,6 +54237,11 @@ type RepositoryRulesetBypassActor implements Node {
   enterpriseRole: Boolean!
 
   """
+  If the actor is an enterprise role, the enterprise role's ID that can bypass
+  """
+  enterpriseRoleDatabaseId: BigInt
+
+  """
   The Node ID of the RepositoryRulesetBypassActor object
   """
   id: ID!
@@ -54323,9 +54328,9 @@ type RepositoryRulesetBypassActorEdge {
 }
 
 """
-Specifies the attributes for a new or updated ruleset bypass actor. Only one of
-`actor_id`, `repository_role_database_id`, `organization_admin`,
-`enterprise_owner`, or `deploy_key` should be specified.
+Specifies the attributes for a new or updated ruleset bypass actor. Exactly one
+of `actor_id`, `repository_role_database_id`, `organization_admin`,
+`enterprise_owner`, `enterprise_role_database_id`, or `deploy_key` should be specified.
 """
 input RepositoryRulesetBypassActorInput {
   """
@@ -54351,7 +54356,12 @@ input RepositoryRulesetBypassActorInput {
   """
   For enterprise role bypasses, true. NOTE: This bypass actor is in beta.
   """
-  enterpriseRole: Boolean
+  enterpriseRole: Boolean @deprecated(reason: "Use enterpriseRoleDatabaseId.")
+
+  """
+  For enterprise role bypasses, the enterprise role database ID. NOTE: This bypass actor is in beta.
+  """
+  enterpriseRoleDatabaseId: BigInt
 
   """
   For organization owner bypasses, true
@@ -65720,6 +65730,11 @@ input UpdateIssueInput {
   An array of Node IDs of labels for this issue.
   """
   labelIds: [ID!] @deprecated(reason: "Prefer `labels` when available, which accepts an optional rationale and suggest flag per label.")
+
+  """
+  An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
+  """
+  labels: [LabelUpdateInput!]
 
   """
   An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
