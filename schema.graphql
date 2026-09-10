@@ -41429,26 +41429,6 @@ type PromoteRepositoryCustomPropertyPayload {
 }
 
 """
-The proof of presence (PoP) re-authentication requirement for sudo actions in an enterprise.
-"""
-enum ProofOfPresenceRequirement {
-  """
-  Members must satisfy an MFA re-authentication.
-  """
-  MFA
-
-  """
-  Proof of presence is not required.
-  """
-  NO_POLICY
-
-  """
-  Members must complete a fresh re-authentication against the enterprise identity provider.
-  """
-  REAUTH
-}
-
-"""
 A property that must match
 """
 type PropertyTargetDefinition {
@@ -65730,6 +65710,11 @@ input UpdateIssueInput {
   An array of Node IDs of labels for this issue.
   """
   labelIds: [ID!] @deprecated(reason: "Prefer `labels` when available, which accepts an optional rationale and suggest flag per label.")
+
+  """
+  An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
+  """
+  labels: [LabelUpdateInput!]
 
   """
   An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
