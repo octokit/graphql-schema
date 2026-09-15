@@ -5000,6 +5000,44 @@ The object which triggered a `ClosedEvent`.
 union Closer = Commit | ProjectV2 | PullRequest
 
 """
+Enforce minimum line coverage thresholds on pull requests. When configured,
+uploaded coverage data must meet the specified criteria before changes can be merged.
+"""
+type CodeCoverageParameters {
+  """
+  The maximum percentage points that line coverage may drop relative to the
+  default branch. Pull requests that reduce line coverage by more than this
+  amount will be blocked.
+  """
+  maxCoverageDrop: Float
+
+  """
+  The absolute minimum line coverage percentage required. Pull requests with
+  line coverage below this threshold will be blocked.
+  """
+  minimumCoverage: Float
+}
+
+"""
+Enforce minimum line coverage thresholds on pull requests. When configured,
+uploaded coverage data must meet the specified criteria before changes can be merged.
+"""
+input CodeCoverageParametersInput {
+  """
+  The maximum percentage points that line coverage may drop relative to the
+  default branch. Pull requests that reduce line coverage by more than this
+  amount will be blocked.
+  """
+  maxCoverageDrop: Float
+
+  """
+  The absolute minimum line coverage percentage required. Pull requests with
+  line coverage below this threshold will be blocked.
+  """
+  minimumCoverage: Float
+}
+
+"""
 The Code of Conduct for a repository
 """
 type CodeOfConduct implements Node {
@@ -5032,6 +5070,55 @@ type CodeOfConduct implements Node {
   The HTTP URL for this Code of Conduct
   """
   url: URI
+}
+
+"""
+Choose which severity levels of code quality results should block pull request
+merges. When configured, a code quality analysis must be done on the pull
+request before the changes can be merged.
+"""
+type CodeQualityParameters {
+  """
+  The lowest severity level at which code quality reviews need to be resolved before commits can be merged.
+  """
+  severity: CodeQualitySeverity!
+}
+
+"""
+Choose which severity levels of code quality results should block pull request
+merges. When configured, a code quality analysis must be done on the pull
+request before the changes can be merged.
+"""
+input CodeQualityParametersInput {
+  """
+  The lowest severity level at which code quality reviews need to be resolved before commits can be merged.
+  """
+  severity: CodeQualitySeverity!
+}
+
+"""
+The lowest severity level at which code quality reviews need to be resolved before commits can be merged.
+"""
+enum CodeQualitySeverity {
+  """
+  All
+  """
+  ALL
+
+  """
+  Errors
+  """
+  ERRORS
+
+  """
+  Notes and higher
+  """
+  NOTES
+
+  """
+  Warnings and higher
+  """
+  WARNINGS
 }
 
 """
@@ -53860,6 +53947,19 @@ enum RepositoryRuleType {
   BRANCH_NAME_PATTERN
 
   """
+  Enforce minimum line coverage thresholds on pull requests. When configured,
+  uploaded coverage data must meet the specified criteria before changes can be merged.
+  """
+  CODE_COVERAGE
+
+  """
+  Choose which severity levels of code quality results should block pull request
+  merges. When configured, a code quality analysis must be done on the pull
+  request before the changes can be merged.
+  """
+  CODE_QUALITY
+
+  """
   Choose which tools must provide code scanning results before the reference is
   updated. When configured, code scanning must be enabled and have results for
   both the commit and the reference being updated.
@@ -55884,7 +55984,7 @@ enum RuleEnforcement {
 """
 Types which can be parameters for `RepositoryRule` objects.
 """
-union RuleParameters = BranchNamePatternParameters | CodeScanningParameters | CommitAuthorEmailPatternParameters | CommitMessagePatternParameters | CommitterEmailPatternParameters | CopilotCodeReviewParameters | FileExtensionRestrictionParameters | FilePathRestrictionParameters | MaxFilePathLengthParameters | MaxFileSizeParameters | MergeQueueParameters | PullRequestParameters | RequiredDeploymentsParameters | RequiredStatusChecksParameters | TagNamePatternParameters | UpdateParameters | WorkflowsParameters
+union RuleParameters = BranchNamePatternParameters | CodeCoverageParameters | CodeQualityParameters | CodeScanningParameters | CommitAuthorEmailPatternParameters | CommitMessagePatternParameters | CommitterEmailPatternParameters | CopilotCodeReviewParameters | FileExtensionRestrictionParameters | FilePathRestrictionParameters | MaxFilePathLengthParameters | MaxFileSizeParameters | MergeQueueParameters | PullRequestParameters | RequiredDeploymentsParameters | RequiredStatusChecksParameters | TagNamePatternParameters | UpdateParameters | WorkflowsParameters
 
 """
 Specifies the parameters for a `RepositoryRule` object. Only one of the fields should be specified.
@@ -55894,6 +55994,16 @@ input RuleParametersInput {
   Parameters used for the `branch_name_pattern` rule type
   """
   branchNamePattern: BranchNamePatternParametersInput
+
+  """
+  Parameters used for the `code_coverage` rule type
+  """
+  codeCoverage: CodeCoverageParametersInput
+
+  """
+  Parameters used for the `code_quality` rule type
+  """
+  codeQuality: CodeQualityParametersInput
 
   """
   Parameters used for the `code_scanning` rule type
@@ -65646,6 +65756,11 @@ input UpdateIssueInput {
   An array of Node IDs of labels for this issue.
   """
   labelIds: [ID!] @deprecated(reason: "Prefer `labels` when available, which accepts an optional rationale and suggest flag per label.")
+
+  """
+  An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
+  """
+  labels: [LabelUpdateInput!]
 
   """
   An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
