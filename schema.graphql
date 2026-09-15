@@ -21318,40 +21318,6 @@ enum IssueEventConfidenceLevel {
 }
 
 """
-Rationale text associated with an issue timeline event. Deprecated: the fields
-that return this type are being removed and now return null/empty. Use the
-`intent` field on individual timeline events instead.
-"""
-type IssueEventRationale {
-  """
-  The agent or user who produced the rationale.
-  """
-  actor: Actor
-
-  """
-  Identifies the date and time when the rationale was created.
-  """
-  createdAt: DateTime!
-
-  """
-  The issue timeline event this rationale is associated with.
-  """
-  issueEvent: IssueEventWithRationale
-
-  """
-  The reasoning or explanation text for the event.
-  """
-  rationale: String!
-}
-
-"""
-An issue timeline event that may have an associated rationale. Deprecated: this
-union is only reachable via the deprecated `IssueEventRationale` type, which is
-being removed. Use the `intent` field on individual timeline events instead.
-"""
-union IssueEventWithRationale = ClosedEvent | IssueFieldAddedEvent | IssueFieldChangedEvent | IssueFieldRemovedEvent | IssueTypeAddedEvent | IssueTypeChangedEvent | IssueTypeRemovedEvent | LabeledEvent | UnlabeledEvent
-
-"""
 Represents a 'issue_field_added' event on a given issue.
 """
 type IssueFieldAddedEvent implements Node {
@@ -21389,11 +21355,6 @@ type IssueFieldAddedEvent implements Node {
   The selected options for option-backed fields; single-select returns one option and multi-select returns many.
   """
   options: [IssueFieldTimelineOption!]
-
-  """
-  The rationale associated with this event. Always returns null; use `intent` instead.
-  """
-  rationale: IssueEventRationale @deprecated(reason: "Use `intent` instead. This field is being removed and now always returns null.")
 
   """
   The value of the added field.
@@ -21459,11 +21420,6 @@ type IssueFieldChangedEvent implements Node {
   The previous value of the field.
   """
   previousValue: String
-
-  """
-  The rationale associated with this event. Always returns null; use `intent` instead.
-  """
-  rationale: IssueEventRationale @deprecated(reason: "Use `intent` instead. This field is being removed and now always returns null.")
 }
 
 """
@@ -21839,11 +21795,6 @@ type IssueFieldRemovedEvent implements Node {
   The removed options for option-backed fields; single-select returns one option and multi-select returns many.
   """
   options: [IssueFieldTimelineOption!]
-
-  """
-  The rationale associated with this event. Always returns null; use `intent` instead.
-  """
-  rationale: IssueEventRationale @deprecated(reason: "Use `intent` instead. This field is being removed and now always returns null.")
 }
 
 """
@@ -23105,11 +23056,6 @@ type IssueTypeAddedEvent implements Node {
   The issue type added.
   """
   issueType: IssueType
-
-  """
-  The rationale associated with this event. Always returns null; use `intent` instead.
-  """
-  rationale: IssueEventRationale @deprecated(reason: "Use `intent` instead. This field is being removed and now always returns null.")
 }
 
 """
@@ -23145,11 +23091,6 @@ type IssueTypeChangedEvent implements Node {
   The issue type removed.
   """
   prevIssueType: IssueType
-
-  """
-  The rationale associated with this event. Always returns null; use `intent` instead.
-  """
-  rationale: IssueEventRationale @deprecated(reason: "Use `intent` instead. This field is being removed and now always returns null.")
 }
 
 """
@@ -23295,11 +23236,6 @@ type IssueTypeRemovedEvent implements Node {
   The issue type removed.
   """
   issueType: IssueType
-
-  """
-  The rationale associated with this event. Always returns null; use `intent` instead.
-  """
-  rationale: IssueEventRationale @deprecated(reason: "Use `intent` instead. This field is being removed and now always returns null.")
 }
 
 """
@@ -65710,6 +65646,11 @@ input UpdateIssueInput {
   An array of Node IDs of labels for this issue.
   """
   labelIds: [ID!] @deprecated(reason: "Prefer `labels` when available, which accepts an optional rationale and suggest flag per label.")
+
+  """
+  An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
+  """
+  labels: [LabelUpdateInput!]
 
   """
   An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
