@@ -45751,6 +45751,11 @@ type Query implements Node {
     identifier: SecurityAdvisoryIdentifierFilter
 
     """
+    Filter advisories by withdrawn status. True returns only withdrawn advisories. False excludes withdrawn advisories.
+    """
+    isWithdrawn: Boolean
+
+    """
     Returns the last _n_ elements from the list.
     """
     last: Int
@@ -45764,6 +45769,11 @@ type Query implements Node {
     Filter advisories to those published since a time in the past.
     """
     publishedSince: DateTime
+
+    """
+    A list of advisory severities to filter advisories by.
+    """
+    severities: [SecurityAdvisorySeverity!]
 
     """
     Filter advisories to those updated since a time in the past.
@@ -56657,6 +56667,11 @@ type SecurityAdvisory implements Node {
   classification: SecurityAdvisoryClassification!
 
   """
+  The Common Vulnerabilities and Exposures ID
+  """
+  cveId: String
+
+  """
   The CVSS associated with this advisory
   """
   cvss: CVSS! @deprecated(reason: "`cvss` will be removed. New `cvss_severities` field will now contain both `cvss_v3` and `cvss_v4` properties. Removal on 2025-10-01 UTC.")
@@ -56712,6 +56727,11 @@ type SecurityAdvisory implements Node {
   ghsaId: String!
 
   """
+  When the GitHub Security team reviewed this advisory, which may differ from when GitHub published it
+  """
+  githubReviewedAt: DateTime
+
+  """
   The Node ID of the SecurityAdvisory object
   """
   id: ID!
@@ -56725,6 +56745,11 @@ type SecurityAdvisory implements Node {
   The permalink for the advisory's dependabot alerts page
   """
   notificationsPermalink: URI
+
+  """
+  When NVD published its advisory record, independent of GitHub's publishing timeline
+  """
+  nvdPublishedAt: DateTime
 
   """
   The organization that originated the advisory
@@ -56747,9 +56772,19 @@ type SecurityAdvisory implements Node {
   references: [SecurityAdvisoryReference!]!
 
   """
+  The URL for the associated repository security advisory, if this global advisory is linked to a repository-level advisory.
+  """
+  repositoryAdvisoryUrl: URI
+
+  """
   The severity of the advisory
   """
   severity: SecurityAdvisorySeverity!
+
+  """
+  URL to the upstream source code relevant to the advisory
+  """
+  sourceCodeLocation: URI
 
   """
   A short plaintext summary of the advisory
@@ -66025,6 +66060,11 @@ input UpdateIssueInput {
   An array of Node IDs of labels for this issue.
   """
   labelIds: [ID!] @deprecated(reason: "Prefer `labels` when available, which accepts an optional rationale and suggest flag per label.")
+
+  """
+  An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
+  """
+  labels: [LabelUpdateInput!]
 
   """
   An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
