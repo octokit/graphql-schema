@@ -5075,8 +5075,10 @@ The object which triggered a `ClosedEvent`.
 union Closer = Commit | ProjectV2 | PullRequest
 
 """
-Enforce minimum line coverage thresholds on pull requests. When configured,
-uploaded coverage data must meet the specified criteria before changes can be merged.
+Enforce minimum line coverage thresholds on pull requests. This rule evaluates
+uploaded coverage data but does not wait for coverage uploads. To ensure
+coverage is evaluated before merging, make each status check associated with a
+coverage upload a required status check.
 """
 type CodeCoverageParameters {
   """
@@ -5094,8 +5096,10 @@ type CodeCoverageParameters {
 }
 
 """
-Enforce minimum line coverage thresholds on pull requests. When configured,
-uploaded coverage data must meet the specified criteria before changes can be merged.
+Enforce minimum line coverage thresholds on pull requests. This rule evaluates
+uploaded coverage data but does not wait for coverage uploads. To ensure
+coverage is evaluated before merging, make each status check associated with a
+coverage upload a required status check.
 """
 input CodeCoverageParametersInput {
   """
@@ -54236,8 +54240,10 @@ enum RepositoryRuleType {
   BRANCH_NAME_PATTERN
 
   """
-  Enforce minimum line coverage thresholds on pull requests. When configured,
-  uploaded coverage data must meet the specified criteria before changes can be merged.
+  Enforce minimum line coverage thresholds on pull requests. This rule evaluates
+  uploaded coverage data but does not wait for coverage uploads. To ensure
+  coverage is evaluated before merging, make each status check associated with a
+  coverage upload a required status check.
   """
   CODE_COVERAGE
 
@@ -66125,6 +66131,11 @@ input UpdateIssueInput {
   An array of Node IDs of labels for this issue.
   """
   labelIds: [ID!] @deprecated(reason: "Prefer `labels` when available, which accepts an optional rationale and suggest flag per label.")
+
+  """
+  An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
+  """
+  labels: [LabelUpdateInput!]
 
   """
   An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
