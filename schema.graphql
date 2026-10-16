@@ -43396,9 +43396,8 @@ type PullRequestParameters {
   requiredReviewThreadResolution: Boolean!
 
   """
-  This field is in beta and subject to change. A collection of reviewers and
-  associated file patterns. Each reviewer has a list of file patterns which
-  determine the files that reviewer is required to review.
+  A collection of reviewers and associated file patterns. Each reviewer has a
+  list of file patterns which determine the files that reviewer is required to review.
   """
   requiredReviewers: [RequiredReviewerConfiguration!]
 }
@@ -43444,9 +43443,8 @@ input PullRequestParametersInput {
   requiredReviewThreadResolution: Boolean!
 
   """
-  This argument is in beta and subject to change. A collection of reviewers and
-  associated file patterns. Each reviewer has a list of file patterns which
-  determine the files that reviewer is required to review.
+  A collection of reviewers and associated file patterns. Each reviewer has a
+  list of file patterns which determine the files that reviewer is required to review.
   """
   requiredReviewers: [RequiredReviewerConfigurationInput!]
 }
@@ -66134,6 +66132,11 @@ input UpdateIssueInput {
   An array of Node IDs of labels for this issue.
   """
   labelIds: [ID!] @deprecated(reason: "Prefer `labels` when available, which accepts an optional rationale and suggest flag per label.")
+
+  """
+  An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
+  """
+  labels: [LabelUpdateInput!]
 
   """
   An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
