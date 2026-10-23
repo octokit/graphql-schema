@@ -18319,6 +18319,11 @@ being pushed to the commit graph. This includes absolute paths that contain file
 """
 type FilePathRestrictionParameters {
   """
+  Files matching these patterns are allowed even when they also match a restricted path.
+  """
+  ignoredFilePaths: [String!]
+
+  """
   The file paths that are restricted from being pushed to the commit graph.
   """
   restrictedFilePaths: [String!]!
@@ -18329,6 +18334,11 @@ Prevent commits that include changes in specified file and folder paths from
 being pushed to the commit graph. This includes absolute paths that contain file names.
 """
 input FilePathRestrictionParametersInput {
+  """
+  Files matching these patterns are allowed even when they also match a restricted path.
+  """
+  ignoredFilePaths: [String!]
+
   """
   The file paths that are restricted from being pushed to the commit graph.
   """
@@ -25084,6 +25094,11 @@ Prevent commits with individual files that exceed the specified limit from being
 """
 type MaxFileSizeParameters {
   """
+  Files matching these patterns may exceed the maximum size.
+  """
+  ignoredFilePaths: [String!]
+
+  """
   The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).
   """
   maxFileSize: Int!
@@ -25093,6 +25108,11 @@ type MaxFileSizeParameters {
 Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.
 """
 input MaxFileSizeParametersInput {
+  """
+  Files matching these patterns may exceed the maximum size.
+  """
+  ignoredFilePaths: [String!]
+
   """
   The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).
   """
@@ -66132,6 +66152,11 @@ input UpdateIssueInput {
   An array of Node IDs of labels for this issue.
   """
   labelIds: [ID!] @deprecated(reason: "Prefer `labels` when available, which accepts an optional rationale and suggest flag per label.")
+
+  """
+  An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
+  """
+  labels: [LabelUpdateInput!]
 
   """
   An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
