@@ -43401,6 +43401,12 @@ type PullRequestParameters {
   requireCodeOwnerReview: Boolean!
 
   """
+  When Copilot opens a pull request without a human collaborator, require one
+  more approving review if a non-zero approval count is required.
+  """
+  requireExtraApprovalForUnattributedChanges: Boolean!
+
+  """
   Whether the most recent reviewable push must be approved by someone other than the person who pushed it.
   """
   requireLastPushApproval: Boolean!
@@ -43446,6 +43452,12 @@ input PullRequestParametersInput {
   Require an approving review in pull requests that modify files that have a designated code owner.
   """
   requireCodeOwnerReview: Boolean!
+
+  """
+  When Copilot opens a pull request without a human collaborator, require one
+  more approving review if a non-zero approval count is required.
+  """
+  requireExtraApprovalForUnattributedChanges: Boolean
 
   """
   Whether the most recent reviewable push must be approved by someone other than the person who pushed it.
@@ -66152,6 +66164,11 @@ input UpdateIssueInput {
   An array of Node IDs of labels for this issue.
   """
   labelIds: [ID!] @deprecated(reason: "Prefer `labels` when available, which accepts an optional rationale and suggest flag per label.")
+
+  """
+  An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
+  """
+  labels: [LabelUpdateInput!]
 
   """
   An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
