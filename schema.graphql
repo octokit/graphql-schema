@@ -53984,6 +53984,11 @@ enum RepositoryPermission {
   MAINTAIN
 
   """
+  Can read and clone this repository. Can also moderate and edit issues and manage pull requests without write access
+  """
+  MODERATE
+
+  """
   Can read and clone this repository. Can also open and comment on issues and pull requests
   """
   READ
@@ -53994,9 +53999,9 @@ enum RepositoryPermission {
   TRIAGE
 
   """
-  Can read and clone this repository. Can also manage issues and pull requests, plus additional triage abilities
+  Can read and clone this repository. Can also moderate and edit issues and manage pull requests without write access
   """
-  TRIAGE_PLUS
+  TRIAGE_PLUS @deprecated(reason: "TRIAGE_PLUS has been renamed to MODERATE. Use MODERATE instead. Removal on 2027-04-01 UTC.")
 
   """
   Can read, clone, and push to this repository. Can also manage issues and pull requests
@@ -66164,6 +66169,11 @@ input UpdateIssueInput {
   An array of Node IDs of labels for this issue.
   """
   labelIds: [ID!] @deprecated(reason: "Prefer `labels` when available, which accepts an optional rationale and suggest flag per label.")
+
+  """
+  An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
+  """
+  labels: [LabelUpdateInput!]
 
   """
   An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
