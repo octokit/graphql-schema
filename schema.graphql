@@ -34314,6 +34314,11 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    The order in which to return pinned issue fields.
+    """
+    orderBy: PinnedIssueFieldOrder = {field: POSITION, direction: ASC}
   ): IssueFieldsConnection
 
   """
@@ -37780,6 +37785,31 @@ type PinnedIssueEdge {
   The item at the end of the edge.
   """
   node: PinnedIssue
+}
+
+"""
+Ordering options for pinned issue field connections.
+"""
+input PinnedIssueFieldOrder {
+  """
+  The ordering direction.
+  """
+  direction: OrderDirection!
+
+  """
+  The field to order pinned issue fields by.
+  """
+  field: PinnedIssueFieldOrderField!
+}
+
+"""
+Properties by which pinned issue fields can be ordered.
+"""
+enum PinnedIssueFieldOrderField {
+  """
+  Order pinned issue fields by their configured pinned position.
+  """
+  POSITION
 }
 
 """
@@ -66842,6 +66872,11 @@ input UpdateIssueInput {
   An array of Node IDs of labels for this issue.
   """
   labelIds: [ID!] @deprecated(reason: "Prefer `labels` when available, which accepts an optional rationale and suggest flag per label.")
+
+  """
+  An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
+  """
+  labels: [LabelUpdateInput!]
 
   """
   An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
