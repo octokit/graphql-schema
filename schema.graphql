@@ -12780,6 +12780,12 @@ input DisablePullRequestAutoMergeInput {
   clientMutationId: String
 
   """
+  Disable the stack auto-merge request covering this pull request. This disables
+  auto-merge for all pull requests covered by that request.
+  """
+  includeStack: Boolean = false
+
+  """
   ID of the pull request to disable auto merge on.
   """
   pullRequestId: ID!
@@ -14226,6 +14232,11 @@ input EnablePullRequestAutoMergeInput {
   The expected head OID of the pull request.
   """
   expectedHeadOid: GitObjectID
+
+  """
+  Enable auto-merge for this pull request and any eligible pull requests below it in the stack.
+  """
+  includeStack: Boolean = false
 
   """
   The merge method to use. If omitted, defaults to `MERGE`. NOTE: when merging
@@ -42418,7 +42429,12 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   """
   Returns the auto-merge request object if one exists for this pull request.
   """
-  autoMergeRequest: AutoMergeRequest
+  autoMergeRequest(
+    """
+    Return the stack auto-merge request covering this pull request.
+    """
+    includeStack: Boolean = false
+  ): AutoMergeRequest
 
   """
   Identifies the base Ref associated with the pull request.
@@ -43386,7 +43402,12 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   """
   Whether or not the viewer can disable auto-merge
   """
-  viewerCanDisableAutoMerge: Boolean!
+  viewerCanDisableAutoMerge(
+    """
+    Check permission to disable the stack auto-merge request covering this pull request.
+    """
+    includeStack: Boolean = false
+  ): Boolean!
 
   """
   Can the viewer edit files within this pull request.
@@ -43396,7 +43417,13 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   """
   Whether or not the viewer can enable auto-merge
   """
-  viewerCanEnableAutoMerge: Boolean!
+  viewerCanEnableAutoMerge(
+    """
+    Check permission to request stacked auto-merge from this pull request. The
+    client evaluates stack-wide blockers and readiness.
+    """
+    includeStack: Boolean = false
+  ): Boolean!
 
   """
   Indicates if the viewer can edit labels for this object.
@@ -66909,6 +66936,11 @@ input UpdateIssueInput {
   An array of Node IDs of labels for this issue.
   """
   labelIds: [ID!] @deprecated(reason: "Prefer `labels` when available, which accepts an optional rationale and suggest flag per label.")
+
+  """
+  An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
+  """
+  labels: [LabelUpdateInput!]
 
   """
   An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
