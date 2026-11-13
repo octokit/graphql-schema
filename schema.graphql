@@ -7684,14 +7684,14 @@ The effort level for a Copilot code review. For more information, see [Review ef
 """
 enum CopilotCodeReviewEffort {
   """
-  Copilot picks the effort for each pull request.
-  """
-  AUTO
-
-  """
   Balanced effort and depth.
   """
   BALANCED
+
+  """
+  Copilot picks the effort for each pull request.
+  """
+  DYNAMIC
 
   """
   Lower effort, faster review.
@@ -7709,14 +7709,14 @@ A Copilot code review effort level. For more information, see [Review effort lev
 """
 enum CopilotCodeReviewEffortLevel {
   """
-  Copilot picks the effort for each pull request.
-  """
-  AUTO
-
-  """
   Balanced effort and depth.
   """
   BALANCED
+
+  """
+  Copilot picks the effort for each pull request.
+  """
+  DYNAMIC
 
   """
   Lower effort, faster review.
@@ -35410,14 +35410,14 @@ information, see [Review effort level](https://docs.github.com/en/copilot/concep
 """
 enum OrganizationCopilotCodeReviewEffortSetting {
   """
-  Copilot picks the effort for each pull request.
-  """
-  AUTO
-
-  """
   Balanced effort and depth.
   """
   BALANCED
+
+  """
+  Copilot picks the effort for each pull request.
+  """
+  DYNAMIC
 
   """
   Clear the organization's value so repositories inherit the default.
@@ -53508,14 +53508,14 @@ see [Review effort level](https://docs.github.com/en/copilot/concepts/agent-capa
 """
 enum RepositoryCopilotCodeReviewEffortSetting {
   """
-  Copilot picks the effort for each pull request.
-  """
-  AUTO
-
-  """
   Balanced effort and depth.
   """
   BALANCED
+
+  """
+  Copilot picks the effort for each pull request.
+  """
+  DYNAMIC
 
   """
   Clear the repository's value so it inherits the effort from its organization, enterprise, or GitHub's default.
@@ -66936,6 +66936,11 @@ input UpdateIssueInput {
   An array of Node IDs of labels for this issue.
   """
   labelIds: [ID!] @deprecated(reason: "Prefer `labels` when available, which accepts an optional rationale and suggest flag per label.")
+
+  """
+  An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
+  """
+  labels: [LabelUpdateInput!]
 
   """
   An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
