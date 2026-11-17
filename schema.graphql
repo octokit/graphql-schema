@@ -21532,6 +21532,13 @@ type Issue implements Assignable & Closable & Comment & Deletable & Labelable & 
   status: PlanningStatus
 
   """
+  The status of this issue, or null when it has none or issue statuses aren't
+  available in the repository. Issue statuses are in preview and only available
+  to accounts enrolled in the preview.
+  """
+  status: PlanningStatus
+
+  """
   A list of sub-issues associated with the Issue.
   """
   subIssues(
@@ -54363,6 +54370,11 @@ type RepositoryCopilotCodeReviewSettings {
   availableReviewEfforts: [CopilotCodeReviewEffortLevel!]!
 
   """
+  Whether reviews can use public repository search.
+  """
+  crossRepoContextEnabled: Boolean!
+
+  """
   Whether reviews use the repository's custom instructions.
   """
   customInstructionsEnabled: Boolean!
@@ -82513,6 +82525,11 @@ input UpdateIssueInput {
   labels: [LabelUpdateInput!]
 
   """
+  An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
+  """
+  labels: [LabelUpdateInput!]
+
+  """
   The Node ID of the milestone for this issue.
   """
   milestoneId: ID
@@ -83813,6 +83830,12 @@ input UpdateRepositoryCopilotCodeReviewSettingsInput {
   A unique identifier for the client performing the mutation.
   """
   clientMutationId: String
+
+  """
+  Whether reviews can use public repository search. Can only be set when the
+  public repository search setting is available for the repository.
+  """
+  crossRepoContextEnabled: Boolean
 
   """
   Whether reviews use the repository's custom instructions.
