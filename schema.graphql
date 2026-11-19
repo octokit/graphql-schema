@@ -7827,6 +7827,26 @@ enum CopilotCodeReviewRunnerType {
 }
 
 """
+The severity Copilot code review assigned to a review comment.
+"""
+enum CopilotCodeReviewSeverity {
+  """
+  High severity.
+  """
+  HIGH
+
+  """
+  Low severity.
+  """
+  LOW
+
+  """
+  Medium severity.
+  """
+  MEDIUM
+}
+
+"""
 Which review comment severities Copilot code review leaves out.
 """
 enum CopilotCodeReviewSeverityFilter {
@@ -20879,6 +20899,13 @@ type Issue implements Assignable & Closable & Comment & Deletable & Labelable & 
     """
     enableDuplicate: Boolean = false
   ): IssueStateReason @deprecated(reason: "The state reason for duplicate issue is now returned by default. Removal on 2025-10-01 UTC.")
+
+  """
+  The status of this issue, or null when it has none or issue statuses aren't
+  available in the repository. Issue statuses are in preview and only available
+  to accounts enrolled in the preview.
+  """
+  status: PlanningStatus
 
   """
   The status of this issue, or null when it has none or issue statuses aren't
@@ -45556,6 +45583,11 @@ type PullRequestReviewComment implements Comment & Deletable & Minimizable & Nod
   commit: Commit
 
   """
+  The Copilot code review severity of this comment, or null if unavailable.
+  """
+  copilotCodeReviewSeverity: CopilotCodeReviewSeverity
+
+  """
   Sources reported as contributing to this comment; may be incomplete.
   """
   copilotCodeReviewSources: [CopilotCodeReviewSource!]!
@@ -68219,6 +68251,11 @@ input UpdateIssueInput {
   An array of Node IDs of labels for this issue.
   """
   labelIds: [ID!] @deprecated(reason: "Prefer `labels` when available, which accepts an optional rationale and suggest flag per label.")
+
+  """
+  An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
+  """
+  labels: [LabelUpdateInput!]
 
   """
   An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
